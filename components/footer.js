@@ -12,13 +12,12 @@ const Footer = () => {
         <div className={styles.left}>
           <ul className={styles.menu}>
             <li>How It Works</li>
-            <li>Pricing</li>
             <li>Contact Us</li>
           </ul>
           <ul className={styles.menu}>
-            <li>Maintainer Portal</li>
-            <li>Advertiser Portal</li>
-            <li>Developer Portal</li>
+            <li><a href='https://maintainer.flossbank.com'>Maintainer Portal</a></li>
+            <li><a href='https://advertiser.flossbank.com'>Advertiser Portal</a></li>
+            <li><a href='https://user.flossbank.com'>User Portal</a></li>
           </ul>
         </div>
         {isWide && (
@@ -29,7 +28,7 @@ const Footer = () => {
         )}
 
         <div className={styles.copyright}>
-          &copy; {currentYear} Flossbank. All Rights Reservered. EIN: 83-2285506.
+          &copy; {currentYear} Flossbank. All Rights Reservered.
         </div>
       </section>
     </div>

@@ -3,3 +3,8 @@
 
 @import "./_reset";
 @import "./_variables";
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

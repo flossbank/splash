@@ -25,7 +25,9 @@
   background: $grayblue;
   border: none;
   border-top-right-radius: $radius;
+  border-top-left-radius: 0;
   border-bottom-right-radius: $radius;
+  border-bottom-left-radius: 0;
   color: $gray;
   @include smallbold();
 }

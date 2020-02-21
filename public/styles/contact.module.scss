@@ -1,0 +1,39 @@
+@import "./_variables";
+
+.wrapper {
+  width: 100%;
+  background: $gray0;
+  color: $gray3;
+}
+
+.contents {
+  @include flexpagewidth();
+  padding: 80px 80px 110px;
+  @include largescreensizer();
+  @media (max-width: 1200px) {
+    justify-content: center;
+    padding-bottom: 80px;
+  }
+  height: 85vh;
+}
+
+.center {
+  padding: 0 20px;
+  width: 350px;
+  margin: auto;
+  h2 {
+    margin: 30px 0;
+    text-align: center;
+    font-size: $font-lg;
+    font-weight: 300;
+  }
+  p {
+    text-align: center;
+    font-size: $font-default;
+    line-height: 22px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+}

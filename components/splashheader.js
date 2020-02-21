@@ -19,9 +19,9 @@ const SplashHeader = props => {
         {isWide ? (
           <div className={styles.menu}>
             <ul>
-              <li>Contact Us</li>
-              <li>Log In</li>
-              <li className={styles.signup}>Sign Up</li>
+              <li><a href='/contact'>Contact Us</a></li>
+              <li><a href='/signin'>Log In</a></li>
+              <li className={styles.signup}><a href='/signin'>Sign Up</a></li>
             </ul>
           </div>
         ) : (
@@ -37,7 +37,7 @@ const SplashHeader = props => {
                 <MenuLink as='a' href='/signin'>
                   Log In
                 </MenuLink>
-                <MenuLink as='a' href='/signup'>
+                <MenuLink as='a' href='/signin'>
                   Sign Up
                 </MenuLink>
               </MenuList>
