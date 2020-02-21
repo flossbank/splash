@@ -1,0 +1,39 @@
+@import "./_variables";
+
+.wrapper {
+  width: 100%;
+  background: $blue;
+  color: $white;
+}
+
+.footer {
+  @include flexpagewidth();
+  padding: 80px;
+  flex-wrap: wrap;
+  height: 300px;
+  @include largescreensizer();
+}
+
+.left {
+  display: flex;
+}
+
+.right {
+  padding-right: 70px;
+  p {
+    margin-bottom: 30px;
+    font-size: $font-default;
+  }
+}
+
+.menu {
+  width: 150px;
+  line-height: 32px;
+  @include smallbold();
+}
+
+.copyright {
+  margin-top: 60px;
+  width: 100%;
+  font-size: $font-sm;
+}

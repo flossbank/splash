@@ -1,0 +1,113 @@
+@import "./_variables";
+
+@mixin shared() {
+  font-size: $font-default;
+  border-radius: $radius;
+  color: $gray;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  span {
+    color: $gray;
+    font-weight: bold;
+  }
+  svg {
+    display: block;
+    margin-bottom: 12px;
+    color: $lightblue;
+  }
+}
+
+.wrapper {
+  @include shared();
+  position: absolute;
+  width: 160px;
+  padding: 20px;
+  background: $white;
+  cursor: pointer;
+  opacity: 0.95;
+
+  transition: box-shadow 0.5s, margin-top 0.5s, opacity 0.5s;
+
+  &:hover,
+  &:focus {
+    margin-top: -5px;
+    box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.16);
+    opacity: 1;
+    outline: none;
+  }
+
+  &.left {
+    top: 85px;
+    left: 0;
+  }
+
+  &.right {
+    top: 85px;
+    right: 0;
+  }
+
+  &.bottom {
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.5s, box-shadow 0.5s, opacity 0.5s;
+    &:hover,
+    &:focus {
+      bottom: -45px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 190px;
+    left: calc(50% - 170px);
+
+    &.first {
+      top: 0;
+    }
+    &.second {
+      top: 200px;
+    }
+    &.third {
+      top: 405px;
+    }
+    &.fourth {
+      top: 610px;
+    }
+  }
+}
+
+.dialog {
+  position: relative;
+  @include shared();
+  max-width: 400px;
+  line-height: 16px;
+  span {
+    display: block;
+    margin-bottom: 30px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  div button {
+    @include bluebutton();
+    font-weight: bold;
+  }
+  .close {
+    position: absolute;
+    top: -35px;
+    right: 0;
+    background: transparent;
+    border: none;
+    svg {
+      margin: 0;
+      color: $white;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 450px !important;
+  }
+  @media (max-width: 400px) {
+    width: 320px !important;
+  }
+}

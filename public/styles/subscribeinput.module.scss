@@ -1,0 +1,31 @@
+@import "./_variables";
+
+.wrapper {
+  display: flex;
+}
+
+.input {
+  width: 300px;
+  height: 42px;
+  padding: 16px 30px;
+  border: none;
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  box-sizing: border-box;
+  font-size: $font-default;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 1px $grayblue;
+  }
+}
+
+.button {
+  width: 120px;
+  height: 42px;
+  background: $grayblue;
+  border: none;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  color: $gray;
+  @include smallbold();
+}
