@@ -11,8 +11,8 @@ const Footer = () => {
       <section className={styles.footer}>
         <div className={styles.left}>
           <ul className={styles.menu}>
-            <li>How It Works</li>
-            <li>Contact Us</li>
+            <li><a href='/how-it-works'>How It Works</a></li>
+            <li><a href='/contact'>Contact Us</a></li>
           </ul>
           <ul className={styles.menu}>
             <li><a href='https://maintainer.flossbank.com'>Maintainer Portal</a></li>

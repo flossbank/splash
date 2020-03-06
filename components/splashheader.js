@@ -20,8 +20,8 @@ const SplashHeader = props => {
           <div className={styles.menu}>
             <ul>
               <li><a href='/contact'>Contact Us</a></li>
-              <li><a href='/signin'>Log In</a></li>
-              <li className={styles.signup}><a href='/signin'>Sign Up</a></li>
+              {/* <li><a href='/signin'>Log In</a></li>
+              <li className={styles.signup}><a href='/signin'>Sign Up</a></li> */}
             </ul>
           </div>
         ) : (
@@ -34,12 +34,12 @@ const SplashHeader = props => {
                 <MenuLink as='a' href='/contact'>
                   Contact Us
                 </MenuLink>
-                <MenuLink as='a' href='/signin'>
+                {/* <MenuLink as='a' href='/signin'>
                   Log In
                 </MenuLink>
                 <MenuLink as='a' href='/signin'>
                   Sign Up
-                </MenuLink>
+                </MenuLink> */}
               </MenuList>
             </Menu>
           </div>

@@ -41,13 +41,14 @@
 
 .learnmore {
   margin: 18px 0;
-  width: 120px;
+  width: 100%;
   height: 42px;
   font-weight: bold;
   @include bluebutton();
 
   @media (max-width: 768px) {
     margin-top: 50px;
+    width: 120px;
   }
 }
 
