@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import * as api from '../api/index'
+import * as api from '../client/index'
 import styles from '../public/styles/subscribeinput.module.scss'
 
 const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
