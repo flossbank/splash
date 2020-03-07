@@ -56,7 +56,7 @@ const SplashBody = () => {
                     your back by sharing 70% of our companies revenue with you, regardless of
                     the source of that money. We make money - the community makes money.
                   </p>
-                  <button>Go to Maintainer Portal</button>
+                  <button><a href='https://maintainer.flossbank.com'>Go to Maintainer Portal</a></button>
                 </div>
               </CustomerPopout>
               <CustomerPopout position='right'>
@@ -80,7 +80,7 @@ const SplashBody = () => {
                   <p>
                     Fuel <i><b>all of Open Source</b></i>, not just the few packages with name brand recognition.
                   </p>
-                  <button ahref='maintainer.flossbank.com'>Go to Developer Portal</button>
+                  <button><a href='https://user.flossbank.com'>Go to User Portal</a></button>
                 </div>
               </CustomerPopout>
               <CustomerPopout position='bottom'>
@@ -97,7 +97,7 @@ const SplashBody = () => {
                   <p>
                     Pay as you go rates. If you don't get impressions, you don't get charged. Start for free.
                   </p>
-                  <button>Go to Advertiser Portal</button>
+                  <button><a href='https://advertiser.flossbank.com'>Go to Advertiser Portal</a></button>
                 </div>
               </CustomerPopout>
             </>
@@ -129,7 +129,7 @@ const SplashBody = () => {
                     your back by sharing 70% of our companies revenue with you, regardless of
                     the source of that money. We make money - the community makes money.
                   </p>
-                  <button ahref='maintainer.flossbank.com'>Go to Maintainer Portal</button>
+                  <button><a href='https://maintainer.flossbank.com'>Go to Maintainer Portal</a></button>
                 </div>
               </CustomerPopout>
               <CustomerPopout position='second'>
@@ -153,7 +153,7 @@ const SplashBody = () => {
                   <p>
                     Fuel <i><b>all of Open Source</b></i>, not just the few packages with name brand recognition.
                   </p>
-                  <button ahref='maintainer.flossbank.com'>Go to Developer Portal</button>
+                  <button><a href='https://user.flossbank.com'>Go to User Portal</a></button>
                 </div>
               </CustomerPopout>
               <CustomerPopout position='third'>
@@ -170,7 +170,7 @@ const SplashBody = () => {
                   <p>
                     Pay as you go rates. If you don't get impressions, you don't get charged. Start for free.
                   </p>
-                  <button>Go to Advertiser Portal</button>
+                  <button><a href='https://advertiser.flossbank.com'>Go to Advertiser Portal</a></button>
                 </div>
               </CustomerPopout>
               <CustomerPopout position='fourth'>
@@ -196,7 +196,7 @@ const SplashBody = () => {
                     your back by sharing 70% of our companies revenue with you, regardless of
                     the source of that money. We make money - the community makes money.
                   </p>
-                  <button ahref='maintainer.flossbank.com'>Go to Maintainer Portal</button>
+                  <button><a href='https://maintainer.flossbank.com'>Go to Maintainer Portal</a></button>
                 </div>
               </CustomerPopout>
             </>

@@ -1,9 +1,15 @@
+import SplashHeader from '../components/splashheader'
+import SplashBody from '../components/splashbody'
+import Footer from '../components/footer'
+
 import '../public/styles/main.scss'
 
 function Splash () {
   return (
     <>
-      <p>Coming soon for the Open Source Community ❤︎</p>
+      <SplashHeader />
+      <SplashBody />
+      <Footer />
     </>
   )
 }
