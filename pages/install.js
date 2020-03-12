@@ -2,10 +2,10 @@ import { useRouter } from 'next/router'
 import styles from '../public/styles/splashheader.module.scss'
 import Logo from '../public/images/FlossbankLogo.svg'
 
-import * as bodyStyles from '../public/styles/contact.module.scss'
+import * as bodyStyles from '../public/styles/install.module.scss'
 import '../public/styles/main.scss'
 
-function Contact () {
+function HowItWorks () {
   const router = useRouter()
 
   return (
@@ -18,14 +18,10 @@ function Contact () {
       <div className={bodyStyles.wrapper}>
         <div className={bodyStyles.contents}>
           <div className={bodyStyles.center}>
-            <h2>Contact us</h2>
-            <p>
-              Flossbank helps compensate open source maintainers, authors, and content
-              creators by connecting advertisers with developers.
-            </p>
-            <p>
-              Let us know how we can assist you in any way at Support @ Flossbank . Com
-            </p>
+            <h2>Install Flossbank</h2>
+            <p>`<b>npm install -g flossbank</b>`</p><br/>
+            <p>Visit <a href='https://www.npmjs.com/package/@flossbank/cli'>https://www.npmjs.com/package/@flossbank/cli</a> for more info</p>
+            <p>You'll then be prompted to auth so we can verify you're a human. <br/>Verification just consists of your email address.</p>
           </div>
         </div>
       </div>
@@ -33,4 +29,4 @@ function Contact () {
   )
 }
 
-export default Contact
+export default HowItWorks

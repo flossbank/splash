@@ -14,7 +14,7 @@ function Signin () {
     <>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <Logo className={styles.logo} onClick={() => router.push('/splash')} />
+          <Logo className={styles.logo} onClick={() => router.push('/')} />
         </div>
       </div>
       <div className={bodyStyles.wrapper}>

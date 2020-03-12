@@ -27,7 +27,7 @@ const SplashBody = () => {
             their work. By opting in to terminal ads from our advertisers, developers
             can give back to the open source community.
           </p>
-          {isWide && <button className={styles.learnmore}>Learn More</button>}
+          {isWide && <button className={styles.learnmore}><a href='/how-it-works'>Learn More</a></button>}
         </div>
         <div className={styles.right}>
           {isWide ? (
