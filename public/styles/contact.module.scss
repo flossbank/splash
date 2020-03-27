@@ -19,7 +19,7 @@
 
 .center {
   padding: 0 20px;
-  width: 350px;
+  width: 380px;
   margin: auto;
   h2 {
     margin: 30px 0;
@@ -35,5 +35,9 @@
   }
   @media (max-width: 1200px) {
     width: 100%;
+  }
+  a {
+    color: blue;
+    display: inline;
   }
 }

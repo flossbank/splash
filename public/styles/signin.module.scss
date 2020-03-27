@@ -56,10 +56,3 @@
     color: $lightblue;
   }
 }
-
-button {
-  width: 170px;
-  margin: auto;
-  font-size: $font-default;
-  @include bluebutton();
-}

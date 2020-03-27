@@ -6,6 +6,16 @@ export const subscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/subscribe`, optionsWithPostBody({ email }))
 }
 
+export const unsubscribe = async ({ email }) => {
+  return fetchThenJson(`${ENDPOINT}/unsubscribe?email=${email}`, {
+    method: 'GET',
+    headers: {
+      'x-requested-with': 'XmlHttpRequest'
+    },
+    credentials: 'include'
+  })
+}
+
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
     if (!res.success) {
