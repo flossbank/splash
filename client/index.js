@@ -8,6 +8,9 @@ export const subscribe = async ({ email }) => {
 
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
+    if (!res.success) {
+      return res.json()
+    }
     if (!res.ok) {
       const e = new Error('response not ok')
       e.res = res

@@ -6,19 +6,20 @@ const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
   // Make API call to subscribe
   const reqBody = { email }
   try {
-    const responseStream = await api.subscribe(reqBody)
-    const response = await responseStream.json()
+    const response = await api.subscribe(reqBody)
+    console.log('wtf respnose', response)
 
     // If error, prompt to try again
-    if (!response.ok) {
-      return setError('Whoops, please try again')
+    if (!response.success) {
+      setSubscribed(true)
+      return setError(response.message)
     }
 
     // Reset form and notify user of success
     setEmail('')
     setSubscribed(true)
   } catch (e) {
-    setError(e)
+    setError('Sorry, we\'ve encountered a problem')
     console.error(e)
   }
 }
@@ -36,9 +37,7 @@ const SubscribeInput = props => {
     }
     if (!email) setError('Email is required')
 
-    useEffect(() => {
-      onSubscribe(email, setEmail, setError, setSubscribed)
-    }, [email])
+    onSubscribe(email, setEmail, setError, setSubscribed)
   }
 
   return (
