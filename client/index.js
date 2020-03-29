@@ -2,18 +2,12 @@ import fetch from 'isomorphic-fetch'
 
 const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://api.flossbank.com' : 'http://localhost:8081'
 
-export const subscribe = async ({ email }) => {
-  return fetchThenJson(`${ENDPOINT}/subscribe`, optionsWithPostBody({ email }))
+export const betaSubscribe = async ({ email }) => {
+  return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
 }
 
-export const unsubscribe = async ({ email }) => {
-  return fetchThenJson(`${ENDPOINT}/unsubscribe?email=${email}`, {
-    method: 'GET',
-    headers: {
-      'x-requested-with': 'XmlHttpRequest'
-    },
-    credentials: 'include'
-  })
+export const betaUnsubscribe = async ({ email }) => {
+  return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
 }
 
 const fetchThenJson = (url, options) => fetch(url, options)

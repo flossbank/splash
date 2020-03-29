@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         {isWide && (
           <div className={styles.right}>
-            <p>Receive updates right to your inbox.</p>
+            <p>Request an invite for early access</p>
             <SubscribeInput />
           </div>
         )}

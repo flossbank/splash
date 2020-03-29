@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import * as api from '../client/index'
 import styles from '../public/styles/subscribeinput.module.scss'
 
@@ -6,7 +6,7 @@ const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
   // Make API call to subscribe
   const reqBody = { email }
   try {
-    const response = await api.subscribe(reqBody)
+    const response = await api.betaSubscribe(reqBody)
     console.log('wtf respnose', response)
 
     // If error, prompt to try again
@@ -56,10 +56,10 @@ const SubscribeInput = props => {
             }}
           />
           <button className={styles.button} onClick={handleSubscribe}>
-          Subscribe
+          Request invite
           </button>
         </div>}
-      {subscribed && <p>You're Subscribed!</p>}
+      {subscribed && <p>You're on our list!</p>}
     </div>
   )
 }
