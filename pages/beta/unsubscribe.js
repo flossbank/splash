@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { decode } from 'b36'
-import FBHead from '../components/head'
-import styles from '../public/styles/splashheader.module.scss'
-import FBLogo from '../components/logo'
-import * as api from '../client/index'
+import FBHead from '../../components/head'
+import styles from '../../public/styles/splashheader.module.scss'
+import FBLogo from '../../components/logo'
+import * as api from '../../client/index'
 
 import * as bodyStyles from '../public/styles/contact.module.scss'
 
