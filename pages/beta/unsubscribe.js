@@ -6,7 +6,7 @@ import styles from '../../public/styles/splashheader.module.scss'
 import FBLogo from '../../components/logo'
 import * as api from '../../client/index'
 
-import * as bodyStyles from '../public/styles/contact.module.scss'
+import * as bodyStyles from '../../public/styles/contact.module.scss'
 
 function UnSubscribe() {
   const router = useRouter()
