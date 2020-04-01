@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { decode } from 'b36'
 import FBHead from '../../components/head'
 import styles from '../../public/styles/splashheader.module.scss'
@@ -8,19 +7,18 @@ import * as api from '../../client/index'
 
 import * as bodyStyles from '../../public/styles/contact.module.scss'
 
-function UnSubscribe () {
-  const router = useRouter()
+function UnSubscribe (props) {
   const [resubscribed, setResubscribed] = useState(false)
 
   useEffect(() => {
     (async () => {
-      if (!router.query.token) return
-      await api.betaUnsubscribe({ token: router.query.token })
+      if (!props.token) return
+      await api.betaUnsubscribe({ token: props.token })
     })()
   }, [])
 
   const betaSubscribe = async () => {
-    const email = router.query.e
+    const email = props.email
     if (!email) return
     await api.betaSubscribe({ email: decode(email).toString() })
     setResubscribed(true)
@@ -56,6 +54,10 @@ function UnSubscribe () {
       </div>
     </>
   )
+}
+
+UnSubscribe.getInitialProps = async (ctx) => {
+  return { token: ctx.query.token, email: ctx.query.e }
 }
 
 export default UnSubscribe

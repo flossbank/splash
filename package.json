@@ -41,6 +41,7 @@
     "@babel/register": "^7.7.7",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "husky": "^3.1.0",
