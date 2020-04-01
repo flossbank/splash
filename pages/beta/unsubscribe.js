@@ -8,7 +8,7 @@ import * as api from '../../client/index'
 
 import * as bodyStyles from '../../public/styles/contact.module.scss'
 
-function UnSubscribe() {
+function UnSubscribe () {
   const router = useRouter()
   const [resubscribed, setResubscribed] = useState(false)
 
@@ -21,7 +21,7 @@ function UnSubscribe() {
 
   const betaSubscribe = async () => {
     const email = router.query.e
-    if (!email) return 
+    if (!email) return
     await api.betaSubscribe({ email: decode(email).toString() })
     setResubscribed(true)
   }
@@ -37,16 +37,20 @@ function UnSubscribe() {
       <div className={bodyStyles.wrapper}>
         <div className={bodyStyles.contents}>
           <div className={bodyStyles.center}>
-          {!resubscribed && <div>
-              <h2>Sad to see you go 😢</h2>
-              <p>
+            {!resubscribed && (
+              <div>
+                <h2>Sad to see you go 😢</h2>
+                <p>
                 If you unsubscribed by mistake, please click <a onClick={betaSubscribe}>here</a>
-              </p>
-            </div>}
-          {resubscribed && <div>
-              <h2>Nice</h2>
-              <p>You're back on our list!</p>
-            </div>}
+                </p>
+              </div>
+            )}
+            {resubscribed && (
+              <div>
+                <h2>Nice</h2>
+                <p>You're back on our list!</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -55,4 +59,3 @@ function UnSubscribe() {
 }
 
 export default UnSubscribe
-
