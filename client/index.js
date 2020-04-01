@@ -6,8 +6,8 @@ export const betaSubscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
 }
 
-export const betaUnsubscribe = async ({ email }) => {
-  return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
+export const betaUnsubscribe = async ({ token }) => {
+  return fetchThenJson(`${ENDPOINT}/beta/unsubscribe`, optionsWithPostBody({ token }))
 }
 
 const fetchThenJson = (url, options) => fetch(url, options)
