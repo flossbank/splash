@@ -1,15 +1,13 @@
-import SplashHeader from '../components/splashheader'
-import SplashBody from '../components/splashbody'
-import Footer from '../components/footer'
-import FBHead from '../components/head'
-
-import '../public/styles/main.scss'
+import SplashHero from '../components/splash/splash_hero'
+import SplashBody from '../components/splash/splash_why_flossbank'
+import Footer from '../components/common/footer'
+import Header from '../components/common/header'
 
 function Splash () {
   return (
     <>
-      <FBHead />
-      <SplashHeader />
+      <Header />
+      <SplashHero />
       <SplashBody />
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const FBHead = props => {
+const Header = () => {
   return (
     <Head>
       <title>Flossbank</title>
@@ -9,4 +9,4 @@ const FBHead = props => {
   )
 }
 
-export default FBHead
+export default Header

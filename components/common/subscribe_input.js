@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import * as api from '../client/index'
-import styles from '../public/styles/subscribeinput.module.scss'
+import * as api from '../../client/index'
+import styles from '../../public/styles/subscribeinput.module.scss'
 
 const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
   // Make API call to subscribe
