@@ -16,6 +16,7 @@ const SplashHero = () => {
     <Box width='full' alignItems='center' backgroundColor='blue.50'>
       {isWide && (
         <Box>
+          <Text textAlign='center'>cool artwork</Text>
           {/* Put awesome image with paralax here */}
         </Box>
       )}

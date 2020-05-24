@@ -1,14 +1,18 @@
 import SplashHero from '../components/splash/splash_hero'
-import SplashBody from '../components/splash/splash_why_flossbank'
+import SplashWhyFlossbank from '../components/splash/splash_why_flossbank'
+import SplashForBussinesses from '../components/splash/splash_for_businesses'
 import Footer from '../components/common/footer'
-import Header from '../components/common/header'
+import SplashHeader from '../components/splash/splash_header'
+import SplashForDevelopers from '../components/splash/splash_for_developers'
 
 function Splash () {
   return (
     <>
-      <Header />
+      <SplashHeader />
       <SplashHero />
-      <SplashBody />
+      <SplashWhyFlossbank />
+      <SplashForDevelopers />
+      <SplashForBussinesses />
       <Footer />
     </>
   )

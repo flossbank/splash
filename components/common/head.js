@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const Header = () => {
+const FbHead = () => {
   return (
     <Head>
       <title>Flossbank</title>
@@ -9,4 +9,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default FbHead
