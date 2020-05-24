@@ -5,12 +5,13 @@ import {
   ColorModeProvider 
 } from "@chakra-ui/core"
 
+import CustomTheme from '../theme'
 import FbHead from '../components/common/head'
 import '../public/styles/main.scss'
 
 export default function Flossbank ({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={CustomTheme}>
       <CSSReset />
       <ColorModeProvider>
         <FbHead />

@@ -2,54 +2,74 @@ import {
   Flex,
   Box,
   Text,
-  Divider,
   Heading,
   Icon,
 } from '@chakra-ui/core'
 
+import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
+import FBButton from '../common/button'
 
 const SplashForBusinesses = () => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box padding='20px' backgroundColor='blue.50'>
-      <Flex flexDirection='column'>
-        <Text textAlign='center'>{'For bussinesses'.toUpperCase()}</Text>
-        <Divider width='20px' margin='auto' />
-        <Heading textAlign='center'>
+    <Box padding='60px' backgroundColor='puddle'>
+      <Flex flexDirection='column' justify='space-around' alignItems='center'>
+        <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
+          {'For bussinesses'.toUpperCase()}
+        </Text>
+        <SplashDivider />
+        <Heading textAlign='center' marginTop='20px' marginBottom='30px' fontSize='24px'>
           Equitable contributions to the open source ecosystem
         </Heading>
-        <Text textAlign='center'>
+        <Text textAlign='center' fontSize='16px' marginBottom='8px' paddingLeft='20%' paddingRight='20%'>
           By registering your GitHub Enterprise account with Flossbank, 
           you can give to authors and maintainers across the entire dependency 
           tree of your installed packages.
         </Text>
-        <Flex flexDirection='row' margin='20px' justify='space-around'>
-          <Box padding='20px' width='25%' backgroundColor='white'>
+        <Flex flexDirection='row' margin='40px' justify='space-around'>
+          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Icon name='phone' size='36px' />
-                <Text>Rest easy knowing 100% of your donation goes to authors and maintainers</Text>
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
+                  <Icon name='phone' size='36px' />
+                </Flex>
+                <Text fontSize='16px'>
+                  Rest easy knowing 100% of your donation goes to authors and maintainers
+                </Text>
               </Flex>
             </Flex>
-          </Box>
-          <Box padding='20px' width='25%' backgroundColor='white'>
+          </Flex>
+          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Icon name='phone' size='36px' />
-                <Text>Donate dynamically to the open source packages your firm uses most</Text>
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
+                  <Icon name='phone' size='36px' />
+                </Flex>
+                <Text fontSize='16px'>
+                  Donate dynamically to the open source packages your firm uses most
+                </Text>
               </Flex>
             </Flex>
-          </Box>
-          <Box padding='20px' width='25%' backgroundColor='white'>
+          </Flex>
+          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Icon name='phone' size='36px' />
-                <Text>Gain insight into your impact and explore advertising opportunities</Text>
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
+                  <Icon name='phone' size='36px' />
+                </Flex>
+                <Text fontSize='16px'>
+                  Gain insight into your impact and explore advertising opportunities
+                </Text>
               </Flex>
             </Flex>
-          </Box>
+          </Flex>
+        </Flex>
+        <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
+          <FBButton backgroundColor='ocean' color='white'>
+            Register
+          </FBButton>
         </Flex>
       </Flex>
     </Box>
