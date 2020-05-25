@@ -14,7 +14,7 @@ const SplashForBusinesses = () => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box padding='60px' backgroundColor='puddle'>
+    <Box padding='60px' backgroundColor='puddle' height='40rem'>
       <Flex flexDirection='column' justify='space-around' alignItems='center'>
         <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
           {'For bussinesses'.toUpperCase()}
@@ -67,7 +67,7 @@ const SplashForBusinesses = () => {
           </Flex>
         </Flex>
         <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
-          <FBButton backgroundColor='ocean' color='white'>
+          <FBButton backgroundColor='ocean' color='white' _hover={{ marginTop: '3px' }}>
             Register
           </FBButton>
         </Flex>

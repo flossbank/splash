@@ -15,7 +15,7 @@ const SplashWhyFlossbank = () => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px'>
+    <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px' height='43rem'>
       {isWide &&
         <Box width='40%' marginTop='80px'>
           <PeopleCollabing />
@@ -95,10 +95,10 @@ const SplashWhyFlossbank = () => {
           </Flex>
         </Flex>
         <Flex flexDirection='row' marginTop='20px'>
-          <FBButton backgroundColor='ocean' color='white'>
+          <FBButton backgroundColor='ocean' color='white' _hover={{ marginTop: '3px' }} >
             Sign Up
           </FBButton>
-          <FBButton backgroundColor='puddle' color='ocean' marginLeft='20px'>
+          <FBButton backgroundColor='puddle' color='ocean' marginLeft='20px' _hover={{ marginTop: '3px' }}>
             About Us
           </FBButton>
         </Flex>

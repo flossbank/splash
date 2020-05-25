@@ -25,17 +25,17 @@ const SplashHero = () => {
             <Heading textAlign={[ 'left', 'center' ]} margin='30px' marginTop='40px' fontSize='36px'>
               On a mission to support open source
             </Heading>
-            <Text id='hero_header' textAlign={[ 'left', 'center' ]} fontSize='20px'>
+            <Text id='hero_header' textAlign={[ 'left', 'center' ]} fontSize='20px' lineHeight='80%'>
               At Flossbank, we help pay open source authors and maintainers for their work. 
             </Text>
             <Text id='hero_subheader' textAlign={[ 'left', 'center' ]} fontSize='20px'>
               Our mission isn’t unique. Our approach is.
             </Text>
-            <Flex justify='center' margin='auto' width='50%' marginTop='30px'>
-              <FBButton backgroundColor='white' margin='10px' color='ocean'>
+            <Flex justify='center' margin='auto' width='50%' marginTop='30px' marginBottom='10px'>
+              <FBButton backgroundColor='white' color='ocean' variantColor='white' variant='solid' _hover={{ marginTop: '3px' }}>
                 For Developers
               </FBButton>
-              <FBButton backgroundColor='puddle' margin='10px' color='ocean'>
+              <FBButton backgroundColor='puddle' marginLeft='20px' color='ocean' _hover={{ marginTop: '3px' }}>
                 For Businesses
               </FBButton>
             </Flex>

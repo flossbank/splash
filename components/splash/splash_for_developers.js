@@ -16,7 +16,7 @@ const SplashForDevelopers = () => {
 
   return (
     <Box>
-      {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' paddingRight='150px' justify='space-between'>
+      {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' height='38rem' paddingRight='150px' justify='space-between'>
         <Flex flexDirection='column' width='40%' justify='space-between'>
           <Text fontWeight='bold' fontSize='14px' marginBottom='10px'>
             {'for developers'.toUpperCase()}
@@ -29,13 +29,15 @@ const SplashForDevelopers = () => {
             Flossbank provides a free and frictionless way to give back to open source maintainers, 
             especially those who don’t have time for self promotion. 
           </Text>
-          <Text fontSize='16px'>
+          <Text fontSize='16px' marginBottom='30px'>
             By installing our CLI, you support maintainers across the entire dependency 
             tree of your installed packages in one of two ways: terminal ads or monthly contributions.
           </Text>
-          <FBButton backgroundColor='ocean' color='white' marginTop='30px'>
-            Sign up
-          </FBButton>
+          <Box height='40px'>
+            <FBButton backgroundColor='ocean' color='white' _hover={{ marginTop: '3px' }}>
+              Sign up
+            </FBButton>
+          </Box>
           <Text marginTop='30px'>
             Are you an author or maintainer?
           </Text>

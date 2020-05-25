@@ -13,16 +13,22 @@ export default () => {
         <FBLogo />  
       </Flex>
       <Box margin='20px'>
-        <FBButton backgroundColor='white' margin='10px' color='boulder' width='auto'>About us</FBButton>
-        <FBButton backgroundColor='white' margin='10px' color='boulder' width='auto'>Login</FBButton>
         <FBButton backgroundColor='white' 
-                border='1px' 
-                width='auto'
-                margin='10px' 
-                borderColor='ocean' 
-                color='ocean'>
-                  Sign up
-        </FBButton>
+                  margin='10px' 
+                  color='boulder' 
+                  width='auto'
+                  variant='link'>About us</FBButton>
+        <FBButton backgroundColor='white' 
+                  margin='10px' 
+                  color='boulder' 
+                  width='auto'
+                  variant='link'>Login</FBButton>
+        <FBButton borderColor='ocean'
+                  width='auto'
+                  margin='10px' 
+                  variantColor='ocean'
+                  color='ocean'
+                  variant='outline'>Sign up</FBButton>
       </Box>
     </Flex>
   )
