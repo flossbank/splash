@@ -1,5 +1,6 @@
-import { theme } from '@chakra-ui/core'
 // From https://chakra-ui.com/theme. we want to extend default theme but add colors + icons
+import { theme } from '@chakra-ui/core'
+import CustomIcons from './icons'
 
 export default {
   ...theme,
@@ -12,4 +13,8 @@ export default {
     boulder: '#404042',
     lightRock: '#f2f2f2'
   },
+  icons: {
+    ...theme.icons,
+    ...CustomIcons
+  }
 }

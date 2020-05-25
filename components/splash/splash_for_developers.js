@@ -47,7 +47,7 @@ const SplashForDevelopers = () => {
           <Flex padding='20px' backgroundColor='lightRock' height='180px' flexDirection='column' justify='space-around'>
             <Flex flexDirection='row'>
               <Flex flexDirection='column' justify='space-around'>
-                <Icon name='calendar' color='ocean' size='36px' margin='40px' />
+                <Icon name='terminal' size='50px' marginLeft='30px' marginRight='30px' />
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
                 <Text fontWeight='bold' fontSize='14px'>
@@ -63,7 +63,7 @@ const SplashForDevelopers = () => {
           <Flex padding='20px' backgroundColor='lightRock' height='180px' flexDirection='column' justify='space-around'>
             <Flex flexDirection='row'>
               <Flex flexDirection='column' justify='space-around'>
-                <Icon name='calendar' color='ocean' size='36px' margin='40px' />
+                <Icon name='calendar' size='50px' marginLeft='30px' marginRight='30px' />
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
                 <Text fontWeight='bold' fontSize='14px'>

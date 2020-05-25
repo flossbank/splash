@@ -5,7 +5,7 @@ import {
   ColorModeProvider 
 } from "@chakra-ui/core"
 
-import CustomTheme from '../theme'
+import CustomTheme from '../public/theme'
 import FbHead from '../components/common/head'
 import '../public/styles/main.scss'
 

@@ -41,7 +41,7 @@ const SplashWhyFlossbank = () => {
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
-              <Icon name='heart' />
+              <Icon name='heart' size='24px' />
               <Text fontSize='12px' fontWeight='bold'>
                 Our no-cost option means everyone can support open source maintainers
               </Text>
@@ -53,7 +53,7 @@ const SplashWhyFlossbank = () => {
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
-              <Icon name='stack' />
+              <Icon name='stack' size='24px' />
               <Text fontSize='12px' fontWeight='bold'>
                 We give across the entire dependency tree, supporting maintainers big and small
               </Text>
@@ -67,7 +67,7 @@ const SplashWhyFlossbank = () => {
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
-              <Icon name='circulate' />
+              <Icon name='cycle' size='24px' />
               <Text fontSize='12px' fontWeight='bold'>
                 Flossbank doesn’t change your existing workflow
               </Text>
@@ -79,7 +79,7 @@ const SplashWhyFlossbank = () => {
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
-              <Icon name='bullseye' />
+              <Icon name='bullseye' size='24px' />
               <Text fontSize='12px' fontWeight='bold'>
                 Your donations go directly to the packages you use
               </Text>

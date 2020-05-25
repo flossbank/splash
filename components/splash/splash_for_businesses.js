@@ -29,11 +29,11 @@ const SplashForBusinesses = () => {
           tree of your installed packages.
         </Text>
         <Flex flexDirection='row' margin='40px' justify='space-around'>
-          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
+          <Flex flexDirection='row' justify='space-around' margin='20px' padding='30px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
-                  <Icon name='phone' size='36px' />
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 0'>
+                  <Icon name='givingHand' size='56px' />
                 </Flex>
                 <Text fontSize='16px'>
                   Rest easy knowing 100% of your donation goes to authors and maintainers
@@ -41,11 +41,11 @@ const SplashForBusinesses = () => {
               </Flex>
             </Flex>
           </Flex>
-          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
+          <Flex flexDirection='row' justify='space-around' margin='20px' padding='30px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
-                  <Icon name='phone' size='36px' />
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 0'>
+                  <Icon name='pieChart' size='56px' />
                 </Flex>
                 <Text fontSize='16px'>
                   Donate dynamically to the open source packages your firm uses most
@@ -53,11 +53,11 @@ const SplashForBusinesses = () => {
               </Flex>
             </Flex>
           </Flex>
-          <Flex flexDirection='row' justify='space-around' margin='20px' width='355px' height='160px' backgroundColor='white'>
+          <Flex flexDirection='row' justify='space-around' margin='20px' padding='30px' width='355px' height='160px' backgroundColor='white'>
             <Flex flexDirection='column' justify='space-around'>
               <Flex flexDirection='row'>
-                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 30px'>
-                  <Icon name='phone' size='36px' />
+                <Flex flexDirection='column' justify='space-around' margin='0 30px 0 0'>
+                  <Icon name='megaphone' size='56px' />
                 </Flex>
                 <Text fontSize='16px'>
                   Gain insight into your impact and explore advertising opportunities
