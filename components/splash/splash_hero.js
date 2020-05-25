@@ -4,14 +4,10 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/core'
-import { 
-  useEffect,
-  useState,
-} from 'react'
 import { Parallax, Background } from 'react-parallax'
 
-import SplashRocket from '../../public/images/splash_rocket_clouds.svg'
-import SplashComputer from '../../public/images/splash_computer.svg'
+import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
+import SplashComputer from '../../public/images/splash/splash_computer.svg'
 import FBButton from '../common/button'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
@@ -19,17 +15,6 @@ import styles from './splash_hero.module.scss'
 
 const SplashHero = () => {
   const isWide = useMedia('(min-width: 800px')
-  const [yOffset, setYOffset] = useState(0)
-
-  const handleScroll = (x) => {
-    // console.log('blah', window.scrollY)
-    setYOffset(window.scrollY)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
 
   return (
     <Box width='full' alignItems='center' zIndex='-1' backgroundColor='ocean' color='white' padding='50px' height='45rem'>

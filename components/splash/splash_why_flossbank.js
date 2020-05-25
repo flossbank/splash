@@ -6,6 +6,7 @@ import {
   Heading,
 } from '@chakra-ui/core'
 
+import PeopleCollabing from '../../public/images/splash/splash_people_collabing.svg'
 import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
@@ -16,8 +17,8 @@ const SplashWhyFlossbank = () => {
   return (
     <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px'>
       {isWide &&
-        <Box width='40%'>
-          Cool artwork
+        <Box width='40%' marginTop='80px'>
+          <PeopleCollabing />
         </Box>
       }
       <Flex flexDirection='column' width='40%'>
