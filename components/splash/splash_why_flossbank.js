@@ -34,9 +34,11 @@ const SplashWhyFlossbank = () => {
         </Text>
         <Flex flexDirection='column' marginTop='35px'>
           <Flex flexDirection='row' marginBottom='30px'>
-            <Box backgroundColor='white' 
-                 padding='15px' 
+            <Flex backgroundColor='white' 
+                 padding='20px 30px 20px 30px' 
                  marginRight='10px' 
+                 flexDirection='column'
+                 justify='space-around'
                  width='250px' 
                  height='120px'
                  borderLeft='solid' 
@@ -45,10 +47,12 @@ const SplashWhyFlossbank = () => {
               <Text fontSize='12px' fontWeight='bold'>
                 Our no-cost option means everyone can support open source maintainers
               </Text>
-            </Box>
-            <Box backgroundColor='white' 
-                 padding='15px' 
+            </Flex>
+            <Flex backgroundColor='white' 
+                 padding='20px 30px 20px 30px' 
                  marginRight='10px' 
+                 flexDirection='column'
+                 justify='space-around'
                  width='250px' 
                  height='120px'
                  borderLeft='solid' 
@@ -57,11 +61,13 @@ const SplashWhyFlossbank = () => {
               <Text fontSize='12px' fontWeight='bold'>
                 We give across the entire dependency tree, supporting maintainers big and small
               </Text>
-            </Box>
+            </Flex>
           </Flex>
           <Flex flexDirection='row' marginBottom='10px'>
-            <Box backgroundColor='white' 
-                 padding='15px' 
+            <Flex backgroundColor='white' 
+                 padding='20px 30px 20px 30px' 
+                 flexDirection='column'
+                 justify='space-around'
                  marginRight='10px' 
                  width='250px' 
                  height='120px'
@@ -71,10 +77,12 @@ const SplashWhyFlossbank = () => {
               <Text fontSize='12px' fontWeight='bold'>
                 Flossbank doesn’t change your existing workflow
               </Text>
-            </Box>
-            <Box backgroundColor='white' 
-                 padding='15px' 
+            </Flex>
+            <Flex backgroundColor='white' 
+                 padding='20px 30px 20px 30px'  
                  marginRight='10px' 
+                 flexDirection='column'
+                 justify='space-around'
                  width='250px' 
                  height='120px'
                  borderLeft='solid' 
@@ -83,7 +91,7 @@ const SplashWhyFlossbank = () => {
               <Text fontSize='12px' fontWeight='bold'>
                 Your donations go directly to the packages you use
               </Text>
-            </Box>
+            </Flex>
           </Flex>
         </Flex>
         <Flex flexDirection='row' marginTop='20px'>
