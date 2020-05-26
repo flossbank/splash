@@ -16,7 +16,7 @@ const SplashForDevelopers = () => {
 
   return (
     <Box>
-      {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' height='38rem' paddingRight='150px' justify='space-between'>
+      {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' height='80vh' paddingRight='150px' justify='space-between'>
         <Flex flexDirection='column' width='40%' justify='space-between'>
           <Text fontWeight='bold' fontSize='14px' marginBottom='10px'>
             {'for developers'.toUpperCase()}

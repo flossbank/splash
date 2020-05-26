@@ -15,7 +15,7 @@ const SplashWhyFlossbank = () => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px' height='43rem'>
+    <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px' height='90vh'>
       {isWide &&
         <Box width='40%' marginTop='80px'>
           <PeopleCollabing />

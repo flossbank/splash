@@ -15,15 +15,15 @@ const Footer = () => {
       <Flex flexDirection='row' justify='space-around'>
         <Flex flexDirection='column' color='white'>
           <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
-            <Button backgroundColor='none'>About us</Button>
+            <Button backgroundColor='none' variant='link'>About us</Button>
             <Flex flexDirection='column' justify='space-around'>
               <Text>·</Text>
             </Flex>
-            <Button backgroundColor='none'>Log in</Button>
+            <Button backgroundColor='none' variant='link'>Log in</Button>
             <Flex flexDirection='column' justify='space-around'>
               <Text>·</Text>
             </Flex>
-            <Button backgroundColor='none'>Sign up</Button>
+            <Button backgroundColor='none' variant='link'>Sign up</Button>
           </Flex>
           <Flex flexDirection='row' justify='space-around'>
             <Text>© {currentYear} Flossbank. All rights reserved.</Text>

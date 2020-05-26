@@ -14,10 +14,10 @@ const SplashForBusinesses = () => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box padding='60px' backgroundColor='puddle' height='40rem'>
+    <Box padding='60px' backgroundColor='puddle' height='80vh'>
       <Flex flexDirection='column' justify='space-around' alignItems='center'>
         <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
-          {'For bussinesses'.toUpperCase()}
+          {'For businesses'.toUpperCase()}
         </Text>
         <SplashDivider />
         <Heading textAlign='center' marginTop='20px' marginBottom='30px' fontSize='24px'>

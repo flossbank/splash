@@ -17,12 +17,12 @@ const SplashHero = () => {
   const isWide = useMedia('(min-width: 800px')
 
   return (
-    <Box width='full' alignItems='center' zIndex='-1' backgroundColor='ocean' color='white' padding='50px' height='45rem'>
+    <Box width='full' alignItems='center' zIndex='-1' backgroundColor='ocean' color='white' padding='50px' height='90vh'>
       {isWide && (
         <Flex flexDirection='row' justify='space-between'>
           <Parallax strength={300} className={styles.splash_parallax}>
             <SplashRocket className={styles.splash_rocket} />
-            <Heading textAlign={[ 'left', 'center' ]} margin='30px' marginTop='40px' fontSize='36px'>
+            <Heading textAlign={[ 'left', 'center' ]} margin='30px' marginTop='60px' fontSize='36px'>
               On a mission to support open source
             </Heading>
             <Text id='hero_header' textAlign={[ 'left', 'center' ]} fontSize='20px' lineHeight='80%'>
@@ -39,7 +39,7 @@ const SplashHero = () => {
                 For Businesses
               </FBButton>
             </Flex>
-            <Background className="custom-bg">
+            <Background className={styles.splash_parallax_background}>
               <SplashComputer className={styles.splash_computer}/>
             </Background>
           </Parallax>
