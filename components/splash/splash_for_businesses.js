@@ -14,7 +14,7 @@ const SplashForBusinesses = (props) => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box padding='60px' backgroundColor='puddle' height='80vh' id={props.id} >
+    <Box padding='60px' backgroundColor='puddle' height='auto' id={props.id} >
       <Flex flexDirection='column' justify='space-around' alignItems='center'>
         <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
           {'For businesses'.toUpperCase()}

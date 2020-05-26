@@ -3,9 +3,9 @@ import {
   Box,
   Text,
   Heading,
-  Button,
   Icon
 } from '@chakra-ui/core'
+import { useRouter } from 'next/router'
 
 import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
@@ -13,6 +13,11 @@ import FBButton from '../common/button'
 
 const SplashForDevelopers = (props) => {
   const isWide = useMedia('(min-width: 768px')
+  const router = useRouter()
+
+  const login = () => {
+    router.push('/login')
+  }
 
   return (
     <Box id={props.id}>
@@ -34,7 +39,10 @@ const SplashForDevelopers = (props) => {
             tree of your installed packages in one of two ways: terminal ads or monthly contributions.
           </Text>
           <Box height='40px'>
-            <FBButton backgroundColor='ocean' color='white' _hover={{ marginTop: '3px' }}>
+            <FBButton backgroundColor='ocean' 
+                      color='white' 
+                      _hover={{ marginTop: '3px' }}
+                      onClick={login}>
               Sign up
             </FBButton>
           </Box>
