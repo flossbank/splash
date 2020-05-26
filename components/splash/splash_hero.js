@@ -58,7 +58,7 @@ const SplashHero = (props) => {
          backgroundColor='ocean' 
          color='white' 
          padding={[ '0px', '50px' ]}
-         height='90vh'>
+         height={[ 'auto', '90vh' ]}>
       {isWide ? (
         <Flex flexDirection='row' justify='space-between'>
           <Parallax strength={150} className={styles.splash_parallax}>

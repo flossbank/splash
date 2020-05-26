@@ -53,7 +53,7 @@ const SplashWhatIsFlossbank = () => {
                  marginRight='10px' 
                  flexDirection='column'
                  justify='space-around'
-                 width='250px' 
+                 width={[ 'auto', '250px' ]}
                  height='120px'
                  marginBottom={[ '30px', '0px' ]}
                  borderLeft='solid' 
@@ -68,7 +68,7 @@ const SplashWhatIsFlossbank = () => {
                  marginRight='10px' 
                  flexDirection='column'
                  justify='space-around'
-                 width='250px' 
+                 width={[ 'auto', '250px' ]}
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
@@ -85,7 +85,7 @@ const SplashWhatIsFlossbank = () => {
                  justify='space-around'
                  marginRight='10px' 
                  marginBottom={[ '30px', '0px' ]}
-                 width='250px' 
+                 width={[ 'auto', '250px' ]}
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
@@ -99,7 +99,7 @@ const SplashWhatIsFlossbank = () => {
                  marginRight='10px' 
                  flexDirection='column'
                  justify='space-around'
-                 width='250px' 
+                 width={[ 'auto', '250px' ]}
                  height='120px'
                  borderLeft='solid' 
                  borderColor='lake'>
