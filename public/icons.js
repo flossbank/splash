@@ -125,5 +125,13 @@ export default {
       </g>
     </svg>),
     viewBox: "0 0 58.919 58.929"
+  },
+  fbLogoLetters: {
+    path: (<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="238.000000pt" height="289.000000pt" viewBox="0 0 238.000000 289.000000" preserveAspectRatio="xMidYMid meet">
+      <g transform="translate(0.000000,289.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <path d="M879 2866 c-156 -55 -272 -182 -314 -343 -13 -49 -15 -230 -15 -1290 l0 -1233 255 0 255 0 0 1195 0 1195 210 0 210 0 0 250 0 250 -267 0 c-255 0 -271 -2 -334 -24z"/>
+      </g>
+    </svg>),
+    viewBox: "0 0 35 43"
   }
 }

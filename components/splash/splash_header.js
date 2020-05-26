@@ -26,9 +26,9 @@ export default () => {
         <FBButton borderColor='ocean'
                   width='auto'
                   margin='10px' 
-                  variantColor='ocean'
                   color='ocean'
-                  variant='outline'>Sign up</FBButton>
+                  variant='outline'
+                  _hover={{ backgroundColor: 'ocean', color: 'white' }}>Sign up</FBButton>
       </Box>
     </Flex>
   )
