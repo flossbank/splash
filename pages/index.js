@@ -1,5 +1,5 @@
 import SplashHero from '../components/splash/splash_hero'
-import SplashWhyFlossbank from '../components/splash/splash_why_flossbank'
+import SplashWhatIsFlossbank from '../components/splash/splash_what_is_flossbank'
 import SplashForBussinesses from '../components/splash/splash_for_businesses'
 import Footer from '../components/common/footer'
 import SplashHeader from '../components/splash/splash_header'
@@ -34,7 +34,7 @@ function Splash () {
       <SplashHeader />
       <SplashHero scrollToDeveloperSection={scrollToDeveloperSection}
                   scrollToBusinessSection={scrollToBusinessSection} />
-      <SplashWhyFlossbank />
+      <SplashWhatIsFlossbank />
       <SplashForDevelopers id='forDevelopers' />
       <SplashForBussinesses id='forBusinesses' />
       <Footer />

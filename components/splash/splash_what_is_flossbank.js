@@ -12,7 +12,7 @@ import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
-const SplashWhyFlossbank = () => {
+const SplashWhatIsFlossbank = () => {
   const isWide = useMedia('(min-width: 768px')
   const router = useRouter()
 
@@ -25,13 +25,17 @@ const SplashWhyFlossbank = () => {
   }
 
   return (
-    <Flex flexDirection='row' justifyContent='space-around' backgroundColor='lightRock' padding='60px' height='90vh'>
+    <Flex flexDirection='row' 
+          justifyContent='space-around' 
+          backgroundColor='lightRock' 
+          padding='50px' 
+          height={[ 'auto', '90vh' ]}>
       {isWide &&
         <Box width='40%' marginTop='80px'>
           <PeopleCollabing />
         </Box>
       }
-      <Flex flexDirection='column' width='40%'>
+      <Flex flexDirection='column' width={[ '100%', '40%' ]}>
         <Text fontSize='14px' fontWeight='bold' marginBottom='10px'>
           {'What is flossbank'.toUpperCase()}
         </Text>
@@ -43,7 +47,7 @@ const SplashWhyFlossbank = () => {
           We use ad revenue and monthly donations to support all the maintainers of the packages you install.
         </Text>
         <Flex flexDirection='column' marginTop='35px'>
-          <Flex flexDirection='row' marginBottom='30px'>
+          <Flex flexDirection={[ 'column', 'row' ]} marginBottom='30px'>
             <Flex backgroundColor='white' 
                  padding='20px 30px 20px 30px' 
                  marginRight='10px' 
@@ -51,6 +55,7 @@ const SplashWhyFlossbank = () => {
                  justify='space-around'
                  width='250px' 
                  height='120px'
+                 marginBottom={[ '30px', '0px' ]}
                  borderLeft='solid' 
                  borderColor='lake'>
               <Icon name='heart' size='24px' />
@@ -73,12 +78,13 @@ const SplashWhyFlossbank = () => {
               </Text>
             </Flex>
           </Flex>
-          <Flex flexDirection='row' marginBottom='10px'>
+          <Flex flexDirection={[ 'column', 'row' ]} marginBottom='10px'>
             <Flex backgroundColor='white' 
                  padding='20px 30px 20px 30px' 
                  flexDirection='column'
                  justify='space-around'
                  marginRight='10px' 
+                 marginBottom={[ '30px', '0px' ]}
                  width='250px' 
                  height='120px'
                  borderLeft='solid' 
@@ -106,7 +112,7 @@ const SplashWhyFlossbank = () => {
         </Flex>
         <Flex flexDirection='row' marginTop='20px'>
           <FBButton backgroundColor='ocean' 
-                    color='white' 
+                    color='white'
                     _hover={{ marginTop: '3px' }} 
                     onClick={login}>
             Sign Up
@@ -124,4 +130,4 @@ const SplashWhyFlossbank = () => {
   )
 }
 
-export default SplashWhyFlossbank
+export default SplashWhatIsFlossbank

@@ -21,6 +21,7 @@ coverage
 .vscode
 .DS_Store
 .env*
+.grokodile.json
 
 # debug
 npm-debug.log*

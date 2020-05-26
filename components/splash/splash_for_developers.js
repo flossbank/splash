@@ -21,8 +21,8 @@ const SplashForDevelopers = (props) => {
 
   return (
     <Box id={props.id}>
-      {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' height='80vh' paddingRight='150px' justify='space-between'>
-        <Flex flexDirection='column' width='40%' justify='space-between'>
+      <Flex flexDirection={[ 'column', 'row' ]} padding={[ '60px 50px 60px 50px', '60px 150px 60px 150px' ]} height={[ 'auto', '80vh' ]} justify='space-between'>
+        <Flex flexDirection='column' width={[ '100%', '40%' ]} justify='space-between'>
           <Text fontWeight='bold' fontSize='14px' marginBottom='10px'>
             {'for developers'.toUpperCase()}
           </Text>
@@ -38,7 +38,7 @@ const SplashForDevelopers = (props) => {
             By installing our CLI, you support maintainers across the entire dependency 
             tree of your installed packages in one of two ways: terminal ads or monthly contributions.
           </Text>
-          <Box height='40px'>
+          {isWide && <><Box height='40px'>
             <FBButton backgroundColor='ocean' 
                       color='white' 
                       _hover={{ marginTop: '3px' }}
@@ -51,13 +51,18 @@ const SplashForDevelopers = (props) => {
           </Text>
           <Text>
             Sign up for our beta list.
-          </Text>
+          </Text></>}
         </Flex>
-        <Flex flexDirection='column' width='50%' justify='space-around' paddingTop='50px'>
-          <Flex padding='20px' backgroundColor='lightRock' height='180px' flexDirection='column' justify='space-around'>
+        <Flex flexDirection='column' width={[ 'auto', '50%' ]} justify='space-around' paddingTop={[ '20px', '50px' ]}>
+          <Flex padding='20px' 
+                backgroundColor='lightRock' 
+                height={[ 'auto', '180px' ]} 
+                marginBottom={[ '20px', '0px' ]}
+                flexDirection='column' 
+                justify='space-around'>
             <Flex flexDirection='row'>
               <Flex flexDirection='column' justify='space-around'>
-                <Icon name='terminal' size='50px' marginLeft='30px' marginRight='30px' />
+                {isWide && <Icon name='terminal' size='50px' marginLeft='30px' marginRight='30px' />}
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
                 <Text fontWeight='bold' fontSize='14px'>
@@ -70,10 +75,10 @@ const SplashForDevelopers = (props) => {
               </Flex>
             </Flex>
           </Flex>
-          <Flex padding='20px' backgroundColor='lightRock' height='180px' flexDirection='column' justify='space-around'>
+          <Flex padding='20px' backgroundColor='lightRock' height={[ 'auto', '180px' ]} flexDirection='column' justify='space-around'>
             <Flex flexDirection='row'>
               <Flex flexDirection='column' justify='space-around'>
-                <Icon name='calendar' size='50px' marginLeft='30px' marginRight='30px' />
+                {isWide && <Icon name='calendar' size='50px' marginLeft='30px' marginRight='30px' />}
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
                 <Text fontWeight='bold' fontSize='14px'>
@@ -87,10 +92,21 @@ const SplashForDevelopers = (props) => {
             </Flex>
           </Flex>
         </Flex>
-      </Flex> :
-      <Flex flexDirection='column'>
-
-      </Flex>}
+        {!isWide && <><Box height='40px' marginTop='30px'>
+            <FBButton backgroundColor='ocean' 
+                      color='white' 
+                      _hover={{ marginTop: '3px' }}
+                      onClick={login}>
+              Sign up
+            </FBButton>
+          </Box>
+          <Text marginTop='30px'>
+            Are you an author or maintainer?
+          </Text>
+          <Text>
+            Sign up for our beta list.
+          </Text></>}
+      </Flex>
     </Box>
   )
 } 

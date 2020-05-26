@@ -35,7 +35,6 @@ const SplashHero = (props) => {
           marginBottom='10px'>
       <FBButton backgroundColor='white' 
                 color='ocean' 
-                variantColor='white' 
                 variant='solid' 
                 marginBottom={[ '20px', '0' ]}
                 _hover={{ marginTop: '3px' }}
