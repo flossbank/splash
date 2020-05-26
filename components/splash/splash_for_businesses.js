@@ -10,11 +10,11 @@ import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
-const SplashForBusinesses = () => {
+const SplashForBusinesses = (props) => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box padding='60px' backgroundColor='puddle' height='80vh'>
+    <Box padding='60px' backgroundColor='puddle' height='80vh' id={props.id} >
       <Flex flexDirection='column' justify='space-around' alignItems='center'>
         <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
           {'For businesses'.toUpperCase()}

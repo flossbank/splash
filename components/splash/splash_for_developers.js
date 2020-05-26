@@ -11,11 +11,11 @@ import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
-const SplashForDevelopers = () => {
+const SplashForDevelopers = (props) => {
   const isWide = useMedia('(min-width: 768px')
 
   return (
-    <Box>
+    <Box id={props.id}>
       {isWide ? <Flex flexDirection='row' padding='60px' paddingLeft='150px' height='80vh' paddingRight='150px' justify='space-between'>
         <Flex flexDirection='column' width='40%' justify='space-between'>
           <Text fontWeight='bold' fontSize='14px' marginBottom='10px'>

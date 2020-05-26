@@ -6,13 +6,37 @@ import SplashHeader from '../components/splash/splash_header'
 import SplashForDevelopers from '../components/splash/splash_for_developers'
 
 function Splash () {
+  const scrollWindow = (offset) => {
+    window.scroll({
+      top: offset,
+      behavior: 'smooth'
+    })
+  }
+
+  const scrollToId = (id) => {
+    const $anchor = document.getElementById(id)
+    console.log('here', $anchor, id)
+    if (!$anchor) return
+    const offset = $anchor.getBoundingClientRect().top + window.pageYOffset
+    scrollWindow(offset)
+  }
+
+  const scrollToDeveloperSection = () => {
+    scrollToId('forDevelopers')
+  }
+
+  const scrollToBusinessSection = () => {
+    scrollToId('forBusinesses')
+  }
+
   return (
     <>
       <SplashHeader />
-      <SplashHero />
+      <SplashHero scrollToDeveloperSection={scrollToDeveloperSection}
+                  scrollToBusinessSection={scrollToBusinessSection} />
       <SplashWhyFlossbank />
-      <SplashForDevelopers />
-      <SplashForBussinesses />
+      <SplashForDevelopers id='forDevelopers' />
+      <SplashForBussinesses id='forBusinesses' />
       <Footer />
     </>
   )
