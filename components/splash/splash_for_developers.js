@@ -6,6 +6,7 @@ import {
   Icon
 } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
+import PropTypes from 'prop-types'
 
 import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
@@ -110,5 +111,9 @@ const SplashForDevelopers = (props) => {
     </Box>
   )
 } 
+
+SplashForDevelopers.propTypes = {
+  id: PropTypes.string.isRequired,
+}
 
 export default SplashForDevelopers

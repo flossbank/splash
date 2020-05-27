@@ -5,6 +5,7 @@ import {
   Flex,
 } from '@chakra-ui/core'
 import { Parallax, Background } from 'react-parallax'
+import PropTypes from 'prop-types'
 
 import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
@@ -83,6 +84,11 @@ const SplashHero = (props) => {
       )}
     </Box>
   )
+}
+
+SplashHero.propTypes = {
+  scrollToBusinessSection: PropTypes.func.isRequired,
+  scrollToDeveloperSection: PropTypes.func.isRequired,
 }
 
 export default SplashHero

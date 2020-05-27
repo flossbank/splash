@@ -5,6 +5,7 @@ import {
   Heading,
   Icon,
 } from '@chakra-ui/core'
+import PropTypes from 'prop-types'
 
 import SplashDivider from './splash_divider'
 import useMedia from '../common/useMedia'
@@ -93,5 +94,9 @@ const SplashForBusinesses = (props) => {
     </Box>
   )
 } 
+
+SplashForBusinesses.propTypes = {
+  id: PropTypes.string.isRequired,
+}
 
 export default SplashForBusinesses
