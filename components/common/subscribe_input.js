@@ -7,7 +7,6 @@ const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
   const reqBody = { email }
   try {
     const response = await api.betaSubscribe(reqBody)
-    console.log('wtf respnose', response)
 
     // If error, prompt to try again
     if (!response.success) {

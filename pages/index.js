@@ -15,7 +15,6 @@ function Splash () {
 
   const scrollToId = (id) => {
     const $anchor = document.getElementById(id)
-    console.log('here', $anchor, id)
     if (!$anchor) return
     const offset = $anchor.getBoundingClientRect().top + window.pageYOffset
     scrollWindow(offset)
