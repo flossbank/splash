@@ -17,8 +17,8 @@ const SplashForBusinesses = (props) => {
   return (
     <Box padding={[ '50px', '60px' ]} backgroundColor='puddle' height='auto' id={props.id} >
       <Flex flexDirection='column' justify='space-around' alignItems='center'>
-        <Text textAlign='center' fontWeight='bold' fontSize='14px' marginBottom='10px'>
-          {'For businesses'.toUpperCase()}
+        <Text textAlign='center' textTransform='uppercase' fontWeight='bold' fontSize='14px' marginBottom='10px'>
+          For businesses
         </Text>
         <SplashDivider />
         <Heading textAlign='center' marginTop='20px' marginBottom='30px' fontSize='24px'>

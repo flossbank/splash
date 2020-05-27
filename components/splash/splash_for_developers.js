@@ -24,8 +24,8 @@ const SplashForDevelopers = (props) => {
     <Box id={props.id}>
       <Flex flexDirection={[ 'column', 'row' ]} padding={[ '60px 50px 60px 50px', '60px 150px 60px 150px' ]} height={[ 'auto', '80vh' ]} justify='space-between'>
         <Flex flexDirection='column' width={[ '100%', '40%' ]} justify='space-between'>
-          <Text fontWeight='bold' fontSize='14px' marginBottom='10px'>
-            {'for developers'.toUpperCase()}
+          <Text fontWeight='bold' textTransform='uppercase' fontSize='14px' marginBottom='10px'>
+            For developers
           </Text>
           <SplashDivider />
           <Heading marginTop='20px' marginBottom='30px' fontSize='24px'>
@@ -66,8 +66,8 @@ const SplashForDevelopers = (props) => {
                 {isWide && <Icon name='terminal' size='50px' marginLeft='30px' marginRight='30px' />}
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
-                <Text fontWeight='bold' fontSize='14px'>
-                  {'Support maintainers at no cost'.toUpperCase()}
+                <Text fontWeight='bold' fontSize='14px' textTransform='uppercase'>
+                  Support maintainers at no cost
                 </Text>
                 <SplashDivider backgroundColor='ocean' borderColor='ocean'/>
                 <Text>
@@ -82,8 +82,8 @@ const SplashForDevelopers = (props) => {
                 {isWide && <Icon name='calendar' size='50px' marginLeft='30px' marginRight='30px' />}
               </Flex>
               <Flex flexDirection='column' justify='space-around'>
-                <Text fontWeight='bold' fontSize='14px'>
-                  {'Or set a monthly donation'.toUpperCase()}
+                <Text fontWeight='bold' fontSize='14px' textTransform='uppercase'>
+                  Or set a monthly donation
                 </Text>
                 <SplashDivider backgroundColor='ocean' borderColor='ocean' />
                 <Text>

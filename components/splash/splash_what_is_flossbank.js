@@ -36,8 +36,8 @@ const SplashWhatIsFlossbank = () => {
         </Box>
       }
       <Flex flexDirection='column' width={[ '100%', '40%' ]}>
-        <Text fontSize='14px' fontWeight='bold' marginBottom='10px'>
-          {'What is flossbank'.toUpperCase()}
+        <Text fontSize='14px' fontWeight='bold' marginBottom='10px' textTransform='uppercase'>
+          What is flossbank
         </Text>
         <SplashDivider />
         <Heading marginTop='20px' marginBottom='20px' fontSize='24px'>
