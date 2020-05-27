@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import * as api from '../client/index'
-import styles from '../public/styles/subscribeinput.module.scss'
+import * as api from '../../client/index'
+import styles from '../../public/styles/subscribeinput.module.scss'
 
 const onSubscribe = async (email, setEmail, setError, setSubscribed) => {
   // Make API call to subscribe
   const reqBody = { email }
   try {
     const response = await api.betaSubscribe(reqBody)
-    console.log('wtf respnose', response)
 
     // If error, prompt to try again
     if (!response.success) {

@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react'
 import { decode } from 'b36'
-import FBHead from '../../components/head'
-import styles from '../../public/styles/splashheader.module.scss'
-import FBLogo from '../../components/logo'
+import FBHead from '../../components/common/head'
+import FBLogo from '../../components/common/logo'
 import * as api from '../../client/index'
-
-import * as bodyStyles from '../../public/styles/contact.module.scss'
 
 function UnSubscribe (props) {
   const [resubscribed, setResubscribed] = useState(false)
@@ -27,14 +24,14 @@ function UnSubscribe (props) {
   return (
     <>
       <FBHead />
-      <div className={styles.wrapper}>
-        <div className={styles.header}>
+      <div>
+        <div>
           <FBLogo />
         </div>
       </div>
-      <div className={bodyStyles.wrapper}>
-        <div className={bodyStyles.contents}>
-          <div className={bodyStyles.center}>
+      <div>
+        <div>
+          <div>
             {!resubscribed && (
               <div>
                 <h2>Sad to see you go 😢</h2>

@@ -14,6 +14,9 @@
     "test": "npm run lint && npm run coverage"
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -24,6 +27,7 @@
     "b36": "^1.0.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
+    "emotion-theming": "^10.0.27",
     "isomorphic-fetch": "^2.2.1",
     "next": "9.1.6",
     "node-sass": "^4.13.0",
@@ -31,6 +35,7 @@
     "prop-types": "^15.7.2",
     "react": "16.12.0",
     "react-dom": "^16.12.0",
+    "react-parallax": "^3.0.3",
     "react-timeseries-charts": "^0.16.1",
     "react-use": "^13.22.4",
     "webpack": "^4.41.6"

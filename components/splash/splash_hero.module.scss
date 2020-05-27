@@ -1,0 +1,69 @@
+.splash_rocket {
+  width: 400px;
+  z-index:2;
+  margin: auto;
+}
+
+.splash_rocket_mobile {
+  width: 100%;
+  z-index:2;
+  margin: auto;
+  height: auto;
+  padding-top: 10vh;
+}
+
+.splash_computer {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  margin-top: 0px;
+  height: 300px;
+}
+
+.splash_parallax {
+  width: 100%;
+  height: 80vh;
+  margin-top: 20px;
+  padding-top: 100px;
+}
+
+.splash_foreground_clouds_left {
+  z-index: 2;
+  left: 50px;
+  position: absolute;
+  width: 100px;
+  height: auto;
+}
+
+.splash_foreground_clouds_right {
+  z-index: 2;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 100px;
+  float: right;
+  height: auto;
+}
+
+.splash_background_clouds_left {
+  z-index: 1;
+  position: absolute;
+  width: 100px;
+  top: 120px;
+  left: 0;
+  height: auto;
+}
+
+.splash_background_clouds_right {
+  z-index: 1;
+  position: absolute;
+  width: 100px;
+  top: 280px;
+  right: 0;
+  height: auto;
+}
+
+.splash_parallax_background {
+  width: auto;
+}
