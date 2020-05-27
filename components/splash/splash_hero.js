@@ -8,6 +8,8 @@ import { Parallax, Background } from 'react-parallax'
 
 import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
+import SplashForegroundClouds from '../../public/images/splash/splash_foreground_clouds.svg'
+import SplashBackgroundClouds from '../../public/images/splash/splash_background_clouds.svg'
 import FBButton from '../common/button'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
@@ -63,8 +65,12 @@ const SplashHero = (props) => {
         <Flex flexDirection='row' justify='space-between'>
           <Parallax strength={150} className={styles.splash_parallax}>
             <SplashRocket className={styles.splash_rocket} />
+            <SplashForegroundClouds className={styles.splash_foreground_clouds_left}/>
+            <SplashForegroundClouds className={styles.splash_foreground_clouds_right}/>
             {innerContent}
             <Background className={styles.splash_parallax_background}>
+              <SplashBackgroundClouds className={styles.splash_background_clouds_left}/>
+              <SplashBackgroundClouds className={styles.splash_background_clouds_right}/>
               <SplashComputer className={styles.splash_computer}/>
             </Background>
           </Parallax>
