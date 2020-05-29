@@ -4,8 +4,6 @@ import {
   Heading,
   Flex,
   Text,
-  Icon,
-  Divider,
 } from '@chakra-ui/core'
 import { decode } from 'b36'
 import Head from 'next/head'
@@ -15,8 +13,8 @@ import {
   verifyEmail,
   validateCaptcha
 } from '../../client'
-
 import FBDivider from '../common/divider'
+import Stepper from './stepper'
 
 const VerifyHumanity = () => {
   const router = useRouter()
@@ -57,43 +55,28 @@ const VerifyHumanity = () => {
     }
   }
 
+  const steps = [
+    {
+      iconName: 'stepperInProgress',
+      title: 'Verify'
+    },
+    {
+      iconName: 'stepperNotStarted',
+      title: 'Select'
+    },
+    {
+      iconName: 'stepperNotStarted',
+      title: 'Install'
+    }
+  ]
+
   return (
     <Box height='85vh'>
       <Head>
         <script src='https://www.google.com/recaptcha/api.js' async defer />
       </Head>
       <Flex flexDirection='column' justify='center' height='10rem' backgroundColor='puddle'>
-        <Flex flexDirection='row' justify='center'>
-          <Flex flexDirection='column' zIndex='2'>
-            <Icon name='stepperInProgress' size='2rem' marginLeft='auto' marginRight='auto'/>
-            <Heading fontSize='12px' fontWeight='bold' textAlign='center'>Step 1</Heading>
-            <Text fontSize='14px' textAlign='center'>Verify</Text>
-          </Flex>
-          <Divider backgroundColor='rock' 
-                   width='20%' 
-                   height='5px' 
-                   marginTop='0.8rem' 
-                   marginLeft='-.3rem' 
-                   marginRight='-.3rem'
-                   zIndex='1' />
-          <Flex flexDirection='column' zIndex='2'>
-            <Icon name='stepperNotStarted' size='2rem' marginLeft='auto' marginRight='auto'/>
-            <Heading fontSize='12px' fontWeight='bold' textAlign='center'>Step 2</Heading>
-            <Text fontSize='14px' textAlign='center'>Select</Text>
-          </Flex>
-          <Divider backgroundColor='rock' 
-                   width='20%' 
-                   height='5px' 
-                   marginTop='0.8rem' 
-                   marginLeft='-.3rem' 
-                   marginRight='-.3rem'
-                   zIndex='1' />
-          <Flex flexDirection='column' zIndex='2'>
-            <Icon name='stepperNotStarted' size='2rem' marginLeft='auto' marginRight='auto'/>
-            <Heading fontSize='12px' fontWeight='bold' textAlign='center'>Step 3</Heading>
-            <Text fontSize='14px' textAlign='center'>Install</Text>
-          </Flex>
-        </Flex>
+        <Stepper steps={steps} />
       </Flex>
       <Box padding={['4rem 1rem 0 1rem', '4rem 0 0 0']}>
         <Heading textTransform='uppercase' 
