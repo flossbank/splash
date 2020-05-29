@@ -29,6 +29,7 @@ const LoginSection = () => {
   }
 
   const loginOrSignup = async () => {
+    console.log('calling login or signup')
     if (!email) return showErrorMessage('Email is required')
     try {
       if (loginFlow) {

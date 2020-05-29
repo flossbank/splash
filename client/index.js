@@ -18,11 +18,16 @@ export const signup = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/user/register`, optionsWithPostBody({ email }))
 }
 
+export const verifyEmail = async ({ email, kind, token }) => {
+  return fetchThenJson(`${ENDPOINT}/${kind}/verify`, optionsWithPostBody({ email, token }))
+}
+
+export const validateCaptcha = async ({ email, token, response }) => {
+  return fetchThenJson(`${ENDPOINT}/user/validate-captcha`, optionsWithPostBody({ email, token, response }))
+}
+
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
-    if (!res.success) {
-      return res.json()
-    }
     if (!res.ok) {
       const e = new Error('response not ok')
       e.res = res

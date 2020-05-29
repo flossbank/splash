@@ -2,7 +2,7 @@ import SplashHero from '../components/splash/splash_hero'
 import SplashWhatIsFlossbank from '../components/splash/splash_what_is_flossbank'
 import SplashForBussinesses from '../components/splash/splash_for_businesses'
 import Footer from '../components/common/footer'
-import SplashHeader from '../components/splash/splash_header'
+import Header from '../components/common/header'
 import SplashForDevelopers from '../components/splash/splash_for_developers'
 
 function Splash () {
@@ -30,7 +30,7 @@ function Splash () {
 
   return (
     <>
-      <SplashHeader />
+      <Header />
       <SplashHero scrollToDeveloperSection={scrollToDeveloperSection}
                   scrollToBusinessSection={scrollToBusinessSection} />
       <SplashWhatIsFlossbank />

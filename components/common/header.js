@@ -4,9 +4,9 @@ import {
 } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
 
-import FBButton from '../common/button'
-import FBLogo from '../common/logo'
-import useMedia from '../common/useMedia'
+import FBButton from './button'
+import FBLogo from './logo'
+import useMedia from './useMedia'
 
 export default () => {
   const router = useRouter()

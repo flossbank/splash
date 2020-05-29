@@ -133,5 +133,51 @@ export default {
       </g>
     </svg>),
     viewBox: "0 0 35 43"
+  },
+  stepperComplete: {
+    path: (<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+      <defs>
+        <filter id="Ellipse_44" x="0" y="0" width="47" height="47" filterUnits="userSpaceOnUse">
+          <feOffset dy="3" input="SourceAlpha"/>
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feFlood flood-opacity="0.161"/>
+          <feComposite operator="in" in2="blur"/>
+          <feComposite in="SourceGraphic"/>
+        </filter>
+      </defs>
+      <g id="Group_1162" data-name="Group 1162" transform="translate(-358 -160)">
+        <g transform="matrix(1, 0, 0, 1, 358, 160)" filter="url(#Ellipse_44)">
+          <circle id="Ellipse_44-2" data-name="Ellipse 44" cx="14.5" cy="14.5" r="14.5" transform="translate(9 6)" fill="#2b67af"/>
+        </g>
+        <path id="Path_385" data-name="Path 385" d="M98.505,149.491a.871.871,0,0,1-.618-.256l-3.355-3.355a.874.874,0,0,1,1.228-1.242l.007.007,2.737,2.737,6.512-6.512a.874.874,0,0,1,1.235,1.235l-7.13,7.13A.871.871,0,0,1,98.505,149.491Z" transform="translate(281.727 35.892)" fill="#fff"/>
+      </g>
+    </svg>),
+    viewBox: "0 0 47 47"
+  },
+  stepperInProgress: {
+    path: (<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 45 45">
+      <defs>
+        <filter id="Ellipse_45" x="0" y="0" width="47" height="47" filterUnits="userSpaceOnUse">
+          <feComposite operator="in" in2="blur"/>
+          <feComposite in="SourceGraphic"/>
+        </filter>
+      </defs>
+      <g id="Group_1163" data-name="Group 1163" transform="translate(-617 -160)">
+        <g transform="matrix(1, 0, 0, 1, 617, 160)" filter="url(#Ellipse_45)">
+          <circle id="Ellipse_45-2" data-name="Ellipse 45" cx="21.5" cy="21.5" r="21.5" transform="translate(0 0)" fill="#fff"/>
+        </g>
+        <circle id="Ellipse_46" data-name="Ellipse 46" cx="9.5" cy="9.5" r="9.5" transform="translate(629 173)" fill="#2b67af"/>
+      </g>
+    </svg>),
+    viewBox: "0 0 45 45"
+  },
+  stepperNotStarted: {
+    path: (<svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+      <g id="Ellipse_40" data-name="Ellipse 40" fill="none" stroke="#bdc1c5" strokeWidth="4">
+        <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+        <circle cx="14.5" cy="14.5" r="12.5" fill="none"/>
+      </g>
+    </svg>),
+    viewBox: "0 0 29 29"
   }
 }

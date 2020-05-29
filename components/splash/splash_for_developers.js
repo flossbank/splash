@@ -8,7 +8,7 @@ import {
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
-import SplashDivider from './splash_divider'
+import FBDivider from '../common/divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
@@ -27,7 +27,7 @@ const SplashForDevelopers = (props) => {
           <Text fontWeight='bold' textTransform='uppercase' fontSize='14px' marginBottom='10px'>
             For developers
           </Text>
-          <SplashDivider />
+          <FBDivider />
           <Heading marginTop='20px' marginBottom='30px' fontSize='24px'>
             Give back to maintainers across your entire dependency tree
           </Heading>
@@ -69,7 +69,7 @@ const SplashForDevelopers = (props) => {
                 <Text fontWeight='bold' fontSize='14px' textTransform='uppercase'>
                   Support maintainers at no cost
                 </Text>
-                <SplashDivider backgroundColor='ocean' borderColor='ocean'/>
+                <FBDivider backgroundColor='ocean' borderColor='ocean'/>
                 <Text>
                   Opt into curated, tech-focused ads in your terminal when you install open source packages
                 </Text>
@@ -85,7 +85,7 @@ const SplashForDevelopers = (props) => {
                 <Text fontWeight='bold' fontSize='14px' textTransform='uppercase'>
                   Or set a monthly donation
                 </Text>
-                <SplashDivider backgroundColor='ocean' borderColor='ocean' />
+                <FBDivider backgroundColor='ocean' borderColor='ocean' />
                 <Text>
                   Donate monthly to the developers and maintainers of the open source packages you install
                 </Text>

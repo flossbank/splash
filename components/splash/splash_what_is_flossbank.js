@@ -8,7 +8,7 @@ import {
 import { useRouter } from 'next/router'
 
 import PeopleCollabing from '../../public/images/splash/splash_people_collabing.svg'
-import SplashDivider from './splash_divider'
+import FBDivider from '../common/divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
@@ -58,7 +58,7 @@ const SplashWhatIsFlossbank = () => {
         <Text fontSize='14px' fontWeight='bold' marginBottom='10px' textTransform='uppercase'>
           What is flossbank
         </Text>
-        <SplashDivider />
+        <FBDivider />
         <Heading marginTop='20px' marginBottom='20px' fontSize='24px'>
           The best way to support open source
         </Heading>

@@ -2,10 +2,10 @@ import {
   Divider,
 } from '@chakra-ui/core'
 
-const SplashDivider = (props) => {
+const FBDivider = (props) => {
   return (
     <Divider width='70px' height='2px' backgroundColor='lake' borderColor='lake' {...props} />
   )
 }
 
-export default SplashDivider
+export default FBDivider
