@@ -16,25 +16,27 @@ export default () => {
     router.push('/login')
   }
 
+  const HeaderButton = (props) => {
+    return (
+      <FBButton backgroundColor='white' 
+                margin='10px' 
+                color='boulder' 
+                width='auto'
+                variant='link'
+                onClick={props.onClick}>{props.children}</FBButton>
+    )
+  }
+
   return (
     <>
       {isWide ? (
-        <Flex justify='space-between' paddingLeft='80px' paddingRight='80px'>
+        <Flex justify='space-between' paddingLeft={['80px']} paddingRight='80px'>
           <Flex alignItems='center' flexDirection='row'>
             <FBLogo />  
           </Flex>
           <Box margin='20px'>
-            <FBButton backgroundColor='white' 
-                      margin='10px' 
-                      color='boulder' 
-                      width='auto'
-                      variant='link'>About us</FBButton>
-            <FBButton backgroundColor='white' 
-                      margin='10px' 
-                      color='boulder' 
-                      width='auto'
-                      variant='link'
-                      onClick={login}>Login</FBButton>
+            <HeaderButton>About us</HeaderButton>
+            <HeaderButton onClick={login}>Login</HeaderButton>
             <FBButton borderColor='ocean'
                       width='auto'
                       margin='10px' 

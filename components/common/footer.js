@@ -11,10 +11,10 @@ const Footer = () => {
   const isWide = useMedia('(min-width: 970px')
 
   return (
-    <Flex height='15rem' backgroundColor='gray.700' flexDirection='column' justify='space-around'>
+    <Flex height='15rem' backgroundColor='boulder' flexDirection='column' justify='space-around'>
       <Flex flexDirection='row' justify='space-around'>
         <Flex flexDirection='column' color='white'>
-          <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
+          <Flex flexDirection='row' justify='space-around' marginBottom='20px' color='white'>
             <Button backgroundColor='none' variant='link'>About us</Button>
             <Flex flexDirection='column' justify='space-around'>
               <Text>·</Text>
