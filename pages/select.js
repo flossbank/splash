@@ -1,12 +1,12 @@
 import Footer from '../components/common/footer'
 import Header from '../components/common/header'
-import LoginSection from '../components/login/login_section'
+import SelectTierSection from '../components/select/select_tier_section'
 
 function Login () {
   return (
     <>
       <Header />
-      <LoginSection />
+      <SelectTierSection />
       <Footer />
     </>
   )

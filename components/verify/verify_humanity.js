@@ -14,7 +14,7 @@ import {
   validateCaptcha
 } from '../../client'
 import FBDivider from '../common/divider'
-import Stepper from './stepper'
+import Stepper from '../common/stepper'
 
 const VerifyHumanity = () => {
   const router = useRouter()
@@ -38,12 +38,11 @@ const VerifyHumanity = () => {
       }
       if (kind === 'advertiser' || kind === 'maintainer') {
         window.location = 'https://flossbank.com/login?welcome=true'
-      } else {
-        setStep('RECAPTCHA')
+        return
       }
+      setStep('RECAPTCHA')
     } catch (e) {
       setStatus('Failed to verify email. Please try again or contact support@flossbank.com for assistance.')
-      return
     }
   }
 
@@ -55,20 +54,18 @@ const VerifyHumanity = () => {
     }
   }
 
-  const steps = [
-    {
-      iconName: 'stepperInProgress',
-      title: 'Verify'
-    },
-    {
-      iconName: 'stepperNotStarted',
-      title: 'Select'
-    },
-    {
-      iconName: 'stepperNotStarted',
-      title: 'Install'
-    }
-  ]
+  const steps = [{
+    iconName: 'stepperInProgress',
+    title: 'Verify'
+  },
+  {
+    iconName: 'stepperNotStarted',
+    title: 'Select'
+  },
+  {
+    iconName: 'stepperNotStarted',
+    title: 'Install'
+  }]
 
   return (
     <Box height='85vh'>
