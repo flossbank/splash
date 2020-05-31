@@ -1,10 +1,10 @@
 import Footer from '../components/common/footer'
-import SplashHeader from '../components/splash/splash_header'
+import Header from '../components/common/header'
 
 function AboutUs () {
   return (
     <>
-      <SplashHeader />
+      <Header />
       poop
       <Footer />
     </>
