@@ -34,7 +34,7 @@
     "dotenv-webpack": "^1.7.0",
     "emotion-theming": "^10.0.27",
     "isomorphic-fetch": "^2.2.1",
-    "next": "9.1.6",
+    "next": "^9.4.4",
     "node-sass": "^4.13.0",
     "pondjs": "^0.9.0",
     "prop-types": "^15.7.2",

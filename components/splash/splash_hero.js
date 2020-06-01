@@ -117,8 +117,8 @@ const SplashHero = (props) => {
 }
 
 SplashHero.propTypes = {
-  scrollToBusinessSection: PropTypes.func.isRequired,
-  scrollToDeveloperSection: PropTypes.func.isRequired
+  handleScrollToBusinessSection: PropTypes.func.isRequired,
+  handleScrollToDeveloperSection: PropTypes.func.isRequired
 }
 
 export default SplashHero
