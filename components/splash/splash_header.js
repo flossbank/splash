@@ -17,8 +17,8 @@ export default () => {
           </Flex>
           <Box margin="20px" className="flow-row">
             {/* TODO: convert to real nav and list / list items */}
-            <TextLink text="About Us" colorVariant="boulder" url="/about" />
-            <TextLink text="Log In" colorVariant="boulder" url="/login" />
+            <TextLink text="About Us" color="boulder" url="/about" />
+            <TextLink text="Log In" color="boulder" url="/login" />
             {/* TODO: create LinkBtn component and replace */}
             <FBButton
               borderColor="ocean"

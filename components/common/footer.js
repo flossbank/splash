@@ -37,11 +37,7 @@ const Footer = () => {
             <React.Fragment key={i}>
               {i > 0 && <span aria-hidden="true">&bull;</span>}
               <ListItem>
-                <TextLink
-                  url={link.url}
-                  text={link.text}
-                  colorVariant="white"
-                />
+                <TextLink url={link.url} text={link.text} color="white" />
               </ListItem>
             </React.Fragment>
           ))}

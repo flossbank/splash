@@ -7,7 +7,7 @@ const TextLink = ({ url, text, color = "ocean", fontWeight = 600 }) => (
   <Link
     href={url}
     className={styles.link}
-    variantColor={color}
+    color={color}
     fontWeight={fontWeight}
   >
     {text}
