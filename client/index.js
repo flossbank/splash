@@ -18,12 +18,8 @@ export const signup = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/user/register`, optionsWithPostBody({ email }))
 }
 
-export const verifyEmail = async ({ email, kind, token }) => {
-  return fetchThenJson(`${ENDPOINT}/${kind}/verify`, optionsWithPostBody({ email, token }))
-}
-
-export const validateCaptcha = async ({ email, token, response }) => {
-  return fetchThenJson(`${ENDPOINT}/user/validate-captcha`, optionsWithPostBody({ email, token, response }))
+export const verifyRegistration = async ({ email, response, token }) => {
+  return fetchThenJson(`${ENDPOINT}/user/verify-registration`, optionsWithPostBody({ email, token, recaptchaResponse: response }))
 }
 
 const fetchThenJson = (url, options) => fetch(url, options)
