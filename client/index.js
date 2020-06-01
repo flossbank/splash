@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://api.flossbank.com' : 'https://api.flossbank.io'
+const ENDPOINT = process.env.API_HOST
 
 export const betaSubscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))

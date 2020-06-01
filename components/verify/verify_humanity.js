@@ -22,16 +22,12 @@ const VerifyHumanity = () => {
   const [verified, setVerified] = useState(false)
   const [status, setStatus] = useState('Verifying email...')
 
-  useEffect(() => {
+  const verify = async (response) => {
     if (!encodedEmail || !token || !kind) {
       // if (typeof window !== 'undefined') window.location.replace('https://flossbank.com/')
       setVerified(true)
       setStatus('Failure')
     }
-  }, [verified, status])
-
-  const verify = async (response) => {
-    console.log({ response })
     try {
       await verifyRegistration({ email, token, response })
       setVerified(true)
@@ -72,12 +68,12 @@ const VerifyHumanity = () => {
         <Text fontSize='24px' textAlign='center' margin='2rem'>No robots allowed</Text>
         <Text textAlign='center' marginBottom='1rem'>On behalf of the open source community, thank you for installing! ♥</Text>
         <Text textAlign='center'>{status}</Text>
-        {step === 'RECAPTCHA' && (<Box>
+        {!verified && (<Flex flexDirection='row' justify='center' marginTop='3rem'>
           <Recaptcha render='explicit'
                      onloadCallback={() => setStatus('Please complete the captcha below to complete registration.')}
                      verifyCallback={(response) => verify(response)}
                      sitekey={process.env.RECAPTCHA_SITE_KEY} />
-        </Box>)}
+        </Flex>)}
       </Box>
     </Box>
   )
