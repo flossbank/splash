@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/core";
 
 import FBButton from "../common/button";
 import FBLogo from "../common/logo";
-import TextLink from "../common/TextLink";
+import TextLink from "../common/textLink";
 import useMedia from "../common/useMedia";
 
 export default () => {

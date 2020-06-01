@@ -1,7 +1,8 @@
 import { Flex, List, ListItem, Text, Box } from "@chakra-ui/core";
 
-import TextLink from "./TextLink";
-import styles from "./Footer.module.scss";
+import TextLink from "./textLink";
+
+import styles from "./footer.module.scss";
 
 const links = [
   {

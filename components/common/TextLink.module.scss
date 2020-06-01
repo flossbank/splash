@@ -1,5 +1,3 @@
-// TODO: move SCSS files
-
 @import "../../styles/_variables";
 
 .link {
@@ -12,7 +10,7 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 0.15em;
+    height: 0.125em;
     bottom: -0.15em;
     left: 0;
     transform: scaleX(0);
@@ -21,30 +19,11 @@
     background-color: currentColor;
   }
 
+  &:hover {
+    text-decoration: none !important;
+  }
+
   &:hover::after {
     transform: scaleX(1);
   }
-}
-
-/* Color Variants */
-.ocean {
-  color: $ocean;
-}
-
-.boulder {
-  color: $boulder;
-}
-
-.white {
-  color: #fff;
-}
-
-/* Font Weight Variants */
-
-.normal {
-  font-weight: normal;
-}
-
-.bold {
-  font-weight: 600;
 }
