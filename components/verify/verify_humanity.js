@@ -32,6 +32,7 @@ const VerifyHumanity = () => {
       await verifyRegistration({ email, token, response })
       setVerified(true)
       setStatus('Success!')
+      router.push('/select')
     } catch (e) {
       setStatus('Failed to verify email. Please try again or contact support@flossbank.com for assistance.')
     }
