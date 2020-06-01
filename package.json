@@ -13,6 +13,11 @@
     "watch:unit-tests": "recaptcha_secret=test mongo_uri=test ava --watch",
     "test": "npm run lint && npm run coverage"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",

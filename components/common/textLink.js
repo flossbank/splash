@@ -1,9 +1,9 @@
-import { Link } from "@chakra-ui/core";
-import PropTypes from "prop-types";
+import { Link } from '@chakra-ui/core'
+import PropTypes from 'prop-types'
 
-import styles from "./textLink.module.scss";
+import styles from './textLink.module.scss'
 
-const TextLink = ({ url, text, color = "ocean", fontWeight = 600 }) => (
+const TextLink = ({ url, text, color = 'ocean', fontWeight = 600 }) => (
   <Link
     href={url}
     className={styles.link}
@@ -12,11 +12,11 @@ const TextLink = ({ url, text, color = "ocean", fontWeight = 600 }) => (
   >
     {text}
   </Link>
-);
+)
 
 TextLink.propTypes = {
   url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-};
+  text: PropTypes.string.isRequired
+}
 
-export default TextLink;
+export default TextLink
