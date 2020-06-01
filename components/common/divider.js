@@ -1,5 +1,5 @@
 import {
-  Divider,
+  Divider
 } from '@chakra-ui/core'
 
 const FBDivider = (props) => {

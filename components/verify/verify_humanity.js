@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Heading,
   Flex,
-  Text,
+  Text
 } from '@chakra-ui/core'
 import { decode } from 'b36'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Recaptcha from 'react-recaptcha'
-import { 
-  verifyRegistration,
+import {
+  verifyRegistration
 } from '../../client'
 import FBDivider from '../common/divider'
 import Stepper from '../common/stepper'
@@ -60,21 +60,28 @@ const VerifyHumanity = () => {
         <Stepper steps={steps} />
       </Flex>
       <Box padding={['4rem 1rem 0 1rem', '4rem 0 0 0']}>
-        <Heading textTransform='uppercase' 
-                 fontWeight='bold' 
-                 fontSize='14px' 
-                 textAlign='center'
-                 marginBottom='1rem'>Verify</Heading>
-        <FBDivider margin='auto'/>
+        <Heading
+          textTransform='uppercase'
+          fontWeight='bold'
+          fontSize='14px'
+          textAlign='center'
+          marginBottom='1rem'
+        >Verify
+        </Heading>
+        <FBDivider margin='auto' />
         <Text fontSize='24px' textAlign='center' margin='2rem'>No robots allowed</Text>
         <Text textAlign='center' marginBottom='1rem'>On behalf of the open source community, thank you for installing! ♥</Text>
         <Text textAlign='center'>{status}</Text>
-        {!verified && (<Flex flexDirection='row' justify='center' marginTop='3rem'>
-          <Recaptcha render='explicit'
-                     onloadCallback={() => setStatus('Please complete the captcha below to complete registration.')}
-                     verifyCallback={(response) => verify(response)}
-                     sitekey={process.env.RECAPTCHA_SITE_KEY} />
-        </Flex>)}
+        {!verified && (
+          <Flex flexDirection='row' justify='center' marginTop='3rem'>
+            <Recaptcha
+              render='explicit'
+              onloadCallback={() => setStatus('Please complete the captcha below to complete registration.')}
+              verifyCallback={(response) => verify(response)}
+              sitekey={process.env.RECAPTCHA_SITE_KEY}
+            />
+          </Flex>
+        )}
       </Box>
     </Box>
   )

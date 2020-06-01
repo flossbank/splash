@@ -1,7 +1,7 @@
 const FBLogoLetters = () => {
   return (
     <div>
-      <img src="/images/fbLogoLetters.png" />
+      <img src='/images/fbLogoLetters.png' />
     </div>
   )
 }
