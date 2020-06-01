@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://api.flossbank.com' : 'http://localhost:8081'
+const ENDPOINT = process.env.API_HOST
 
 export const betaSubscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
@@ -10,11 +10,20 @@ export const betaUnsubscribe = async ({ token }) => {
   return fetchThenJson(`${ENDPOINT}/beta/unsubscribe`, optionsWithPostBody({ token }))
 }
 
+export const login = async ({ email }) => {
+  return fetchThenJson(`${ENDPOINT}/user/request-login`, optionsWithPostBody({ email }))
+}
+
+export const signup = async ({ email }) => {
+  return fetchThenJson(`${ENDPOINT}/user/register`, optionsWithPostBody({ email }))
+}
+
+export const verifyRegistration = async ({ email, response, token }) => {
+  return fetchThenJson(`${ENDPOINT}/user/verify-registration`, optionsWithPostBody({ email, token, recaptchaResponse: response }))
+}
+
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
-    if (!res.success) {
-      return res.json()
-    }
     if (!res.ok) {
       const e = new Error('response not ok')
       e.res = res

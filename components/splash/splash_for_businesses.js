@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import SplashDivider from './splash_divider'
+import FBDivider from '../common/divider'
 import useMedia from '../common/useMedia'
 import FBButton from '../common/button'
 
@@ -20,7 +20,7 @@ const SplashForBusinesses = (props) => {
         <Text textAlign='center' textTransform='uppercase' fontWeight='bold' fontSize='14px' marginBottom='10px'>
           For businesses
         </Text>
-        <SplashDivider />
+        <FBDivider />
         <Heading textAlign='center' marginTop='20px' marginBottom='30px' fontSize='24px'>
           Equitable contributions to the open source ecosystem
         </Heading>

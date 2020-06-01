@@ -1,14 +1,15 @@
 import Footer from '../components/common/footer'
 import Header from '../components/common/header'
+import SelectTierSection from '../components/select/select_tier_section'
 
-function AboutUs () {
+function Login () {
   return (
     <>
       <Header />
-      poop
+      <SelectTierSection />
       <Footer />
     </>
   )
 }
 
-export default AboutUs
+export default Login
