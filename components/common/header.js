@@ -2,6 +2,7 @@ import { Box, Flex } from '@chakra-ui/core'
 
 import FBButton from '../common/button'
 import FBLogo from '../common/logo'
+import FBLogoLetters from '../common/logoLetters'
 import TextLink from './textLink'
 import useMedia from '../common/useMedia'
 
@@ -23,17 +24,27 @@ export default () => {
   //   );
   // };
 
+  const logo = isWide ? (
+    <FBLogo />
+  ) : (
+    <FBLogoLetters width='2.25rem' height='auto' />
+  )
+
   return (
     <>
-      {isWide ? (
-        <Flex justify='space-between' paddingLeft='80px' paddingRight='80px'>
-          <Flex alignItems='center' flexDirection='row'>
-            <FBLogo />
-          </Flex>
-          <Box margin='20px' className='flow-row'>
-            {/* TODO: convert to real nav and list / list items */}
-            <TextLink text='About Us' color='boulder' url='/about' />
-            <TextLink text='Log In' color='boulder' url='/login' />
+      <Box as='header' padding={['1.5rem', '2.5rem 5rem']}>
+        <Flex alignItems='center' justify='space-between' flexDirection='row'>
+          {logo}
+          {/* TODO: convert to real nav and list / list items */}
+          <Flex
+            flex='1'
+            alignItems='center'
+            justify={['space-evenly', 'space-between']}
+            marginLeft={['1.5rem', 'auto']}
+            maxW='22.5rem'
+          >
+            <TextLink url='/about' text='About Us' color='boulder' />
+            <TextLink url='/login' text='Log In' color='boulder' />
             {/* TODO: create LinkBtn component and replace */}
             <FBButton
               borderColor='ocean'
@@ -45,13 +56,9 @@ export default () => {
             >
               Sign up
             </FBButton>
-          </Box>
+          </Flex>
         </Flex>
-      ) : (
-        <Flex alignItems='center' flexDirection='column' margin='20px'>
-          <FBLogo />
-        </Flex>
-      )}
+      </Box>
     </>
   )
 }

@@ -1,3 +1,12 @@
-.flow-row {
-  background-color: red !important; // just to easily test and see the styles are not applying
+:global(.sr-only) {
+  // hides content visually but keeps it in the document and accessible for SEO and screenreaders
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
