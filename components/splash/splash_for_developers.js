@@ -2,7 +2,7 @@ import { Flex, Box, Text, Heading, Icon } from "@chakra-ui/core";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import FBDivider from "./common/divider";
+import FBDivider from "../common/divider";
 import useMedia from "../common/useMedia";
 import FBButton from "../common/button";
 
