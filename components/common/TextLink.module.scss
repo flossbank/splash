@@ -1,0 +1,50 @@
+// TODO: move SCSS files
+
+@import "../../styles/_variables";
+
+.link {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+
+  /* underline hover style */
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.15em;
+    bottom: -0.15em;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms ease-in-out;
+    background-color: currentColor;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Color Variants */
+.ocean {
+  color: $ocean;
+}
+
+.boulder {
+  color: $boulder;
+}
+
+.white {
+  color: #fff;
+}
+
+/* Font Weight Variants */
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: 600;
+}
