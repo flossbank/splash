@@ -1,11 +1,11 @@
 import Footer from '../components/common/footer'
-import SplashHeader from '../components/splash/splash_header'
+import Header from '../components/common/header'
 import LoginSection from '../components/login/login_section'
 
 function Login () {
   return (
     <>
-      <SplashHeader />
+      <Header />
       <LoginSection />
       <Footer />
     </>

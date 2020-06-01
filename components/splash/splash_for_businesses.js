@@ -1,7 +1,7 @@
 import { Flex, Box, Text, Heading, Icon } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 
-import SplashDivider from "./splash_divider";
+import FBDivider from "./common/divider";
 import useMedia from "../common/useMedia";
 import FBButton from "../common/button";
 
@@ -20,7 +20,7 @@ const SplashForBusinesses = (props) => {
         >
           For businesses
         </Text>
-        <SplashDivider />
+        <FBDivider />
         <Heading
           textAlign="center"
           marginTop="20px"

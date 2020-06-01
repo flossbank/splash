@@ -2,11 +2,26 @@ import { Box, Flex } from "@chakra-ui/core";
 
 import FBButton from "../common/button";
 import FBLogo from "../common/logo";
-import TextLink from "../common/textLink";
+import TextLink from "./textLink";
 import useMedia from "../common/useMedia";
 
 export default () => {
   const isWide = useMedia("(min-width: 800px");
+
+  // const HeaderButton = (props) => {
+  //   return (
+  //     <FBButton
+  //       backgroundColor="white"
+  //       margin="10px"
+  //       color="boulder"
+  //       width="auto"
+  //       variant="link"
+  //       onClick={props.onClick}
+  //     >
+  //       {props.children}
+  //     </FBButton>
+  //   );
+  // };
 
   return (
     <>
