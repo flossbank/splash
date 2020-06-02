@@ -9,7 +9,7 @@ import {
   FormLabel
 } from '@chakra-ui/core'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import FBButton from '../common/button'
 import FBLogoLetters from '../common/logoLetters'
