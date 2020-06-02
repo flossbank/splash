@@ -3,37 +3,25 @@ import { Box, Flex } from '@chakra-ui/core'
 import FBButton from '../common/button'
 import FBLogo from '../common/logo'
 import TextLink from './textLink'
-import useMedia from '../common/useMedia'
 
-export default () => {
-  const isWide = useMedia('(min-width: 800px')
-
-  // const HeaderButton = (props) => {
-  //   return (
-  //     <FBButton
-  //       backgroundColor="white"
-  //       margin="10px"
-  //       color="boulder"
-  //       width="auto"
-  //       variant="link"
-  //       onClick={props.onClick}
-  //     >
-  //       {props.children}
-  //     </FBButton>
-  //   );
-  // };
-
+const Header = () => {
   return (
     <>
-      {isWide ? (
-        <Flex justify='space-between' paddingLeft='80px' paddingRight='80px'>
-          <Flex alignItems='center' flexDirection='row'>
-            <FBLogo />
-          </Flex>
-          <Box margin='20px' className='flow-row'>
-            {/* TODO: convert to real nav and list / list items */}
-            <TextLink text='About Us' color='boulder' url='/about' />
-            <TextLink text='Log In' color='boulder' url='/login' />
+      <Box as='header' padding={['1.5rem', '1.5rem', '2.5rem 5rem']}>
+        <Flex alignItems='center' justify='space-between' flexDirection='row'>
+          <FBLogo />
+          <Box
+            as='nav'
+            display='flex'
+            flex='1'
+            alignItems='center'
+            justifyContent='space-between'
+            marginLeft={['2.25rem', 'auto']}
+            maxW='22.5rem'
+            aria-label='Primary navigation'
+          >
+            <TextLink url='/about' text='About Us' color='boulder' />
+            <TextLink url='/login' text='Log In' color='boulder' />
             {/* TODO: create LinkBtn component and replace */}
             <FBButton
               borderColor='ocean'
@@ -47,11 +35,9 @@ export default () => {
             </FBButton>
           </Box>
         </Flex>
-      ) : (
-        <Flex alignItems='center' flexDirection='column' margin='20px'>
-          <FBLogo />
-        </Flex>
-      )}
+      </Box>
     </>
   )
 }
+
+export default Header

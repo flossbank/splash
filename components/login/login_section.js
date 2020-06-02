@@ -68,25 +68,35 @@ const LoginSection = () => {
     return loginFlow ? (
       <Flex flexDirection='row'>
         <Text marginRight='5px'>Don't have an account?</Text>
-        <Button onClick={() => setLoginFlow(false)} variant='link' color='black'>Sign up</Button>
+        <Button
+          onClick={() => setLoginFlow(false)}
+          variant='link'
+          color='black'
+        >
+          Sign up
+        </Button>
       </Flex>
     ) : (
       <Flex flexDirection='row'>
         <Text marginRight='5px'>Already have an account?</Text>
-        <Button onClick={() => setLoginFlow(true)} variant='link' color='black'>Log in</Button>
+        <Button onClick={() => setLoginFlow(true)} variant='link' color='black'>
+          Log in
+        </Button>
       </Flex>
     )
   }
 
   return (
     <>
-      <Flex width='full' backgroundColor='lightRock' height='45rem' flexDirection='row' justify='space-around'>
+      <Flex
+        width='full'
+        backgroundColor='lightRock'
+        height='45rem'
+        flexDirection='row'
+        justify='space-around'
+      >
         <Box paddingTop='60px'>
-          {isWide && (
-            <Box margin='0 auto 0 auto' width='40px' height='60px'>
-              <FBLogoLetters />
-            </Box>
-          )}
+          {isWide && <FBLogoLetters margin='0 auto' />}
           <Flex
             flexDirection='column'
             backgroundColor='white'
@@ -113,7 +123,8 @@ const LoginSection = () => {
                   backgroundColor='ocean'
                   color='white'
                   _hover={{ marginTop: '3px' }}
-                >{loginText()}
+                >
+                  {loginText()}
                 </FBButton>
               </Box>
             ) : (
@@ -124,7 +135,11 @@ const LoginSection = () => {
             )}
           </Flex>
           {!emailSent && (
-            <Flex flexDirection='column' width={['100%', '400px']} padding='30px'>
+            <Flex
+              flexDirection='column'
+              width={['100%', '400px']}
+              padding='30px'
+            >
               {toggleStateComponent()}
             </Flex>
           )}

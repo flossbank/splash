@@ -2,9 +2,18 @@
 import { theme } from '@chakra-ui/core'
 import CustomIcons from './icons'
 
-// TODO: add levels for lighter/darker shades of colors
+const fontStack = `"Helvetica Neue", Helvetica, Frutiger, "Frutiger Linotype",
+    Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad,
+    "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva,
+    Arial, sans-serif`
+
 export default {
   ...theme,
+  fonts: {
+    body: fontStack,
+    heading: fontStack,
+    mono: 'Menlo, monospace'
+  },
   colors: {
     ...theme.colors,
     ocean: '#2b67af',

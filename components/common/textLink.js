@@ -3,16 +3,18 @@ import PropTypes from 'prop-types'
 
 import styles from './textLink.module.scss'
 
-const TextLink = ({ url, text, color = 'ocean', fontWeight = 600 }) => (
-  <Link
-    href={url}
-    className={styles.link}
-    color={color}
-    fontWeight={fontWeight}
-  >
+// destructuring children so if someone passes children (which we don't want), it doesn't funk things up
+const TextLink = ({ url, text, children, ...props }) => (
+  <Link href={url} className={styles.link} {...props}>
     {text}
   </Link>
 )
+
+TextLink.defaultProps = {
+  color: 'ocean',
+  fontWeight: 600,
+  display: 'initial'
+}
 
 TextLink.propTypes = {
   url: PropTypes.string.isRequired,
