@@ -103,14 +103,13 @@ const LoginSection = () => {
                     type='email'
                     id='email'
                     backgroundColor='lightRock'
-                    aria-describedby='email'
                     onChange={onEmailChange}
                   />
                   <FormErrorMessage>{error}</FormErrorMessage>
                 </FormControl>
                 <FBButton
                   isLoading={isSending}
-                  type="submit"
+                  type='submit'
                   backgroundColor='ocean'
                   color='white'
                   _hover={{ marginTop: '3px' }}
