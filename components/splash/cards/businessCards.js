@@ -3,22 +3,20 @@ import { Flex, Icon, Grid } from '@chakra-ui/core'
 const cardData = [
   {
     icon: 'givingHand',
-    copy: ` Rest easy knowing 100% of your donation goes to authors and
-                  maintainers`
+    text:
+      'Rest easy knowing 100% of your donation goes to authors and maintainers'
   },
   {
     icon: 'pieChart',
-    copy: `Donate dynamically to the open source packages your firm uses
-                  most`
+    text: 'Donate dynamically to the open source packages your firm uses most'
   },
   {
     icon: 'megaphone',
-    copy: `  Gain insight into your impact and explore advertising
-                  opportunities`
+    text: 'Gain insight into your impact and explore advertising opportunities'
   }
 ]
 
-const BusinessCard = ({ icon, copy }) => (
+const BusinessCard = ({ icon, text }) => (
   <Flex
     className='u-box-shadow'
     flexDirection={['column', 'row']}
@@ -32,7 +30,7 @@ const BusinessCard = ({ icon, copy }) => (
       marginBottom={['2.25rem', 0]}
       marginRight={[0, '2.25rem']}
     />
-    <p>{copy}</p>
+    <p>{text}</p>
   </Flex>
 )
 
@@ -45,7 +43,7 @@ const BusinessCards = () => (
     marginBottom='3rem'
   >
     {cardData.map((card, i) => (
-      <BusinessCard key={i} icon={card.icon} copy={card.copy} />
+      <BusinessCard key={i} icon={card.icon} text={card.text} />
     ))}
   </Grid>
 )

@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/core'
 
 // This is the large text in each section that sits below the underlined section title
-const Subheading = ({ copy, align, children, ...props }) => (
+const Subheading = ({ align, children, ...props }) => (
   <Text
     textAlign={align}
     marginBottom='2rem'
