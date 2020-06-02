@@ -35,7 +35,8 @@ const LoginSection = () => {
     return `Success! Click the magic link in your email to finish ${action}`
   }
 
-  const loginOrSignup = async () => {
+  const loginOrSignup = async (e) => {
+    e.preventDefault()
     if (!email) return showErrorMessage('Email is required')
     setIsSending(true)
     try {
@@ -95,27 +96,27 @@ const LoginSection = () => {
             height='14rem'
           >
             {!emailSent ? (
-              <>
+              <Box as='form' onSubmit={loginOrSignup}>
                 <FormControl marginBottom='20px' isRequired isInvalid={invalid}>
                   <FormLabel htmlFor='email'>Email address</FormLabel>
                   <Input
                     type='email'
                     id='email'
                     backgroundColor='lightRock'
-                    aria-describedby='Login-email'
+                    aria-describedby='email'
                     onChange={onEmailChange}
                   />
                   <FormErrorMessage>{error}</FormErrorMessage>
                 </FormControl>
                 <FBButton
                   isLoading={isSending}
+                  type="submit"
                   backgroundColor='ocean'
                   color='white'
                   _hover={{ marginTop: '3px' }}
-                  onClick={loginOrSignup}
                 >{loginText()}
                 </FBButton>
-              </>
+              </Box>
             ) : (
               <Box textAlign='center'>
                 <Text marginBottom='2rem'>{getSuccessText()}</Text>
