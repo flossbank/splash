@@ -13,7 +13,7 @@ const SplashForDevelopers = (props) => {
       <Flex
         flexDirection={['column', 'row']}
         padding={['60px 50px 60px 50px', '60px 150px 60px 150px']}
-        minH='80vh'
+        // minH='80vh' I don't think we need this; on tall screens there is not enough content and it's WAY too tall, and on mobile and laptop, the content is always enough to make it tall enough
         justify='space-between'
       >
         <Flex

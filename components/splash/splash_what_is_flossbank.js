@@ -35,7 +35,7 @@ const SplashWhatIsFlossbank = () => {
       justifyContent='space-around'
       backgroundColor='lightRock'
       padding='50px'
-      minH='90vh'
+      // minH='90vh' I don't think we need this; on tall screens there is not enough content and it's WAY too tall, and on mobile and laptop, the content is always enough to make it tall enough
     >
       {isWide && (
         <Box width='40%' marginTop='80px'>

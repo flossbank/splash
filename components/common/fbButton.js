@@ -42,7 +42,7 @@ FBButton.defaultProps = {
   backgroundColor: 'ocean',
   color: 'white',
   textAlign: 'center',
-  fontWeight: 600,
+  fontWeight: 500,
   lineHeight: 'inherit',
   borderRadius: '11px',
   borderWidth: '0px',

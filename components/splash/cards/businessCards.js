@@ -37,7 +37,7 @@ const BusinessCard = ({ icon, text }) => (
 const BusinessCards = () => (
   <Grid
     gap='1.75rem'
-    templateColumns='repeat(auto-fit, minmax(20rem, 1fr))'
+    templateColumns='repeat(auto-fit, minmax(18rem, 1fr))'
     maxW='75rem'
     width='100%'
     marginBottom='3rem'

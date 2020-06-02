@@ -12,7 +12,7 @@ const TextLink = ({ url, text, children, ...props }) => (
 
 TextLink.defaultProps = {
   color: 'ocean',
-  fontWeight: 600,
+  fontWeight: 500,
   display: 'initial'
 }
 
