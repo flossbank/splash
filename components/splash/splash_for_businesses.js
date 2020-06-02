@@ -9,7 +9,7 @@ import UnderlinedHeading from '../common/underlinedHeading'
 
 const SplashForBusinesses = ({ id }) => {
   return (
-    <Section bgColor='lightPuddle' id={id}>
+    <Section backgroundColor='lightPuddle' id={id}>
       <Flex flexDirection='column' justify='center' alignItems='center'>
         <UnderlinedHeading text='For businesses' align='center' />
 
