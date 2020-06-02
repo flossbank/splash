@@ -1,18 +1,12 @@
 import { Flex, Box, Text, Heading, Icon } from '@chakra-ui/core'
-import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
 import FBDivider from '../common/divider'
 import useMedia from '../common/useMedia'
-import FBButton from '../common/button'
+import FBButton from '../common/fbButton'
 
 const SplashForDevelopers = (props) => {
   const isWide = useMedia('(min-width: 768px')
-  const router = useRouter()
-
-  const login = () => {
-    router.push('/login')
-  }
 
   return (
     <Box id={props.id}>
@@ -53,12 +47,13 @@ const SplashForDevelopers = (props) => {
             <>
               <Box height='40px'>
                 <FBButton
-                  backgroundColor='ocean'
-                  color='white'
-                  _hover={{ marginTop: '3px' }}
-                  onClick={login}
+                  as='a'
+                  href='/signup'
+                  className='u-box-shadow'
+                  padding='1rem'
+                  minW='10rem'
                 >
-                  Sign up
+                  Sign Up
                 </FBButton>
               </Box>
               <Text marginTop='30px'>Are you an author or maintainer?</Text>
@@ -146,12 +141,13 @@ const SplashForDevelopers = (props) => {
           <>
             <Box height='40px' marginTop='30px'>
               <FBButton
-                backgroundColor='ocean'
-                color='white'
-                _hover={{ marginTop: '3px' }}
-                onClick={login}
+                as='a'
+                href='/signup'
+                className='u-box-shadow'
+                padding='1rem'
+                minW='10rem'
               >
-                Sign up
+                Sign Up
               </FBButton>
             </Box>
             <Text marginTop='30px'>Are you an author or maintainer?</Text>

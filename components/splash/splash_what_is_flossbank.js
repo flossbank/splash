@@ -1,10 +1,9 @@
 import { Box, Flex, Text, Icon, Heading } from '@chakra-ui/core'
-import { useRouter } from 'next/router'
 
 import PeopleCollabing from '../../public/images/splash/splash_people_collabing.svg'
 import FBDivider from '../common/divider'
 import useMedia from '../common/useMedia'
-import FBButton from '../common/button'
+import FBButton from '../common/fbButton'
 
 const WhatIsFlossbankCard = (props) => {
   return (
@@ -29,15 +28,6 @@ const WhatIsFlossbankCard = (props) => {
 
 const SplashWhatIsFlossbank = () => {
   const isWide = useMedia('(min-width: 768px')
-  const router = useRouter()
-
-  const login = () => {
-    router.push('/login')
-  }
-
-  const goToAboutUs = () => {
-    router.push('/aboutUs')
-  }
 
   return (
     <Flex
@@ -91,19 +81,23 @@ const SplashWhatIsFlossbank = () => {
         </Flex>
         <Flex flexDirection='row' marginTop='20px'>
           <FBButton
-            backgroundColor='ocean'
-            color='white'
-            _hover={{ marginTop: '3px' }}
-            onClick={login}
+            as='a'
+            href='/signup'
+            className='u-box-shadow'
+            padding='.75rem'
+            minW='10rem'
           >
             Sign Up
           </FBButton>
           <FBButton
+            as='a'
+            href='/aboutus'
+            className='u-box-shadow'
+            padding='.75rem'
+            minW='10rem'
             backgroundColor='puddle'
             color='ocean'
-            marginLeft='20px'
-            _hover={{ marginTop: '3px' }}
-            onClick={goToAboutUs}
+            margin='0 0 0 1.5rem'
           >
             About Us
           </FBButton>

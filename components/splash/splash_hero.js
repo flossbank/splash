@@ -6,7 +6,7 @@ import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
 import SplashForegroundClouds from '../../public/images/splash/splash_foreground_clouds.svg'
 import SplashBackgroundClouds from '../../public/images/splash/splash_background_clouds.svg'
-import FBButton from '../common/button'
+import FBButton from '../common/fbButton'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
 
@@ -46,27 +46,28 @@ const SplashHero = (props) => {
         justify='center'
         margin='auto'
         padding={['20px', '0px']}
-        width={['auto', '50%']}
         flexDirection={['column', 'row']}
         marginTop='30px'
         marginBottom='10px'
       >
         <FBButton
+          as='a'
+          href='#forDevelopers'
+          className='u-box-shadow'
           backgroundColor='white'
           color='ocean'
-          variant='solid'
-          marginBottom={['20px', '0']}
-          _hover={{ marginTop: '3px' }}
-          onClick={props.handleScrollToDeveloperSection}
+          minW={['none', '10rem']}
+          margin={['0 0 1.5rem 0', '0 1.5rem 0 0 ']}
         >
           For Developers
         </FBButton>
         <FBButton
+          as='a'
+          href='#forBusinesses'
+          className='u-box-shadow'
           backgroundColor='puddle'
-          marginLeft={['0px', '20px']}
           color='ocean'
-          _hover={{ marginTop: '3px' }}
-          onClick={props.handleScrollToBusinessSection}
+          minW={['none', '10rem']}
         >
           For Businesses
         </FBButton>
