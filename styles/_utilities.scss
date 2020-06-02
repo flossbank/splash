@@ -1,3 +1,3 @@
-.flow-row {
-  background-color: red !important; // just to easily test and see the styles are not applying
+:global(.u-box-shadow) {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); // just to easily test and see the styles are not applying
 }
