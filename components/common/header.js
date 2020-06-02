@@ -18,6 +18,7 @@ const Header = () => {
             justifyContent='space-between'
             marginLeft={['2.25rem', 'auto']}
             maxW='22.5rem'
+            aria-label='Primary navigation'
           >
             <TextLink url='/about' text='About Us' color='boulder' />
             <TextLink url='/login' text='Log In' color='boulder' />
