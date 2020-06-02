@@ -32,15 +32,15 @@ export default () => {
 
   return (
     <>
-      <Box as='header' padding={['1.5rem', '2.5rem 5rem']}>
+      <Box as='header' padding={['1.5rem', '1.5rem', '2.5rem 5rem']}>
         <Flex alignItems='center' justify='space-between' flexDirection='row'>
           {logo}
           {/* TODO: convert to real nav and list / list items */}
           <Flex
             flex='1'
             alignItems='center'
-            justify={['space-evenly', 'space-between']}
-            marginLeft={['1.5rem', 'auto']}
+            justify='space-between'
+            marginLeft={['2.25rem', 'auto']}
             maxW='22.5rem'
           >
             <TextLink url='/about' text='About Us' color='boulder' />

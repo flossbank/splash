@@ -13,14 +13,18 @@ const Footer = () => {
       backgroundColor='boulder'
       flexDirection='column'
       justify='space-around'
-      padding='5rem 3.75rem'
+      padding={['3rem 1.5rem', '5rem 3.75rem']}
       color='white'
     >
       <Flex flexDirection='row' justify='space-around' marginBottom='1.5rem'>
         <List className={styles.list}>
           {links.map((link, i) => (
             <React.Fragment key={i}>
-              {i > 0 && <span aria-hidden='true'>&bull;</span>}
+              {i > 0 && (
+                <Box as='span' aria-hidden='true' display={['none', 'initial']}>
+                  &bull;
+                </Box>
+              )}
               <ListItem>
                 <TextLink url={link.url} text={link.text} color='white' />
               </ListItem>
