@@ -1,123 +1,31 @@
-import { Flex, Box, Text, Heading, Icon } from '@chakra-ui/core'
+import { Flex, Text } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import FBDivider from '../common/divider'
 import FBButton from '../common/button'
+import BusinessCards from './cards/businessCards'
+import Section from './section'
+import Subheading from '../common/subheading'
+import UnderlinedHeading from '../common/underlinedHeading'
 
-const SplashForBusinesses = (props) => {
+const SplashForBusinesses = ({ id }) => {
   return (
-    <Box padding={['50px', '60px']} backgroundColor='puddle' id={props.id}>
-      <Flex flexDirection='column' justify='space-around' alignItems='center'>
-        <Text
-          textAlign='center'
-          textTransform='uppercase'
-          fontWeight='bold'
-          fontSize='14px'
-          marginBottom='10px'
-        >
-          For businesses
-        </Text>
-        <FBDivider />
-        <Heading
-          textAlign='center'
-          marginTop='20px'
-          marginBottom='30px'
-          fontSize='24px'
-        >
+    <Section backgroundColor='lightPuddle' id={id}>
+      <Flex flexDirection='column' justify='center' alignItems='center'>
+        <UnderlinedHeading text='For businesses' align='center' />
+
+        <Subheading align='center'>
           Equitable contributions to the open source ecosystem
-        </Heading>
-        <Text
-          textAlign='center'
-          fontSize='16px'
-          marginBottom='8px'
-          paddingLeft={['0', '20%']}
-          paddingRight={['0', '20%']}
-        >
+        </Subheading>
+
+        <Text textAlign='center' marginBottom='3rem' maxW='70ch'>
           By registering your GitHub Enterprise account with Flossbank, you can
-          give to authors and maintainers across the entire dependency tree of
-          your installed packages.
+          give to authors and maintainers across the{' '}
+          <strong>entire dependency tree</strong> of your installed packages.
         </Text>
-        <Flex
-          flexDirection={['column', 'row']}
-          margin={['0', '40px']}
-          justify='space-around'
-        >
-          <Flex
-            flexDirection='row'
-            justify='space-around'
-            margin={['20px 0 20px 0', '20px']}
-            padding='30px'
-            width={['auto', '355px']}
-            height={['auto', '160px']}
-            backgroundColor='white'
-          >
-            <Flex flexDirection='column' justify='space-around'>
-              <Flex flexDirection={['column', 'row']}>
-                <Flex
-                  flexDirection='column'
-                  justify='space-around'
-                  margin={['0 0 10px 0', '0 30px 0 0']}
-                >
-                  <Icon name='givingHand' size='56px' margin='auto' />
-                </Flex>
-                <Text fontSize='16px'>
-                  Rest easy knowing 100% of your donation goes to authors and
-                  maintainers
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-          <Flex
-            flexDirection='row'
-            justify='space-around'
-            margin={['20px 0 20px 0', '20px']}
-            padding='30px'
-            width={['auto', '355px']}
-            height={['auto', '160px']}
-            backgroundColor='white'
-          >
-            <Flex flexDirection='column' justify='space-around'>
-              <Flex flexDirection={['column', 'row']}>
-                <Flex
-                  flexDirection='column'
-                  justify='space-around'
-                  margin={['0 0 10px 0', '0 30px 0 0']}
-                >
-                  <Icon name='pieChart' size='56px' margin='auto' />
-                </Flex>
-                <Text fontSize='16px'>
-                  Donate dynamically to the open source packages your firm uses
-                  most
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-          <Flex
-            flexDirection='row'
-            justify='space-around'
-            margin={['20px 0 20px 0', '20px']}
-            padding='30px'
-            width={['auto', '355px']}
-            height={['auto', '160px']}
-            backgroundColor='white'
-          >
-            <Flex flexDirection='column' justify='space-around'>
-              <Flex flexDirection={['column', 'row']}>
-                <Flex
-                  flexDirection='column'
-                  justify='space-around'
-                  margin={['0 0 10px 0', '0 30px 0 0']}
-                >
-                  <Icon name='megaphone' size='56px' margin='auto' />
-                </Flex>
-                <Text fontSize='16px'>
-                  Gain insight into your impact and explore advertising
-                  opportunities
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-        </Flex>
+
+        <BusinessCards />
+
+        {/* TODO: replace with a future LinkBtn component */}
         <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
           <FBButton
             backgroundColor='ocean'
@@ -129,7 +37,7 @@ const SplashForBusinesses = (props) => {
           </FBButton>
         </Flex>
       </Flex>
-    </Box>
+    </Section>
   )
 }
 
