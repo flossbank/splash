@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import FBButton from '../common/button'
+import FBButton from '../common/fbButton'
 import BusinessCards from './cards/businessCards'
 import Section from './section'
 import Subheading from '../common/subheading'
@@ -25,13 +25,13 @@ const SplashForBusinesses = ({ id }) => {
 
         <BusinessCards />
 
-        {/* TODO: replace with a future LinkBtn component */}
         <Flex flexDirection='row' justify='space-around' marginBottom='20px'>
           <FBButton
-            backgroundColor='ocean'
-            width='auto'
-            color='white'
-            _hover={{ marginTop: '3px' }}
+            as='a'
+            href='/signup'
+            className='u-box-shadow'
+            minW='10rem'
+            padding='1rem'
           >
             Register
           </FBButton>

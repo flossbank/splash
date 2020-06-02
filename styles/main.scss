@@ -4,3 +4,7 @@
 
 @import "./_variables";
 @import "./_utilities";
+
+html {
+  scroll-behavior: smooth;
+}
