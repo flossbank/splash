@@ -1,10 +1,7 @@
-// TODO: move these out of public folder since they will be compiled at build time
-@import url("https://fonts.googleapis.com/css?family=Oswald:500,300,400");
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
-
 @import "./_variables";
 @import "./_utilities";
 
+// TODO: Move this to a _global.scss file
 html {
   scroll-behavior: smooth;
 }
