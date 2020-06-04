@@ -6,16 +6,16 @@ import {
   Link,
   FormControl,
   FormErrorMessage,
-  FormLabel
+  FormLabel,
 } from '@chakra-ui/core'
 import { useState } from 'react'
 
 import FBButton from '../common/button'
 import FBLogoLetters from '../common/logoLetters'
 import useMedia from '../common/useMedia'
-import { login } from '../../client'
+import { signup } from '../../client'
 
-const LoginSection = () => {
+const SignupSection = () => {
   const isWide = useMedia('(min-width: 800px')
   const [email, setEmail] = useState('')
   const [invalid, setInvalid] = useState(false)
@@ -28,7 +28,7 @@ const LoginSection = () => {
     if (!email) return showErrorMessage('Email is required')
     setIsSending(true)
     try {
-      await login({ email })
+      await signup({ email })
       setEmailSent(true)
     } catch (e) {
       showErrorMessage('Something went wrong, please try again')
@@ -86,13 +86,13 @@ const LoginSection = () => {
                   color='white'
                   _hover={{ marginTop: '3px' }}
                 >
-                  Log in
+                  Sign up
                 </FBButton>
               </Box>
             ) : (
               <Box textAlign='center'>
                 <Text marginBottom='2rem'>
-                  Success! Click the magic link in your email to finish logging in!
+                  Success! Click the magic link in your email to finish registering!
                 </Text>
                 <Text>You can now close this tab</Text>
               </Box>
@@ -105,9 +105,9 @@ const LoginSection = () => {
               padding='30px'
             >
               <Flex flexDirection='row'>
-                <Text marginRight='5px'>Don't have an account? {" "}</Text>
-                <Link href='/signup' color='black'>
-                  Sign up
+                <Text marginRight='5px'>Already have an account? {" "}</Text>
+                <Link href='/login' color='black'>
+                  Log in
                 </Link>
               </Flex>
             </Flex>
@@ -118,4 +118,4 @@ const LoginSection = () => {
   )
 }
 
-export default LoginSection
+export default SignupSection
