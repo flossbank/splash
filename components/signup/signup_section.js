@@ -13,9 +13,9 @@ import FBButton from '../common/fbButton'
 import TextLink from '../common/textLink'
 import FBLogoLetters from '../common/logoLetters'
 import useMedia from '../common/useMedia'
-import { login } from '../../client'
+import { signup } from '../../client'
 
-const LoginSection = () => {
+const SignupSection = () => {
   const isWide = useMedia('(min-width: 800px')
   const [email, setEmail] = useState('')
   const [invalid, setInvalid] = useState(false)
@@ -23,12 +23,12 @@ const LoginSection = () => {
   const [emailSent, setEmailSent] = useState(false)
   const [isSending, setIsSending] = useState(false)
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
     if (!email) return showErrorMessage('Email is required')
     setIsSending(true)
     try {
-      await login({ email })
+      await signup({ email })
       setEmailSent(true)
     } catch (e) {
       showErrorMessage('Something went wrong, please try again')
@@ -68,7 +68,7 @@ const LoginSection = () => {
             height='14rem'
           >
             {!emailSent ? (
-              <Box as='form' onSubmit={handleLogin}>
+              <Box as='form' onSubmit={handleSignup}>
                 <FormControl marginBottom='20px' isRequired isInvalid={invalid}>
                   <FormLabel htmlFor='email'>Email address</FormLabel>
                   <Input
@@ -81,18 +81,18 @@ const LoginSection = () => {
                 </FormControl>
                 <FBButton
                   isLoading={isSending}
-                  as='button'
                   type='submit'
+                  as='button'
                   backgroundColor='ocean'
                   color='white'
                 >
-                  Log in
+                  Sign up
                 </FBButton>
               </Box>
             ) : (
               <Box textAlign='center'>
                 <Text marginBottom='2rem'>
-                  Success! Click the magic link in your email to finish logging in!
+                  Success! Click the magic link in your email to finish registering!
                 </Text>
                 <Text>You can now close this tab</Text>
               </Box>
@@ -105,8 +105,8 @@ const LoginSection = () => {
               padding='30px'
             >
               <Flex flexDirection='row'>
-                <Text marginRight='5px'>Don't have an account? {' '}</Text>
-                <TextLink href='/signup' text='Sign up' />
+                <Text marginRight='5px'>Already have an account? {' '}</Text>
+                <TextLink href='/login' text='Log in' />
               </Flex>
             </Flex>
           )}
@@ -116,4 +116,4 @@ const LoginSection = () => {
   )
 }
 
-export default LoginSection
+export default SignupSection

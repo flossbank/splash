@@ -9,7 +9,7 @@ import FBButton from '../common/fbButton'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
 
-const SplashHero = (props) => {
+const SplashHero = () => {
   const isWide = useMedia('(min-width: 800px')
 
   const innerContent = (
