@@ -31,7 +31,6 @@ const SplashForDevelopers = (props) => {
         <UnderlinedHeading
           text='For developers'
           align={{ base: 'center', lg: 'left' }}
-          marginBottom='3rem'
         />
         <Box gridColumn='1' marginBottom={{ base: '3rem', lg: 0 }}>
           <Subheading textAlign={{ base: 'center', lg: 'left' }}>

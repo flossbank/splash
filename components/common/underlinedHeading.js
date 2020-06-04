@@ -34,7 +34,7 @@ UnderlinedHeading.defaultProps = {
   fontWeight: 'bold',
   fontSize: '0.875rem',
   textTransform: 'uppercase',
-  marginBottom: '2.25rem'
+  marginBottom: '2rem'
 }
 
 UnderlinedHeading.propTypes = {

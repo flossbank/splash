@@ -50,7 +50,7 @@ const ForDevelopersCards = (props) => (
     justify={{ base: 'space-between' }}
     align={{ base: 'center' }}
     direction={{ base: 'column', lg: 'column' }}
-    marginBottom={{ base: '1.5rem', lg: '3rem' }}
+    // marginBottom={{ base: '1.5rem', lg: '3rem' }}
     {...props}
   >
     {cardData.map((card, i) => (
