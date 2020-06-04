@@ -23,7 +23,7 @@ const LoginSection = () => {
   const [emailSent, setEmailSent] = useState(false)
   const [isSending, setIsSending] = useState(false)
 
-  const loginOrSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
     if (!email) return showErrorMessage('Email is required')
     setIsSending(true)
@@ -68,7 +68,7 @@ const LoginSection = () => {
             height='14rem'
           >
             {!emailSent ? (
-              <Box as='form' onSubmit={loginOrSignup}>
+              <Box as='form' onSubmit={handleLogin}>
                 <FormControl marginBottom='20px' isRequired isInvalid={invalid}>
                   <FormLabel htmlFor='email'>Email address</FormLabel>
                   <Input
