@@ -1,12 +1,12 @@
 .splash_rocket {
   width: 400px;
-  z-index:2;
+  z-index: 2;
   margin: auto;
 }
 
 .splash_rocket_mobile {
   width: 100%;
-  z-index:2;
+  z-index: 2;
   margin: auto;
   height: auto;
   padding-top: 10vh;
@@ -23,7 +23,7 @@
 
 .splash_parallax {
   width: 100%;
-  height: 80vh;
+  min-height: 80vh;
   margin-top: 20px;
   padding-top: 100px;
 }

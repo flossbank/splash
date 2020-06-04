@@ -82,7 +82,7 @@ const SplashHero = () => {
       backgroundColor='ocean'
       color='white'
       padding={['0px', '50px']}
-      minH='90vh'
+      // minH='90vh' I don't think we need this; on tall screens there is not enough content and it's WAY too tall, and on mobile and laptop, the content is always enough to make it tall enough
     >
       {isWide ? (
         <Flex flexDirection='row' justify='space-between'>
