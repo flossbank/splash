@@ -6,7 +6,7 @@ import {
   Link,
   FormControl,
   FormErrorMessage,
-  FormLabel,
+  FormLabel
 } from '@chakra-ui/core'
 import { useState } from 'react'
 
@@ -105,7 +105,7 @@ const SignupSection = () => {
               padding='30px'
             >
               <Flex flexDirection='row'>
-                <Text marginRight='5px'>Already have an account? {" "}</Text>
+                <Text marginRight='5px'>Already have an account? {' '}</Text>
                 <Link href='/login' color='black'>
                   Log in
                 </Link>

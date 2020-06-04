@@ -52,7 +52,7 @@ FBButton.defaultProps = {
   _active: { transform: 'translateY(6px)' }
 }
 
-FBButton.PropTypes = {
+FBButton.propTypes = {
   as: PropTypes.string.isRequired
 }
 

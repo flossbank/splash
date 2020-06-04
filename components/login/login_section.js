@@ -105,7 +105,7 @@ const LoginSection = () => {
               padding='30px'
             >
               <Flex flexDirection='row'>
-                <Text marginRight='5px'>Don't have an account? {" "}</Text>
+                <Text marginRight='5px'>Don't have an account? {' '}</Text>
                 <Link href='/signup' color='black'>
                   Sign up
                 </Link>

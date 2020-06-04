@@ -1,6 +1,5 @@
 import { Box, Heading, Text, Flex } from '@chakra-ui/core'
 import { Parallax, Background } from 'react-parallax'
-import PropTypes from 'prop-types'
 
 import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
@@ -10,7 +9,7 @@ import FBButton from '../common/fbButton'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
 
-const SplashHero = (props) => {
+const SplashHero = () => {
   const isWide = useMedia('(min-width: 800px')
 
   const innerContent = (
@@ -115,11 +114,6 @@ const SplashHero = (props) => {
       )}
     </Box>
   )
-}
-
-SplashHero.propTypes = {
-  handleScrollToBusinessSection: PropTypes.func.isRequired,
-  handleScrollToDeveloperSection: PropTypes.func.isRequired
 }
 
 export default SplashHero
