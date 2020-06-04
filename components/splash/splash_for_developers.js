@@ -30,7 +30,7 @@ const SplashForDevelopers = (props) => {
         {/* TODO: figure out a way to have this be the centered version on small screens */}
         <UnderlinedHeading
           text='For developers'
-          align='left'
+          align={{ base: 'center', lg: 'left' }}
           marginBottom='3rem'
         />
         <Box gridColumn='1' marginBottom={{ base: '3rem', lg: 0 }}>

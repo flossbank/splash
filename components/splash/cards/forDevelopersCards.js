@@ -33,7 +33,13 @@ const Card = ({ icon, heading, text }) => (
       marginRight={{ base: 0, md: '3rem' }}
     />
     <Box>
-      <UnderlinedHeading as='h3' text={heading} align='left' />
+      <UnderlinedHeading
+        as='h3'
+        text={heading}
+        align='left'
+        lineGap='1'
+        lineColor='ocean'
+      />
       <p>{text}</p>
     </Box>
   </Flex>
