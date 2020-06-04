@@ -1,161 +1,82 @@
-import { Flex, Box, Text, Heading, Icon } from '@chakra-ui/core'
+import { Flex, Box, Text } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import FBDivider from '../common/divider'
-import useMedia from '../common/useMedia'
+import Section from './section'
+import Subheading from '../common/subheading'
+import UnderlinedHeading from '../common/underlinedHeading'
 import FBButton from '../common/fbButton'
+import TextLink from '../common/textLink'
+import ForDevelopersCards from './cards/forDevelopersCards'
 
 const SplashForDevelopers = (props) => {
-  const isWide = useMedia('(min-width: 768px')
-
   return (
-    <Box id={props.id}>
-      <Flex
-        flexDirection={['column', 'row']}
-        padding={['60px 50px 60px 50px', '60px 150px 60px 150px']}
-        // minH='80vh' I don't think we need this; on tall screens there is not enough content and it's WAY too tall, and on mobile and laptop, the content is always enough to make it tall enough
-        justify='space-between'
+    <Section
+      id={props.id}
+      padding={{
+        base: '3rem 1.5rem',
+        md: '5rem 3.75rem',
+        lg: '5rem 3.75rem 6rem'
+      }}
+    >
+      <Box
+        display={{ base: 'initial', lg: 'grid' }}
+        gridTemplateColumns='minmax(18rem, 25rem) 1fr'
+        gridTemplateRows='5rem minmax(12.5rem,18rem) 6rem 7rem'
+        gridColumnGap='6rem'
+        maxW='70rem'
+        width='100%'
+        margin='0 auto'
       >
-        <Flex
-          flexDirection='column'
-          width={['100%', '40%']}
-          justify='space-between'
-        >
-          <Text
-            fontWeight='bold'
-            textTransform='uppercase'
-            fontSize='14px'
-            marginBottom='10px'
-          >
-            For developers
-          </Text>
-          <FBDivider />
-          <Heading marginTop='20px' marginBottom='30px' fontSize='24px'>
+        {/* TODO: figure out a way to have this be the centered version on small screens */}
+        <UnderlinedHeading
+          text='For developers'
+          align='left'
+          marginBottom='3rem'
+        />
+        <Box gridColumn='1' marginBottom={{ base: '3rem', lg: 0 }}>
+          <Subheading textAlign={{ base: 'center', lg: 'left' }}>
             Give back to maintainers across your entire dependency tree
-          </Heading>
-          <Text fontSize='16px' marginBottom='8px'>
-            Flossbank provides a free and frictionless way to give back to open
-            source maintainers, especially those who don’t have time for self
-            promotion.
+          </Subheading>
+          <Text marginBottom='1rem'>
+            Flossbank provides a <strong>free and frictionless</strong> way to
+            give back to open source maintainers, especially those who don’t
+            have time for self promotion.
           </Text>
-          <Text fontSize='16px' marginBottom='30px'>
+          <Text marginBottom='1rem'>
             By installing our CLI, you support maintainers across the entire
             dependency tree of your installed packages in one of two ways:
             terminal ads or monthly contributions.
           </Text>
-          {isWide && (
-            <>
-              <Box height='40px'>
-                <FBButton
-                  as='a'
-                  href='/signup'
-                  className='u-box-shadow'
-                  padding='1rem'
-                  minW='10rem'
-                >
-                  Sign Up
-                </FBButton>
-              </Box>
-              <Text marginTop='30px'>Are you an author or maintainer?</Text>
-              <Text>Sign up for our beta list.</Text>
-            </>
-          )}
-        </Flex>
+        </Box>
+        {/* TODO: figure out overspill issue around 1000px */}
+        <ForDevelopersCards gridColumn='2' gridRow='2 / -1' justifySelf='end' />
         <Flex
-          flexDirection='column'
-          width={['auto', '50%']}
-          justify='space-around'
-          paddingTop={['20px', '50px']}
+          direction='column'
+          gridColumn='1'
+          gridRow='3 / -1'
+          alignSelf='center'
+          alignItems={{ base: 'center', lg: 'flex-start' }}
         >
-          <Flex
-            padding='20px'
-            backgroundColor='lightRock'
-            height={['auto', '180px']}
-            marginBottom={['20px', '0px']}
-            flexDirection='column'
-            justify='space-around'
+          <FBButton
+            as='a'
+            href='/signup'
+            className='u-box-shadow'
+            padding='1rem'
+            minW='10rem'
+            margin='0 0 2rem'
           >
-            <Flex flexDirection='row'>
-              <Flex flexDirection='column' justify='space-around'>
-                {isWide && (
-                  <Icon
-                    name='terminal'
-                    size='50px'
-                    marginLeft='30px'
-                    marginRight='30px'
-                  />
-                )}
-              </Flex>
-              <Flex flexDirection='column' justify='space-around'>
-                <Text
-                  fontWeight='bold'
-                  fontSize='14px'
-                  textTransform='uppercase'
-                >
-                  Support maintainers at no cost
-                </Text>
-                <FBDivider backgroundColor='ocean' borderColor='ocean' />
-                <Text>
-                  Opt into curated, tech-focused ads in your terminal when you
-                  install open source packages
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-          <Flex
-            padding='20px'
-            backgroundColor='lightRock'
-            height={['auto', '180px']}
-            flexDirection='column'
-            justify='space-around'
-          >
-            <Flex flexDirection='row'>
-              <Flex flexDirection='column' justify='space-around'>
-                {isWide && (
-                  <Icon
-                    name='calendar'
-                    size='50px'
-                    marginLeft='30px'
-                    marginRight='30px'
-                  />
-                )}
-              </Flex>
-              <Flex flexDirection='column' justify='space-around'>
-                <Text
-                  fontWeight='bold'
-                  fontSize='14px'
-                  textTransform='uppercase'
-                >
-                  Or set a monthly donation
-                </Text>
-                <FBDivider backgroundColor='ocean' borderColor='ocean' />
-                <Text>
-                  Donate monthly to the developers and maintainers of the open
-                  source packages you install
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
+            Sign Up
+          </FBButton>
+
+          <Text>Are you an author or maintainer?</Text>
+          <Text>
+            {/* TODO: add actual url for beta list */}
+            <TextLink text='Sign up ' href='/signup' fontWeight='bold' />
+            for our beta list.
+          </Text>
         </Flex>
-        {!isWide && (
-          <>
-            <Box height='40px' marginTop='30px'>
-              <FBButton
-                as='a'
-                href='/signup'
-                className='u-box-shadow'
-                padding='1rem'
-                minW='10rem'
-              >
-                Sign Up
-              </FBButton>
-            </Box>
-            <Text marginTop='30px'>Are you an author or maintainer?</Text>
-            <Text>Sign up for our beta list.</Text>
-          </>
-        )}
-      </Flex>
-    </Box>
+      </Box>
+    </Section>
   )
 }
 

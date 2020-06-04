@@ -1,4 +1,4 @@
-import { Flex, Icon, Grid } from '@chakra-ui/core'
+import { List, ListItem, Icon } from '@chakra-ui/core'
 
 const cardData = [
   {
@@ -17,10 +17,11 @@ const cardData = [
 ]
 
 const BusinessCard = ({ icon, text }) => (
-  <Flex
+  <ListItem
     className='u-box-shadow'
+    display='flex'
     flexDirection={['column', 'row']}
-    align='center'
+    alignItems='center'
     backgroundColor='white'
     padding='2.5rem 2.25rem'
   >
@@ -31,13 +32,14 @@ const BusinessCard = ({ icon, text }) => (
       marginRight={[0, '2.25rem']}
     />
     <p>{text}</p>
-  </Flex>
+  </ListItem>
 )
 
 const BusinessCards = () => (
-  <Grid
-    gap='1.75rem'
-    templateColumns='repeat(auto-fit, minmax(18rem, 1fr))'
+  <List
+    display='grid'
+    gridGap='1.75rem'
+    gridTemplateColumns='repeat(auto-fit, minmax(16rem, 1fr))'
     maxW='75rem'
     width='100%'
     marginBottom='3rem'
@@ -45,7 +47,7 @@ const BusinessCards = () => (
     {cardData.map((card, i) => (
       <BusinessCard key={i} icon={card.icon} text={card.text} />
     ))}
-  </Grid>
+  </List>
 )
 
 export default BusinessCards
