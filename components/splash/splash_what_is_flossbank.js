@@ -22,6 +22,7 @@ const SplashWhatIsFlossbank = () => {
         text='What is Flossbank'
         align={{ base: 'center', lg: 'left' }}
         gridColumn={{ base: 1, lg: 2 }}
+        marginBottom={{ base: '2rem', lg: 0 }}
       />
 
       <Box width={{ base: '60%', lg: '100%' }} gridColumn='1'>
