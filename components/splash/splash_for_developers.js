@@ -27,11 +27,9 @@ const SplashForDevelopers = (props) => {
         width='100%'
         margin='0 auto'
       >
-        {/* TODO: figure out a way to have this be the centered version on small screens */}
         <UnderlinedHeading
           text='For developers'
-          align='left'
-          marginBottom='3rem'
+          align={{ base: 'center', lg: 'left' }}
         />
         <Box gridColumn='1' marginBottom={{ base: '3rem', lg: 0 }}>
           <Subheading textAlign={{ base: 'center', lg: 'left' }}>

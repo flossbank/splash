@@ -20,9 +20,9 @@ const SplashWhatIsFlossbank = () => {
     >
       <UnderlinedHeading
         text='What is Flossbank'
-        // TODO: figure out a way to pass props at breakpoints or otherwise center the underline on small sceens
-        align='left'
+        align={{ base: 'center', lg: 'left' }}
         gridColumn={{ base: 1, lg: 2 }}
+        marginBottom={{ base: '2rem', lg: 0 }}
       />
 
       <Box width={{ base: '60%', lg: '100%' }} gridColumn='1'>
