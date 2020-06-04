@@ -30,7 +30,7 @@ UnderlinedHeading.defaultProps = {
   marginBottom: '2.25rem'
 }
 
-UnderlinedHeading.PropTypes = {
+UnderlinedHeading.propTypes = {
   text: PropTypes.string.isRequired
 }
 
