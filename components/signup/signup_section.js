@@ -3,14 +3,14 @@ import {
   Text,
   Flex,
   Input,
-  Link,
   FormControl,
   FormErrorMessage,
   FormLabel
 } from '@chakra-ui/core'
 import { useState } from 'react'
 
-import FBButton from '../common/button'
+import FBButton from '../common/fbButton'
+import TextLink from '../common/textLink'
 import FBLogoLetters from '../common/logoLetters'
 import useMedia from '../common/useMedia'
 import { signup } from '../../client'
@@ -82,9 +82,9 @@ const SignupSection = () => {
                 <FBButton
                   isLoading={isSending}
                   type='submit'
+                  as='button'
                   backgroundColor='ocean'
                   color='white'
-                  _hover={{ marginTop: '3px' }}
                 >
                   Sign up
                 </FBButton>
@@ -106,9 +106,7 @@ const SignupSection = () => {
             >
               <Flex flexDirection='row'>
                 <Text marginRight='5px'>Already have an account? {' '}</Text>
-                <Link href='/login' color='black'>
-                  Log in
-                </Link>
+                <TextLink href='/login' text='Log in' />
               </Flex>
             </Flex>
           )}
