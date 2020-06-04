@@ -61,7 +61,7 @@ const SplashForDevelopers = (props) => {
             as='a'
             href='/signup'
             className='u-box-shadow'
-            padding='1rem'
+            padding='.75rem'
             minW='10rem'
             margin='0 0 2rem'
           >

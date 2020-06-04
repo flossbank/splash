@@ -27,7 +27,7 @@ const SplashForBusinesses = ({ id }) => {
             href='/signup'
             className='u-box-shadow'
             minW='10rem'
-            padding='1rem'
+            padding='.75rem'
           >
             Register
           </FBButton>
