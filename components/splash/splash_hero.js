@@ -1,6 +1,5 @@
 import { Box, Heading, Text, Flex } from '@chakra-ui/core'
 import { Parallax, Background } from 'react-parallax'
-import PropTypes from 'prop-types'
 
 import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
@@ -83,7 +82,7 @@ const SplashHero = (props) => {
       backgroundColor='ocean'
       color='white'
       padding={['0px', '50px']}
-      minH='90vh'
+      // minH='90vh' I don't think we need this; on tall screens there is not enough content and it's WAY too tall, and on mobile and laptop, the content is always enough to make it tall enough
     >
       {isWide ? (
         <Flex flexDirection='row' justify='space-between'>
@@ -115,11 +114,6 @@ const SplashHero = (props) => {
       )}
     </Box>
   )
-}
-
-SplashHero.propTypes = {
-  handleScrollToBusinessSection: PropTypes.func.isRequired,
-  handleScrollToDeveloperSection: PropTypes.func.isRequired
 }
 
 export default SplashHero
