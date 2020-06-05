@@ -1,15 +1,10 @@
-import Footer from '../components/common/footer'
-import Header from '../components/common/header'
+import PageWrapper from '../components/common/pageWrapper'
 import InstallSection from '../components/install/install_section'
 
-function Install () {
-  return (
-    <>
-      <Header />
-      <InstallSection />
-      <Footer />
-    </>
-  )
-}
+const Install = () => (
+  <PageWrapper title='Install'>
+    <InstallSection />
+  </PageWrapper>
+)
 
 export default Install

@@ -1,0 +1,46 @@
+import { PseudoBox, Flex } from '@chakra-ui/core'
+
+import PropTypes from 'prop-types'
+import FBHead from './head'
+import Footer from './footer'
+import Header from './header'
+import FBButton from './fbButton'
+
+import styles from './skipLink.module.scss'
+// TODO: add NProgress
+
+const SkipLink = () => (
+  <FBButton as='a' href='#main-content' className={styles.skip}>
+    Skip to main content
+  </FBButton>
+)
+
+const PageWrapper = (props) => (
+  <>
+    <FBHead title={props.title} />
+    <SkipLink />
+    <Flex direction='column'>
+      <Header />
+      <PseudoBox
+        as='main'
+        id='main-content'
+        tabIndex='-1'
+        // makes sure the main content fills out remaining space so the footer never floats up
+        flex='1'
+        _focus={{
+          outline: 'none !important'
+        }}
+      >
+        {props.children}
+      </PseudoBox>
+      <Footer />
+    </Flex>
+  </>
+)
+
+PageWrapper.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node
+}
+
+export default PageWrapper

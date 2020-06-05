@@ -1,15 +1,19 @@
-import Footer from '../components/common/footer'
-import Header from '../components/common/header'
-import LoginSection from '../components/login/login_section'
+import PageWrapper from '../components/common/pageWrapper'
+import AuthProcess from '../components/common/authProcess'
 
-function Login () {
-  return (
-    <>
-      <Header />
-      <LoginSection />
-      <Footer />
-    </>
-  )
-}
+import { login } from '../client'
+
+const Login = () => (
+  <PageWrapper title='Log In'>
+    <AuthProcess
+      process={login}
+      submitText='Log In'
+      successText=' Success! Click the magic link in your email to finish logging in!'
+      otherProcessText="Don't have an account? "
+      otherProcessHref='/signup'
+      otherProcessLinkText='Sign up'
+    />
+  </PageWrapper>
+)
 
 export default Login
