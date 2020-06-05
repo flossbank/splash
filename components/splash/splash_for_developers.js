@@ -1,7 +1,7 @@
 import { Flex, Box, Text } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import Section from './section'
+import Section from '../common/section'
 import Subheading from '../common/subheading'
 import UnderlinedHeading from '../common/underlinedHeading'
 import FBButton from '../common/fbButton'

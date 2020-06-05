@@ -41,7 +41,7 @@ const Footer = () => {
 
 const links = [
   {
-    url: '/about',
+    url: '/aboutus',
     text: 'About Us'
   },
   {
