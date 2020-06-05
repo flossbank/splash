@@ -1,9 +1,18 @@
 import PageWrapper from '../components/common/pageWrapper'
-import LoginSection from '../components/login/login_section'
+import AuthProcess from '../components/common/authProcess'
+
+import { login } from '../client'
 
 const Login = () => (
   <PageWrapper title='Log In'>
-    <LoginSection />
+    <AuthProcess
+      process={login}
+      submitText='Log In'
+      successText=' Success! Click the magic link in your email to finish logging in!'
+      otherProcessText="Don't have an account? "
+      otherProcessHref='/signup'
+      otherProcessLinkText='Sign up'
+    />
   </PageWrapper>
 )
 

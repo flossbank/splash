@@ -12,11 +12,11 @@ Even that short amount of time for the useMedia hook to run was long enough to c
 const FBLogo = () => {
   return (
     <Link href='/' aria-label='Flossbank – Home'>
-      <Box display={['none', 'none', 'initial']} aria-hidden='true'>
+      <Box display={{ base: 'none', md: 'initial' }} aria-hidden='true'>
         <FullLogo />
       </Box>
-      <Box display={['initial', 'initial', 'none']} aria-hidden='true'>
-        <FBLogoLetters width='2.25rem' height='auto' />
+      <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
+        <FBLogoLetters width='2.75rem' height='auto' />
       </Box>
     </Link>
   )
