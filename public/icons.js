@@ -308,87 +308,35 @@ export default {
   stepperComplete: {
     path: (
       <>
-        <defs>
-          <filter
-            id='Ellipse_44'
-            x='0'
-            y='0'
-            width='47'
-            height='47'
-            filterUnits='userSpaceOnUse'
-          >
-            <feComposite operator='in' in2='blur' />
-            <feComposite in='SourceGraphic' />
-          </filter>
-        </defs>
-        <g data-name='Group 1162' transform='translate(-358 -160)'>
-          <g transform='matrix(1, 0, 0, 1, 358, 160)' filter='url(#Ellipse_44)'>
-            <circle
-              data-name='Ellipse 44'
-              cx='23.5'
-              cy='23.5'
-              r='23.5'
-              transform='translate(0 0)'
-              fill='#2b67af'
-            />
-          </g>
-          <path
-            data-name='Path 385'
-            d='M98.505,149.491a.871.871,0,0,1-.618-.256l-3.355-3.355a.874.874,0,0,1,1.228-1.242l.007.007,2.737,2.737,6.512-6.512a.874.874,0,0,1,1.235,1.235l-7.13,7.13A.871.871,0,0,1,98.505,149.491Z'
-            transform='translate(281.727 38.892)'
-            fill='#fff'
-          />
-        </g>
+        <circle cx='18' cy='18' r='18' fill='#2b67af' />
+        <polygon
+          points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039'
+          transform='translate(11 11)'
+          fill='#fff'
+        />
       </>
     ),
-    viewBox: '0 0 47 47'
+    viewBox: '0 0 37 37'
   },
   stepperInProgress: {
     path: (
       <>
-        <defs>
-          <filter
-            id='Ellipse_45'
-            x='0'
-            y='0'
-            width='47'
-            height='47'
-            filterUnits='userSpaceOnUse'
-          >
-            <feComposite operator='in' in2='blur' />
-            <feComposite in='SourceGraphic' />
-          </filter>
-        </defs>
-        <g data-name='Group 1163' transform='translate(-617 -160)'>
-          <g transform='matrix(1, 0, 0, 1, 617, 160)' filter='url(#Ellipse_45)'>
-            <circle
-              data-name='Ellipse 45'
-              cx='21.5'
-              cy='21.5'
-              r='21.5'
-              transform='translate(0 0)'
-              fill='#fff'
-            />
-          </g>
-          <circle
-            data-name='Ellipse 46'
-            cx='9.5'
-            cy='9.5'
-            r='9.5'
-            transform='translate(629 173)'
-            fill='#2b67af'
-          />
-        </g>
+        <circle cx='21' cy='21' r='21' fill='#fff' />
+        <circle cx='21' cy='21' r='10' fill='#2B67AF' />
       </>
     ),
     viewBox: '0 0 45 45'
   },
   stepperNotStarted: {
     path: (
-      <g data-name='Ellipse 40' fill='#EBF3FB' stroke='#bdc1c5' strokeWidth='4'>
-        <circle cx='14.5' cy='14.5' r='14.5' stroke='none' />
-        <circle cx='14.5' cy='14.5' r='12.5' fill='none' />
-      </g>
+      <circle
+        cx='14'
+        cy='14'
+        r='12'
+        fill='#EBF3FB'
+        stroke='#bdc1c5'
+        strokeWidth='4'
+      />
     ),
     viewBox: '0 0 29 29'
   }
