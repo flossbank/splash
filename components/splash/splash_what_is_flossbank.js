@@ -62,7 +62,7 @@ const SplashWhatIsFlossbank = () => {
           </FBButton>
           <FBButton
             as='a'
-            href='/aboutus'
+            href='/about'
             className='u-box-shadow'
             padding='.75rem'
             minW={{ base: '6rem', sm: '10rem' }}

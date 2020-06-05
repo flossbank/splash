@@ -10,7 +10,7 @@ import FBButton from '../components/common/fbButton'
 
 import WomanWorking from '../public/images/aboutus_womanworking.svg'
 
-const AboutUs = (props) => (
+const About = () => (
   // TODO: add PageWrapper component when created and remove header/footer
   <>
     <Header />
@@ -99,4 +99,4 @@ const AboutUs = (props) => (
   </>
 )
 
-export default AboutUs
+export default About

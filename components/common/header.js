@@ -20,7 +20,7 @@ const Header = () => {
             maxW='22.5rem'
             aria-label='Primary navigation'
           >
-            <TextLink href='/aboutus' text='About Us' color='boulder' />
+            <TextLink href='/about' text='About Us' color='boulder' />
             <TextLink href='/login' text='Log In' color='boulder' />
             <FBButton
               as='a'
