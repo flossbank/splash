@@ -4,7 +4,7 @@ import Footer from '../components/common/footer'
 import Header from '../components/common/header'
 import Section from '../components/common/section'
 import UnderlinedHeading from '../components/common/underlinedHeading'
-import Subheading from '../components/common/Subheading'
+import Subheading from '../components/common/subheading'
 import FBButton from '../components/common/fbButton'
 // import TextLink from "../components/common/textLink";
 
