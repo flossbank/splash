@@ -4,7 +4,7 @@ import FBButton from '../common/fbButton'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import WhatIsFBCards from './cards/whatIsFBCards'
-import Section from './section'
+import Section from '../common/section'
 
 const SplashWhatIsFlossbank = () => {
   return (
@@ -62,7 +62,7 @@ const SplashWhatIsFlossbank = () => {
           </FBButton>
           <FBButton
             as='a'
-            href='/aboutus'
+            href='/about'
             className='u-box-shadow'
             padding='.75rem'
             minW={{ base: '6rem', sm: '10rem' }}

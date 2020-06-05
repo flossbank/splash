@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import FBButton from '../common/fbButton'
 import BusinessCards from './cards/businessCards'
-import Section from './section'
+import Section from '../common/section'
 import Subheading from '../common/subheading'
 import UnderlinedHeading from '../common/underlinedHeading'
 
