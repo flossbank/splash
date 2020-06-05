@@ -14,7 +14,7 @@ const ContactSection = () => (
     padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
     backgroundColor='white'
   >
-    <UnderlinedHeading text='Contact Us' align='center' marginBottom='2rem' />
+    <UnderlinedHeading text='Contact Us' align='center' marginBottom='3rem' />
     <Card shadowSz='lg' w='100%' maxW='45rem'>
       <Text
         textTransform='uppercase'

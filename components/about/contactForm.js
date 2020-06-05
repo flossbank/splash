@@ -86,7 +86,11 @@ const ContactForm = () => (
       <Text>
         You can also email us directly at{' '}
         {/* TODO: figure out why mailto: isn't working */}
-        <a text='support@flossbank.com' href='mailto:support@flossbank.com' />.
+        <TextLink
+          text='support@flossbank.com'
+          href='mailto:support@flossbank.com'
+        />
+        .
       </Text>
     </Box>
   </Box>
