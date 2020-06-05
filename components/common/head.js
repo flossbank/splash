@@ -1,12 +1,15 @@
 import Head from 'next/head'
 
-const FbHead = () => {
-  return (
-    <Head>
-      <title>Flossbank</title>
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-    </Head>
-  )
-}
+const FBHead = (props) => (
+  <Head>
+    <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta name='google-site-verification' content='' />
+    <title>
+      {(props.title && props.title + ' – Flossbank') || 'Flossbank'}
+    </title>
 
-export default FbHead
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+  </Head>
+)
+
+export default FBHead

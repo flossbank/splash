@@ -1,15 +1,10 @@
-import Footer from '../components/common/footer'
-import Header from '../components/common/header'
+import PageWrapper from '../components/common/pageWrapper'
 import LoginSection from '../components/login/login_section'
 
-function Login () {
-  return (
-    <>
-      <Header />
-      <LoginSection />
-      <Footer />
-    </>
-  )
-}
+const Login = () => (
+  <PageWrapper title='Log In'>
+    <LoginSection />
+  </PageWrapper>
+)
 
 export default Login

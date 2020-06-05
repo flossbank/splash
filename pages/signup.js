@@ -1,15 +1,10 @@
-import Footer from '../components/common/footer'
-import Header from '../components/common/header'
+import PageWrapper from '../components/common/pageWrapper'
 import SignupSection from '../components/signup/signup_section'
 
-function Signup () {
-  return (
-    <>
-      <Header />
-      <SignupSection />
-      <Footer />
-    </>
-  )
-}
+const Signup = () => (
+  <PageWrapper title='Sign Up'>
+    <SignupSection />
+  </PageWrapper>
+)
 
 export default Signup

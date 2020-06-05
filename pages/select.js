@@ -1,15 +1,10 @@
-import Footer from '../components/common/footer'
-import Header from '../components/common/header'
+import PageWrapper from '../components/common/pageWrapper'
 import SelectTierSection from '../components/select/select_tier_section'
 
-function Login () {
-  return (
-    <>
-      <Header />
-      <SelectTierSection />
-      <Footer />
-    </>
-  )
-}
+const Select = () => (
+  <PageWrapper title='Select Your Support Level'>
+    <SelectTierSection />
+  </PageWrapper>
+)
 
-export default Login
+export default Select
