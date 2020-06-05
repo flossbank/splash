@@ -26,7 +26,7 @@ export default {
     ocean: '#2b67af',
     lake: '#529ed6',
     puddle: '#d7e6f6',
-    lightPuddle: '#DAE6F4',
+    lightPuddle: '#EBF3FB',
     rock: '#5f6771',
     boulder: '#404042',
     lightRock: '#f2f2f2'
