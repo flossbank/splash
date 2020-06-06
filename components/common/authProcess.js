@@ -62,6 +62,8 @@ const AuthProcess = ({
       backgroundColor='lightRock'
       display='flex'
       alignItems='center'
+      justifyContent='center'
+      flex='1'
       flexDirection='column'
       paddingBottom={{ lg: '6rem !important' }}
     >
@@ -71,7 +73,7 @@ const AuthProcess = ({
         width='3rem'
         display={{ base: 'none', md: 'flex' }}
       />
-      <Card w='100%' maxW='30rem' marginBottom='3rem'>
+      <Card marginBottom='3rem' width='100%' maxW='30rem'>
         {!emailSent ? (
           <Box as='form' onSubmit={handleProcess}>
             <FormControl marginBottom='2.25rem' isRequired isInvalid={invalid}>
