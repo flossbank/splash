@@ -9,6 +9,7 @@ const StepperSection = ({ steps, currentStep }) => (
     justify='center'
     padding='3.75rem 1.5rem'
     backgroundColor='lightPuddle'
+    marginBottom='3rem'
   >
     <Stepper steps={steps} currentStep={currentStep} />
   </Flex>

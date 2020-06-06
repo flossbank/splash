@@ -1,6 +1,8 @@
-import { Box, Flex, Text, Heading } from '@chakra-ui/core'
+import { Box, Flex, Text } from '@chakra-ui/core'
 
-import FBDivider from '../common/divider'
+import Section from '../common/section'
+import UnderlinedHeading from '../common/underlinedHeading'
+import Subheading from '../common/subheading'
 import StepperSection from '../common/stepperSection'
 import SelectTierCards from './select_tier_cards'
 
@@ -21,41 +23,45 @@ const steps = [
 
 const SelectTierSection = () => {
   return (
-    <Box height='auto' minHeight='85vh'>
-      <StepperSection steps={steps} currentStep={2} />}
-      <Box padding={['0 1rem 0 1rem', '0 0 0 0']} margin='2rem'>
-        <Heading
-          textTransform='uppercase'
-          fontWeight='bold'
-          fontSize='14px'
-          textAlign='center'
-          marginBottom='1rem'
+    <Section
+      backgroundColor='white'
+      display='flex'
+      alignItems='center'
+      justifyContent='center'
+      flex='1'
+      flexDirection='column'
+      padding='0 0 3rem'
+    >
+      <Box width='100%'>
+        <h1 className='sr-only'>Select your level of support</h1>
+        <StepperSection steps={steps} currentStep={2} />}
+        {/* <Box padding={["0 1rem 0 1rem", "0 0 0 0"]}> */}
+        <UnderlinedHeading text='Select' align='center' />
+        <Box
+          textAlign={{ base: 'center' }}
+          maxW='50rem'
+          margin='0 auto 1.5rem'
+          padding='1.5rem'
         >
-          Select
-        </Heading>
-        <FBDivider margin='auto' />
-        <Box paddingLeft={['0', '10rem']} paddingRight={['0', '10rem']}>
-          <Text fontSize='24px' textAlign='center' margin='2rem'>
-            Choose your level of support
+          <Subheading align='center'>Choose your level of support</Subheading>
+          <Text marginBottom='1rem'>
+            <strong>Flossbank</strong> introduces a free way to contribute back
+            to open source. That means no maintenance, no cost, no selling your
+            data. All you see is curated tech-based advertisements in your
+            terminal during installation of open source packages.
           </Text>
-          <Text textAlign='center' marginBottom='1rem'>
-            We are so excited to introduce a free way to contribute back to open
-            source. That means no maintenance, no cost, no selling your data.
-            All you see is curated tech-based advertisements in your terminal
-            during installation of open source packages. So effectively, you're
-            donating your attention. (show me)
-          </Text>
-          <Text textAlign='center'>
-            Alternatively, we encourage and welcome donations that follow the
-            same distribution pattern enabled by our CLI, and no ads are shown
-            if you donate above 10 dollars per month.
+          <Text>
+            Alternatively, we encourage and welcome selecting our{' '}
+            <strong>monthly donor</strong> tier for an optional ad-free
+            experience.
           </Text>
         </Box>
+        {/* </Box> */}
+        <Flex flexDirection={['column', 'row']} margin='2rem'>
+          <SelectTierCards />
+        </Flex>
       </Box>
-      <Flex flexDirection={['column', 'row']} margin='2rem'>
-        <SelectTierCards />
-      </Flex>
-    </Box>
+    </Section>
   )
 }
 
