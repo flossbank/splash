@@ -4,8 +4,7 @@ import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import FBButton from '../common/fbButton'
-
-import WomanWorking from '../../public/images/aboutus_womanworking.svg'
+import WomanWorking from './womanWorking'
 
 const AboutUsSection = () => (
   <Section

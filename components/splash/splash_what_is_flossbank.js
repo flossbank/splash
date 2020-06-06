@@ -6,6 +6,8 @@ import Subheading from '../common/subheading'
 import WhatIsFBCards from './cards/whatIsFBCards'
 import Section from '../common/section'
 
+import PeopleCollabing from './peopleCollabing'
+
 const SplashWhatIsFlossbank = () => {
   return (
     <Section
@@ -26,13 +28,7 @@ const SplashWhatIsFlossbank = () => {
       />
 
       <Box width={{ base: '60%', lg: '100%' }} gridColumn='1'>
-        {/* TODO: figure out a way to make inline SVG scale easily so we don't need to use img */}
-        <img
-          src='images/splash/splash_people_collabing.svg'
-          width='100%'
-          // a11y TODO: add descriptive alternative text
-          alt=''
-        />
+        <PeopleCollabing />
       </Box>
       <Box gridColumn={{ base: 1, lg: 2 }}>
         <Subheading

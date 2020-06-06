@@ -1,6 +1,4 @@
 import { Link, Box } from '@chakra-ui/core'
-// B icon with Flossbank
-// TODO: use inline SVG
 import FullLogo from './fullLogo'
 import FBLogoLetters from './logoLetters'
 
