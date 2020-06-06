@@ -70,7 +70,6 @@ const AuthProcess = ({
       <h1 className='sr-only'>{submitText}</h1>
       <FBLogoLetters
         marginBottom='3rem'
-        width='3rem'
         display={{ base: 'none', md: 'flex' }}
       />
       <Card marginBottom='3rem' width='100%' maxW='30rem'>
