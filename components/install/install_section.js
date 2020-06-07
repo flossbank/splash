@@ -1,7 +1,9 @@
 import { Box, Heading, Text, Code } from '@chakra-ui/core'
+import { useEffect, useState } from 'react'
 
 import FBDivider from '../common/divider'
 import StepperSection from '../common/stepperSection'
+import { startNewCLIInstall } from '../../client'
 
 const steps = [
   {
@@ -19,10 +21,25 @@ const steps = [
 ]
 
 const InstallSection = () => {
+  const [token, setToken] = useState('')
+
+  async function fetchInstallToken () {
+    try {
+      const { token: tokenRes } = await startNewCLIInstall()
+      setToken(tokenRes)
+    } catch (e) {
+      // TODO handle error
+    }
+  }
+
+  useEffect(() => {
+    fetchInstallToken()
+  }, [0]) // only run on mount
+
   return (
     <Box minHeight='85vh'>
       <StepperSection steps={steps} currentStep={3} />}
-      <Box padding={['4rem 1rem 0 1rem', '4rem 10% 0 10%']}>
+      <Box padding={['0 1rem 0 1rem', '0 10% 0 10%']}>
         <Heading
           textTransform='uppercase'
           fontWeight='bold'
@@ -67,7 +84,7 @@ const InstallSection = () => {
             width='100%'
           >
             curl https://get.flossbank.com |
-            FLOSSBANK_INSTALL_TOKEN=9-weevil-bark bash
+            FLOSSBANK_INSTALL_TOKEN={token} bash
           </Code>
           <Heading
             textTransform='uppercase'
@@ -84,7 +101,7 @@ const InstallSection = () => {
             color='gray'
             width='100%'
           >
-            $FLOSSBANK_INSTALL_TOKEN="9-weevil-bark"; iwr
+            $FLOSSBANK_INSTALL_TOKEN="{token}"; iwr
             https://get.flossbank.com/ps -useb | iex
           </Code>
         </Box>
