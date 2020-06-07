@@ -27,8 +27,8 @@ const FBFormControl = ({ labelText, id, required, children, ...props }) => (
   </FormControl>
 )
 
-const FBTextInput = (props) => (
-  <Input id={props.id} type={props.type} backgroundColor='lightRock' borderRadius='10px' {...props} />
+const FBTextInput = ({ id, type, ...props }) => (
+  <Input id={id} type={type} backgroundColor='lightRock' borderRadius='10px' {...props} />
 )
 
 const topics = [
