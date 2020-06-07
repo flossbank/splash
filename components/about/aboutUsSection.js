@@ -1,9 +1,8 @@
-import { Box, Flex, Text } from '@chakra-ui/core'
+import { Box, Text } from '@chakra-ui/core'
 
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
-import FBButton from '../common/fbButton'
 import WomanWorking from './womanWorking'
 
 const AboutUsSection = () => (
@@ -44,42 +43,27 @@ const AboutUsSection = () => (
           within dependencies.
         </Text>
         <Text marginBottom='1rem'>
-          Flossbank helps equitably compensate thousands of maintainers for
-          their work, especially those who don’t have time for self-promotion.
+          To address insufficient funds, we built a free way to give back to open source.
+          With the free tier we hope to engage the millions of developers who
+          don't have the financial resources to contribute back to the open source maintainers
+          and authors that they rely on. Users will "donate their attention" by seeing curated
+          tech advertisements during installation of open source packages in the terminal. The
+          revenue from those ads goes to the authors and maintainers of the packages being installed.
+        </Text>
+        <Text marginBottom='1rem'>
+          To address disproportionate distribution of funds, we we built our CLI to do complete
+          dependency snapshots. This allows us to determine how much of a users donation / ad revenue should
+          go to each package in the entire dependency tree of the packages they're installing. The CLI
+          is open source, and it's sole purpose is to allow us to equitably distribute revenue. This
+          unlocks revenue streams for millions of open source developers who don't care or have time for
+          self promotion.
+        </Text>
+        <Text marginBottom='1rem'>
+          We hope this is just the beginning.
         </Text>
         <Text>Want to help us on our mission to fund open source?</Text>
+        <Text>Get in touch.</Text>
       </Box>
-      <Flex
-        justify={{ base: 'center', lg: 'flex-start' }}
-        align='center'
-        marginBottom={{ lg: '3rem' }}
-      >
-        <FBButton
-          as='a'
-          // TODO: add actual href
-          href='#'
-          className='u-box-shadow'
-          padding='.75rem'
-          backgroundColor='#fff'
-          color='ocean'
-          minW={{ base: '6rem', sm: '10rem' }}
-        >
-          For Developers
-        </FBButton>
-        <FBButton
-          as='a'
-          // TODO: add actual href
-          href='#'
-          className='u-box-shadow'
-          padding='.75rem'
-          minW={{ base: '6rem', sm: '10rem' }}
-          backgroundColor='puddle'
-          color='ocean'
-          margin={{ base: '0 0 0 1.5rem' }}
-        >
-          For Businesses
-        </FBButton>
-      </Flex>
     </Box>
   </Section>
 )
