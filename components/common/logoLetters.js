@@ -1,11 +1,13 @@
 import { Flex } from '@chakra-ui/core'
-const FBLogoLetters = ({ width, ...props }) => {
+
+const FBLogoLetters = ({ ...props }) => {
   return (
     <Flex justify='center' {...props}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 96.275 119.75'
-        width={width || '2.5rem'}
+        width='2.75rem'
+        height='3.2615rem'
       >
         <defs>
           <clipPath id='a'>

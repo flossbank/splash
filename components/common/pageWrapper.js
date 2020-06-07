@@ -19,7 +19,7 @@ const PageWrapper = (props) => (
   <>
     <FBHead title={props.title} />
     <SkipLink />
-    <Flex direction='column'>
+    <Flex direction='column' minH='100vh'>
       <Header />
       <PseudoBox
         as='main'
@@ -27,6 +27,8 @@ const PageWrapper = (props) => (
         tabIndex='-1'
         // makes sure the main content fills out remaining space so the footer never floats up
         flex='1'
+        display='flex'
+        flexDirection='column'
         _focus={{
           outline: 'none !important'
         }}

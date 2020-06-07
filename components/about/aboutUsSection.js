@@ -3,8 +3,7 @@ import { Box, Text } from '@chakra-ui/core'
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
-
-import WomanWorking from '../../public/images/aboutus_womanworking.svg'
+import WomanWorking from './womanWorking'
 
 const AboutUsSection = () => (
   <Section
@@ -13,7 +12,7 @@ const AboutUsSection = () => (
     gridTemplateColumns={{ base: '1fr', lg: 'minmax(18rem, 1fr) 1fr' }}
     alignItems='center'
     gridTemplateRows='1fr'
-    gridColumnGap='8rem'
+    gridColumnGap={{ lg: '4rem', xl: '8rem' }}
     padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
     backgroundColor='lightRock'
   >
