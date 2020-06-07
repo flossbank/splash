@@ -26,6 +26,16 @@ export const sendSupportFeedback = async ({ email, name, topic, body }) => {
   return fetchThenJson(`${ENDPOINT}/support/feedback`, optionsWithPostBody({ email, topic, name, body }))
 }
 
+export const startNewCLIInstall = async () => {
+  return fetchThenJson(`${ENDPOINT}/user/new-install`, {
+    method: 'POST',
+    headers: {
+      'x-requested-with': 'XmlHttpRequest'
+    },
+    credentials: 'include'
+  })
+}
+
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
     if (!res.ok) {
