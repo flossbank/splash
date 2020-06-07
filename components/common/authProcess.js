@@ -5,9 +5,12 @@ import {
   Text,
   Input,
   FormControl,
-  FormErrorMessage,
-  FormLabel
+  FormLabel,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/core'
+
+import { useForm } from 'react-hook-form'
 
 import PropTypes from 'prop-types'
 
@@ -16,6 +19,7 @@ import Card from './card'
 import FBLogoLetters from './logoLetters'
 import FBButton from './fbButton'
 import TextLink from './textLink'
+import ErrorMessage from './errorMessage'
 
 const AuthProcess = ({
   process,
@@ -25,36 +29,26 @@ const AuthProcess = ({
   otherProcessText,
   otherProcessHref
 }) => {
-  const [email, setEmail] = useState('')
-  const [invalid, setInvalid] = useState(false)
-  const [error, setError] = useState('')
-  const [emailSent, setEmailSent] = useState(false)
-  const [isSending, setIsSending] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [sent, setSent] = useState(false)
+  const [formError, setFormError] = useState(false)
 
-  const handleProcess = async (e) => {
+  const { register, handleSubmit, errors } = useForm()
+
+  const handleProcess = async ({ email }, e) => {
     e.preventDefault()
-    if (!email) return showErrorMessage('Email is required')
-    setIsSending(true)
+    setIsSubmitting(true)
+
     try {
       // will pass login or signup from client
-      await process({ email })
-      setEmailSent(true)
+      await process(email)
+      setSent(true)
+      setFormError(false)
     } catch (e) {
-      showErrorMessage('Something went wrong, please try again')
+      setFormError(true)
     } finally {
-      setIsSending(false)
+      setIsSubmitting(false)
     }
-  }
-
-  const showErrorMessage = (msg) => {
-    setInvalid(true)
-    setError(msg)
-  }
-
-  const onEmailChange = (e) => {
-    if (!e.target.value) return showErrorMessage('Email is required')
-    setInvalid(false)
-    setEmail(e.target.value)
   }
 
   return (
@@ -72,33 +66,57 @@ const AuthProcess = ({
         marginBottom='3rem'
         display={{ base: 'none', md: 'flex' }}
       />
-      <Card marginBottom='3rem' width='100%' maxW='30rem'>
-        {!emailSent ? (
-          <Box as='form' onSubmit={handleProcess}>
-            <FormControl marginBottom='2.25rem' isRequired isInvalid={invalid}>
+      <Card marginBottom='3rem' width='100%' maxW='30rem' aria-atomic='true'>
+        {!sent && (
+          <Box as='form' onSubmit={handleSubmit(handleProcess)} noValidate>
+            {formError && (
+              <ErrorMessage msg='There was an error submitting the form. Please try again!' />
+            )}
+            <FormControl marginBottom='2.25rem' isRequired>
               <FormLabel htmlFor='email' marginBottom='.5rem'>
                 Email address
               </FormLabel>
+              {errors.email && (
+                <ErrorMessage msg='Please provide a valid email address' />
+              )}
               <Input
                 type='email'
                 id='email'
                 backgroundColor='lightRock'
-                onChange={onEmailChange}
+                name='email'
+                aria-describedby='email-error'
+                ref={register({
+                  required: true,
+                  pattern: {
+                    value: /^\S+@\S+$/i
+                  }
+                })}
               />
-              <FormErrorMessage>{error}</FormErrorMessage>
             </FormControl>
-            <FBButton isLoading={isSending} as='button' type='submit'>
+            <FBButton isLoading={isSubmitting} as='button' type='submit'>
               {submitText}
             </FBButton>
           </Box>
-        ) : (
-          <Box textAlign='center'>
-            <Text marginBottom='2rem'>{successText}</Text>
-            <Text>You can now close this tab</Text>
-          </Box>
+        )}
+        {sent && !formError && (
+          <>
+            <Alert
+              status='success'
+              backgroundColor='puddle'
+              color='ocean'
+              fontWeight='500'
+              marginBottom='1.5rem'
+              textAlign='center'
+              flexDirection='column'
+            >
+              <AlertIcon color='ocean' marginBottom='.5rem' />
+              {successText}
+            </Alert>
+            <Text>You can now close this tab.</Text>
+          </>
         )}
       </Card>
-      {!emailSent && (
+      {!sent && (
         <Box
           width='100%'
           maxW='30rem'
@@ -118,7 +136,6 @@ const AuthProcess = ({
 AuthProcess.propTypes = {
   // pass login or sign up from client
   process: PropTypes.func.isRequired,
-
   // text for the submit button
   submitText: PropTypes.string.isRequired,
   // message to show if process was successful

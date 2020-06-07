@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form'
 
 import FBButton from '../common/fbButton'
 import TextLink from '../common/textLink'
-import ErrorMessage from '../common/ErrorMessage'
+import ErrorMessage from '../common/errorMessage'
 
 import { sendSupportFeedback } from '../../client'
 
