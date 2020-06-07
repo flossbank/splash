@@ -5,7 +5,9 @@ import {
   FormLabel,
   Input,
   Select,
-  Textarea
+  Textarea,
+  AlertIcon,
+  Alert
 } from '@chakra-ui/core'
 import { useState } from 'react'
 
@@ -36,7 +38,8 @@ const topics = [
   'Partnerships',
   'Help installing',
   'Feedback',
-  'Bug'
+  'Bug',
+  'Other'
 ]
 
 const ContactForm = () => {
@@ -44,27 +47,38 @@ const ContactForm = () => {
   const [email, setEmail] = useState('')
   const [topic, setTopic] = useState('')
   const [body, setBody] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
+  const [sent, setSent] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
     try {
       await sendSupportFeedback({ name, email, topic, body })
     } catch (e) {
-      console.log(e)
-      // TODO handle failure and put e.message somewhere
+      setError(e.message || 'Error processing request')
+    } finally {
+      setSent(true)
+      setIsSubmitting(false)
     }
   }
 
   return (
     <Box as='form' textAlign='left' color='boulder' textTransform='none' onSubmit={handleSubmit}>
-      {/* TODO: add error handling */}
-      <FBFormControl labelText='Your name' id='your-name' required={false}>
+      {sent && (
+        <Alert status={(error ? 'error' : 'success')} marginBottom='1.5rem' variant='left-accent'>
+          <AlertIcon />
+          {error || 'Success, thanks for contacting us!'}
+        </Alert>
+      )}
+      <FBFormControl labelText='Your name' id='your-name' required>
         <FBTextInput id='your-name' type='text' name='your-name' onChange={(e) => setName(e.target.value)} />
       </FBFormControl>
       <FBFormControl labelText='Email address' id='email' required>
         <FBTextInput id='email' type='email' name='email' onChange={(e) => setEmail(e.target.value)} />
       </FBFormControl>
-      <FBFormControl labelText='Topic' id='topic' required={false}>
+      <FBFormControl labelText='Topic' id='topic' required>
         <Select
           id='topic'
           placeholder='What is this about?'
@@ -96,6 +110,7 @@ const ContactForm = () => {
       </FBFormControl>
       <Box marginTop='2rem'>
         <FBButton
+          isLoading={isSubmitting}
           as='button'
           type='submit'
           className='u-box-shadow'
