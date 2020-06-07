@@ -1,9 +1,8 @@
-import { Box, Flex, Text } from '@chakra-ui/core'
+import { Box, Text } from '@chakra-ui/core'
 
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
-import FBButton from '../common/fbButton'
 
 import WomanWorking from '../../public/images/aboutus_womanworking.svg'
 
@@ -49,38 +48,8 @@ const AboutUsSection = () => (
           their work, especially those who don’t have time for self-promotion.
         </Text>
         <Text>Want to help us on our mission to fund open source?</Text>
+        <Text>Get in touch.</Text>
       </Box>
-      <Flex
-        justify={{ base: 'center', lg: 'flex-start' }}
-        align='center'
-        marginBottom={{ lg: '3rem' }}
-      >
-        <FBButton
-          as='a'
-          // TODO: add actual href
-          href='#'
-          className='u-box-shadow'
-          padding='.75rem'
-          backgroundColor='#fff'
-          color='ocean'
-          minW={{ base: '6rem', sm: '10rem' }}
-        >
-          For Developers
-        </FBButton>
-        <FBButton
-          as='a'
-          // TODO: add actual href
-          href='#'
-          className='u-box-shadow'
-          padding='.75rem'
-          minW={{ base: '6rem', sm: '10rem' }}
-          backgroundColor='puddle'
-          color='ocean'
-          margin={{ base: '0 0 0 1.5rem' }}
-        >
-          For Businesses
-        </FBButton>
-      </Flex>
     </Box>
   </Section>
 )

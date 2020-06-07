@@ -77,9 +77,8 @@ const VerifyHumanity = () => {
             <Recaptcha
               render='explicit'
               onloadCallback={() =>
-                setStatus(
-                  'Please complete the captcha below to complete registration.'
-                )}
+                setStatus('Please complete the captcha below to complete registration.')
+              }
               verifyCallback={(response) => verify(response)}
               sitekey={process.env.RECAPTCHA_SITE_KEY}
             />
