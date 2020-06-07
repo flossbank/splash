@@ -23,9 +23,9 @@ const steps = [
 const InstallSection = () => {
   const [token, setToken] = useState('')
 
-  async function fetchInstallToken() {
+  async function fetchInstallToken () {
     try {
-      const { token: tokenRes} = await startNewCLIInstall()
+      const { token: tokenRes } = await startNewCLIInstall()
       setToken(tokenRes)
     } catch (e) {
       // TODO handle error

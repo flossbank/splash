@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const ENDPOINT = 'http://localhost:8081'
+const ENDPOINT = process.env.API_HOST
 
 export const betaSubscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
