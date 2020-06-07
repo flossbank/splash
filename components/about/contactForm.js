@@ -57,7 +57,7 @@ const ContactForm = () => {
 
   return (
     <Box as='form' textAlign='left' color='boulder' textTransform='none' onSubmit={handleSubmit}>
-      {/* TODO: add submit handler, add handlers for inputs, and error handling */}
+      {/* TODO: add error handling */}
       <FBFormControl labelText='Your name' id='your-name' required={false}>
         <FBTextInput id='your-name' type='text' name='your-name' onChange={(e) => setName(e.target.value)} />
       </FBFormControl>
