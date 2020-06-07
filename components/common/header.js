@@ -7,7 +7,7 @@ import TextLink from './textLink'
 const Header = () => {
   return (
     <>
-      <Box as='header' padding={['1.5rem', '1.5rem', '2.5rem 5rem']}>
+      <Box as='header' padding={['1rem', '1.5rem', '1.5rem 5rem']}>
         <Flex alignItems='center' justify='space-between' flexDirection='row'>
           <FBLogo />
           <Box

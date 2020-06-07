@@ -10,16 +10,16 @@ import StepperSection from '../common/stepperSection'
 
 const VerifyHumanity = () => {
   const router = useRouter()
-  const { e: encodedEmail, token, kind } = router.query
+  const { e: encodedEmail, token } = router.query
   const email = decode(encodedEmail || '').toString()
   const [verified, setVerified] = useState(false)
   const [status, setStatus] = useState('Verifying email...')
 
   const verify = async (response) => {
-    if (!encodedEmail || !token || !kind) {
-      // if (typeof window !== 'undefined') window.location.replace('https://flossbank.com/')
+    if (!encodedEmail || !token) {
       setVerified(true)
       setStatus('Failure')
+      return
     }
     try {
       await verifyRegistration({ email, token, response })
@@ -54,7 +54,7 @@ const VerifyHumanity = () => {
         <script src='https://www.google.com/recaptcha/api.js' async defer />
       </Head>
       <StepperSection steps={steps} currentStep={1} />}
-      <Box padding={['4rem 1rem 0 1rem', '4rem 0 0 0']}>
+      <Box padding={['0 1rem 0 1rem', '0 0 0 0']}>
         <Heading
           textTransform='uppercase'
           fontWeight='bold'
@@ -77,7 +77,7 @@ const VerifyHumanity = () => {
             <Recaptcha
               render='explicit'
               onloadCallback={() =>
-                setStatus('Please complete the captcha below to complete registration.')}
+                setStatus('Please complete the captcha below to verify you\'re a human.')}
               verifyCallback={(response) => verify(response)}
               sitekey={process.env.RECAPTCHA_SITE_KEY}
             />

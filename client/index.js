@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-const ENDPOINT = process.env.API_HOST
+const ENDPOINT = 'http://localhost:8081'
 
 export const betaSubscribe = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/beta/subscribe`, optionsWithPostBody({ email }))
@@ -24,6 +24,16 @@ export const verifyRegistration = async ({ email, response, token }) => {
 
 export const sendSupportFeedback = async ({ email, name, topic, body }) => {
   return fetchThenJson(`${ENDPOINT}/support/feedback`, optionsWithPostBody({ email, topic, name, body }))
+}
+
+export const startNewCLIInstall = async () => {
+  return fetchThenJson(`${ENDPOINT}/user/new-install`, {
+    method: 'POST',
+    headers: {
+      'x-requested-with': 'XmlHttpRequest'
+    },
+    credentials: 'include'
+  })
 }
 
 const fetchThenJson = (url, options) => fetch(url, options)
