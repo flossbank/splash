@@ -25,7 +25,6 @@ const RocketSection = ({ children }) => {
     >
       {isWide ? (
         <Flex flexDirection='row' justify='space-between' zIndex='-1'>
-          <p>I am wide!</p>
           <Parallax strength={150} className={styles.splash_parallax}>
             <SplashRocket className={styles.splash_rocket} />
             <SplashForegroundClouds
