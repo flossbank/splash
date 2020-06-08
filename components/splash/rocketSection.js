@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/core'
+import { Box, Flex } from '@chakra-ui/core'
 import { Parallax, Background } from 'react-parallax'
 
 import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
@@ -21,7 +21,7 @@ const RocketSection = ({ children }) => {
       alignItems='center'
       backgroundColor='ocean'
       color='white'
-      padding={{ base: '1.5rem 1.5rem 3rem', md: '3rem 1.5rem' }}
+      padding='0'
     >
       {isWide ? (
         <Flex flexDirection='row' justify='space-between' zIndex='-1'>
@@ -48,7 +48,7 @@ const RocketSection = ({ children }) => {
       ) : (
         <>
           <SplashRocket className={styles.splash_rocket_mobile} />
-          {children}
+          <Box padding='0 1.5rem 3rem'>{children}</Box>
         </>
       )}
     </Section>
