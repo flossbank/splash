@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/core'
 
-import FBButton from '../common/fbButton'
-import FBLogo from '../common/logo'
+import LinkBtn from './linkBtn'
+import FBLogo from './logo'
 import TextLink from './textLink'
 
 const Header = () => {
@@ -32,8 +32,7 @@ const Header = () => {
               color='boulder'
               padding='.25em'
             />
-            <FBButton
-              as='a'
+            <LinkBtn
               href='/signup'
               backgroundColor='transparent'
               minW='unset'
@@ -44,7 +43,7 @@ const Header = () => {
               _hover={{ backgroundColor: 'ocean', color: 'white' }}
             >
               Sign Up
-            </FBButton>
+            </LinkBtn>
           </Box>
         </Flex>
       </Box>

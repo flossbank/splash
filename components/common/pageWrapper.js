@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 import FBHead from './head'
 import Footer from './footer'
 import Header from './header'
-import FBButton from './fbButton'
+import LinkBtn from './linkBtn'
 
 import styles from './skipLink.module.scss'
 // TODO: add NProgress
 
 const SkipLink = () => (
-  <FBButton as='a' href='#main-content' className={styles.skip}>
+  <LinkBtn href='#main-content' className={styles.skip}>
     Skip to main content
-  </FBButton>
+  </LinkBtn>
 )
 
 const PageWrapper = (props) => (

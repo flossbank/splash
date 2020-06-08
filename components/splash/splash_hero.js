@@ -5,7 +5,7 @@ import SplashRocket from '../../public/images/splash/splash_rocket_clouds.svg'
 import SplashComputer from '../../public/images/splash/splash_computer.svg'
 import SplashForegroundClouds from '../../public/images/splash/splash_foreground_clouds.svg'
 import SplashBackgroundClouds from '../../public/images/splash/splash_background_clouds.svg'
-import FBButton from '../common/fbButton'
+import LinkBtn from '../common/linkBtn'
 import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
 
@@ -49,8 +49,7 @@ const SplashHero = () => {
         marginTop='30px'
         marginBottom='10px'
       >
-        <FBButton
-          as='a'
+        <LinkBtn
           href='#forDevelopers'
           className='u-box-shadow'
           backgroundColor='white'
@@ -59,9 +58,8 @@ const SplashHero = () => {
           margin={['0 0 1.5rem 0', '0 1.5rem 0 0 ']}
         >
           For Developers
-        </FBButton>
-        <FBButton
-          as='a'
+        </LinkBtn>
+        <LinkBtn
           href='#forBusinesses'
           className='u-box-shadow'
           backgroundColor='puddle'
@@ -69,7 +67,7 @@ const SplashHero = () => {
           minW={['none', '10rem']}
         >
           For Businesses
-        </FBButton>
+        </LinkBtn>
       </Flex>
     </>
   )

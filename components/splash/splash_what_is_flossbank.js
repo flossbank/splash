@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/core'
 
-import FBButton from '../common/fbButton'
+import LinkBtn from '../common/linkBtn'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import WhatIsFBCards from './cards/whatIsFBCards'
@@ -47,17 +47,15 @@ const SplashWhatIsFlossbank = () => {
         </Text>
         <WhatIsFBCards />
         <Flex justify={{ base: 'center', lg: 'flex-start' }} align='center'>
-          <FBButton
-            as='a'
+          <LinkBtn
             href='/signup'
             className='u-box-shadow'
             padding='.75rem'
             minW={{ base: '6rem', sm: '10rem' }}
           >
             Sign Up
-          </FBButton>
-          <FBButton
-            as='a'
+          </LinkBtn>
+          <LinkBtn
             href='/about'
             className='u-box-shadow'
             padding='.75rem'
@@ -67,7 +65,7 @@ const SplashWhatIsFlossbank = () => {
             margin={{ base: '0 0 0 1.5rem' }}
           >
             About Us
-          </FBButton>
+          </LinkBtn>
         </Flex>
       </Box>
     </Section>

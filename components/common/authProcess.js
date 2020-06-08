@@ -93,7 +93,11 @@ const AuthProcess = ({
                 })}
               />
             </FormControl>
-            <FBButton isLoading={isSubmitting} as='button' type='submit'>
+            <FBButton
+              isLoading={isSubmitting}
+              loadingText='Logging In'
+              type='submit'
+            >
               {submitText}
             </FBButton>
           </Box>
