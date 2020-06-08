@@ -13,7 +13,7 @@ import useMedia from '../common/useMedia'
 import styles from './splash_hero.module.scss'
 
 const RocketSection = ({ children }) => {
-  const isWide = useMedia('(min-width: 55em')
+  const isWide = useMedia('screen and (min-width: 55em')
 
   return (
     <Section
@@ -25,6 +25,7 @@ const RocketSection = ({ children }) => {
     >
       {isWide ? (
         <Flex flexDirection='row' justify='space-between' zIndex='-1'>
+          <p>I am wide!</p>
           <Parallax strength={150} className={styles.splash_parallax}>
             <SplashRocket className={styles.splash_rocket} />
             <SplashForegroundClouds
