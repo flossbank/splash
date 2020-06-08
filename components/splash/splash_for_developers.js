@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Section from '../common/section'
 import Subheading from '../common/subheading'
 import UnderlinedHeading from '../common/underlinedHeading'
-import FBButton from '../common/fbButton'
+import LinkBtn from '../common/linkBtn'
 import TextLink from '../common/textLink'
 import ForDevelopersCards from './cards/forDevelopersCards'
 
@@ -55,8 +55,7 @@ const SplashForDevelopers = (props) => {
           alignSelf='center'
           alignItems={{ base: 'center', lg: 'flex-start' }}
         >
-          <FBButton
-            as='a'
+          <LinkBtn
             href='/signup'
             className='u-box-shadow'
             padding='.75rem'
@@ -64,7 +63,7 @@ const SplashForDevelopers = (props) => {
             margin='0 0 2rem'
           >
             Sign Up
-          </FBButton>
+          </LinkBtn>
 
           <Text>Are you an author or maintainer?</Text>
           <Text>
