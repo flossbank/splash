@@ -1,15 +1,14 @@
 .splash_rocket {
-  width: 400px;
+  width: 25rem;
   z-index: 2;
   margin: auto;
 }
 
 .splash_rocket_mobile {
-  width: 100%;
+  // width: 100%; this was causing it to be on the left side of the screen on md width
   z-index: 2;
-  margin: auto;
+  margin: 10vh auto auto;
   height: auto;
-  padding-top: 10vh;
 }
 
 .splash_computer {
@@ -23,7 +22,7 @@
 
 .splash_parallax {
   width: 100%;
-  min-height: 80vh;
+  // min-height: 80vh;
   margin-top: 20px;
   padding-top: 100px;
 }
