@@ -8,7 +8,7 @@ const FBButton = ({ children, ...props }) => (
 
 FBButton.defaultProps = { ...defaultProps }
 
-FBButton.PropTypes = {
+FBButton.propTypes = {
   onClick: PropTypes.func
 }
 
