@@ -63,6 +63,7 @@ const AuthProcess = ({
     >
       <h1 className='sr-only'>{submitText}</h1>
       <FBLogoLetters
+        id='letter-logo-auth'
         marginBottom='3rem'
         display={{ base: 'none', md: 'flex' }}
       />
@@ -76,9 +77,11 @@ const AuthProcess = ({
               <FormLabel htmlFor='email' marginBottom='.5rem'>
                 Email address
               </FormLabel>
-              {errors.email && (
-                <ErrorMessage msg='Please provide a valid email address' />
-              )}
+              <Box aria-atomic='true' id='email-error'>
+                {errors.email && (
+                  <ErrorMessage msg='Please provide a valid email address' />
+                )}
+              </Box>
               <Input
                 type='email'
                 id='email'

@@ -8,7 +8,7 @@ const SplashHero = () => (
     <Heading
       as='h1'
       textAlign='center'
-      marginTop={{ base: '3rem', sm: '6rem' }}
+      marginTop={{ base: '3rem', lg: '6rem' }}
       marginBottom='1.5rem'
       fontWeight='400'
       fontSize={{ base: '1.75rem', md: '2.25rem' }}
@@ -38,7 +38,9 @@ const SplashHero = () => (
     </Text>
     <Flex
       justify='center'
-      margin='auto'
+      marginLeft='auto'
+      marginRight='auto'
+      marginBottom={{ lg: '3rem' }}
       padding={{ base: '1rem', sm: '1.5rem' }}
       flexDirection={{ base: 'column', sm: 'row' }}
     >

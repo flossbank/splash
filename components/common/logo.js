@@ -15,7 +15,7 @@ const FBLogo = () => {
         <FullLogo />
       </Box>
       <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
-        <FBLogoLetters />
+        <FBLogoLetters id='letter-logo-header' />
       </Box>
     </Link>
   )

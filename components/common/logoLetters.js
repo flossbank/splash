@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/core'
+import PropTypes from 'prop-types'
 
-const FBLogoLetters = ({ ...props }) => {
+const FBLogoLetters = ({ id, ...props }) => {
   return (
     <Flex justify='center' {...props}>
       <svg
@@ -10,7 +11,7 @@ const FBLogoLetters = ({ ...props }) => {
         height='3.2615rem'
       >
         <defs>
-          <clipPath id='a'>
+          <clipPath id={id}>
             <path d='M0 89.809h72.206V0H0z' />
           </clipPath>
         </defs>
@@ -28,6 +29,11 @@ const FBLogoLetters = ({ ...props }) => {
       </svg>
     </Flex>
   )
+}
+
+FBLogoLetters.propTypes = {
+  // needs a unique id wherever it's used to avoid clashes on the login/signup page where it's used twice, causing a11y errors to be thrown
+  id: PropTypes.string.isRequired
 }
 
 export default FBLogoLetters

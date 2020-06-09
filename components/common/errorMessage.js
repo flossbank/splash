@@ -1,8 +1,7 @@
 import { Alert, AlertIcon } from '@chakra-ui/core'
 
-const ErrorMessage = ({ id, msg, ...props }) => (
+const ErrorMessage = ({ msg, ...props }) => (
   <Alert
-    id={id}
     status='error'
     marginBottom='1rem'
     backgroundColor='#ffe5e5'
