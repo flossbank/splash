@@ -20,8 +20,7 @@ const CompleteLogin = () => {
       setStatus('Verified')
       // Wait a second then redirect
       setTimeout(() => {
-        console.log('redirecting')
-        // window.location = 'https://user.flossbank.com/'
+        window.location = 'https://user.flossbank.com/'
       }, 1000)
     } catch (e) {
       setStatus('Authentication Failed')
