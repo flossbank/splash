@@ -39,9 +39,7 @@ export const startNewCLIInstall = async () => {
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
     if (!res.ok) {
-      const e = new Error('response not ok')
-      e.res = res
-      throw e
+      throw res
     }
     return res.json()
   })
