@@ -105,12 +105,11 @@ const ContactForm = () => {
             <ErrorMessage msg='There was an error submitting the form. Please try again!' />
           )}
           <FBFormControl labelText='Your name' id='your-name' required>
-            {errors.name && (
-              <ErrorMessage
-                id='name-error'
-                msg="Don't forget to tell us your name!"
-              />
-            )}
+            <Box id='name-error' aria-atomic='true'>
+              {errors.name && (
+                <ErrorMessage msg="Don't forget to tell us your name!" />
+              )}
+            </Box>
             <FBTextInput
               id='your-name'
               type='text'
@@ -120,12 +119,11 @@ const ContactForm = () => {
             />
           </FBFormControl>
           <FBFormControl labelText='Email address' id='email' required>
-            {errors.email && (
-              <ErrorMessage
-                id='email-error'
-                msg='Please enter a valid email address'
-              />
-            )}
+            <Box id='email-error' aria-atomic='true'>
+              {errors.email && (
+                <ErrorMessage msg='Please enter a valid email address' />
+              )}
+            </Box>
             <FBTextInput
               id='email'
               type='email'
@@ -140,12 +138,11 @@ const ContactForm = () => {
             />
           </FBFormControl>
           <FBFormControl labelText='Topic' id='topic' required>
-            {errors.topic && (
-              <ErrorMessage
-                id='topic-error'
-                msg='Please select a topic that pertains to your message'
-              />
-            )}
+            <Box id='topic-error' aria-atomic='true'>
+              {errors.topic && (
+                <ErrorMessage msg='Please select a topic that pertains to your message' />
+              )}
+            </Box>
             <Select
               id='topic'
               placeholder='What is this about?'
@@ -167,12 +164,11 @@ const ContactForm = () => {
             </Select>
           </FBFormControl>
           <FBFormControl labelText='How can we help?' id='message' required>
-            {errors.body && (
-              <ErrorMessage
-                id='message-error'
-                msg="Don't forget to enter your message. We'd love to hear from you!"
-              />
-            )}
+            <Box id='message-error' aria-atomic='true'>
+              {errors.body && (
+                <ErrorMessage msg="Don't forget to enter your message. We'd love to hear from you!" />
+              )}
+            </Box>
             <Textarea
               id='message'
               name='body'
