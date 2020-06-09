@@ -31,7 +31,7 @@ const AuthProcess = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
-  const [formError, setFormError] = useState(false)
+  const [formError, setFormError] = useState('')
 
   const { register, handleSubmit, errors } = useForm()
 
@@ -43,9 +43,13 @@ const AuthProcess = ({
       // Will pass login or signup from client
       await process({ email })
       setSent(true)
-      setFormError(false)
+      setFormError('')
     } catch (e) {
-      setFormError(true)
+      if (e.status === 409) {
+        setFormError('Looks like you\'re already signed up! Try logging in.')
+      } else {
+        setFormError('There was an error submitting the form. Please try again!')
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -71,7 +75,7 @@ const AuthProcess = ({
         {!sent && (
           <Box as='form' onSubmit={handleSubmit(handleProcess)} noValidate>
             {formError && (
-              <ErrorMessage msg='There was an error submitting the form. Please try again!' />
+              <ErrorMessage msg={formError} />
             )}
             <FormControl marginBottom='2.25rem' isRequired>
               <FormLabel htmlFor='email' marginBottom='.5rem'>
