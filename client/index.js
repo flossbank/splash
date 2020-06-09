@@ -38,7 +38,6 @@ export const startNewCLIInstall = async () => {
 
 const fetchThenJson = (url, options) => fetch(url, options)
   .then(res => {
-    console.log(res)
     if (!res.ok) {
       throw res
     }
