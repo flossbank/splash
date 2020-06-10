@@ -45,10 +45,15 @@ const AuthProcess = ({
       setSent(true)
       setFormError('')
     } catch (e) {
-      if (e.status === 409) {
-        setFormError('Looks like you\'re already signed up! Try logging in.')
-      } else {
-        setFormError('There was an error submitting the form. Please try again!')
+      switch (e.status) {
+        case 404:
+          setFormError('The email you entered doesn\'t match our records. Please try again or try signing up')
+          break
+        case 409:
+          setFormError('Looks like you\'re already signed up! Try logging in.')
+          break
+        default:
+          setFormError('There was an error submitting the form. Please try again!')
       }
     } finally {
       setIsSubmitting(false)
