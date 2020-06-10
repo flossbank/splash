@@ -2,6 +2,8 @@ import fetch from 'isomorphic-fetch'
 
 const STAGING_ENDPOINT = 'https://api.flossbank.io'
 console.log('here wtff', process.env.PREVIEW)
+console.log('what about here', process.env.NEXT_PUBLIC_PREVIEW)
+console.log('what ae all of them', process.env)
 const ENDPOINT = process.env.PREVIEW ? STAGING_ENDPOINT : process.env.API_HOST
 
 export const betaSubscribe = async ({ email }) => {
