@@ -20,7 +20,7 @@ const CompleteLogin = () => {
       setStatus('Verified')
       // Wait a second then redirect
       setTimeout(() => {
-        window.location = 'https://user.flossbank.com/'
+        router.push('/dashboard')
       }, 1000)
     } catch (e) {
       setStatus('Authentication Failed')

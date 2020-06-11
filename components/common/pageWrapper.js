@@ -35,7 +35,7 @@ const PageWrapper = (props) => (
       >
         {props.children}
       </PseudoBox>
-      <Footer />
+      {props.hideFooter && <Footer />}
     </Flex>
   </>
 )
