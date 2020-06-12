@@ -18,7 +18,7 @@ const VerifyHumanity = () => {
   const verify = async (response) => {
     if (!encodedEmail || !token) {
       setVerified(true)
-      setStatus('Failure')
+      setStatus('Failure, no email or token in URL, contact support@flossbank.com for assistance.')
       return
     }
     try {

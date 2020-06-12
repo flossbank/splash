@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import FBDivider from '../common/divider'
 import StepperSection from '../common/stepperSection'
 import { startNewCLIInstall } from '../../client'
+import TextLink from '../common/textLink'
 
 const steps = [
   {
@@ -39,7 +40,7 @@ const InstallSection = () => {
   return (
     <Box minHeight='85vh'>
       <StepperSection steps={steps} currentStep={3} />}
-      <Box padding={['0 1rem 0 1rem', '0 10% 0 10%']}>
+      <Box padding={['0 1rem 0 1rem', '0 10% 10% 10%']}>
         <Heading
           textTransform='uppercase'
           fontWeight='bold'
@@ -63,7 +64,7 @@ const InstallSection = () => {
           the rest of your system by vendorizing its dependencies.
         </Text>
         <Box
-          margin={['0', '3rem 10% 10% 10%']}
+          margin={['0', '3rem 10% 2rem 10%']}
           padding={['1rem', '3rem']}
           boxShadow='2px 2px 2px 2px rgba(68, 68, 68, 0.1)'
         >
@@ -104,6 +105,11 @@ const InstallSection = () => {
             $FLOSSBANK_INSTALL_TOKEN="{token}"; iwr
             https://get.flossbank.com/ps -useb | iex
           </Code>
+        </Box>
+        <Box textAlign='center'>
+          <TextLink text='Finished installing' href='/dashboard' />
+          {' or '}
+          <TextLink text="I'll install later" href='/dashboard' />
         </Box>
       </Box>
     </Box>

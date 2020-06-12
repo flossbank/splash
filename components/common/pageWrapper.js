@@ -42,7 +42,7 @@ const PageWrapper = (props) => (
 
 PageWrapper.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default PageWrapper
