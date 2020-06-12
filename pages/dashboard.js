@@ -18,11 +18,13 @@ const Dashboard = () => {
     >
       <Box padding={['1rem', '4rem']} backgroundColor='lightRock'>
         <Box width='100%'>
-          <Alert status='success'
-                 backgroundColor='puddle'
-                 color='ocean'
-                 fontWeight='500'
-                 marginBottom='1.5rem'>
+          <Alert
+            status='success'
+            backgroundColor='puddle'
+            color='ocean'
+            fontWeight='500'
+            marginBottom='1.5rem'
+          >
             <AlertIcon color='ocean' />
             Thanks for installing Flossbank! As you develop using open source, you can visit this user portal
             at any time to see the impact you have on the open source community. We're working on more features
@@ -38,9 +40,7 @@ const Dashboard = () => {
           Impact overview
         </Heading>
         <Flex flexDirection='row'>
-          <Box as='section' width='70%' height='40rem' backgroundColor='black'>
-
-          </Box>
+          <Box as='section' width='70%' height='40rem' backgroundColor='black' />
           <Flex flexDirection='column' width='30%'>
             <List
               display='grid'

@@ -35,14 +35,14 @@ const PageWrapper = (props) => (
       >
         {props.children}
       </PseudoBox>
-      {props.hideFooter && <Footer />}
+      <Footer />
     </Flex>
   </>
 )
 
 PageWrapper.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default PageWrapper

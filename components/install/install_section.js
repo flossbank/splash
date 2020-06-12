@@ -107,9 +107,9 @@ const InstallSection = () => {
           </Code>
         </Box>
         <Box textAlign='center'>
-          <TextLink text='Finished installing' href='/dashboard'></TextLink>
+          <TextLink text='Finished installing' href='/dashboard' />
           {' or '}
-          <TextLink text="I'll install later" href='/dashboard'></TextLink>
+          <TextLink text="I'll install later" href='/dashboard' />
         </Box>
       </Box>
     </Box>
