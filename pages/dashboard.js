@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import PageWrapper from '../components/common/pageWrapper'
-import { Text, Box, Heading, Flex, List, ListItem, CircularProgress } from '@chakra-ui/core'
+import { Text, Box, Heading, Flex, List, ListItem, CircularProgress, Alert, AlertIcon } from '@chakra-ui/core'
 
 const Dashboard = () => {
   /* eslint-disable */
@@ -17,6 +17,18 @@ const Dashboard = () => {
       description='User usage dashboard and profile page.'
     >
       <Box padding={['1rem', '4rem']} backgroundColor='lightRock'>
+        <Box width='100%'>
+          <Alert status='success'
+                 backgroundColor='puddle'
+                 color='ocean'
+                 fontWeight='500'
+                 marginBottom='1.5rem'>
+            <AlertIcon color='ocean' />
+            Thanks for installing Flossbank! As you develop using open source, you can visit this user portal
+            at any time to see the impact you have on the open source community. We're working on more features
+            as fast as possible, hoping to create a vibrant open source support ecosystem. Happy coding!
+          </Alert>
+        </Box>
         <Heading
           textTransform='uppercase'
           fontWeight='bold'
@@ -27,7 +39,7 @@ const Dashboard = () => {
         </Heading>
         <Flex flexDirection='row'>
           <Box as='section' width='70%' height='40rem' backgroundColor='black'>
-            graphic
+
           </Box>
           <Flex flexDirection='column' width='30%'>
             <List
@@ -69,7 +81,7 @@ const Dashboard = () => {
                 padding='2.5rem 2.25rem'
               >
                 {!donation && <CircularProgress isIndeterminate color='ocean' />}
-                <Text>Donated monthly</Text>
+                <Text>Monthly donation</Text>
               </ListItem>
             </List>
           </Flex>
