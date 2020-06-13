@@ -37,7 +37,8 @@ const DonateForm = (props) => {
       const response = await donate({
         billingToken: token.id,
         amount: stripDollarSignAmount * 100,
-        last4: token.card.last4
+        last4: token.card.last4,
+        seeAds: props.seeAds,
       })
       if (!response.ok) {
         setError('Donation failed')

@@ -18,6 +18,7 @@ const SelectTierCards = (props) => {
     title: 'See Ads',
     subtitle: 'I occasionally use open source',
     donation: false,
+    ads: true,
     recommended: true,
     about: 'During installation of open source packages, see curated tech advertisements',
     attributes: [{
@@ -36,6 +37,7 @@ const SelectTierCards = (props) => {
     title: 'Donate',
     subtitle: 'I use open source a decent amount',
     donation: true,
+    ads: false,
     recommended: false,
     about: 'Make a monthly donation that reflects your usage',
     attributes: [{
@@ -54,6 +56,7 @@ const SelectTierCards = (props) => {
     title: 'Donate + see ads',
     subtitle: 'I use OSS in everything I build',
     donation: true,
+    ads: true,
     recommended: false,
     about: 'Make a monthly donation AND see curated tech advertisements during installation of OSS packages',
     attributes: [{
@@ -114,7 +117,7 @@ const SelectTierCards = (props) => {
                 marginBottom='1rem'
                 _hover={{ marginTop: '3px' }}
                 href={content.donation ? '#donate-form' : '/install'}
-                onClick={() => props.onSelected(content.donation)}
+                onClick={() => props.onSelected({ withDonation: content.donation, seeAds: content.ads })}
               >
                 Select
               </LinkBtn>

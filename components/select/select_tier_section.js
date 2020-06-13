@@ -39,9 +39,11 @@ const steps = [
 const SelectTierSection = () => {
   const router = useRouter()
   const [showDonateForm, setShowDonateForm] = useState(false)
+  const [seeAds, setSeeAds] = useState(false)
 
-  const handleOnSelected = (withDonation) => {
+  const handleOnSelected = ({ withDonation, seeAds }) => {
     if (!withDonation) return
+    if (seeAds) setSeeAds(true)
     setShowDonateForm(true)
   }
 
@@ -97,7 +99,7 @@ const SelectTierSection = () => {
           >
             <UnderlinedHeading text='Payment info' align='center' />
             <Elements stripe={stripePromise}>
-              <InjectedDonateForm handleSuccess={handleDonationSuccess} />
+              <InjectedDonateForm handleSuccess={handleDonationSuccess} seeAds={seeAds} />
             </Elements>
           </Box>
         )}
