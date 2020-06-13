@@ -41,10 +41,7 @@ const SelectTierSection = () => {
   const [showDonateForm, setShowDonateForm] = useState(false)
 
   const handleOnSelected = (withDonation) => {
-    if (!withDonation) {
-      router.push('/install')
-      return
-    }
+    if (!withDonation) return
     setShowDonateForm(true)
   }
 
@@ -91,7 +88,13 @@ const SelectTierSection = () => {
           <SelectTierCards onSelected={handleOnSelected} />
         </Flex>
         {showDonateForm && (
-          <Box as='section' padding='2rem 20% 5rem 20%' textAlign='center' backgroundColor='puddle'>
+          <Box
+            as='section'
+            id='donate-form'
+            padding={['2rem 1rem 5rem 1rem', '2rem 20% 5rem 20%']}
+            textAlign='center'
+            backgroundColor='puddle'
+          >
             <UnderlinedHeading text='Payment info' align='center' />
             <Elements stripe={stripePromise}>
               <InjectedDonateForm handleSuccess={handleDonationSuccess} />

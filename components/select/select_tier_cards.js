@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/core'
 
 import FBDivider from '../common/divider'
-import FBButton from '../common/button'
+import LinkBtn from '../common/linkBtn'
 
 const SelectTierCards = (props) => {
   const fill = (content) => {
@@ -108,15 +108,16 @@ const SelectTierCards = (props) => {
               {content.about}
             </Text>
             <Box height='4rem'>
-              <FBButton
+              <LinkBtn
                 color='white'
                 backgroundColor='ocean'
                 marginBottom='1rem'
                 _hover={{ marginTop: '3px' }}
+                href={content.donation ? '#donate-form' : '/install'}
                 onClick={() => props.onSelected(content.donation)}
               >
                 Select
-              </FBButton>
+              </LinkBtn>
             </Box>
             <Box>
               {content.attributes.map((attr, i) => (
