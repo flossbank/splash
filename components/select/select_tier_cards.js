@@ -5,22 +5,21 @@ import {
   Heading,
   Icon
 } from '@chakra-ui/core'
-import { useRouter } from 'next/router'
 
 import FBDivider from '../common/divider'
-import FBButton from '../common/button'
+import LinkBtn from '../common/linkBtn'
 
-const SelectTierCards = () => {
-  const router = useRouter()
+const SelectTierCards = (props) => {
   const fill = (content) => {
     return content.recommended ? '#D7E6F6' : 'none'
   }
 
   const cardsContent = [{
-    title: 'Free',
+    title: 'See Ads',
     subtitle: 'I occasionally use open source',
-    handleOnClick: () => router.push('/install'),
-    recommended: false,
+    donation: false,
+    ads: true,
+    recommended: true,
     about: 'During installation of open source packages, see curated tech advertisements',
     attributes: [{
       iconName: 'close',
@@ -35,10 +34,11 @@ const SelectTierCards = () => {
     }]
   },
   {
-    title: '$10 and up',
+    title: 'Donate',
     subtitle: 'I use open source a decent amount',
-    handleOnClick: () => router.push('/install'),
-    recommended: true,
+    donation: true,
+    ads: false,
+    recommended: false,
     about: 'Make a monthly donation that reflects your usage',
     attributes: [{
       iconName: 'check',
@@ -53,9 +53,10 @@ const SelectTierCards = () => {
     }]
   },
   {
-    title: 'Donate and see ads',
+    title: 'Donate + see ads',
     subtitle: 'I use OSS in everything I build',
-    handleOnClick: () => router.push('/install'),
+    donation: true,
+    ads: true,
     recommended: false,
     about: 'Make a monthly donation AND see curated tech advertisements during installation of OSS packages',
     attributes: [{
@@ -110,21 +111,22 @@ const SelectTierCards = () => {
               {content.about}
             </Text>
             <Box height='4rem'>
-              <FBButton
+              <LinkBtn
                 color='white'
                 backgroundColor='ocean'
                 marginBottom='1rem'
                 _hover={{ marginTop: '3px' }}
-                onClick={content.handleOnClick}
+                href={content.donation ? '#donate-form' : '/install'}
+                onClick={() => props.onSelected({ withDonation: content.donation, seeAds: content.ads })}
               >
                 Select
-              </FBButton>
+              </LinkBtn>
             </Box>
             <Box>
               {content.attributes.map((attr, i) => (
-                <Flex flexDirection='row' color='ocean' key={i + 100}>
-                  <Icon name={attr.iconName} margin={['auto .5rem auto .5rem']} />
-                  <Text textTransform='uppercase'>{attr.title}</Text>
+                <Flex flexDirection='row' color='ocean' key={i + 100} margin='0 0 .5rem 0'>
+                  <Icon name={attr.iconName} margin={['auto 1rem auto 0rem']} />
+                  <Text textTransform='uppercase' fontWeight='bold' fontSize='14px'>{attr.title}</Text>
                 </Flex>
               ))}
             </Box>

@@ -23,6 +23,10 @@ export const signup = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/user/register`, optionsWithPostBody({ email }))
 }
 
+export const donate = async ({ amount, billingToken, last4 }) => {
+  return fetchThenJson(`${ENDPOINT}/user/donation`, optionsWithPostBody({ amount, billingToken, last4 }))
+}
+
 export const verifyRegistration = async ({ email, response, token }) => {
   return fetchThenJson(`${ENDPOINT}/user/verify-registration`, optionsWithPostBody({ email, token, recaptchaResponse: response }))
 }

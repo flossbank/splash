@@ -3,7 +3,6 @@ import {
   Text,
   FormControl,
   FormLabel,
-  Input,
   Select,
   Textarea,
   Alert,
@@ -18,6 +17,7 @@ import TextLink from '../common/textLink'
 import ErrorMessage from '../common/errorMessage'
 
 import { sendSupportFeedback } from '../../client'
+import FBTextInput from '../common/fbTextInput.js'
 
 const FBFormControl = ({ labelText, id, required, children, ...props }) => (
   <FormControl marginBottom='1.5rem' isRequired={required} {...props}>
@@ -31,17 +31,6 @@ const FBFormControl = ({ labelText, id, required, children, ...props }) => (
     </FormLabel>
     {children}
   </FormControl>
-)
-
-const FBTextInput = ({ id, type, register, ...props }) => (
-  <Input
-    id={id}
-    type={type}
-    backgroundColor='lightRock'
-    borderRadius='10px'
-    ref={register}
-    {...props}
-  />
 )
 
 const topics = [
