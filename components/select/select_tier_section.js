@@ -1,10 +1,25 @@
 import { Box, Flex, Text } from '@chakra-ui/core'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import StepperSection from '../common/stepperSection'
 import SelectTierCards from './select_tier_cards'
+import DonateForm from './donate_form'
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+
+const InjectedDonateForm = ({ handleSuccess }) => (
+  <ElementsConsumer>
+    {({ elements, stripe }) => (
+      <DonateForm elements={elements} stripe={stripe} handleSuccess={handleSuccess} />
+    )}
+  </ElementsConsumer>
+)
 
 const steps = [
   {
@@ -22,6 +37,21 @@ const steps = [
 ]
 
 const SelectTierSection = () => {
+  const router = useRouter()
+  const [showDonateForm, setShowDonateForm] = useState(false)
+
+  const handleOnSelected = (withDonation) => {
+    if (!withDonation) {
+      router.push('/install')
+      return
+    }
+    setShowDonateForm(true)
+  }
+
+  const handleDonationSuccess = () => {
+    router.push('/install')
+  }
+
   return (
     <Section
       backgroundColor='white'
@@ -30,7 +60,7 @@ const SelectTierSection = () => {
       justifyContent='center'
       flex='1'
       flexDirection='column'
-      padding='0 0 3rem'
+      padding='0 0 0'
     >
       <Box width='100%'>
         <h1 className='sr-only'>Select your level of support</h1>
@@ -57,9 +87,17 @@ const SelectTierSection = () => {
           </Text>
         </Box>
         {/* </Box> */}
-        <Flex flexDirection={['column', 'row']} margin='2rem'>
-          <SelectTierCards />
+        <Flex flexDirection={['column', 'row']} margin='2rem 2rem 5rem 2rem'>
+          <SelectTierCards onSelected={handleOnSelected} />
         </Flex>
+        {showDonateForm && (
+          <Box as='section' padding='2rem 20% 5rem 20%' textAlign='center' backgroundColor='puddle'>
+            <UnderlinedHeading text='Payment info' align='center' />
+            <Elements stripe={stripePromise}>
+              <InjectedDonateForm handleSuccess={handleDonationSuccess} />
+            </Elements>
+          </Box>
+        )}
       </Box>
     </Section>
   )
