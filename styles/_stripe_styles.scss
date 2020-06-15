@@ -1,4 +1,4 @@
-@import "../../styles/_variables";
+@import "./_variables";
 
 // double class for extra specifcity needed to overrride Stripe's styles
 :global(.StripeElement--focus.StripeElement--focus) {
