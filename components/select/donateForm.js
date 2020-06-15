@@ -26,7 +26,7 @@ const DonateForm = (props) => {
     }
 
     setAmountError('')
-    setAmount(e.target.value)
+    setAmount(amount)
   }
 
   const handleCardChange = (e) => {
