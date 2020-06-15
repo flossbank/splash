@@ -145,9 +145,8 @@ const DonateForm = (props) => {
             className={styles.donateInput}
             onChange={handleCardChange}
           />
-          {cardError && <ErrorMessage msg={cardError} marginTop='.5rem' />}
-          {!cardError && error && (
-            <ErrorMessage msg={error} marginTop='.5rem' />
+          {(cardError || error) && (
+            <ErrorMessage msg={cardError || error} marginTop='.5rem' />
           )}
         </Box>
       </Box>
