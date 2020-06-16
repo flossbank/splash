@@ -23,6 +23,10 @@
     text-decoration: none !important;
   }
 
+  &:focus {
+    outline-color: currentColor;
+  }
+
   &:hover::after {
     transform: scaleX(1);
   }

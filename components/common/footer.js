@@ -26,12 +26,7 @@ const Footer = () => {
                 </Box>
               )}
               <ListItem>
-                <TextLink
-                  className={styles.link}
-                  href={link.url}
-                  text={link.text}
-                  color='white'
-                />
+                <TextLink href={link.url} text={link.text} color='white' />
               </ListItem>
             </React.Fragment>
           ))}
