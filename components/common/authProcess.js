@@ -27,6 +27,7 @@ const AuthProcess = ({
   headingText,
   submitText,
   successText,
+  btnLoadingText,
   otherProcessLinkText,
   otherProcessText,
   otherProcessHref
@@ -69,13 +70,13 @@ const AuthProcess = ({
   return (
     <Section
       backgroundColor='lightRock'
+      minHeight={{ lg: '75vh' }}
       display='flex'
       alignItems='center'
       justifyContent='center'
       flex='1'
       flexDirection='column'
       paddingBottom={{ lg: '6rem !important' }}
-      aria-atomic='true'
     >
       <Heading
         as='h1'
@@ -121,7 +122,7 @@ const AuthProcess = ({
               </FormControl>
               <FBButton
                 isLoading={isSubmitting}
-                loadingText='Logging In'
+                loadingText={btnLoadingText}
                 type='submit'
               >
                 {submitText}
@@ -142,11 +143,21 @@ const AuthProcess = ({
         </>
       )}
       {sent && !formError && (
-        <Flex direction='column' align='center' justify='space-between'>
+        <Flex
+          direction='column'
+          align='center'
+          justify='space-between'
+          aria-live='polite'
+        >
           <Icon name={icon} size='6rem' marginBottom='1.5rem' />
-          <Text fontSize='1.5rem' marginBottom='1.5rem'>
+          <Heading
+            as='h2'
+            fontSize='1.5rem'
+            fontWeight='400'
+            marginBottom='1.5rem'
+          >
             Success!
-          </Text>
+          </Heading>
           <Text>{successText}</Text>
         </Flex>
       )}

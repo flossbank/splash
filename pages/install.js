@@ -1,5 +1,5 @@
 import PageWrapper from '../components/common/pageWrapper'
-import InstallSection from '../components/install/install_section'
+import InstallSection from '../components/install/installSection'
 
 const Install = () => (
   <PageWrapper
