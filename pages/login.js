@@ -10,6 +10,7 @@ const Login = () => (
       icon='smile'
       headingText='Log In to Flossbank'
       submitText='Log In'
+      btnLoadingText='Logging in'
       successText='Check your email for a verification link to finish logging in.'
       otherProcessText="Don't have an account? "
       otherProcessHref='/signup'

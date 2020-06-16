@@ -13,6 +13,7 @@ const Signup = () => (
       icon='hooray'
       headingText='Sign up for Flossbank'
       submitText='Sign Up'
+      btnLoadingText='Signing up'
       successText='Check your email for a verification link to finish signing up.'
       otherProcessText='Already have an account?'
       otherProcessHref='/login'
