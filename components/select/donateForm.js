@@ -143,6 +143,15 @@ const DonateForm = (props) => {
           Payment Information
           <CardElement
             className={styles.donateInput}
+            options={{
+              style: {
+                base: {
+                  fontSize: '1rem',
+                  fontFamily: '"Helvetica Neue", sans-serif',
+                  color: '#404042'
+                }
+              }
+            }}
             onChange={handleCardChange}
           />
           {(cardError || error) && (
