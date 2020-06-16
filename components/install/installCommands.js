@@ -57,7 +57,7 @@ const InstallCommands = ({ token }) => {
     },
     {
       system: 'Windows Powershell',
-      commandText: `$FLOSSBANK_INSTALL_TOKEN="${token}"; iwr https://get.flossbank.com/ps -useb | iex`
+      commandText: `$env:FLOSSBANK_INSTALL_TOKEN="${token}"; iwr https://get.flossbank.com/ps -useb | iex`
     }
   ]
 

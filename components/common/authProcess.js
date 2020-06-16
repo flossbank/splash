@@ -44,7 +44,7 @@ const AuthProcess = ({
 
     try {
       // Will pass login or signup from client
-      // await process({ email });
+      await process({ email })
       setSent(true)
       setFormError('')
     } catch (e) {
