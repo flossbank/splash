@@ -106,7 +106,11 @@ const InstallSection = () => {
             >
               I've Finished Installing
             </LinkBtn>
-            <TextLink text="I'll finish installing later" href='/dashboard' />
+            <TextLink
+              text="I'll finish installing later"
+              href='/dashboard'
+              fontWeight='400'
+            />
           </Box>
         </Box>
       </Box>
