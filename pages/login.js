@@ -7,8 +7,10 @@ const Login = () => (
   <PageWrapper title='Log In'>
     <AuthProcess
       process={login}
+      icon='smile'
+      headingText='Log In to Flossbank'
       submitText='Log In'
-      successText=' Success! Click the magic link in your email to finish logging in!'
+      successText='Check your email for a verification link to finish logging in.'
       otherProcessText="Don't have an account? "
       otherProcessHref='/signup'
       otherProcessLinkText='Sign up'

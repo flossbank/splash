@@ -10,8 +10,10 @@ const Signup = () => (
   >
     <AuthProcess
       process={signup}
+      icon='hooray'
+      headingText='Sign up for Flossbank'
       submitText='Sign Up'
-      successText=' Success! Click the magic link in your email to finish signing up!'
+      successText='Check your email for a verification link to finish signing up.'
       otherProcessText='Already have an account?'
       otherProcessHref='/login'
       otherProcessLinkText='Log in'
