@@ -1,11 +1,11 @@
-import { Box, Flex, Text } from '@chakra-ui/core'
+import { Box, Text } from '@chakra-ui/core'
 import { useState } from 'react'
 
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import StepperSection from '../common/stepperSection'
-import SelectTierCards from './select_tier_cards'
+import SelectTierCards from './selectTierCards'
 import DonateSection from './donateSection'
 
 const steps = [
@@ -41,12 +41,11 @@ const SelectTierSection = () => {
       justifyContent='center'
       flex='1'
       flexDirection='column'
-      padding='0 0 0'
+      padding='0'
     >
       <Box width='100%'>
         <h1 className='sr-only'>Select your level of support</h1>
         <StepperSection steps={steps} currentStep={2} />}
-        {/* <Box padding={["0 1rem 0 1rem", "0 0 0 0"]}> */}
         <UnderlinedHeading text='Select' align='center' />
         <Box
           textAlign={{ base: 'center' }}
@@ -67,10 +66,7 @@ const SelectTierSection = () => {
             experience.
           </Text>
         </Box>
-        {/* </Box> */}
-        <Flex flexDirection={['column', 'row']} margin='2rem 2rem 5rem 2rem'>
-          <SelectTierCards onSelected={handleOnSelected} />
-        </Flex>
+        <SelectTierCards onSelected={handleOnSelected} />
         {showDonateForm && <DonateSection seeAds={seeAds} />}
       </Box>
     </Section>
