@@ -11,12 +11,22 @@ const CompleteLoginPage = () => {
   const router = useRouter()
   const [status, setStatus] = useState('Verifying email...')
   const [subHeader, setSubHeader] = useState('')
+  const [loginAttempted, setLoginAttempted] = useState(false)
+
+  function showError () {
+    setStatus('Authentication Failed')
+    setSubHeader(`It looks like you may have clicked on an invalid email verification link. 
+    Please close this window and try authenticating again.`)
+  }
 
   async function attemptCompleteLogin () {
     try {
       const { e: encodedEmail, token } = router.query
       if (!encodedEmail || !token) return
+      if (loginAttempted) showError()
+
       const email = decode(encodedEmail || '').toString()
+      setLoginAttempted(true)
       await completeLogin({ email, token })
       setStatus('Verified')
       // Wait a second then redirect
@@ -24,9 +34,7 @@ const CompleteLoginPage = () => {
         router.push('/dashboard')
       }, 1000)
     } catch (e) {
-      setStatus('Authentication Failed')
-      setSubHeader(`It looks like you may have clicked on an invalid email verification link. 
-      Please close this window and try authenticating again.`)
+      showError()
     }
   }
 
