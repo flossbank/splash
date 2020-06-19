@@ -90,7 +90,7 @@ const Dashboard = () => {
                 padding='2.5rem 2.25rem'
               >
                 {packagesTouchedLoading && <CircularProgress isIndeterminate color='ocean' />}
-                <Heading>{packagesTouched}</Heading>
+                {!packagesTouchedLoading && <Heading>{packagesTouched}</Heading>}
                 <Text>Packages touched</Text>
               </ListItem>
               <ListItem
@@ -102,7 +102,7 @@ const Dashboard = () => {
                 padding='2.5rem 2.25rem'
               >
                 {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
-                <Heading>${donation}</Heading>
+                {!donationLoading && <Heading>${donation}</Heading>}
                 <Text>Monthly donation</Text>
               </ListItem>
             </List>

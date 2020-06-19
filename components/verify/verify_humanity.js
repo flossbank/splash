@@ -10,8 +10,8 @@ import StepperSection from '../common/stepperSection'
 
 const parseQueryString = (queryString) => {
   const params = {}
-  let temp 
-  let i 
+  let temp
+  let i
   let l
 
   const queries = queryString.split('&')
