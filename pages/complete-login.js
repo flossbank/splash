@@ -14,6 +14,7 @@ const CompleteLoginPage = ({ router }) => {
   async function attemptCompleteLogin () {
     try {
       const { e: encodedEmail, token } = router.query
+      console.log({ encodedEmail, token })
       const email = decode(encodedEmail || '').toString()
       await completeLogin({ email, token })
       setStatus('Verified')
