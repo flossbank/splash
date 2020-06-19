@@ -1,4 +1,4 @@
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { decode } from 'b36'
 import { Heading, Text } from '@chakra-ui/core'
@@ -7,14 +7,15 @@ import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import { completeLogin } from '../client'
 
-const CompleteLoginPage = ({ router }) => {
+const CompleteLoginPage = () => {
+  const router = useRouter()
   const [status, setStatus] = useState('Verifying email...')
   const [subHeader, setSubHeader] = useState('')
 
   async function attemptCompleteLogin () {
     try {
       const { e: encodedEmail, token } = router.query
-      console.log({ encodedEmail, token })
+      if (!encodedEmail || !token) return
       const email = decode(encodedEmail || '').toString()
       await completeLogin({ email, token })
       setStatus('Verified')
@@ -31,7 +32,7 @@ const CompleteLoginPage = ({ router }) => {
 
   useEffect(() => {
     attemptCompleteLogin()
-  }, [0]) // only run on mount
+  }, [router.query]) // only run on mount
 
   return (
     <PageWrapper title='Log In'>
@@ -54,4 +55,4 @@ const CompleteLoginPage = ({ router }) => {
   )
 }
 
-export default withRouter(CompleteLoginPage)
+export default CompleteLoginPage
