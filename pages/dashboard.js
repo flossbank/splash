@@ -9,14 +9,14 @@ const Dashboard = () => {
   const [packagesTouched, setPackagesTouched] = useState()
   const [donation] = useState()
 
-  async function fetchData() {
+  async function fetchData () {
     try {
-    const data = await fetchUserInstalledPackages()
-    if (data) {
-      const packagesTouchedData = data.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
-      setPackagesTouched(packagesTouchedData)
-      setPackagesTouchedLoading(false)
-    }
+      const data = await fetchUserInstalledPackages()
+      if (data) {
+        const packagesTouchedData = data.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
+        setPackagesTouched(packagesTouchedData)
+        setPackagesTouchedLoading(false)
+      }
     } catch (e) {
       setPackagesTouched('Error')
     }
