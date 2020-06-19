@@ -26,6 +26,8 @@ const InstallCommand = ({ system, commandText }) => {
         {commandText}
       </Code>
       <FBButton
+        // hide on mobile
+        display={{ base: 'none', md: 'block' }}
         onClick={onCopy}
         padding='.5rem'
         fontSize='.85rem'
