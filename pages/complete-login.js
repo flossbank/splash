@@ -23,7 +23,10 @@ const CompleteLoginPage = () => {
     try {
       const { e: encodedEmail, token } = router.query
       if (!encodedEmail || !token) return
-      if (loginAttempted) showError()
+      if (loginAttempted) {
+        showError()
+        return
+      }
 
       const email = decode(encodedEmail || '').toString()
       setLoginAttempted(true)
