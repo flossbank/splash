@@ -8,14 +8,29 @@ import { verifyRegistration } from '../../client'
 import FBDivider from '../common/divider'
 import StepperSection from '../common/stepperSection'
 
+const parseQueryString = (queryString) => {
+  const params = {}
+  let temp 
+  let i 
+  let l
+
+  const queries = queryString.split('&')
+  for (i = 0, l = queries.length; i < l; i++) {
+    temp = queries[i].split('=')
+    params[temp[0]] = temp[1]
+  }
+
+  return params
+}
+
 const VerifyHumanity = () => {
   const router = useRouter()
-  const { e: encodedEmail, token } = router.query
-  const email = decode(encodedEmail || '').toString()
   const [verified, setVerified] = useState(false)
   const [status, setStatus] = useState('Verifying email...')
 
   const verify = async (response) => {
+    const { e: encodedEmail, token } = parseQueryString(router.asPath.split('?')[1])
+    const email = decode(encodedEmail || '').toString()
     if (!encodedEmail || !token) {
       setVerified(true)
       setStatus('Failure, no email or token in URL, contact support@flossbank.com for assistance.')

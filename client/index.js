@@ -39,6 +39,10 @@ export const fetchUserInstalledPackages = async () => {
   return fetchThenJson(`${ENDPOINT}/user/get-installed-packages`, optionsGetRequest())
 }
 
+export const fetchDonationInfo = async () => {
+  return fetchThenJson(`${ENDPOINT}/user/get-donation-info`, optionsGetRequest())
+}
+
 export const startNewCLIInstall = async () => {
   return fetchThenJson(`${ENDPOINT}/user/new-install`, {
     method: 'POST',

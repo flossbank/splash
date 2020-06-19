@@ -2,20 +2,34 @@ import { useState, useEffect } from 'react'
 import { Text, Box, Heading, Flex, List, ListItem, CircularProgress, Alert, AlertIcon } from '@chakra-ui/core'
 
 import PageWrapper from '../components/common/pageWrapper'
-import { fetchUserInstalledPackages } from '../client'
+import {
+  fetchUserInstalledPackages,
+  fetchDonationInfo
+} from '../client'
 
 const Dashboard = () => {
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
-  const [packagesTouched, setPackagesTouched] = useState()
-  const [donation] = useState()
+  const [donationLoading, setDonationLoading] = useState(true)
+  const [topTenPackages, setTopTenPackages] = useState([])
+  const [packagesTouched, setPackagesTouched] = useState(0)
+  const [donation, setDonation] = useState()
 
   async function fetchData () {
     try {
-      const data = await fetchUserInstalledPackages()
-      if (data) {
-        const packagesTouchedData = data.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
+      const installedPackagesRes = await fetchUserInstalledPackages()
+      if (installedPackagesRes) {
+        const packagesTouchedData = installedPackagesRes.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
         setPackagesTouched(packagesTouchedData)
         setPackagesTouchedLoading(false)
+
+        const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 9)
+        setTopTenPackages(topTen)
+      }
+
+      const donationInfoRes = await fetchDonationInfo()
+      if (donationInfoRes) {
+        setDonation(donationInfoRes.amount / 100)
+        setDonationLoading(false)
       }
     } catch (e) {
       setPackagesTouched('Error')
@@ -54,6 +68,7 @@ const Dashboard = () => {
           marginBottom='1rem'
         >
           Impact overview
+          {topTenPackages}
         </Heading>
         <Flex flexDirection='row'>
           <Box as='section' width='70%' height='40rem' backgroundColor='black' />
@@ -74,7 +89,7 @@ const Dashboard = () => {
                 backgroundColor='white'
                 padding='2.5rem 2.25rem'
               >
-                {!packagesTouched && <CircularProgress isIndeterminate={packagesTouchedLoading} color='ocean' />}
+                {packagesTouchedLoading && <CircularProgress isIndeterminate color='ocean' />}
                 <Heading>{packagesTouched}</Heading>
                 <Text>Packages touched</Text>
               </ListItem>
@@ -86,7 +101,8 @@ const Dashboard = () => {
                 backgroundColor='puddle'
                 padding='2.5rem 2.25rem'
               >
-                {!donation && <CircularProgress isIndeterminate color='ocean' />}
+                {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
+                <Heading>${donation}</Heading>
                 <Text>Monthly donation</Text>
               </ListItem>
             </List>
