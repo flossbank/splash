@@ -1,10 +1,10 @@
 /* global jest, test, beforeAll, afterEach, afterAll, expect */
 import React from 'react'
-import { mockNextUseRouter, render, screen, waitForElementToBeRemoved } from '../../_setup'
+import { mockNextUseRouter, render, screen, waitForElementToBeRemoved } from '../_setup'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
-import VerifyHumanity from '../../../components/verify/verify_humanity'
+import Verify from '../../pages/verify'
 
 const server = setupServer()
 
@@ -19,6 +19,7 @@ jest.mock('react-recaptcha', () => function MockRecaptcha (props) {
 })
 
 test('calls API with email, token, and recaptcha response', async () => {
+  let apiCalled = false
   mockNextUseRouter({
     query: {
       e: '1lld9b0jk0zfbjwchalyotuill30q5',
@@ -32,10 +33,13 @@ test('calls API with email, token, and recaptcha response', async () => {
         token: 'tokey',
         recaptchaResponse: 'recaptcha-response'
       })
+      apiCalled = true
       return res(ctx.json({ success: true }))
     })
   )
-  render(<VerifyHumanity />)
+  render(<Verify />)
 
   await waitForElementToBeRemoved(() => screen.getByText(/Verifying email/))
+
+  expect(apiCalled).toBeTruthy()
 })

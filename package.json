@@ -41,6 +41,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
     "husky": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
     "msw": "^0.19.4",
     "react-svg-loader": "^3.0.3",
@@ -50,11 +51,9 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "eslintConfig": {
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(s?css|less)$": "identity-obj-proxy"
     }
   }
 }
