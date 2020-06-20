@@ -22,7 +22,7 @@ const Dashboard = () => {
         setPackagesTouched(packagesTouchedData)
         setPackagesTouchedLoading(false)
 
-        const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 9)
+        const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 10)
         setTopTenPackages(topTen)
       }
 

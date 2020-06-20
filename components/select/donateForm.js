@@ -81,7 +81,6 @@ const DonateForm = (props) => {
         setError('Donation failed')
         return
       }
-      setLoading(false)
       props.handleSuccess()
     } catch (e) {
       switch (e.status) {
