@@ -24,7 +24,8 @@ test('calls API with email, token, and recaptcha response', async () => {
     query: {
       e: '1lld9b0jk0zfbjwchalyotuill30q5',
       token: 'tokey'
-    }
+    },
+    asPath: '/verify?e=1lld9b0jk0zfbjwchalyotuill30q5&token=tokey'
   })
   server.use(
     rest.post('https://api.flossbank.com/user/verify-registration', (req, res, ctx) => {
