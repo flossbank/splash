@@ -76,11 +76,11 @@ const DonateForm = (props) => {
         last4: token.card.last4,
         seeAds: props.seeAds
       })
-
-      if (!response.ok) {
-        setError('Donation failed')
-      }
       setLoading(false)
+      if (!response.success) {
+        setError('Donation failed')
+        return
+      }
       props.handleSuccess()
     } catch (e) {
       switch (e.status) {
