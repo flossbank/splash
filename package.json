@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "standard --fix",
-    "test": "npm run lint && API_HOST='https://api.flossbank.com' jest"
+    "test": "API_HOST='https://api.flossbank.com' jest"
   },
   "husky": {
     "hooks": {
@@ -54,6 +54,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(s?css|less)$": "identity-obj-proxy"
-    }
+    },
+    "testURL": "https://flossbank.com"
   }
 }

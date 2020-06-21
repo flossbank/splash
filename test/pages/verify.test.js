@@ -1,6 +1,6 @@
-/* global jest, test, beforeAll, afterEach, afterAll, expect */
+/* global jest, test, beforeAll, afterEach, afterAll, expect, beforeEach */
 import React from 'react'
-import { mockNextUseRouter, render, screen, waitForElementToBeRemoved } from '../_setup'
+import { mockNextUseRouter, render, screen, waitFor, fireEvent } from '../_setup'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
@@ -12,20 +12,26 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+beforeEach(() => {
+  window.history.pushState({}, 'Verify', '/verify')
+})
+
 // stub verify_humanity's imported react-recaptcha component to simply call the provided verify handler
 jest.mock('react-recaptcha', () => function MockRecaptcha (props) {
-  props.verifyCallback('recaptcha-response')
-  return (<></>)
+  props.onloadCallback()
+  return (
+    <button onClick={() => props.verifyCallback('recaptcha-response')}>Solve Recaptcha</button>
+  )
 })
 
 test('calls API with email, token, and recaptcha response', async () => {
   let apiCalled = false
-  mockNextUseRouter({
+  window.history.pushState({}, '', '/verify?e=1lld9b0jk0zfbjwchalyotuill30q5&token=tokey')
+  const router = mockNextUseRouter({
     query: {
       e: '1lld9b0jk0zfbjwchalyotuill30q5',
       token: 'tokey'
-    },
-    asPath: '/verify?e=1lld9b0jk0zfbjwchalyotuill30q5&token=tokey'
+    }
   })
   server.use(
     rest.post('https://api.flossbank.com/user/verify-registration', (req, res, ctx) => {
@@ -40,7 +46,41 @@ test('calls API with email, token, and recaptcha response', async () => {
   )
   render(<Verify />)
 
-  await waitForElementToBeRemoved(() => screen.getByText(/Verifying email/))
+  await waitFor(() => screen.findByText('Solve Recaptcha'))
+  fireEvent.click(screen.getByText('Solve Recaptcha'))
+  await waitFor(() => expect(router.push).toHaveBeenCalledTimes(1))
 
   expect(apiCalled).toBeTruthy()
+})
+
+test('short circuits when no query params are present', async () => {
+  let apiCalled = false
+  const router = mockNextUseRouter({ query: {} })
+  server.use(
+    rest.post('https://api.flossbank.com/user/verify-registration', (req, res, ctx) => {
+      apiCalled = true
+      return res(ctx.json({ success: true }))
+    })
+  )
+  render(<Verify />)
+
+  waitFor(() => screen.getByText(/Failure/))
+  expect(apiCalled).toBeFalsy()
+  expect(router.push).toBeCalledTimes(0)
+})
+
+test('short circuits when query params are invalid', async () => {
+  let apiCalled = false
+  window.history.pushState({}, '', '/verify?noteE=something&token=tokey')
+  const router = mockNextUseRouter({ query: { token: 'tokey', notE: 'something' } })
+  server.use(
+    rest.post('https://api.flossbank.com/user/verify-registration', (req, res, ctx) => {
+      apiCalled = true
+      return res(ctx.json({ success: true }))
+    })
+  )
+  render(<Verify />)
+  waitFor(() => screen.getByText(/Failure/))
+  expect(apiCalled).toBeFalsy()
+  expect(router.push).toBeCalledTimes(0)
 })
