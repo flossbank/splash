@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Box, Heading, Flex, Text } from '@chakra-ui/core'
 import { decode } from 'b36'
 import Head from 'next/head'
@@ -8,37 +8,27 @@ import { verifyRegistration } from '../../client'
 import FBDivider from '../common/divider'
 import StepperSection from '../common/stepperSection'
 
-const parseQueryString = (queryString) => {
-  const params = {}
-  let temp
-  let i
-  let l
-
-  const queries = queryString.split('&')
-  for (i = 0, l = queries.length; i < l; i++) {
-    temp = queries[i].split('=')
-    params[temp[0]] = temp[1]
-  }
-
-  return params
-}
-
 const VerifyHumanity = () => {
   const router = useRouter()
-  const [verified, setVerified] = useState(false)
-  const [status, setStatus] = useState('Verifying email...')
+  const [email, setEmail] = useState('')
+  const [token, setToken] = useState('')
+  const [status, setStatus] = useState('')
+  const showCaptcha = useMemo(() => email && token, [email, token])
+
+  useEffect(() => {
+    const { e: encodedEmail, token } = (router.query || {})
+    if (!encodedEmail || !token) {
+      setStatus('Failure: no email or token in URL, contact support@flossbank.com for assistance.')
+    } else {
+      setStatus('Verifying email...')
+      setEmail(decode(encodedEmail).toString())
+      setToken(token)
+    }
+  }, [router.query])
 
   const verify = async (response) => {
-    const { e: encodedEmail, token } = parseQueryString(router.asPath.split('?')[1])
-    const email = decode(encodedEmail || '').toString()
-    if (!encodedEmail || !token) {
-      setVerified(true)
-      setStatus('Failure, no email or token in URL, contact support@flossbank.com for assistance.')
-      return
-    }
     try {
       await verifyRegistration({ email, token, response })
-      setVerified(true)
       setStatus('Success!')
       router.push('/select')
     } catch (e) {
@@ -68,7 +58,7 @@ const VerifyHumanity = () => {
       <Head>
         <script src='https://www.google.com/recaptcha/api.js' async defer />
       </Head>
-      <StepperSection steps={steps} currentStep={1} />}
+      <StepperSection steps={steps} currentStep={1} />
       <Box padding={['0 1rem 0 1rem', '0 0 0 0']}>
         <Heading
           textTransform='uppercase'
@@ -86,14 +76,13 @@ const VerifyHumanity = () => {
         <Text textAlign='center' marginBottom='1rem'>
           On behalf of the open source community, thank you for installing! ♥
         </Text>
-        <Text textAlign='center'>{status}</Text>
-        {!verified && (
+        <Text textAlign='center' fontWeight='bold'>{status}</Text>
+        {showCaptcha && (
           <Flex flexDirection='row' justify='center' marginTop='3rem'>
             <Recaptcha
               render='explicit'
-              onloadCallback={() =>
-                setStatus('Please complete the captcha below to verify you\'re a human.')}
-              verifyCallback={(response) => verify(response)}
+              onloadCallback={() => setStatus('Please complete the captcha below to verify you\'re a human.')}
+              verifyCallback={verify}
               sitekey={process.env.RECAPTCHA_SITE_KEY}
             />
           </Flex>
