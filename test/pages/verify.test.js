@@ -1,4 +1,4 @@
-/* global jest, test, beforeAll, afterEach, afterAll, expect */
+/* global jest, test, beforeAll, afterEach, afterAll, expect, beforeEach */
 import React from 'react'
 import { mockNextUseRouter, render, screen, waitFor, fireEvent } from '../_setup'
 import { rest } from 'msw'
@@ -12,6 +12,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+beforeEach(() => {
+  window.history.pushState({}, 'Verify', '/verify')
+})
+
 // stub verify_humanity's imported react-recaptcha component to simply call the provided verify handler
 jest.mock('react-recaptcha', () => function MockRecaptcha (props) {
   props.onloadCallback()
@@ -22,6 +26,7 @@ jest.mock('react-recaptcha', () => function MockRecaptcha (props) {
 
 test('calls API with email, token, and recaptcha response', async () => {
   let apiCalled = false
+  window.history.pushState({}, '', '/verify?e=1lld9b0jk0zfbjwchalyotuill30q5&token=tokey')
   const router = mockNextUseRouter({
     query: {
       e: '1lld9b0jk0zfbjwchalyotuill30q5',
@@ -59,6 +64,22 @@ test('short circuits when no query params are present', async () => {
   )
   render(<Verify />)
 
+  waitFor(() => screen.getByText(/Failure/))
+  expect(apiCalled).toBeFalsy()
+  expect(router.push).toBeCalledTimes(0)
+})
+
+test('short circuits when query params are invalid', async () => {
+  let apiCalled = false
+  window.history.pushState({}, '', '/verify?noteE=something&token=tokey')
+  const router = mockNextUseRouter({ query: { token: 'tokey', notE: 'something' } })
+  server.use(
+    rest.post('https://api.flossbank.com/user/verify-registration', (req, res, ctx) => {
+      apiCalled = true
+      return res(ctx.json({ success: true }))
+    })
+  )
+  render(<Verify />)
   waitFor(() => screen.getByText(/Failure/))
   expect(apiCalled).toBeFalsy()
   expect(router.push).toBeCalledTimes(0)

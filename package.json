@@ -54,6 +54,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(s?css|less)$": "identity-obj-proxy"
-    }
+    },
+    "testURL": "https://flossbank.com"
   }
 }

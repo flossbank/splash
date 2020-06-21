@@ -10,6 +10,7 @@ import StepperSection from '../common/stepperSection'
 
 const VerifyHumanity = () => {
   const router = useRouter()
+  const [queryMiss, setQueryMiss] = useState(false)
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
   const [status, setStatus] = useState('')
@@ -17,8 +18,12 @@ const VerifyHumanity = () => {
 
   useEffect(() => {
     const { e: encodedEmail, token } = (router.query || {})
-    if (!encodedEmail || !token) {
+    const noQueryParams = !window.location.search
+    const invalidQueryParams = !encodedEmail || !token
+    if ((invalidQueryParams && queryMiss) || noQueryParams) {
       setStatus('Failure: no email or token in URL, contact support@flossbank.com for assistance.')
+    } else if (invalidQueryParams) {
+      setQueryMiss(true)
     } else {
       setStatus('Verifying email...')
       setEmail(decode(encodedEmail).toString())
