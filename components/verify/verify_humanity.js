@@ -96,7 +96,7 @@ const VerifyHumanity = () => {
               render='explicit'
               onloadCallback={() =>
                 setStatus(
-                  'Please complete the captcha below to verify you\'re a human.'
+                  "Please complete the captcha below to verify you're a human."
                 )}
               verifyCallback={verify}
               sitekey={process.env.RECAPTCHA_SITE_KEY}
@@ -107,7 +107,7 @@ const VerifyHumanity = () => {
           <ErrorMessage
             msg={status}
             maxW='30rem'
-            iconSz='2rem'
+            iconSize='2rem'
             margin='3rem auto 0'
             color='boulder'
             padding='1.5rem !important'
