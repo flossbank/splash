@@ -101,7 +101,7 @@ const InstallSection = () => {
               className='u-box-shadow'
               display='block'
               margin='0 0 1.5rem'
-              padding='1rem 1.25rem'
+              padding='1rem 1.75rem'
               fontWeight='bold'
             >
               I've Finished Installing

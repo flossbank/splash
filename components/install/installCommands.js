@@ -1,4 +1,4 @@
-import { Box, Heading, Code, useClipboard } from '@chakra-ui/core'
+import { Box, Heading, Code, Icon, useClipboard } from '@chakra-ui/core'
 
 import FBButton from '../common/fbButton'
 
@@ -27,7 +27,8 @@ const InstallCommand = ({ system, commandText }) => {
       </Code>
       <FBButton
         // hide on mobile
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: 'none', md: 'flex' }}
+        alignItems='center'
         onClick={onCopy}
         padding='.5rem'
         fontSize='.85rem'
@@ -46,6 +47,7 @@ const InstallCommand = ({ system, commandText }) => {
       >
         {hasCopied ? 'Copied' : 'Copy'}{' '}
         <span className='sr-only'>command for {system}</span>
+        <Icon name='copy' size='1rem' marginLeft='.5rem' />
       </FBButton>
     </Box>
   )
