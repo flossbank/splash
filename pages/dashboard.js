@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Text, Box, Heading, Flex, List, ListItem, CircularProgress, Alert, AlertIcon } from '@chakra-ui/core'
 
+import { UserContext } from '../utils/userContext'
 import PageWrapper from '../components/common/pageWrapper'
 import {
   fetchUserInstalledPackages,
@@ -8,6 +9,9 @@ import {
 } from '../client'
 
 const Dashboard = () => {
+  const userContext = useContext(UserContext) // eslint-disable-line
+  // User info is located in userContext.user
+  // which will have email, id, and billingInfo
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [topTenPackages, setTopTenPackages] = useState([])
