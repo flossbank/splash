@@ -29,14 +29,18 @@ const Dashboard = () => {
         const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 10)
         setTopTenPackages(topTen)
       }
+    } catch (e) {
+      setPackagesTouched('Error')
+    }
 
+    try {
       const donationInfoRes = await fetchDonationInfo()
       if (donationInfoRes && donationInfoRes.success) {
         setDonation(donationInfoRes.donationInfo.amount / 100)
         setDonationLoading(false)
       }
     } catch (e) {
-      setPackagesTouched('Error')
+      setDonation(0)
     }
   }
 
