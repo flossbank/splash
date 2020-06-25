@@ -1,15 +1,22 @@
 import { useState, useEffect, useContext } from 'react'
-import { Text, Box, Heading, Flex, List, ListItem, CircularProgress, Alert, AlertIcon } from '@chakra-ui/core'
+import {
+  Text,
+  Box,
+  Heading,
+  Flex,
+  List,
+  ListItem,
+  CircularProgress,
+  Alert,
+  AlertIcon
+} from '@chakra-ui/core'
 
 import { UserContext } from '../utils/userContext'
 import PageWrapper from '../components/common/pageWrapper'
-import {
-  fetchUserInstalledPackages,
-  fetchDonationInfo
-} from '../client'
+import { fetchUserInstalledPackages, fetchDonationInfo } from '../client'
 
 const Dashboard = () => {
-  const userContext = useContext(UserContext) // eslint-disable-line
+  const userContext = useContext(UserContext); // eslint-disable-line
   // User info is located in userContext.user
   // which will have email, id, and billingInfo
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
@@ -22,11 +29,16 @@ const Dashboard = () => {
     try {
       const installedPackagesRes = await fetchUserInstalledPackages()
       if (installedPackagesRes) {
-        const packagesTouchedData = installedPackagesRes.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
+        const packagesTouchedData = installedPackagesRes.installedPackages.reduce(
+          (acc, pkg) => acc + pkg.installCount,
+          0
+        )
         setPackagesTouched(packagesTouchedData)
         setPackagesTouchedLoading(false)
 
-        const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 10)
+        const topTen = installedPackagesRes.installedPackages
+          .sort((a, b) => b.installCount - a.installCount)
+          .slice(0, 10)
         setTopTenPackages(topTen)
       }
 
@@ -60,9 +72,11 @@ const Dashboard = () => {
             marginBottom='1.5rem'
           >
             <AlertIcon color='ocean' />
-            Thanks for installing Flossbank! As you develop using open source, you can visit this user portal
-            at any time to see the impact you have on the open source community. We're working on more features
-            as fast as possible, hoping to create a vibrant open source support ecosystem. Happy coding!
+            Thanks for installing Flossbank! As you develop using open source,
+            you can visit this user portal at any time to see the impact you
+            have on the open source community. We're working on more features as
+            fast as possible, hoping to create a vibrant open source support
+            ecosystem. Happy coding!
           </Alert>
         </Box>
         <Heading
@@ -75,7 +89,12 @@ const Dashboard = () => {
           {topTenPackages}
         </Heading>
         <Flex flexDirection='row'>
-          <Box as='section' width='70%' height='40rem' backgroundColor='black' />
+          <Box
+            as='section'
+            width='70%'
+            height='40rem'
+            backgroundColor='black'
+          />
           <Flex flexDirection='column' width='30%'>
             <List
               display='grid'
@@ -93,8 +112,12 @@ const Dashboard = () => {
                 backgroundColor='white'
                 padding='2.5rem 2.25rem'
               >
-                {packagesTouchedLoading && <CircularProgress isIndeterminate color='ocean' />}
-                {!packagesTouchedLoading && <Heading>{packagesTouched}</Heading>}
+                {packagesTouchedLoading && (
+                  <CircularProgress isIndeterminate color='ocean' />
+                )}
+                {!packagesTouchedLoading && (
+                  <Heading>{packagesTouched}</Heading>
+                )}
                 <Text>Packages touched</Text>
               </ListItem>
               <ListItem
@@ -105,7 +128,9 @@ const Dashboard = () => {
                 backgroundColor='puddle'
                 padding='2.5rem 2.25rem'
               >
-                {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
+                {donationLoading && (
+                  <CircularProgress isIndeterminate color='ocean' />
+                )}
                 {!donationLoading && <Heading>${donation}</Heading>}
                 <Text>Monthly donation</Text>
               </ListItem>
