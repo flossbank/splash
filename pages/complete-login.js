@@ -1,16 +1,15 @@
 import { useRouter } from 'next/router'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { decode } from 'b36'
 import { Heading, Text } from '@chakra-ui/core'
 
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
-import { completeLogin } from '../client'
-import { UserContext } from '../utils/userContext'
+import { useAuth } from '../utils/useAuth'
 
 const CompleteLoginPage = () => {
   const router = useRouter()
-  const userContext = useContext(UserContext)
+  const auth = useAuth()
   const [status, setStatus] = useState('Verifying email...')
   const [subHeader, setSubHeader] = useState('')
   const [loginAttempted, setLoginAttempted] = useState(false)
@@ -32,8 +31,7 @@ const CompleteLoginPage = () => {
 
       const email = decode(encodedEmail || '').toString()
       setLoginAttempted(true)
-      const res = await completeLogin({ email, token })
-      userContext.setUser(res.user)
+      await auth.completeLogin({ email, token })
       setStatus('Verified')
       // Wait a second then redirect
       setTimeout(() => {
