@@ -16,7 +16,7 @@ export const login = async ({ email }) => {
 }
 
 export const logout = async () => {
-  return fetchThenJson(`${ENDPOINT}/user/logout`, optionsWithPostBody())
+  return fetchThenJson(`${ENDPOINT}/user/logout`, optionsWithPostBody({}))
 }
 
 export const completeLogin = async ({ email, token }) => {
