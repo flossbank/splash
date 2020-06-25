@@ -11,7 +11,6 @@ import AuthNav from './authNav'
 const Header = () => {
   const userContext = useContext(UserContext); // eslint-disable-line
   const user = userContext.user
-
   return (
     <>
       <Box as='header' padding={['1rem', '1.5rem', '1.5rem 5rem']}>

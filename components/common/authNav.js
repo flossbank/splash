@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
+import { logout } from '../../client'
+
 import {
   useTheme,
   Box,
@@ -16,6 +18,11 @@ const AuthNav = ({ user }) => {
   const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const { colors } = useTheme()
+
+  const menuButtonActiveStyles = {
+    backgroundColor: 'lightPuddle',
+    boxShadow: `0 0 0 10px ${colors.lightPuddle}`
+  }
 
   const itemFocusStyles = {
     color: 'lightPuddle',
@@ -33,10 +40,8 @@ const AuthNav = ({ user }) => {
           <MenuButton
             as={Button}
             borderRadius='0'
-            _expanded={{
-              backgroundColor: 'lightPuddle',
-              boxShadow: `0 0 0 10px ${colors.lightPuddle}`
-            }}
+            _hover={menuButtonActiveStyles}
+            _expanded={menuButtonActiveStyles}
             onClick={() => setIsExpanded(!isExpanded)}
           >
             <Box as='span' fontWeight='500' marginRight='1rem'>
@@ -75,7 +80,7 @@ const AuthNav = ({ user }) => {
               <Icon name='settings' marginRight='.5rem' />
               Settings
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles}>
+            <MenuItem _focus={itemFocusStyles} onClick={logout}>
               {' '}
               <Icon name='unlock' marginRight='.5rem' />
               Log Out

@@ -8,17 +8,15 @@ when using `useMedia`, we'd get an initial flash without the full logo on each p
 Even that short amount of time for the useMedia hook to run was long enough to cause the issue which made for an unpleasant flash of unstyled content.
 */
 
-const FBLogo = (authed) => {
-  return (
-    <Link href={authed ? '/dashboard' : '/'} aria-label='Flossbank – Home'>
-      <Box display={{ base: 'none', md: 'initial' }} aria-hidden='true'>
-        <FullLogo />
-      </Box>
-      <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
-        <FBLogoLetters id='letter-logo-header' />
-      </Box>
-    </Link>
-  )
-}
+const FBLogo = ({ authed }) => (
+  <Link href={authed ? '/dashboard' : '/'} aria-label='Flossbank – Home'>
+    <Box display={{ base: 'none', md: 'initial' }} aria-hidden='true'>
+      <FullLogo />
+    </Box>
+    <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
+      <FBLogoLetters id='letter-logo-header' />
+    </Box>
+  </Link>
+)
 
 export default FBLogo
