@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { UserContext } from '../../utils/userContext'
+import { useAuth } from '../../utils/useAuth'
 
 import { Box, Flex } from '@chakra-ui/core'
 
@@ -9,8 +8,8 @@ import TextLink from './textLink'
 import AuthNav from './authNav'
 
 const Header = () => {
-  const userContext = useContext(UserContext); // eslint-disable-line
-  const user = userContext.user
+  const user = useAuth().user; // eslint-disable-line
+
   return (
     <>
       <Box as='header' padding={['1rem', '1.5rem', '1.5rem 5rem']}>
