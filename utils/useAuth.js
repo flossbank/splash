@@ -12,7 +12,7 @@ export function ProvideAuth ({ children }) {
 
   if (router && !whitelistedEndpoints.includes(router.pathname) && !auth.user) {
     auth.resume().catch(_ => {
-      if (typeof window !== 'undefined') router.push('/signin')
+      if (typeof window !== 'undefined') router.push('/login')
     })
     return <>Loading...</>
   }
@@ -29,7 +29,7 @@ export const useAuth = () => {
 function useProvideAuth () {
   const [user, setUser] = useState(null)
 
-  const signin = async (body) => {
+  const login = async (body) => {
     const res = await api.login(body)
     return res
   }
@@ -59,7 +59,7 @@ function useProvideAuth () {
     resume,
     completeLogin,
     user,
-    signin,
+    login,
     signup,
     logout
   }
