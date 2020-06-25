@@ -21,7 +21,7 @@ const Dashboard = () => {
   async function fetchData () {
     try {
       const installedPackagesRes = await fetchUserInstalledPackages()
-      if (installedPackagesRes) {
+      if (installedPackagesRes && installedPackagesRes.success) {
         const packagesTouchedData = installedPackagesRes.installedPackages.reduce((acc, pkg) => acc + pkg.installCount, 0)
         setPackagesTouched(packagesTouchedData)
         setPackagesTouchedLoading(false)
@@ -31,7 +31,7 @@ const Dashboard = () => {
       }
 
       const donationInfoRes = await fetchDonationInfo()
-      if (donationInfoRes) {
+      if (donationInfoRes && donationInfoRes.success) {
         setDonation(donationInfoRes.donationInfo.amount / 100)
         setDonationLoading(false)
       }
