@@ -95,8 +95,7 @@ const VerifyHumanity = () => {
             <Recaptcha
               render='explicit'
               onloadCallback={() =>
-                setStatus("Please complete the captcha below to verify you're a human.")
-              }
+                setStatus("Please complete the captcha below to verify you're a human.")}
               verifyCallback={verify}
               sitekey={process.env.RECAPTCHA_SITE_KEY}
             />
