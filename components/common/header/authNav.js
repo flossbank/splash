@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { logout } from '../../../client'
+// import { logout } from '../../../client'
+import { useAuth } from '../../../utils/useAuth'
 
 import {
   useTheme,
@@ -16,6 +17,8 @@ import {
 
 const AuthNav = ({ user }) => {
   const router = useRouter()
+  const auth = useAuth()
+
   const [isExpanded, setIsExpanded] = useState(false)
   const { colors } = useTheme()
 
@@ -31,6 +34,7 @@ const AuthNav = ({ user }) => {
   }
 
   const handleSettings = () => router.push('/settings')
+  const handleLogout = async () => auth.logout()
 
   return (
     <Menu>
@@ -80,7 +84,7 @@ const AuthNav = ({ user }) => {
               <Icon name='settings' marginRight='.5rem' />
               Settings
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={logout}>
+            <MenuItem _focus={itemFocusStyles} onClick={handleLogout}>
               {' '}
               <Icon name='unlock' marginRight='.5rem' />
               Log Out
