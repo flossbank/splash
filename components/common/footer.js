@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../utils/userContext'
+import React from 'react'
+import { useAuth } from '../../utils/useAuth'
 
 import { Flex, List, ListItem, Text, Box } from '@chakra-ui/core'
 
@@ -34,8 +34,7 @@ const loggedInLinks = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-  const userContext = useContext(UserContext); // eslint-disable-line
-  const user = userContext.user
+  const user = useAuth().user
   const links = user ? loggedInLinks : loggedOutLinks
 
   return (

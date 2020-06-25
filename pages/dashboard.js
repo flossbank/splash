@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { Text, Box, Heading, Flex, List, ListItem, CircularProgress, Alert, AlertIcon } from '@chakra-ui/core'
 
-import { UserContext } from '../utils/userContext'
+import { useAuth } from '../utils/useAuth'
 import PageWrapper from '../components/common/pageWrapper'
 import {
   fetchUserInstalledPackages,
@@ -9,8 +9,8 @@ import {
 } from '../client'
 
 const Dashboard = () => {
-  const userContext = useContext(UserContext) // eslint-disable-line
-  // User info is located in userContext.user
+  const auth = useAuth() // eslint-disable-line
+  // User info is located in auth.user
   // which will have email, id, and billingInfo
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
@@ -29,14 +29,18 @@ const Dashboard = () => {
         const topTen = installedPackagesRes.installedPackages.sort((a, b) => b.installCount - a.installCount).slice(0, 10)
         setTopTenPackages(topTen)
       }
+    } catch (e) {
+      setPackagesTouched('Error')
+    }
 
+    try {
       const donationInfoRes = await fetchDonationInfo()
       if (donationInfoRes && donationInfoRes.success) {
         setDonation(donationInfoRes.donationInfo.amount / 100)
         setDonationLoading(false)
       }
     } catch (e) {
-      setPackagesTouched('Error')
+      setDonation(0)
     }
   }
 
