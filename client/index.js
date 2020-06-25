@@ -15,6 +15,10 @@ export const login = async ({ email }) => {
   return fetchThenJson(`${ENDPOINT}/user/request-login`, optionsWithPostBody({ email }))
 }
 
+export const logout = async () => {
+  return fetchThenJson(`${ENDPOINT}/user/logout`, optionsWithPostBody())
+}
+
 export const completeLogin = async ({ email, token }) => {
   return fetchThenJson(`${ENDPOINT}/user/complete-login`, optionsWithPostBody({ email, token }))
 }
