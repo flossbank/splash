@@ -1,10 +1,10 @@
-import { useAuth } from '../../utils/useAuth'
+import { useAuth } from '../../../utils/useAuth'
 
 import { Box, Flex } from '@chakra-ui/core'
 
-import LinkBtn from './linkBtn'
+import LinkBtn from '../linkBtn'
+import TextLink from '../textLink'
 import FBLogo from './logo'
-import TextLink from './textLink'
 import AuthNav from './authNav'
 
 const Header = () => {

@@ -3,7 +3,7 @@ import { PseudoBox, Flex } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 import FBHead from './head'
 import Footer from './footer'
-import Header from './header'
+import Header from './header/header'
 import LinkBtn from './linkBtn'
 
 import styles from './skipLink.module.scss'
