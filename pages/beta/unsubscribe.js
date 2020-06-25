@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { decode } from 'b36'
 import FBHead from '../../components/common/head'
-import FBLogo from '../../components/common/logo'
+import FBLogo from '../../components/common/header/logo'
 import * as api from '../../client/index'
 
 function UnSubscribe (props) {
@@ -36,7 +36,8 @@ function UnSubscribe (props) {
               <div>
                 <h2>Sad to see you go 😢</h2>
                 <p>
-                If you unsubscribed by mistake, please click <a onClick={betaSubscribe}>here</a>
+                  If you unsubscribed by mistake, please click{' '}
+                  <a onClick={betaSubscribe}>here</a>
                 </p>
               </div>
             )}

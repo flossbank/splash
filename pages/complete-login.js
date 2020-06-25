@@ -1,16 +1,20 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { decode } from 'b36'
-import { Heading, Text } from '@chakra-ui/core'
+import { Heading, Text, Icon } from '@chakra-ui/core'
 
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
+import BouncyLoader from '../components/common/bouncyLoader'
+
 import { useAuth } from '../utils/useAuth'
 
 const CompleteLoginPage = () => {
   const router = useRouter()
   const auth = useAuth()
-  const [status, setStatus] = useState('Verifying email...')
+  const [status, setStatus] = useState('Verifying email')
+  const [isLoading, setIsLoading] = useState(false)
+  const [verified, setVerified] = useState(false)
   const [subHeader, setSubHeader] = useState('')
   const [loginAttempted, setLoginAttempted] = useState(false)
 
@@ -21,24 +25,31 @@ const CompleteLoginPage = () => {
   }
 
   async function attemptCompleteLogin () {
+    setIsLoading(true)
     try {
       const { e: encodedEmail, token } = router.query
       if (!encodedEmail || !token) return
       if (loginAttempted) {
         showError()
+        setIsLoading(false)
         return
       }
 
       const email = decode(encodedEmail || '').toString()
       setLoginAttempted(true)
       await auth.completeLogin({ email, token })
-      setStatus('Verified')
-      // Wait a second then redirect
+
+      setTimeout(() => {
+        setStatus('Logging in…')
+        setVerified(true)
+        setIsLoading(false)
+      }, 1000)
       setTimeout(() => {
         router.push('/dashboard')
-      }, 1000)
+      }, 2000)
     } catch (e) {
       showError()
+      setIsLoading(false)
     }
   }
 
@@ -57,11 +68,25 @@ const CompleteLoginPage = () => {
         flex='1'
         flexDirection='column'
         paddingBottom={{ lg: '6rem !important' }}
+        aria-live='polite'
+        aria-atomic='true'
+        aria-busy={isLoading}
       >
-        <Heading>{status}</Heading>
-        {subHeader && (
-          <Text>{subHeader}</Text>
+        <Heading marginBottom='3rem' color='boulder' fontWeight='400'>
+          {status}
+        </Heading>
+        {isLoading && <BouncyLoader />}
+        {verified && (
+          <Icon
+            name='check'
+            size='4rem'
+            color='puddle'
+            backgroundColor='lake'
+            borderRadius='50%'
+            padding='1rem'
+          />
         )}
+        {subHeader && <Text>{subHeader}</Text>}
       </Section>
     </PageWrapper>
   )
