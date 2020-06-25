@@ -5,7 +5,7 @@ import Card from '../common/card'
 import UnderlinedHeading from '../common/underlinedHeading'
 import ContactForm from './contactForm'
 
-const ContactSection = () => (
+const ContactSection = ({ ...props }) => (
   <Section
     display='flex'
     justifyItems='center'
@@ -13,6 +13,7 @@ const ContactSection = () => (
     alignItems='center'
     padding={{ base: '3rem 1.5rem', lg: '6rem 7.5rem' }}
     backgroundColor='white'
+    {...props}
   >
     <UnderlinedHeading text='Contact Us' align='center' marginBottom='3rem' />
     <Card shadowSz='lg' w='100%' maxW='45rem'>
