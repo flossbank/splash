@@ -1,11 +1,42 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../utils/userContext'
+
 import { Flex, List, ListItem, Text, Box } from '@chakra-ui/core'
 
 import TextLink from './textLink'
 import styles from './footer.module.scss'
 
+const loggedOutLinks = [
+  {
+    url: '/about',
+    text: 'About Us'
+  },
+  {
+    url: '/login',
+    text: 'Log In'
+  },
+  {
+    url: '/signup',
+    text: 'Sign Up'
+  }
+]
+
+const loggedInLinks = [
+  {
+    url: '/contact',
+    text: 'Contact Us'
+  },
+  {
+    url: '/faq',
+    text: 'FAQs'
+  }
+]
+
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const userContext = useContext(UserContext); // eslint-disable-line
+  const user = userContext.user
+  const links = user ? loggedInLinks : loggedOutLinks
 
   return (
     <Box
@@ -13,7 +44,7 @@ const Footer = () => {
       backgroundColor='boulder'
       flexDirection='column'
       justify='space-around'
-      padding={['3rem 1.5rem', '5rem 3.75rem']}
+      padding={{ base: '3rem 1.5rem', md: '5rem 3.75rem' }}
       color='white'
     >
       <Flex flexDirection='row' justify='space-around' marginBottom='1.5rem'>
@@ -38,20 +69,5 @@ const Footer = () => {
     </Box>
   )
 }
-
-const links = [
-  {
-    url: '/about',
-    text: 'About Us'
-  },
-  {
-    url: '/login',
-    text: 'Log In'
-  },
-  {
-    url: '/signup',
-    text: 'Sign Up'
-  }
-]
 
 export default Footer
