@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-// import { logout } from '../../../client'
 import { useAuth } from '../../../utils/useAuth'
 
 import {
@@ -43,12 +42,18 @@ const AuthNav = ({ user }) => {
           {!isOpen && setIsExpanded(false)}
           <MenuButton
             as={Button}
+            aria-label='User menu'
             borderRadius='0'
             _hover={menuButtonActiveStyles}
             _expanded={menuButtonActiveStyles}
             onClick={() => setIsExpanded(!isExpanded)}
           >
-            <Box as='span' fontWeight='500' marginRight='1rem'>
+            <Box
+              as='span'
+              display={{ base: 'none', sm: 'initial' }}
+              fontWeight='500'
+              marginRight='1rem'
+            >
               {user.email}
             </Box>
             <Box

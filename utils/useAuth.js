@@ -3,6 +3,10 @@ import { useRouter } from 'next/router'
 import { whitelistedEndpoints } from './constants'
 import * as api from '../client/index'
 
+import { Flex, Text } from '@chakra-ui/core'
+
+import BouncyLoader from '../components/common/bouncyLoader'
+
 const authContext = createContext()
 
 // Provider component that wraps your app and makes auth available
@@ -11,10 +15,26 @@ export function ProvideAuth ({ children }) {
   const auth = useProvideAuth()
 
   if (router && !whitelistedEndpoints.includes(router.pathname) && !auth.user) {
-    auth.resume().catch(_ => {
+    auth.resume().catch((_) => {
       if (typeof window !== 'undefined') router.push('/login')
     })
-    return <>Loading...</>
+
+    return (
+      <Flex
+        height='100vh'
+        bg='rgba(255, 255, 255, .15)'
+        color='boulder'
+        direction='column'
+        justify='center'
+        align='center'
+        aria-busy='true'
+      >
+        <Text fontSize='1.25rem' fontWeight='500' marginBottom='3rem'>
+          Loading…
+        </Text>
+        <BouncyLoader />
+      </Flex>
+    )
   }
 
   return <authContext.Provider value={auth}>{children}</authContext.Provider>
