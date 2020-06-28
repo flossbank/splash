@@ -10,11 +10,13 @@ import {
   Icon,
   CloseButton
 } from '@chakra-ui/core'
+import {
+  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
+} from 'recharts';
 
 import { useAuth } from '../utils/useAuth'
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
-
 import { fetchUserInstalledPackages, fetchDonationInfo } from '../client'
 
 const Dashboard = () => {
@@ -37,25 +39,32 @@ const Dashboard = () => {
           0
         )
         setPackagesTouched(packagesTouchedData)
-        setPackagesTouchedLoading(false)
 
         const topTen = installedPackagesRes.installedPackages
           .sort((a, b) => b.installCount - a.installCount)
           .slice(0, 10)
+          .map((packs) => ({
+            name: packs.name,
+            pkg: packs.installCount,
+            amt: packs.installCount
+          }))
         setTopTenPackages(topTen)
       }
     } catch (e) {
       setPackagesTouched('Error')
+    } finally {
+      setPackagesTouchedLoading(false)
     }
 
     try {
       const donationInfoRes = await fetchDonationInfo()
       if (donationInfoRes && donationInfoRes.success) {
         setDonation(donationInfoRes.donationInfo.amount / 100)
-        setDonationLoading(false)
       }
     } catch (e) {
       setDonation(0)
+    } finally {
+      setDonationLoading(false)
     }
   }
 
@@ -113,16 +122,9 @@ const Dashboard = () => {
           marginBottom='1rem'
         >
           Impact overview
-          {topTenPackages}
         </Heading>
         <Flex flexDirection='row'>
-          <Box
-            as='section'
-            width='70%'
-            height='40rem'
-            backgroundColor='black'
-          />
-          <Flex flexDirection='column' width='30%'>
+          <Flex flexDirection='column' width='30%' as='section'>
             <List
               display='grid'
               gridGap='1.75rem'
@@ -158,11 +160,30 @@ const Dashboard = () => {
                 {donationLoading && (
                   <CircularProgress isIndeterminate color='ocean' />
                 )}
-                {!donationLoading && <Heading>${donation}</Heading>}
+                {!donationLoading && <Heading>$ {donation}</Heading>}
                 <Text>Monthly donation</Text>
               </ListItem>
             </List>
           </Flex>
+          <Box as='section' width='100%' margin='0 0 0 2rem'>
+            <ResponsiveContainer width='100%' height={400}>
+              <BarChart
+                data={topTenPackages}
+                margin={{
+                  top: 5, right: 30, left: 20, bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis>
+                  <Label angle={270} position="left" value="Count" />
+                </YAxis>
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="pkg" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          </Box>
         </Flex>
       </Section>
     </PageWrapper>
