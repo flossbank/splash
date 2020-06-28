@@ -11,8 +11,8 @@ import {
   CloseButton
 } from '@chakra-ui/core'
 import {
-  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-} from 'recharts';
+  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+} from 'recharts'
 
 import { useAuth } from '../utils/useAuth'
 import PageWrapper from '../components/common/pageWrapper'
@@ -119,12 +119,13 @@ const Dashboard = () => {
           textTransform='uppercase'
           fontWeight='bold'
           fontSize='14px'
+          textAlign={['center', 'left']}
           marginBottom='1rem'
         >
           Impact overview
         </Heading>
-        <Flex flexDirection='row'>
-          <Flex flexDirection='column' width='30%' as='section'>
+        <Flex flexDirection={['column', 'row']} minHeight='55vh' margin='auto'>
+          <Flex flexDirection='column' width={['100%', '30%']} as='section'>
             <List
               display='grid'
               gridGap='1.75rem'
@@ -165,22 +166,22 @@ const Dashboard = () => {
               </ListItem>
             </List>
           </Flex>
-          <Box as='section' width='100%' margin='0 0 0 2rem'>
+          <Box as='section' width='100%' margin='0 0 0 2rem' display={['none', 'inline']}>
             <ResponsiveContainer width='100%' height={400}>
               <BarChart
                 data={topTenPackages}
                 margin={{
-                  top: 5, right: 30, left: 20, bottom: 5,
+                  top: 5, right: 30, left: 20, bottom: 5
                 }}
               >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey='name' />
                 <YAxis>
-                  <Label angle={270} position="left" value="Count" />
+                  <Label angle={270} position='left' value='Count' />
                 </YAxis>
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pkg" fill="#8884d8" />
+                <Bar dataKey='pkg' fill='#8884d8' />
               </BarChart>
             </ResponsiveContainer>
           </Box>
