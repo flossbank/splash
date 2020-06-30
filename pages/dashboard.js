@@ -191,10 +191,12 @@ const Dashboard = () => {
                 alignItems='center'
                 backgroundColor='white'
               >
-                <Button onClick={() => downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')} 
-                        margin='1rem 1.25rem'>
+                <Button
+                  onClick={() => downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
+                  margin='1rem 1.25rem'
+                >
                   <Heading>Download data</Heading>
-                  <Icon marginLeft='1rem' name='external-link' size='32px' />
+                  <Icon marginLeft='1rem' name='download' size='32px' />
                 </Button>
               </ListItem>
             </List>
