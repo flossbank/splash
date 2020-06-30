@@ -8,32 +8,38 @@ import {
   ListItem,
   CircularProgress,
   Icon,
-  CloseButton
+  CloseButton,
+  Button
 } from '@chakra-ui/core'
 import {
-  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts'
 
+import { downloadData } from '../utils/downloader'
+import { useLocalStorage } from '../utils/useLocalStorage'
 import { useAuth } from '../utils/useAuth'
+import { localStorageDashboardWelcomeBannerKey } from '../utils/constants'
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import { fetchUserInstalledPackages, fetchDonationInfo } from '../client'
 
 const Dashboard = () => {
-  const auth = useAuth(); // eslint-disable-line
+  const auth = useAuth()
+  const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(localStorageDashboardWelcomeBannerKey, true)
   // User info is located in auth.user
   // which will have email, id, and billingInfo
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [topTenPackages, setTopTenPackages] = useState([])
+  const [userInstallData, setUserInstallData] = useState({})
   const [packagesTouched, setPackagesTouched] = useState(0)
   const [donation, setDonation] = useState()
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true)
 
   async function fetchData () {
     try {
       const installedPackagesRes = await fetchUserInstalledPackages()
       if (installedPackagesRes && installedPackagesRes.success) {
+        setUserInstallData({ packages: installedPackagesRes.installedPackages })
         const packagesTouchedData = installedPackagesRes.installedPackages.reduce(
           (acc, pkg) => acc + pkg.installCount,
           0
@@ -43,9 +49,10 @@ const Dashboard = () => {
         const topTen = installedPackagesRes.installedPackages
           .sort((a, b) => b.installCount - a.installCount)
           .slice(0, 10)
+          .sort((a, b) => a.installCount === b.installCount ? a.name.charCodeAt(0) - b.name.charCodeAt(0) : 1)
           .map((packs) => ({
             name: packs.name,
-            pkg: packs.installCount,
+            count: packs.installCount,
             amt: packs.installCount
           }))
         setTopTenPackages(topTen)
@@ -140,7 +147,20 @@ const Dashboard = () => {
                 flexDirection={['column']}
                 alignItems='center'
                 backgroundColor='white'
-                padding='2.5rem 2.25rem'
+                padding='1.5rem 1.25rem'
+              >
+                {auth && (
+                  <Heading>TBD</Heading>
+                )}
+                <Text>Installs performed</Text>
+              </ListItem>
+              <ListItem
+                className='u-box-shadow'
+                display='flex'
+                flexDirection={['column']}
+                alignItems='center'
+                backgroundColor='white'
+                padding='1.5rem 1.25rem'
               >
                 {packagesTouchedLoading && (
                   <CircularProgress isIndeterminate color='ocean' />
@@ -156,7 +176,7 @@ const Dashboard = () => {
                 flexDirection={['column']}
                 alignItems='center'
                 backgroundColor='puddle'
-                padding='2.5rem 2.25rem'
+                padding='1.5rem 1.25rem'
               >
                 {donationLoading && (
                   <CircularProgress isIndeterminate color='ocean' />
@@ -164,10 +184,25 @@ const Dashboard = () => {
                 {!donationLoading && <Heading>$ {donation}</Heading>}
                 <Text>Monthly donation</Text>
               </ListItem>
+              <ListItem
+                className='u-box-shadow'
+                display={['none', 'flex']}
+                flexDirection={['row']}
+                alignItems='center'
+                backgroundColor='white'
+              >
+                <Button
+                  onClick={() => downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
+                  margin='1rem 1.25rem'
+                >
+                  <Heading>Download data</Heading>
+                  <Icon marginLeft='1rem' name='download' size='32px' />
+                </Button>
+              </ListItem>
             </List>
           </Flex>
           <Box as='section' width='100%' margin='0 0 0 2rem' display={['none', 'inline']}>
-            <ResponsiveContainer width='100%' height={400}>
+            <ResponsiveContainer width='100%' height={500}>
               <BarChart
                 data={topTenPackages}
                 margin={{
@@ -180,8 +215,7 @@ const Dashboard = () => {
                   <Label angle={270} position='left' value='Count' />
                 </YAxis>
                 <Tooltip />
-                <Legend />
-                <Bar dataKey='pkg' fill='#8884d8' />
+                <Bar dataKey='count' fill='#8884d8' />
               </BarChart>
             </ResponsiveContainer>
           </Box>
