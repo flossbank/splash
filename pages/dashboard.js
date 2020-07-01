@@ -20,14 +20,14 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 import { localStorageDashboardWelcomeBannerKey } from '../utils/constants'
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
-import { 
-  fetchUserInstalledPackages, 
+import {
+  fetchUserInstalledPackages,
   fetchDonationInfo,
-  fetchTotalSessionCount,
+  fetchUserSessionsInfo
 } from '../client'
 
 const Dashboard = () => {
-  const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(localStorageDashboardWelcomeBannerKey, true)  
+  const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(localStorageDashboardWelcomeBannerKey, true)
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
@@ -77,7 +77,7 @@ const Dashboard = () => {
     }
 
     try {
-      const sessionCountRes = await fetchTotalSessionCount()
+      const sessionCountRes = await fetchUserSessionsInfo()
       if (sessionCountRes && sessionCountRes.success) {
         setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
       }

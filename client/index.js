@@ -51,7 +51,7 @@ export const resume = async () => {
   return fetchThenJson(`${ENDPOINT}/user/resume`, optionsGetRequest())
 }
 
-export const fetchTotalSessionCount = async () => {
+export const fetchUserSessionsInfo = async () => {
   return fetchThenJson(`${ENDPOINT}/user/get-sessions`, optionsGetRequest())
 }
 
