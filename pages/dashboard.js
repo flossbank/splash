@@ -17,23 +17,25 @@ import {
 
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
-import { useAuth } from '../utils/useAuth'
 import { localStorageDashboardWelcomeBannerKey } from '../utils/constants'
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
-import { fetchUserInstalledPackages, fetchDonationInfo } from '../client'
+import {
+  fetchUserInstalledPackages,
+  fetchDonationInfo,
+  fetchUserSessionsInfo
+} from '../client'
 
 const Dashboard = () => {
-  const auth = useAuth()
   const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(localStorageDashboardWelcomeBannerKey, true)
-  // User info is located in auth.user
-  // which will have email, id, and billingInfo
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
-  const [topTenPackages, setTopTenPackages] = useState([])
-  const [userInstallData, setUserInstallData] = useState({})
+  const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
+  const [userSessionCount, setUserSessionCount] = useState(0)
   const [packagesTouched, setPackagesTouched] = useState(0)
   const [donation, setDonation] = useState()
+  const [topTenPackages, setTopTenPackages] = useState([])
+  const [userInstallData, setUserInstallData] = useState({})
 
   async function fetchData () {
     try {
@@ -72,6 +74,17 @@ const Dashboard = () => {
       setDonation(0)
     } finally {
       setDonationLoading(false)
+    }
+
+    try {
+      const sessionCountRes = await fetchUserSessionsInfo()
+      if (sessionCountRes && sessionCountRes.success) {
+        setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
+      }
+    } catch (e) {
+      setUserSessionCount('Error')
+    } finally {
+      setUserSessionCountLoading(false)
     }
   }
 
@@ -149,8 +162,11 @@ const Dashboard = () => {
                 backgroundColor='white'
                 padding='1.5rem 1.25rem'
               >
-                {auth && (
-                  <Heading>TBD</Heading>
+                {userSessionCountLoading && (
+                  <CircularProgress isIndeterminate color='ocean' />
+                )}
+                {!userSessionCountLoading && (
+                  <Heading>{userSessionCount}</Heading>
                 )}
                 <Text>Installs performed</Text>
               </ListItem>
