@@ -32,7 +32,7 @@ const AuthNav = ({ user }) => {
     outline: 'none !important'
   }
 
-  const handleSettings = () => router.push('/settings')
+  const handleSettings = () => router.push('/user/settings')
   const handleLogout = async () => auth.logout()
 
   return (

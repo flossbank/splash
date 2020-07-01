@@ -41,37 +41,37 @@ const AboutUsSection = () => (
           We believe the open source ecosystem suffers from three problems:
           <ul>
             <li>
-              Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor. 
-              Open source is the backbone of almost every Fortune 500 company, but maintainers 
+              Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
+              Open source is the backbone of almost every Fortune 500 company, but maintainers
               see little of that success.
             </li>
             <li>
-              Disproportionate distribution of funding. If I donate to an open source project, 
-              I’m generally ignoring the dependencies of that project. We believe this funding 
+              Disproportionate distribution of funding. If I donate to an open source project,
+              I’m generally ignoring the dependencies of that project. We believe this funding
               paradigm is dysfunctional and unfair.
             </li>
             <li>
-              Lack of accessibility. If maintainers want funding, they must spend time 
-              and energy on self-promotion. If developers want to help the open source ecosystem, 
+              Lack of accessibility. If maintainers want funding, they must spend time
+              and energy on self-promotion. If developers want to help the open source ecosystem,
               they need the financial means to do so.
             </li>
           </ul>
         </Text>
         <Text marginBottom='1rem'>
-          These are huge problems. We wanted a solution that allows us to easily and freely 
-          give back to all the maintainers we rely on. More than that, we wanted a solution that 
+          These are huge problems. We wanted a solution that allows us to easily and freely
+          give back to all the maintainers we rely on. More than that, we wanted a solution that
           would compensate the dependencies of our dependencies -- all the way down the tree.
         </Text>
         <Text marginBottom='1rem'>
-          That’s why we built a package manager wrapper. The wrapper takes complete dependency 
-          tree snapshots when you install open source packages. The wrapper will show ads 
-          (if you want) while open source packages are downloading/installing. We distribute 
+          That’s why we built a package manager wrapper. The wrapper takes complete dependency
+          tree snapshots when you install open source packages. The wrapper will show ads
+          (if you want) while open source packages are downloading/installing. We distribute
           the ad revenue across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
-          If you prefer donating, we also distribute your donation to every package installed, 
-          not only the top level packages. What’s more, your contribution to the open source 
-          community reflects your usage each month. Your donation goes to the packages you 
+          If you prefer donating, we also distribute your donation to every package installed,
+          not only the top level packages. What’s more, your contribution to the open source
+          community reflects your usage each month. Your donation goes to the packages you
           used the most each month (and to their dependencies).
         </Text>
         <Text marginBottom='1rem'>
