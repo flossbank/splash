@@ -38,28 +38,44 @@ const AboutUsSection = () => (
       </Subheading>
       <Box marginBottom='3rem'>
         <Text marginBottom='1rem'>
-          We created Flossbank to solve two serious problems in open source:
-          insufficient funds for maintenance and disproportionate distributions
-          within dependencies.
+          We believe the open source ecosystem suffers from three problems:
+          <ul>
+            <li>
+              Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
+              Open source is the backbone of almost every Fortune 500 company, but maintainers
+              see little of that success.
+            </li>
+            <li>
+              Disproportionate distribution of funding. If I donate to an open source project,
+              I’m generally ignoring the dependencies of that project. We believe this funding
+              paradigm is dysfunctional and unfair.
+            </li>
+            <li>
+              Lack of accessibility. If maintainers want funding, they must spend time
+              and energy on self-promotion. If developers want to help the open source ecosystem,
+              they need the financial means to do so.
+            </li>
+          </ul>
         </Text>
         <Text marginBottom='1rem'>
-          To address insufficient funds, we built a free way to give back to open source.
-          With the free tier we hope to engage the millions of developers who
-          don't have the financial resources to contribute back to the open source maintainers
-          and authors that they rely on. Users will "donate their attention" by seeing curated
-          tech advertisements during installation of open source packages in the terminal. The
-          revenue from those ads goes to the authors and maintainers of the packages being installed.
+          These are huge problems. We wanted a solution that allows us to easily and freely
+          give back to all the maintainers we rely on. More than that, we wanted a solution that
+          would compensate the dependencies of our dependencies -- all the way down the tree.
         </Text>
         <Text marginBottom='1rem'>
-          To address disproportionate distribution of funds, we we built our CLI to do complete
-          dependency snapshots. This allows us to determine how much of a users donation / ad revenue should
-          go to each package in the entire dependency tree of the packages they're installing. The CLI
-          is open source, and it's sole purpose is to allow us to equitably distribute revenue. This
-          unlocks revenue streams for millions of open source developers who don't care or have time for
-          self promotion.
+          That’s why we built a package manager wrapper. The wrapper takes complete dependency
+          tree snapshots when you install open source packages. The wrapper will show ads
+          (if you want) while open source packages are downloading/installing. We distribute
+          the ad revenue across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
-          We hope this is just the beginning.
+          If you prefer donating, we also distribute your donation to every package installed,
+          not only the top level packages. What’s more, your contribution to the open source
+          community reflects your usage each month. Your donation goes to the packages you
+          used the most each month (and to their dependencies).
+        </Text>
+        <Text marginBottom='1rem'>
+          We’re super excited about this product and think it’s a small step in the right direction.
         </Text>
         <Text>Want to help us on our mission to fund open source?</Text>
         <Text>Get in touch.</Text>
