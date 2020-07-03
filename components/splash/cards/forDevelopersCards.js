@@ -7,13 +7,13 @@ const cardData = [
     icon: 'terminal',
     heading: 'Support maintainers at no cost',
     text:
-      'Opt into curated, tech-focused ads in your terminal when you install open source packages'
+      'Opt into curated, tech-focused ads in your terminal when you install Open Source packages'
   },
   {
     icon: 'calendar',
     heading: 'Or set a monthly donation',
     text:
-      'Donate monthly to the developers and maintainers of the open source packages you install'
+      'Donate monthly to the developers and maintainers of the Open Source packages you install'
   }
 ]
 

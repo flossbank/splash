@@ -15,7 +15,7 @@ const SplashHero = () => (
       lineHeight='1'
     >
       <span className='sr-only'>Flossbank –</span>
-      On a mission to support open source
+      On a mission to support Open Source
     </Heading>
     <Text
       id='hero_header'
@@ -24,7 +24,7 @@ const SplashHero = () => (
       lineHeight='normal'
       marginBottom={{ base: '1.5rem', md: '.5rem' }}
     >
-      At Flossbank, we help pay open source authors and maintainers for their
+      At Flossbank, we help pay Open Source authors and maintainers for their
       work.
     </Text>
     <Text

@@ -34,25 +34,25 @@ const AboutUsSection = () => (
     </Box>
     <Box gridColumn={{ base: 1, lg: 2 }} maxW={{ base: '80ch', lg: '55ch' }}>
       <Subheading align={{ base: 'center', lg: 'left' }}>
-        Revolutionizing open source pay
+        Revolutionizing Open Source pay
       </Subheading>
       <Box marginBottom='3rem'>
         <Text marginBottom='1rem'>
-          We believe the open source ecosystem suffers from three problems:
+          We believe the Open Source ecosystem suffers from three problems:
           <List styleType='disc'>
             <ListItem margin='1rem 0'>
               Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
-              Open source is the backbone of almost every Fortune 500 company, but maintainers
+              Open Source is the backbone of almost every Fortune 500 company, but maintainers
               see little of that success.
             </ListItem>
             <ListItem margin='1rem 0'>
-              Disproportionate distribution of funding. If I donate to an open source project,
+              Disproportionate distribution of funding. If I donate to an Open Source project,
               I’m generally ignoring the dependencies of that project. We believe this funding
               paradigm is dysfunctional and unfair.
             </ListItem>
             <ListItem margin='1rem 0'>
               Lack of accessibility. If maintainers want funding, they must spend time
-              and energy on self-promotion. If developers want to help the open source ecosystem,
+              and energy on self-promotion. If developers want to help the Open Source ecosystem,
               they need the financial means to do so.
             </ListItem>
           </List>
@@ -64,20 +64,20 @@ const AboutUsSection = () => (
         </Text>
         <Text marginBottom='1rem'>
           That’s why we built a package manager wrapper. The wrapper takes complete dependency
-          tree snapshots when you install open source packages. The wrapper will show ads
-          (if you want) while open source packages are downloading/installing. We distribute
+          tree snapshots when you install Open Source packages. The wrapper will show ads
+          (if you want) while Open Source packages are downloading/installing. We distribute
           the ad revenue across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
           If you prefer donating, we also distribute your donation to every package installed,
-          not only the top level packages. What’s more, your contribution to the open source
+          not only the top level packages. What’s more, your contribution to the Open Source
           community reflects your usage each month. Your donation goes to the packages you
           used the most each month (and to their dependencies).
         </Text>
         <Text marginBottom='1rem'>
           We’re super excited about this product and think it’s a small step in the right direction.
         </Text>
-        <Text>Want to help us on our mission to fund open source?</Text>
+        <Text>Want to help us on our mission to fund Open Source?</Text>
         <Text>Get in touch.</Text>
       </Box>
     </Box>

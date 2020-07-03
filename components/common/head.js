@@ -7,7 +7,7 @@ const FBHead = ({ title, description }) => (
       name='description'
       content={
         description ||
-      'Flossbank provides a free and frictionless way to support open source maintainers across the entire dependency tree of your installed packages.'
+      'Flossbank provides a free and frictionless way to support Open Source maintainers across the entire dependency tree of your installed packages.'
       }
     />
     <title>{(title && title + ' – Flossbank') || 'Flossbank'}</title>

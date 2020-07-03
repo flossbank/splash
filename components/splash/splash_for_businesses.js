@@ -1,9 +1,9 @@
 import { Flex, Text } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
-import LinkBtn from '../common/linkBtn'
 import BusinessCards from './cards/businessCards'
 import Section from '../common/section'
+import TextLink from '../common/textLink'
 import Subheading from '../common/subheading'
 import UnderlinedHeading from '../common/underlinedHeading'
 
@@ -13,7 +13,7 @@ const SplashForBusinesses = ({ id }) => {
       <Flex flexDirection='column' justify='center' alignItems='center'>
         <UnderlinedHeading text='For businesses' align='center' />
         <Subheading textAlign='center'>
-          Equitable contributions to the open source ecosystem
+          Equitable contributions to the Open Source ecosystem
         </Subheading>
         <Text textAlign='center' marginBottom='3rem' maxW='70ch'>
           By registering your GitHub Enterprise account with Flossbank, you can
@@ -22,14 +22,10 @@ const SplashForBusinesses = ({ id }) => {
         </Text>
         <BusinessCards />
         <Flex justify='center'>
-          <LinkBtn
-            href='/signup'
-            className='u-box-shadow'
-            minW='10rem'
-            padding='.75rem'
-          >
-            Register
-          </LinkBtn>
+          <Text>
+            <TextLink text='Contact us ' href='/contact' fontWeight='bold' />
+            to get on our beta list.
+          </Text>
         </Flex>
       </Flex>
     </Section>

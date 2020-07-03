@@ -36,14 +36,14 @@ const SplashWhatIsFlossbank = () => {
           marginBottom='2rem'
           textAlign={{ base: 'center', lg: 'left' }}
         >
-          The best way to support open source
+          The equitable way to support Open Source
         </Subheading>
         <Text
           maxW={{ lg: '45ch' }}
           marginBottom='2rem'
           textAlign={{ base: 'left', sm: 'center', lg: 'left' }}
         >
-          We use ad revenue and monthly donations to support all the maintainers
+          We use ad revenue and monthly donations to support <strong>all</strong> the maintainers
           of the packages you install. (<TextLink text='All of them?' href='/how-it-works' />)
         </Text>
         <WhatIsFBCards />

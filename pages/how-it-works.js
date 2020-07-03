@@ -13,7 +13,7 @@ const HowItWorks = () => (
       <Text marginBottom='1rem'>
         Flossbank provides two ways to give back to the Open Source community in our distributed,
         maintenance free method. The first is to view curated tech advertisements during installation of
-        open source packages, with the revenue being distributed down the dependency tree. The second
+        Open Source packages, with the revenue being distributed down the dependency tree. The second
         is to make a monthly donation as you would on Open Collective or Patreon, with the donation
         split up to the packages you install each month, and their entire dependency tree's.
       </Text>
@@ -37,7 +37,7 @@ const HowItWorks = () => (
       <Text marginBottom='1rem'>
         We distribute the revenue all the way down the dependency tree of each installation of an open
         source package under one of our supported package managers. We thought, "What would we do if we made a dollar
-        from an open source package we published, and the authors of all of our top level dependencies
+        from an Open Source package we published, and the authors of all of our top level dependencies
         were in the same room as us?".
         Well, logically we'd split the dollar equally amongst ourselves and each of those top
         level dependency authors. We

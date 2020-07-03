@@ -35,6 +35,7 @@ const FBFormControl = ({ labelText, id, required, children, ...props }) => (
 
 const topics = [
   'Contribute',
+  'Beta list',
   'Partnerships',
   'Help installing',
   'Feedback',

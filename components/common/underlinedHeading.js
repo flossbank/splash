@@ -11,6 +11,7 @@ const UnderlinedHeading = ({ text, align, lineGap, lineColor, ...props }) => {
   return (
     <PseudoBox textAlign={align} {...props} lineHeight={lineGap}>
       <Box as='span' display='block'>
+        {props.children}
         {text}
       </Box>
       <Box

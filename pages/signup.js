@@ -9,7 +9,7 @@ const Signup = () => {
   return (
     <PageWrapper
       title='Sign Up'
-      description='Sign up for Flossbank to start supporting open source maintainers across the entire dependency tree of your installed packages.'
+      description='Sign up for Flossbank to start supporting Open Source maintainers across the entire dependency tree of your installed packages.'
     >
       <AuthProcess
         process={auth.signup}

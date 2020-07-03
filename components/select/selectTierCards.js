@@ -1,17 +1,17 @@
-import { 
-  Flex, 
-  Text, 
-  Icon, 
+import {
+  Flex,
+  Text,
+  Icon,
   List,
-  Image, 
-  ListItem, 
-  useDisclosure, 
-  Modal, 
-  ModalOverlay, 
-  ModalContent, 
-  ModalHeader, 
-  ModalCloseButton, 
-  ModalBody, 
+  Image,
+  ListItem,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody
 } from '@chakra-ui/core'
 
 import Card from '../common/card'
@@ -24,13 +24,13 @@ import TextLink from '../common/textLink'
 const cardsContent = [
   {
     title: 'See Ads In Your Terminal',
-    subtitle: 'A free way to support to open source',
+    subtitle: 'A free way to support to Open Source',
     donation: false,
     linkToModal: true,
     ads: true,
     recommended: true,
     description:
-      'During installation of open source packages, see curated tech advertisements. ',
+      'During installation of Open Source packages, see curated tech advertisements. ',
     features: [
       {
         icon: 'close',
@@ -50,7 +50,7 @@ const cardsContent = [
   },
   {
     title: 'Donate Monthly',
-    subtitle: 'Donate directly to open source',
+    subtitle: 'Donate directly to Open Source',
     donation: true,
     linkToModal: false,
     ads: false,
@@ -142,7 +142,7 @@ const SelectTierCards = ({ onSelected }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <React.Fragment>
+    <>
       <List
         width='100%'
         maxW='75rem'
@@ -166,7 +166,7 @@ const SelectTierCards = ({ onSelected }) => {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </React.Fragment>
+    </>
   )
 }
 
