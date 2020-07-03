@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/core'
+import { Box, Text, List, ListItem } from '@chakra-ui/core'
 
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
@@ -32,30 +32,30 @@ const AboutUsSection = () => (
     >
       <WomanWorking />
     </Box>
-    <Box gridColumn={{ base: 1, lg: 2 }} maxW={{ base: '80ch', lg: '45ch' }}>
+    <Box gridColumn={{ base: 1, lg: 2 }} maxW={{ base: '80ch', lg: '55ch' }}>
       <Subheading align={{ base: 'center', lg: 'left' }}>
         Revolutionizing open source pay
       </Subheading>
       <Box marginBottom='3rem'>
         <Text marginBottom='1rem'>
           We believe the open source ecosystem suffers from three problems:
-          <ul>
-            <li>
+          <List styleType='disc'>
+            <ListItem margin='1rem 0'>
               Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
               Open source is the backbone of almost every Fortune 500 company, but maintainers
               see little of that success.
-            </li>
-            <li>
+            </ListItem>
+            <ListItem margin='1rem 0'>
               Disproportionate distribution of funding. If I donate to an open source project,
               I’m generally ignoring the dependencies of that project. We believe this funding
               paradigm is dysfunctional and unfair.
-            </li>
-            <li>
+            </ListItem>
+            <ListItem margin='1rem 0'>
               Lack of accessibility. If maintainers want funding, they must spend time
               and energy on self-promotion. If developers want to help the open source ecosystem,
               they need the financial means to do so.
-            </li>
-          </ul>
+            </ListItem>
+          </List>
         </Text>
         <Text marginBottom='1rem'>
           These are huge problems. We wanted a solution that allows us to easily and freely

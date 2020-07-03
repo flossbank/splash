@@ -1,5 +1,6 @@
-import { Flex, Box, Icon } from '@chakra-ui/core'
+import { Flex, Box, Icon, Text } from '@chakra-ui/core'
 import UnderlinedHeading from '../../common/underlinedHeading'
+import TextLink from '../../common/textLink'
 
 const cardData = [
   {
@@ -16,7 +17,7 @@ const cardData = [
   }
 ]
 
-const Card = ({ icon, heading, text }) => (
+const Card = ({ icon, heading, text, showHowItWorksLink }) => (
   <Flex
     className='u-box-shadow'
     backgroundColor='lightRock'
@@ -40,7 +41,10 @@ const Card = ({ icon, heading, text }) => (
         lineGap='1'
         lineColor='ocean'
       />
-      <p>{text}</p>
+      <Text>{text}</Text>
+      {showHowItWorksLink && (
+        <TextLink text='How does that work, exactly?' href='/how-it-works' />
+      )}
     </Box>
   </Flex>
 )
@@ -53,7 +57,7 @@ const ForDevelopersCards = (props) => (
     {...props}
   >
     {cardData.map((card, i) => (
-      <Card key={i} icon={card.icon} heading={card.heading} text={card.text} />
+      <Card key={i} icon={card.icon} heading={card.heading} text={card.text} showHowItWorksLink={i===0} />
     ))}
   </Flex>
 )

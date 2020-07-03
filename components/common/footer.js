@@ -18,6 +18,10 @@ const loggedOutLinks = [
   {
     url: '/signup',
     text: 'Sign Up'
+  },
+  {
+    url: '/faq',
+    text: 'FAQs'
   }
 ]
 

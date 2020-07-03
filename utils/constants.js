@@ -6,5 +6,8 @@ export const whitelistedEndpoints = [
   '/complete-login',
   '/verify',
   '/about',
+  '/faq',
+  '/_error',
+  '/how-it-works',
   '/'
 ]
