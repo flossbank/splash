@@ -23,23 +23,23 @@ const FAQ = () => {
           We distribute the revenue all the way down the dependency tree of each installation of an open
           source package under one of our supported package managers. We thought, "What would we do if we made a dollar
           from an open source package we published, and the authors of all of our top level dependencies
-          were in the same room as us?". 
-          Well, logically we'd split the dollar equally amongst ourselves and each of those top 
-          level dependency authors. We 
-          clearly couldn't have built our product we just made a dollar from without them, so sharing equally makes 
+          were in the same room as us?".
+          Well, logically we'd split the dollar equally amongst ourselves and each of those top
+          level dependency authors. We
+          clearly couldn't have built our product we just made a dollar from without them, so sharing equally makes
           sense. So that's how we built Flossbank. For each level down the dependency tree the to level package's author
-          splits the revenue they receive with the authors of the dependencies that package relies on. 
+          splits the revenue they receive with the authors of the dependencies that package relies on.
           etc etc.
         </Text>
         <SubHeading>Why can't I see the revenue I've generated for open source real time in my user portal?</SubHeading>
         <Text marginBottom='1rem'>
-          Unfortunately due to the party (maintainers) we pay also potentially being a party 
-          that uses (developers) Flossbank, it is an abuse concern 
+          Unfortunately due to the party (maintainers) we pay also potentially being a party
+          that uses (developers) Flossbank, it is an abuse concern
           to show real time revenue impact information. We will display that information on a 1 month lagging basis.
         </Text>
         <SubHeading>What data do you have?</SubHeading>
         <Text marginBottom='1rem'>
-          Only what open source packages you install. The same data all package manager registries 
+          Only what open source packages you install. The same data all package manager registries
           have as well.
         </Text>
         <SubHeading>What OS do you support?</SubHeading>
