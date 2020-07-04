@@ -20,14 +20,14 @@ const FAQ = () => {
         <Text marginBottom='1rem'>Currently just npm and yarn</Text>
         <SubHeading>How are you distributing the revenue generated from me viewing ads?</SubHeading>
         <Text marginBottom='1rem'>
-          We distribute the revenue all the way down the dependency tree of each installation of an open
-          source package under one of our supported package managers. We thought, "What would we do if we made a dollar
+          We distribute the revenue all the way down the dependency tree of each Open Source package installation. 
+          We thought, "What would we do if we made a dollar
           from an Open Source package we published, and the authors of all of our top level dependencies
           were in the same room as us?".
           Well, logically we'd split the dollar equally amongst ourselves and each of those top
           level dependency authors. We
-          clearly couldn't have built our product we just made a dollar from without them, so sharing equally makes
-          sense. So that's how we built Flossbank. For each level down the dependency tree the to level package's author
+          clearly couldn't have built our product we just made a dollar from without them and sharing equally makes
+          sense. So that's how we built Flossbank. For each level down the dependency tree the top level package's author
           splits the revenue they receive with the authors of the dependencies that package relies on.
           etc etc.
         </Text>

@@ -38,12 +38,12 @@ const Card = ({ icon, text, heading }) => (
     lineHeight='1.3'
   >
     <UnderlinedHeading
-        as='h3'
-        marginBottom='0.5rem'
-        text={heading}
-        align='left'
-        lineGap='1'
-        lineColor='ocean'
+      as='h3'
+      marginBottom='0.5rem'
+      text={heading}
+      align='left'
+      lineGap='1'
+      lineColor='ocean'
     >
       <Icon name={icon} size='1.25rem' margin='.3rem .5rem .3rem 0' />
     </UnderlinedHeading>
