@@ -20,7 +20,7 @@ const FAQ = () => {
         <Text marginBottom='1rem'>Currently just npm and yarn</Text>
         <SubHeading>How are you distributing the revenue generated from me viewing ads?</SubHeading>
         <Text marginBottom='1rem'>
-          We distribute the revenue all the way down the dependency tree of each Open Source package installation. 
+          We distribute the revenue all the way down the dependency tree of each Open Source package installation.
           We thought, "What would we do if we made a dollar
           from an Open Source package we published, and the authors of all of our top level dependencies
           were in the same room as us?".

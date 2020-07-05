@@ -69,6 +69,16 @@ const AboutUsSection = () => (
           the ad revenue across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
+          You might think "Ads suck, why ads?" We hate ads as much as you do, but we realized 
+          we primarily hate them
+          when they're forced on us, or when they become a requirement
+          to use a product. 
+          That's why ads through Flossbank are completely opt-in; never a requirement. 
+          We view ads as an accessible
+          way to give back to the Open Source community. If you're someone who wants to give back, 
+          now there's a free option, if you so choose.
+        </Text>
+        <Text marginBottom='1rem'>
           If you prefer donating, we also distribute your donation to every package installed,
           not only the top level packages. What’s more, your contribution to the Open Source
           community reflects your usage each month. Your donation goes to the packages you
