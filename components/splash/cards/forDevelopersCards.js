@@ -4,12 +4,14 @@ import TextLink from '../../common/textLink'
 
 const cardData = [
   {
+    showHowItWorksLink: true,
     icon: 'terminal',
     heading: 'Support maintainers at no cost',
     text:
       'Opt into curated, tech-focused ads in your terminal when you install Open Source packages'
   },
   {
+    showHowItWorksLink: false,
     icon: 'calendar',
     heading: 'Or set a monthly donation',
     text:
@@ -57,7 +59,11 @@ const ForDevelopersCards = (props) => (
     {...props}
   >
     {cardData.map((card, i) => (
-      <Card key={i} icon={card.icon} heading={card.heading} text={card.text} showHowItWorksLink={i === 0} />
+      <Card key={i} 
+            icon={card.icon} 
+            heading={card.heading} 
+            text={card.text} 
+            showHowItWorksLink={card.showHowItWorksLink} />
     ))}
   </Flex>
 )

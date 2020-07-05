@@ -39,7 +39,7 @@ const AboutUsSection = () => (
       <Box marginBottom='3rem'>
         <Text marginBottom='1rem'>
           We believe the Open Source ecosystem suffers from three problems:
-          <List styleType='disc'>
+          <List as='ol' styleType='decimal'>
             <ListItem margin='1rem 0'>
               Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
               Open Source is the backbone of almost every Fortune 500 company, but maintainers
@@ -69,13 +69,13 @@ const AboutUsSection = () => (
           the ad revenue across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
-          You might think "Ads suck, why ads?" We hate ads as much as you do, but we realized 
+          You might think "Ads suck, why ads?" We hate ads as much as you do, but we realized
           we primarily hate them
           when they're forced on us, or when they become a requirement
-          to use a product. 
-          That's why ads through Flossbank are completely opt-in; never a requirement. 
+          to use a product.
+          That's why ads through Flossbank are completely opt-in; never a requirement.
           We view ads as an accessible
-          way to give back to the Open Source community. If you're someone who wants to give back, 
+          way to give back to the Open Source community. If you're someone who wants to give back,
           now there's a free option, if you so choose.
         </Text>
         <Text marginBottom='1rem'>

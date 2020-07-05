@@ -20,7 +20,7 @@ const cardData = [
   },
 
   {
-    heading: 'Maintenance free',
+    heading: 'Maintenance-free',
     icon: 'bullseye',
     text: 'Your donations go directly to the packages you use'
   }
