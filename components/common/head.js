@@ -11,7 +11,7 @@ const FBHead = ({ title, description }) => (
       }
     />
     <title>{(title && title + ' – Flossbank') || 'Flossbank'}</title>
-
+    <script data-goatcounter="https://flossbank.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <meta name='viewport' content='width=device-width, initial-scale=1' />
   </Head>
 )
