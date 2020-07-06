@@ -59,11 +59,13 @@ const ForDevelopersCards = (props) => (
     {...props}
   >
     {cardData.map((card, i) => (
-      <Card key={i} 
-            icon={card.icon} 
-            heading={card.heading} 
-            text={card.text} 
-            showHowItWorksLink={card.showHowItWorksLink} />
+      <Card
+        key={i}
+        icon={card.icon}
+        heading={card.heading}
+        text={card.text}
+        showHowItWorksLink={card.showHowItWorksLink}
+      />
     ))}
   </Flex>
 )
