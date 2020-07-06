@@ -82,7 +82,7 @@ const VerifyHumanity = () => {
         <UnderlinedHeading text='Verify' align='center' aria-hidden='true' />
         <Subheading>No robots allowed</Subheading>
         <Text marginBottom='1rem'>
-          On behalf of the open source community, thank you for installing!
+          On behalf of the Open Source community, thank you for installing!
           &hearts;
         </Text>
         {!hasError && (

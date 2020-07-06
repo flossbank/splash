@@ -115,8 +115,8 @@ const Dashboard = () => {
               marginBottom={{ base: '1.5rem', md: 0 }}
             />
             Thanks for installing Flossbank! You can log in at any time to see
-            the impact you have on the open source community. We're always
-            working on more features, hoping to create a vibrant open source
+            the impact you have on the Open Source community. We're always
+            working on more features, hoping to create a vibrant Open Source
             support ecosystem. Happy coding!
             <CloseButton
               onClick={() => setShowWelcomeMessage(false)}

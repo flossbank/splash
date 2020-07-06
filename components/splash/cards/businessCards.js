@@ -8,7 +8,7 @@ const cardData = [
   },
   {
     icon: 'pieChart',
-    text: 'Donate dynamically to the open source packages your firm uses most'
+    text: 'Donate dynamically to the Open Source packages your firm uses most'
   },
   {
     icon: 'megaphone',

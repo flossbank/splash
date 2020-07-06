@@ -1,22 +1,25 @@
-import { Flex, Box, Icon } from '@chakra-ui/core'
+import { Flex, Box, Icon, Text } from '@chakra-ui/core'
 import UnderlinedHeading from '../../common/underlinedHeading'
+import TextLink from '../../common/textLink'
 
 const cardData = [
   {
+    showHowItWorksLink: true,
     icon: 'terminal',
     heading: 'Support maintainers at no cost',
     text:
-      'Opt into curated, tech-focused ads in your terminal when you install open source packages'
+      'Opt into curated, tech-focused ads in your terminal when you install Open Source packages'
   },
   {
+    showHowItWorksLink: false,
     icon: 'calendar',
     heading: 'Or set a monthly donation',
     text:
-      'Donate monthly to the developers and maintainers of the open source packages you install'
+      'Donate monthly to the developers and maintainers of the Open Source packages you install'
   }
 ]
 
-const Card = ({ icon, heading, text }) => (
+const Card = ({ icon, heading, text, showHowItWorksLink }) => (
   <Flex
     className='u-box-shadow'
     backgroundColor='lightRock'
@@ -40,7 +43,10 @@ const Card = ({ icon, heading, text }) => (
         lineGap='1'
         lineColor='ocean'
       />
-      <p>{text}</p>
+      <Text>{text}</Text>
+      {showHowItWorksLink && (
+        <TextLink text='How does that work, exactly?' href='/how-it-works' />
+      )}
     </Box>
   </Flex>
 )
@@ -53,7 +59,11 @@ const ForDevelopersCards = (props) => (
     {...props}
   >
     {cardData.map((card, i) => (
-      <Card key={i} icon={card.icon} heading={card.heading} text={card.text} />
+      <Card key={i} 
+            icon={card.icon} 
+            heading={card.heading} 
+            text={card.text} 
+            showHowItWorksLink={card.showHowItWorksLink} />
     ))}
   </Flex>
 )

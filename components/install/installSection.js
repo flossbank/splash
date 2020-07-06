@@ -69,10 +69,10 @@ const InstallSection = () => {
           flexDirection='column'
           alignItems='center'
         >
-          <Subheading>Support the open source you use</Subheading>
+          <Subheading>Support the Open Source you use</Subheading>
           <Text marginBottom='1.5rem' maxW='72ch'>
             Install Flossbank’s package manager wrapper to capture dependency
-            tree snapshots when you install open source packages. Flossbank then
+            tree snapshots when you install Open Source packages. Flossbank then
             distributes funds across your entire dependency trees.
           </Text>
           <Text marginBottom='3.5rem' maxW='72ch'>

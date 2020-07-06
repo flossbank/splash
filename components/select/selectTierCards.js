@@ -1,20 +1,36 @@
-import { Flex, Text, Icon, List, ListItem } from '@chakra-ui/core'
+import {
+  Flex,
+  Text,
+  Icon,
+  List,
+  Image,
+  ListItem,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody
+} from '@chakra-ui/core'
 
 import Card from '../common/card'
 import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 
 import LinkBtn from '../common/linkBtn'
+import TextLink from '../common/textLink'
 
 const cardsContent = [
   {
     title: 'See Ads In Your Terminal',
-    subtitle: 'A free way to support to open source',
+    subtitle: 'A free way to support to Open Source',
     donation: false,
+    linkToModal: true,
     ads: true,
     recommended: true,
     description:
-      'During installation of open source packages, see curated tech advertisements',
+      'During installation of Open Source packages, see curated tech advertisements. ',
     features: [
       {
         icon: 'close',
@@ -34,8 +50,9 @@ const cardsContent = [
   },
   {
     title: 'Donate Monthly',
-    subtitle: 'Donate directly to open source',
+    subtitle: 'Donate directly to Open Source',
     donation: true,
+    linkToModal: false,
     ads: false,
     recommkended: false,
     description:
@@ -57,7 +74,7 @@ const cardsContent = [
   }
 ]
 
-const TierCard = ({ onSelected, tier }) => (
+const TierCard = ({ onSelected, tier, onModalOpen }) => (
   <Card as='li' shadowSz='lg' position='relative'>
     {tier.recommended && (
       <Text
@@ -79,7 +96,12 @@ const TierCard = ({ onSelected, tier }) => (
     <Flex direction='column' justify='space-between' align='flex-start'>
       <UnderlinedHeading text={tier.title} align='left' marginTop='1.5rem' />
       <Subheading>{tier.subtitle}</Subheading>
-      <Text marginBottom='2rem'>{tier.description}</Text>
+      <Text marginBottom='2rem'>
+        {tier.description}
+        {tier.linkToModal && (
+          <TextLink text='What do they look like?' onClick={onModalOpen} />
+        )}
+      </Text>
       <LinkBtn
         color='white'
         backgroundColor='ocean'
@@ -116,20 +138,36 @@ const TierCard = ({ onSelected, tier }) => (
   </Card>
 )
 
-const SelectTierCards = ({ onSelected }) => (
-  <List
-    width='100%'
-    maxW='75rem'
-    margin='0 auto'
-    display='grid'
-    gridTemplateColumns='repeat(auto-fit, minmax(20rem, 1fr))'
-    gridGap='3rem'
-    padding='2rem 2rem 6rem'
-  >
-    {cardsContent.map((card, i) => (
-      <TierCard key={i} tier={card} onSelected={onSelected} />
-    ))}
-  </List>
-)
+const SelectTierCards = ({ onSelected }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  return (
+    <>
+      <List
+        width='100%'
+        maxW='75rem'
+        margin='0 auto'
+        display='grid'
+        gridTemplateColumns='repeat(auto-fit, minmax(20rem, 1fr))'
+        gridGap='3rem'
+        padding='2rem 2rem 6rem'
+      >
+        {cardsContent.map((card, i) => (
+          <TierCard key={i} tier={card} onSelected={onSelected} onModalOpen={onOpen} />
+        ))}
+      </List>
+      <Modal isOpen={isOpen} onClose={onClose} size='80%'>
+        <ModalOverlay />
+        <ModalContent backgroundColor='white'>
+          <ModalHeader>Flossbank Ad Demo</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image margin='auto' src='/images/flossbank_ads_demo.gif' />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
 
 export default SelectTierCards

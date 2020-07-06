@@ -55,14 +55,14 @@ const SelectTierSection = () => {
         >
           <Subheading align='center'>Choose your level of support</Subheading>
           <Text marginBottom='1rem'>
-            <strong>Flossbank</strong> introduces a free way to contribute back
-            to open source. That means no maintenance, no cost, no selling your
+            Flossbank introduces an <strong>accessible for all</strong>, free way to contribute back
+            to Open Source. That means no maintenance, no cost, no selling your
             data. All you see is curated tech-based advertisements in your
-            terminal during installation of open source packages.
+            terminal during installation of Open Source packages.
           </Text>
           <Text>
             Alternatively, we encourage and welcome selecting our{' '}
-            <strong>monthly donor</strong> tier for an optional ad-free
+            monthly donor tier for an optional ad-free
             experience.
           </Text>
         </Box>

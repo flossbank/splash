@@ -22,7 +22,7 @@ const Header = () => {
             alignItems='center'
             justifyContent={user ? 'flex-end' : 'space-between'}
             marginLeft={['2.25rem', 'auto']}
-            maxW='22.5rem'
+            maxW={['22.5rem', '22.5rem', '22.5rem', '34.5rem']}
             aria-label='Primary navigation'
           >
             {user && <AuthNav user={user} />}
@@ -31,6 +31,20 @@ const Header = () => {
                 <TextLink
                   href='/about'
                   text='About Us'
+                  color='boulder'
+                  padding='.25em'
+                />
+                <TextLink
+                  display={['none', 'none', 'none', 'inline']}
+                  href='/faq'
+                  text='FAQs'
+                  color='boulder'
+                  padding='.25em'
+                />
+                <TextLink
+                  display={['none', 'none', 'none', 'inline']}
+                  href='/how-it-works'
+                  text='How it works'
                   color='boulder'
                   padding='.25em'
                 />
