@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
-import { whitelistedEndpoints } from './constants'
+import { allowedEndpoints } from './constants'
 import * as api from '../client/index'
 
 import { Flex, Text } from '@chakra-ui/core'
@@ -14,7 +14,7 @@ export function ProvideAuth ({ children }) {
   const router = useRouter()
   const auth = useProvideAuth()
 
-  if (router && !whitelistedEndpoints.includes(router.pathname) && !auth.user) {
+  if (router && !allowedEndpoints.includes(router.pathname) && !auth.user) {
     auth.resume().catch((_) => {
       if (typeof window !== 'undefined') router.push('/login')
     })

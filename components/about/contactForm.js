@@ -188,6 +188,7 @@ const ContactForm = () => {
         You can also email us directly at{' '}
         <TextLink
           text='support@flossbank.com'
+          mailLink
           href='mailto:support@flossbank.com'
         />
         .

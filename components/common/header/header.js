@@ -8,7 +8,7 @@ import FBLogo from './logo'
 import AuthNav from './authNav'
 
 const Header = () => {
-  const user = useAuth().user; // eslint-disable-line
+  const user = useAuth().user
 
   return (
     <>

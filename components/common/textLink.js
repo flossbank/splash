@@ -1,13 +1,24 @@
-import { Link } from '@chakra-ui/core'
+import { Link as ChakraLink } from '@chakra-ui/core'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import styles from './textLink.module.scss'
 
 // destructuring children so if someone passes children (which we don't want), it doesn't funk things up
-const TextLink = ({ href, text, children, ...props }) => (
-  <Link href={href} className={styles.link} {...props}>
-    {text}
-  </Link>
+const TextLink = ({ href, text, children, mailLink, ...props }) => (
+  <>
+    {!mailLink ? (
+      <Link href={href}>
+        <ChakraLink className={styles.link} {...props}>
+          {text}
+        </ChakraLink>
+      </Link>
+    ) : (
+      <ChakraLink href={href} className={styles.link} {...props}>
+        {text}
+      </ChakraLink>
+    )}
+  </>
 )
 
 TextLink.defaultProps = {
