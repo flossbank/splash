@@ -20,6 +20,7 @@ import Card from './card'
 import FBButton from './fbButton'
 import TextLink from './textLink'
 import ErrorMessage from './errorMessage'
+import Subheading from './subheading'
 
 const AuthProcess = ({
   process,
@@ -34,6 +35,7 @@ const AuthProcess = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
+  const [confirmationCode, setConfirmationCode] = useState('')
   const [formError, setFormError] = useState('')
 
   const { register, handleSubmit, errors } = useForm()
@@ -44,7 +46,10 @@ const AuthProcess = ({
 
     try {
       // Will pass login or signup from client
-      await process({ email })
+      const res = await process({ email })
+      if (res.success && res.code) {
+        setConfirmationCode(res.code)
+      } 
       setSent(true)
       setFormError('')
     } catch (e) {
@@ -159,6 +164,11 @@ const AuthProcess = ({
             Success!
           </Heading>
           <Text>{successText}</Text>
+          {confirmationCode && (
+            <Subheading>
+              {`Confirm the following code: ${confirmationCode}`}
+            </Subheading>
+          )}
         </Flex>
       )}
     </Section>
