@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext } from 'react'
 import { useRouter } from 'next/router'
+import { useLocalStorage } from './useLocalStorage'
 import { allowedEndpoints } from './constants'
 import * as api from '../client/index'
 
@@ -9,34 +10,50 @@ import BouncyLoader from '../components/common/bouncyLoader'
 
 const authContext = createContext()
 
+const Loader = () => (
+  <Flex
+    height='100vh'
+    bg='rgba(255, 255, 255, .15)'
+    color='boulder'
+    direction='column'
+    justify='center'
+    align='center'
+    aria-busy='true'
+  >
+    <Text fontSize='1.25rem' fontWeight='500' marginBottom='3rem'>
+      Loading…
+    </Text>
+    <BouncyLoader />
+  </Flex>
+)
+
 // Provider component that wraps your app and makes auth available
 export function ProvideAuth ({ children }) {
   const router = useRouter()
   const auth = useProvideAuth()
+  const [isUserAuthed, setIsUserAuthed] = useLocalStorage('flossbank_auth', false)
 
-  if (router && !allowedEndpoints.includes(router.pathname) && !auth.user) {
-    auth.resume().catch((_) => {
-      if (typeof window !== 'undefined') router.push('/login')
-    })
-
-    return (
-      <Flex
-        height='100vh'
-        bg='rgba(255, 255, 255, .15)'
-        color='boulder'
-        direction='column'
-        justify='center'
-        align='center'
-        aria-busy='true'
-      >
-        <Text fontSize='1.25rem' fontWeight='500' marginBottom='3rem'>
-          Loading…
-        </Text>
-        <BouncyLoader />
-      </Flex>
-    )
+  // 1. user is visiting protected endpoint (e.g. Dashboard)
+  // 2. user has no session in React state
+  // 3. user has no auth flag in local storage
+  // Result: they must not have a valid API cookie, so we will require them to login (and show the loader)
+  if (router && !allowedEndpoints.includes(router.pathname) && !auth.user && !isUserAuthed) {
+    if (typeof window !== 'undefined') router.push('/login')
+    return <Loader />
   }
 
+  // 1. user has no session in React state
+  // 2. user has auth flag in local storage
+  // Assumption: they have a valid API cookie, but React doesn't know about it (e.g. they refreshed the page)
+  // Result: we will resume their session and update React session state
+  if (isUserAuthed && !auth.user) {
+    auth.resume().catch((_) => {
+      setIsUserAuthed(false)
+    })
+    return <Loader />
+  }
+
+  // User is either completely authed OR accessing a page that requires no authentication
   return <authContext.Provider value={auth}>{children}</authContext.Provider>
 }
 
@@ -48,6 +65,12 @@ export const useAuth = () => {
 // Provider hook that creates auth object and handles state
 function useProvideAuth () {
   const [user, setUser] = useState(null)
+  const [_, setAuthedFlag] = useLocalStorage('flossbank_auth', false) // eslint-disable-line
+
+  const setSessionUser = (user) => {
+    setUser(user || null)
+    setAuthedFlag(!!user)
+  }
 
   const login = async (body) => {
     const res = await api.login(body)
@@ -56,7 +79,7 @@ function useProvideAuth () {
 
   const completeLogin = async (body) => {
     const res = await api.completeLogin(body)
-    if (res.success) setUser(res.user)
+    setSessionUser(res.success && res.user)
     return res
   }
 
@@ -66,13 +89,13 @@ function useProvideAuth () {
   }
 
   const logout = async () => {
-    const res = await api.logout()
-    if (res.success) setUser(undefined)
+    await api.logout()
+    setSessionUser(undefined)
   }
 
   const resume = async () => {
     const res = await api.resume()
-    if (res.success) setUser(res.user)
+    setSessionUser(res.success && res.user)
   }
 
   return {

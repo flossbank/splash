@@ -34,7 +34,10 @@ const AuthNav = ({ user }) => {
   }
 
   const handleSettings = () => router.push('/user/settings')
-  const handleLogout = async () => auth.logout()
+  const handleLogout = () => {
+    router.push('/')
+    auth.logout()
+  }
 
   return (
     <Menu>
