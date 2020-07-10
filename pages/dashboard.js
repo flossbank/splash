@@ -42,11 +42,7 @@ const Dashboard = () => {
       const installedPackagesRes = await fetchUserInstalledPackages()
       if (installedPackagesRes && installedPackagesRes.success) {
         setUserInstallData({ packages: installedPackagesRes.installedPackages })
-        const packagesTouchedData = installedPackagesRes.installedPackages.reduce(
-          (acc, pkg) => acc + pkg.installCount,
-          0
-        )
-        setPackagesTouched(packagesTouchedData)
+        setPackagesTouched(installedPackagesRes.installedPackages.length)
 
         const topTen = installedPackagesRes.installedPackages
           .sort((a, b) => b.installCount - a.installCount)
@@ -184,7 +180,7 @@ const Dashboard = () => {
                 {!packagesTouchedLoading && (
                   <Heading>{packagesTouched}</Heading>
                 )}
-                <Text>Packages touched</Text>
+                <Text>Unique packages touched</Text>
               </ListItem>
               <ListItem
                 className='u-box-shadow'
