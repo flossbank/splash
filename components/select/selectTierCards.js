@@ -3,15 +3,7 @@ import {
   Text,
   Icon,
   List,
-  Image,
-  ListItem,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody
+  ListItem
 } from '@chakra-ui/core'
 import PropTypes from 'prop-types'
 
@@ -143,36 +135,24 @@ TierCard.propTypes = {
   onModalOpen: PropTypes.func
 }
 
-const SelectTierCards = ({ onSelected }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+const SelectTierCards = ({ onSelected, onModalOpen }) => (
+  <List
+    width='100%'
+    maxW='75rem'
+    margin='0 auto'
+    display='grid'
+    gridTemplateColumns='repeat(auto-fit, minmax(20rem, 1fr))'
+    gridGap='3rem'
+    padding='2rem 2rem 6rem'
+  >
+    {cardsContent.map((card, i) => (
+      <TierCard key={i} tier={card} onSelected={onSelected} onModalOpen={onModalOpen} />
+    ))}
+  </List>
+)
 
-  return (
-    <>
-      <List
-        width='100%'
-        maxW='75rem'
-        margin='0 auto'
-        display='grid'
-        gridTemplateColumns='repeat(auto-fit, minmax(20rem, 1fr))'
-        gridGap='3rem'
-        padding='2rem 2rem 6rem'
-      >
-        {cardsContent.map((card, i) => (
-          <TierCard key={i} tier={card} onSelected={onSelected} onModalOpen={onOpen} />
-        ))}
-      </List>
-      <Modal isOpen={isOpen} onClose={onClose} size='80%'>
-        <ModalOverlay />
-        <ModalContent backgroundColor='white'>
-          <ModalHeader>Flossbank Ad Demo</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image margin='auto' src='/images/flossbank_ads_demo.gif' />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
-  )
+SelectTierCards.propTypes = {
+  onModalOpen: PropTypes.func
 }
 
 export default SelectTierCards

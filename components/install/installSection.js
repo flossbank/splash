@@ -1,4 +1,7 @@
-import { Box, Text } from '@chakra-ui/core'
+import {
+  Box,
+  Text
+} from '@chakra-ui/core'
 import { useEffect, useState } from 'react'
 
 import StepperSection from '../common/stepperSection'
@@ -70,14 +73,10 @@ const InstallSection = () => {
           alignItems='center'
         >
           <Subheading>Support the Open Source you use</Subheading>
-          <Text marginBottom='1.5rem' maxW='72ch'>
-            Install Flossbank’s package manager wrapper to capture dependency
-            tree snapshots when you install Open Source packages. Flossbank then
-            distributes funds across your entire dependency trees.
-          </Text>
           <Text marginBottom='3.5rem' maxW='72ch'>
-            Flossbank’s custom installer isolates the package manager wrapper
-            from the rest of your system by vendorizing its dependencies.
+            Surprised to see an install command? Flossbank’s package manager wrapper helps us
+            determine where to distribute the funds you generate for Open Source. See {' '}
+            <TextLink href='/how-it-works' external text='how it works' /> to learn more.
           </Text>
           <Card
             shadowSz='lg'
@@ -89,10 +88,6 @@ const InstallSection = () => {
               Copy and paste the applicable command in your shell to continue:
             </Text>
             <InstallCommands token={token} />
-            <Text>
-              Once you install, Flossbank will send you an email to verify your
-              account.
-            </Text>
           </Card>
 
           <Box>

@@ -113,7 +113,7 @@ const VerifyHumanity = () => {
             Please try again or contact{' '}
             <TextLink
               text='support@flossbank.com'
-              mailLink
+              external
               href='mailto:support@flossbank.com'
             />{' '}
             for assistance.

@@ -14,34 +14,41 @@ const FAQ = () => {
       <Card padding={['2rem', '2rem 20% 6rem 20%']} as='section'>
         <UnderlinedHeading color='black' text='FAQ' />
         <SubHeading>What do the ads look like?</SubHeading>
-        <Box marginBottom='1rem'>
+        <Box marginBottom='1.5rem'>
           <Image src='/images/flossbank_ads_demo.gif' />
         </Box>
         <SubHeading>What package managers do you wrap?</SubHeading>
-        <Text marginBottom='1rem'>We are currently wrapping NPM and Yarn. We plan on wrapping more package managers in the future.</Text>
-        <SubHeading>How is the ad revenue I generate distributed?</SubHeading>
-        <Text marginBottom='1rem'>
-          We distribute the revenue all the way down the dependency tree of each open source package you install. Every installation begins with some "top-level package(s)". For instance, in a web development project, your top-level packages might be react, react-dom, webpack, babel, and a few others. We divide the chunk of revenue generated from viewing ads (or from a monthly donation) evenly between the top-level packages. Then we divide each package's share evenly between its own immediate dependencies. This process continues all the way down the tree.
+        <Text marginBottom='1.5rem'>
+          We are currently wrapping NPM and Yarn. We plan on
+          wrapping more package managers in the future.
         </Text>
-        <SubHeading>Why can't I see the amount of ad revenue I've generated for Open Source in the user portal?</SubHeading>
-        <Text marginBottom='1rem'>
+        <SubHeading>How is revenue I generate distributed?</SubHeading>
+        <Text marginBottom='1.5rem'>
+          See our <TextLink text='how it works' href='/how-it-works' /> page for a detailed breakdown of how
+          revenue is distributed to the packages you use.
+        </Text>
+        <SubHeading>
+          Why can't I see the amount of ad revenue I've generated for Open Source in the user portal?
+        </SubHeading>
+        <Text marginBottom='1.5rem'>
           We only display the previous month's impact in the user portal. This may change in the future.
         </Text>
         <SubHeading>What data do you collect and why?</SubHeading>
-        <Text marginBottom='1rem'>
-          The package manager wrapper reports which top-level packages were installed. This is used for determining which packages should receive the revenue generated. Additionally, the version of the package manager used is recorded for debugging purposes.
-
-          Our package manager wrapper is open source, so feel free to <TextLink text='inspect the code on GitHub.' href='https://github.com/flossbank/cli' />
+        <Text marginBottom='1.5rem'>
+          The package manager wrapper reports which top-level packages were installed.
+          This is used for determining which packages should receive the revenue generated.
+          Additionally, the version of the package manager used is recorded for debugging purposes.
+          Our package manager wrapper is open source, so feel free to <TextLink text='inspect the code on GitHub.' external href='https://github.com/flossbank/cli' />
         </Text>
         <SubHeading>Which operating systems are supported?</SubHeading>
-        <Text marginBottom='1rem'>
+        <Text marginBottom='1.5rem'>
           Windows, Mac, and Linux.
         </Text>
         <SubHeading>How can I uninstall Flossbank?</SubHeading>
-        <Text marginBottom='1rem'>
+        <Text marginBottom='1.5rem'>
           At any point, you can run the following command to uninstall:
         </Text>
-        <Box position='relative'>
+        <Box position='relative' marginBottom='1.5rem'>
           <Code
             padding='.75rem'
             backgroundColor='lightRock'
@@ -75,6 +82,10 @@ const FAQ = () => {
             <Icon name='copy' size='1rem' marginLeft='.5rem' />
           </FBButton>
         </Box>
+        <SubHeading>I still have a question</SubHeading>
+        <Text marginBottom='1.5rem'>
+          <TextLink text='Contact us' href='contact' /> and we'll address it ASAP.
+        </Text>
       </Card>
     </PageWrapper>
   )

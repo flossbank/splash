@@ -1,8 +1,18 @@
-import { Box, Heading, Code, Icon, useClipboard } from '@chakra-ui/core'
+import {
+  Box,
+  Heading,
+  Code,
+  Icon,
+  useClipboard,
+  Alert,
+  AlertIcon
+} from '@chakra-ui/core'
+import PropTypes from 'prop-types'
 
 import FBButton from '../common/fbButton'
+import TextLink from '../common/textLink'
 
-const InstallCommand = ({ system, commandText }) => {
+const InstallCommand = ({ system, commandText, sourceURL }) => {
   const { onCopy, hasCopied } = useClipboard(commandText)
 
   return (
@@ -49,19 +59,31 @@ const InstallCommand = ({ system, commandText }) => {
         <span className='sr-only'>command for {system}</span>
         <Icon name='copy' size='1rem' marginLeft='.5rem' />
       </FBButton>
+      <Alert status='info' marginTop='1rem'>
+        <AlertIcon />
+        <TextLink text='Take a look at the source' external href={sourceURL} />
+      </Alert>
     </Box>
   )
+}
+
+InstallCommand.propTypes = {
+  system: PropTypes.string.isRequired,
+  commandText: PropTypes.string.isRequired,
+  sourceURL: PropTypes.string.isRequired
 }
 
 const InstallCommands = ({ token }) => {
   const commands = [
     {
       system: 'OSX / Linux / Bash on windows',
-      commandText: `curl https://get.flossbank.com | FLOSSBANK_INSTALL_TOKEN=${token} bash`
+      commandText: `curl https://get.flossbank.com | FLOSSBANK_INSTALL_TOKEN=${token} bash`,
+      sourceURL: ' https://get.flossbank.com'
     },
     {
       system: 'Windows Powershell',
-      commandText: `$env:FLOSSBANK_INSTALL_TOKEN="${token}"; iwr https://get.flossbank.com/ps -useb | iex`
+      commandText: `$env:FLOSSBANK_INSTALL_TOKEN="${token}"; iwr https://get.flossbank.com/ps -useb | iex`,
+      sourceURL: ' https://get.flossbank.com/ps'
     }
   ]
 
@@ -72,6 +94,7 @@ const InstallCommands = ({ token }) => {
           key={i}
           system={command.system}
           commandText={command.commandText}
+          sourceURL={command.sourceURL}
         />
       ))}
     </>
