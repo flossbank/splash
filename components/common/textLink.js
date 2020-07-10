@@ -5,16 +5,16 @@ import PropTypes from 'prop-types'
 import styles from './textLink.module.scss'
 
 // destructuring children so if someone passes children (which we don't want), it doesn't funk things up
-const TextLink = ({ href, text, children, mailLink, ...props }) => (
+const TextLink = ({ href, text, children, external, ...props }) => (
   <>
-    {!mailLink ? (
+    {!external ? (
       <Link href={href}>
         <ChakraLink className={styles.link} {...props}>
           {text}
         </ChakraLink>
       </Link>
     ) : (
-      <ChakraLink href={href} className={styles.link} {...props}>
+      <ChakraLink href={href} target='_blank' className={styles.link} {...props}>
         {text}
       </ChakraLink>
     )}
@@ -29,7 +29,8 @@ TextLink.defaultProps = {
 
 TextLink.propTypes = {
   href: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  external: PropTypes.bool
 }
 
 export default TextLink
