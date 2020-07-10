@@ -14,7 +14,8 @@ const Login = () => {
         headingText='Log In to Flossbank'
         submitText='Log In'
         btnLoadingText='Logging in'
-        successText='Check your email for a verification link to finish logging in.'
+        successText='Awaiting Confirmation'
+        subSuccessText='Do not close this window until opening the email link.'
         otherProcessText="Don't have an account? "
         otherProcessHref='/signup'
         otherProcessLinkText='Sign up'

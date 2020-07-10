@@ -20,7 +20,6 @@ import Card from './card'
 import FBButton from './fbButton'
 import TextLink from './textLink'
 import ErrorMessage from './errorMessage'
-import Subheading from './subheading'
 
 const AuthProcess = ({
   process,
@@ -31,10 +30,12 @@ const AuthProcess = ({
   btnLoadingText,
   otherProcessLinkText,
   otherProcessText,
-  otherProcessHref
+  otherProcessHref,
+  subSuccessText
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
+  const [email, setEmail] = useState('')
   const [confirmationCode, setConfirmationCode] = useState('')
   const [formError, setFormError] = useState('')
 
@@ -42,6 +43,7 @@ const AuthProcess = ({
 
   const handleProcess = async ({ email }, e) => {
     e.preventDefault()
+    setEmail(email)
     setIsSubmitting(true)
 
     try {
@@ -156,18 +158,24 @@ const AuthProcess = ({
         >
           <Icon name={icon} size='6rem' marginBottom='1.5rem' />
           <Heading
-            as='h2'
-            fontSize='1.5rem'
+            as='h1'
+            fontSize='2rem'
             fontWeight='400'
             marginBottom='1.5rem'
           >
-            Success!
+            {successText}
           </Heading>
-          <Text>{successText}</Text>
+          <Text marginBottom='1.5rem'>{subSuccessText}</Text>
           {confirmationCode && (
-            <Subheading>
-              {`Confirm the following code: ${confirmationCode}`}
-            </Subheading>
+            <>
+              <Text>
+                We just sent an email to <b>{email}</b>
+              </Text>
+              <Text marginBottom='1.5rem'>
+                Verify that the provided security code matches the following text:
+              </Text>
+              <Text fontWeight='bold'>{confirmationCode}</Text>
+            </>
           )}
         </Flex>
       )}
@@ -182,6 +190,8 @@ AuthProcess.propTypes = {
   submitText: PropTypes.string.isRequired,
   // message to show if process was successful
   successText: PropTypes.string.isRequired,
+  // sub message to show if process was successful
+  subSuccessText: PropTypes.string.isRequired,
   // text to go below the form
   otherProcessText: PropTypes.string.isRequired,
   otherProcessHref: PropTypes.string.isRequired,

@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/core'
 
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
 import FBButton from '../common/fbButton'
@@ -196,6 +197,10 @@ const ContactForm = ({ contactFormSubmitted }) => {
       </Text>
     </Box>
   )
+}
+
+ContactForm.propTypes = {
+  contactFormSubmitted: PropTypes.func.isRequired
 }
 
 export default ContactForm

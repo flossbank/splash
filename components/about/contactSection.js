@@ -40,7 +40,7 @@ const ContactSection = ({ ...props }) => {
             <Box as='span'> Drop us a line.</Box>
           </Text>
         )}
-        <ContactForm contactFormSubmitted={contactFormSubmitted}/>
+        <ContactForm contactFormSubmitted={contactFormSubmitted} />
       </Card>
     </Section>
   )
