@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/core'
 
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
 import FBButton from '../common/fbButton'
@@ -43,7 +44,7 @@ const topics = [
   'Other'
 ]
 
-const ContactForm = () => {
+const ContactForm = ({ contactFormSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
   const [formError, setFormError] = useState(false)
@@ -61,6 +62,7 @@ const ContactForm = () => {
       await sendSupportFeedback({ name, email, topic, body })
       setFormError(false)
       setSent(true)
+      contactFormSubmitted()
     } catch (e) {
       setFormError(true)
     } finally {
@@ -188,12 +190,17 @@ const ContactForm = () => {
         You can also email us directly at{' '}
         <TextLink
           text='support@flossbank.com'
+          mailLink
           href='mailto:support@flossbank.com'
         />
         .
       </Text>
     </Box>
   )
+}
+
+ContactForm.propTypes = {
+  contactFormSubmitted: PropTypes.func.isRequired
 }
 
 export default ContactForm

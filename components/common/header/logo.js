@@ -1,4 +1,5 @@
-import { Link, Box } from '@chakra-ui/core'
+import { Link as ChakraLink, Box } from '@chakra-ui/core'
+import Link from 'next/link'
 import FullLogo from './fullLogo'
 import FBLogoLetters from './logoLetters'
 
@@ -9,13 +10,15 @@ Even that short amount of time for the useMedia hook to run was long enough to c
 */
 
 const FBLogo = ({ authed }) => (
-  <Link href={authed ? '/dashboard' : '/'} aria-label='Flossbank – Home'>
-    <Box display={{ base: 'none', md: 'initial' }} aria-hidden='true'>
-      <FullLogo />
-    </Box>
-    <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
-      <FBLogoLetters id='letter-logo-header' />
-    </Box>
+  <Link href={authed ? '/dashboard' : '/'}>
+    <ChakraLink aria-label='Flossbank – Home'>
+      <Box display={{ base: 'none', md: 'initial' }} aria-hidden='true'>
+        <FullLogo />
+      </Box>
+      <Box display={{ base: 'initial', md: 'none' }} aria-hidden='true'>
+        <FBLogoLetters id='letter-logo-header' />
+      </Box>
+    </ChakraLink>
   </Link>
 )
 

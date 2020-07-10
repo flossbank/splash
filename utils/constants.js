@@ -1,6 +1,7 @@
 export const localStorageDashboardWelcomeBannerKey = 'flossbank_u_show_welcome_banner'
+export const localStorageLoggedIn = 'flossbank_u_logged_in'
 
-export const whitelistedEndpoints = [
+export const allowedEndpoints = [
   '/signup',
   '/login',
   '/complete-login',

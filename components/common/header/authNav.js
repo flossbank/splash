@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import { useAuth } from '../../../utils/useAuth'
 
@@ -79,20 +80,21 @@ const AuthNav = ({ user }) => {
             />
           </MenuButton>
           <MenuList backgroundColor='lightRock'>
-            <MenuItem
-              as='a'
-              href='/settings'
-              _focus={itemFocusStyles}
-              // TODO: file bug issue with Chakra since this should work with no onClick event
-              onClick={handleSettings}
-            >
-              <Icon name='settings' marginRight='.5rem' />
-              Settings
+            <MenuItem _focus={itemFocusStyles} onClick={handleSettings}>
+              <Link href='/user/settings'>
+                <a>
+                  <Icon name='settings' marginRight='.5rem' />
+                  Settings
+                </a>
+              </Link>
             </MenuItem>
             <MenuItem _focus={itemFocusStyles} onClick={handleLogout}>
-              {' '}
-              <Icon name='unlock' marginRight='.5rem' />
-              Log Out
+              <Link href='/'>
+                <a>
+                  <Icon name='unlock' marginRight='.5rem' />
+                  Log Out
+                </a>
+              </Link>
             </MenuItem>
           </MenuList>
         </>
