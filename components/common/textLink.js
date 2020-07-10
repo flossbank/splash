@@ -14,7 +14,7 @@ const TextLink = ({ href, text, children, external, ...props }) => (
         </ChakraLink>
       </Link>
     ) : (
-      <ChakraLink href={href} target='_blank' className={styles.link} {...props}>
+      <ChakraLink href={href} target='_blank' rel='noopener noreferrer' className={styles.link} {...props}>
         {text}
       </ChakraLink>
     )}
