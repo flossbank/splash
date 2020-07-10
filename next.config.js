@@ -39,6 +39,7 @@ module.exports = withSass({
         : 'https://api.flossbank.io',
     NEXT_PUBLIC_STRIPE_KEY: process.env.NODE_ENV === 'production'
       ? 'pk_live_KSFYqPCzV6zNSzDyYlIijaiI00v7UCvGGS'
-      : 'pk_test_Kz9yyhpVG7OVp9ejZChlxUKw00ccsj7tcR'
+      : 'pk_test_Kz9yyhpVG7OVp9ejZChlxUKw00ccsj7tcR',
+    GOAT_COUNTER_ENABLE: process.env.NODE_ENV === 'production'
   }
 })
