@@ -49,7 +49,7 @@ const AuthProcess = ({
       const res = await process({ email })
       if (res.success && res.code) {
         setConfirmationCode(res.code)
-      } 
+      }
       setSent(true)
       setFormError('')
     } catch (e) {

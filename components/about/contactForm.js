@@ -43,7 +43,7 @@ const topics = [
   'Other'
 ]
 
-const ContactForm = () => {
+const ContactForm = ({ contactFormSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
   const [formError, setFormError] = useState(false)
@@ -61,6 +61,7 @@ const ContactForm = () => {
       await sendSupportFeedback({ name, email, topic, body })
       setFormError(false)
       setSent(true)
+      contactFormSubmitted()
     } catch (e) {
       setFormError(true)
     } finally {
