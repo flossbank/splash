@@ -13,6 +13,7 @@ import {
   ModalCloseButton,
   ModalBody
 } from '@chakra-ui/core'
+import PropTypes from 'prop-types'
 
 import Card from '../common/card'
 import UnderlinedHeading from '../common/underlinedHeading'
@@ -99,7 +100,7 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
       <Text marginBottom='2rem'>
         {tier.description}
         {tier.linkToModal && (
-          <TextLink text='What do they look like?' onClick={onModalOpen} />
+          <TextLink href='#' text='What do they look like?' onClick={onModalOpen} />
         )}
       </Text>
       <LinkBtn
@@ -137,6 +138,10 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
     </Flex>
   </Card>
 )
+
+TierCard.propTypes = {
+  onModalOpen: PropTypes.func
+}
 
 const SelectTierCards = ({ onSelected }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
