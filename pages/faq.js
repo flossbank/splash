@@ -1,5 +1,6 @@
 import { Text, Box, Image, Code, Icon, useClipboard } from '@chakra-ui/core'
 
+import TextLink from '../components/common/textLink'
 import PageWrapper from '../components/common/pageWrapper'
 import Card from '../components/common/card'
 import UnderlinedHeading from '../components/common/underlinedHeading'
@@ -17,38 +18,28 @@ const FAQ = () => {
           <Image src='/images/flossbank_ads_demo.gif' />
         </Box>
         <SubHeading>What package managers do you wrap?</SubHeading>
-        <Text marginBottom='1rem'>Currently just npm and yarn</Text>
-        <SubHeading>How are you distributing the revenue generated from me viewing ads?</SubHeading>
+        <Text marginBottom='1rem'>We are currently wrapping NPM and Yarn. We plan on wrapping more package managers in the future.</Text>
+        <SubHeading>How is the ad revenue I generate distributed?</SubHeading>
         <Text marginBottom='1rem'>
-          We distribute the revenue all the way down the dependency tree of each Open Source package installation.
-          We thought, "What would we do if we made a dollar
-          from an Open Source package we published, and the authors of all of our top level dependencies
-          were in the same room as us?".
-          Well, logically we'd split the dollar equally amongst ourselves and each of those top
-          level dependency authors. We
-          clearly couldn't have built our product we just made a dollar from without them and sharing equally makes
-          sense. So that's how we built Flossbank. For each level down the dependency tree the top level package's author
-          splits the revenue they receive with the authors of the dependencies that package relies on.
-          etc etc.
+          We distribute the revenue all the way down the dependency tree of each open source package you install. Every installation begins with some "top-level package(s)". For instance, in a web development project, your top-level packages might be react, react-dom, webpack, babel, and a few others. We divide the chunk of revenue generated from viewing ads (or from a monthly donation) evenly between the top-level packages. Then we divide each package's share evenly between its own immediate dependencies. This process continues all the way down the tree.
         </Text>
-        <SubHeading>Why can't I see the revenue I've generated for Open Source real time in my user portal?</SubHeading>
+        <SubHeading>Why can't I see the amount of ad revenue I've generated for Open Source in the user portal?</SubHeading>
         <Text marginBottom='1rem'>
-          Unfortunately due to the party (maintainers) we pay also potentially being a party
-          that uses (developers) Flossbank, it is an abuse concern
-          to show real time revenue impact information. We will display that information on a 1 month lagging basis.
+          We only display the previous month's impact in the user portal. This may change in the future.
         </Text>
-        <SubHeading>What data do you have?</SubHeading>
+        <SubHeading>What data do you collect and why?</SubHeading>
         <Text marginBottom='1rem'>
-          Only what Open Source packages you install. The same data all package manager registries
-          have as well.
+          The package manager wrapper reports which top-level packages were installed. This is used for determining which packages should receive the revenue generated. Additionally, the version of the package manager used is recorded for debugging purposes.
+
+          Our package manager wrapper is open source, so feel free to <TextLink text='inspect the code on GitHub.' href='https://github.com/flossbank/cli' />
         </Text>
-        <SubHeading>What OS do you support?</SubHeading>
+        <SubHeading>Which operating systems are supported?</SubHeading>
         <Text marginBottom='1rem'>
-          Windows, Mac, Linux.
+          Windows, Mac, and Linux.
         </Text>
-        <SubHeading>How can I uninstall?</SubHeading>
+        <SubHeading>How can I uninstall Flossbank?</SubHeading>
         <Text marginBottom='1rem'>
-          At any point you can run the following command to uninstall:
+          At any point, you can run the following command to uninstall:
         </Text>
         <Box position='relative'>
           <Code
@@ -57,7 +48,7 @@ const FAQ = () => {
             color='boulder'
             width='100%'
           >
-            Flossbank uninstall
+            flossbank uninstall
           </Code>
           <FBButton
             // hide on mobile

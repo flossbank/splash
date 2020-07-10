@@ -1,5 +1,8 @@
 import Head from 'next/head'
 
+// only put analytics on the page if we are in production and not a Next preview
+const GOAT_COUNTER_ENABLE = !process.env.NEXT_PUBLIC_PREVIEW && process.env.GOAT_COUNTER_ENABLE
+
 const FBHead = ({ title, description }) => (
   <Head>
     <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
@@ -11,7 +14,9 @@ const FBHead = ({ title, description }) => (
       }
     />
     <title>{(title && title + ' – Flossbank') || 'Flossbank'}</title>
-    <script data-goatcounter='https://flossbank.goatcounter.com/count' async src='//gc.zgo.at/count.js' />
+    {GOAT_COUNTER_ENABLE && (
+      <script data-goatcounter='https://flossbank.goatcounter.com/count' async src='//gc.zgo.at/count.js' />
+    )}
     <meta name='viewport' content='width=device-width, initial-scale=1' />
   </Head>
 )
