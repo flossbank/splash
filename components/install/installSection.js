@@ -51,7 +51,7 @@ InstallInstructions.propTypes = {
 }
 
 const PostInstallInstructions = ({ noAds }) => {
-  const topText = noAds ? "Thanks for choosing to support the Open Source community!" : "Let's try it out!"
+  const topText = noAds ? 'Thanks for choosing to support the Open Source community!' : "Let's try it out!"
   return (
     <Card
       id='post-install'
@@ -86,7 +86,7 @@ const PostInstallInstructions = ({ noAds }) => {
             npm install standard
           </Code>
           <Text marginBottom='2rem'>
-            You should see an ad or two during installation! If you don't, it's not your fault. <TextLink text="Let us know and we'll see what wrong." href='/contact' />
+            You should see an ad or two during installation! If you don't, it's not your fault. <TextLink text="Let us know and we'll see what went wrong." href='/contact' />
           </Text>
           <Text>
             If you saw an ad, you're all set! Head to the Dashboard for a birds-eye view of your impact.
