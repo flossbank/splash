@@ -64,11 +64,14 @@ const Dashboard = () => {
         const topTen = installedPackagesRes.installedPackages
           .sort((a, b) => b.installCount - a.installCount)
           .slice(0, 10)
-          .sort((a, b) =>
-            a.installCount === b.installCount
-              ? a.name.charCodeAt(0) - b.name.charCodeAt(0)
-              : 1
-          )
+          .sort((a, b) => {
+            if (a.installCount === b.installCount) {
+              if (a.name < b.name) return -1
+              if (a.name > b.name) return 1
+              return 0
+            }
+            return b.installCount - a.installCount
+          })
           .map((packs) => ({
             name: packs.name,
             count: packs.installCount,
