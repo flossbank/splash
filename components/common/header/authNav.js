@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-
-import { useAuth } from '../../../utils/useAuth'
+import PropTypes from 'prop-types'
 
 import {
   useTheme,
@@ -15,9 +14,8 @@ import {
   MenuItem
 } from '@chakra-ui/core'
 
-const AuthNav = ({ user }) => {
+const AuthNav = ({ user, onLogout }) => {
   const router = useRouter()
-  const auth = useAuth()
 
   const [isExpanded, setIsExpanded] = useState(false)
   const { colors } = useTheme()
@@ -31,11 +29,6 @@ const AuthNav = ({ user }) => {
     color: 'lightPuddle',
     backgroundColor: 'ocean',
     outline: 'none !important'
-  }
-
-  const handleLogout = () => {
-    router.push('/')
-    auth.logout()
   }
 
   const handleNav = (dest) => router.push(dest)
@@ -116,7 +109,7 @@ const AuthNav = ({ user }) => {
                 </a>
               </Link>
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={handleLogout}>
+            <MenuItem _focus={itemFocusStyles} onClick={onLogout}>
               <Link href='/'>
                 <a>
                   <Icon name='unlock' marginRight='.5rem' />
@@ -129,6 +122,11 @@ const AuthNav = ({ user }) => {
       )}
     </Menu>
   )
+}
+
+AuthNav.propTypes = {
+  user: PropTypes.object.isRequired,
+  onLogout: PropTypes.func.isRequired
 }
 
 export default AuthNav

@@ -67,9 +67,9 @@ function useProvideAuth () {
   const [user, setUser] = useState(null)
   const [_, setAuthedFlag] = useLocalStorage('flossbank_auth', false) // eslint-disable-line
 
-  const setSessionUser = (user) => {
-    setUser(user || null)
-    setAuthedFlag(!!user)
+  const setSessionUser = (u) => {
+    setUser(u || null)
+    setAuthedFlag(!!u)
   }
 
   const login = async (body) => {
@@ -98,12 +98,21 @@ function useProvideAuth () {
     setSessionUser(res.success && res.user)
   }
 
+  // allow donation changes to update user state;
+  // this way we don't need to ask API for user obj again to know if they won't be seeing ads.
+  // use case is install page, where it's helpful to know whether the user should expect
+  // to see ads after they install.
+  const setOptOutOfAds = (optOutOfAds) => {
+    setUser(Object.assign({}, user, { optOutOfAds }))
+  }
+
   return {
     resume,
     completeLogin,
     user,
     login,
     signup,
-    logout
+    logout,
+    setOptOutOfAds
   }
 }

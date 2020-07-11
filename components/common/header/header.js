@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useAuth } from '../../../utils/useAuth'
 
 import { Box, Flex } from '@chakra-ui/core'
@@ -8,7 +9,14 @@ import FBLogo from './logo'
 import AuthNav from './authNav'
 
 const Header = () => {
-  const user = useAuth().user
+  const router = useRouter()
+  const auth = useAuth()
+  const { user } = auth
+
+  const handleLogout = () => {
+    router.push('/')
+    auth.logout()
+  }
 
   return (
     <>
@@ -25,7 +33,7 @@ const Header = () => {
             maxW={['22.5rem', '22.5rem', '22.5rem', '34.5rem']}
             aria-label='Primary navigation'
           >
-            {user && <AuthNav user={user} />}
+            {user && <AuthNav user={user} onLogout={handleLogout} />}
             {!user && (
               <>
                 <TextLink
