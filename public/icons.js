@@ -25,8 +25,8 @@ export default {
   home: {
     path: (
       <g>
-        <path id="Path_34" data-name="Path 34" d="M14.544,29.657V20.249h6.272v9.408h7.84V17.112h4.7L17.681,3,2,17.112H6.7V29.657Z" transform="translate(1.136 1.704)" fill="#4d4d4d"/>
-        <path id="Path_35" data-name="Path 35" d="M0,0H37.633V37.633H0Z" fill="none"/>
+        <path id='Path_34' data-name='Path 34' d='M14.544,29.657V20.249h6.272v9.408h7.84V17.112h4.7L17.681,3,2,17.112H6.7V29.657Z' transform='translate(1.136 1.704)' fill='#4d4d4d' />
+        <path id='Path_35' data-name='Path 35' d='M0,0H37.633V37.633H0Z' fill='none' />
       </g>
     ),
     viewBox: '0 0 37.633 37.633'

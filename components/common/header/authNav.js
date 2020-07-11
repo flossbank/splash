@@ -38,7 +38,7 @@ const AuthNav = ({ user }) => {
     auth.logout()
   }
 
-  const handleNav = (dest) => router.push(`${dest}`)
+  const handleNav = (dest) => router.push(dest)
 
   return (
     <Menu>
@@ -104,7 +104,7 @@ const AuthNav = ({ user }) => {
               <Link href='/how-it-works'>
                 <a>
                   <Icon name='info' marginRight='.5rem' />
-                  How it works
+                  How It Works
                 </a>
               </Link>
             </MenuItem>

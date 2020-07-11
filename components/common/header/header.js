@@ -44,7 +44,7 @@ const Header = () => {
                 <TextLink
                   display={['none', 'none', 'none', 'inline']}
                   href='/how-it-works'
-                  text='How it works'
+                  text='How It Works'
                   color='boulder'
                   padding='.25em'
                 />
