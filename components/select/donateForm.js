@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { Box, NumberInput, NumberInputField } from '@chakra-ui/core'
 import { useState } from 'react'
 
+import { useAuth } from '../../utils/useAuth'
 import { donate } from '../../client'
 import ErrorMessage from '../common/errorMessage'
 import FBButton from '../common/fbButton'
@@ -16,6 +17,7 @@ const DonateForm = (props) => {
   const [amount, setAmount] = useState(5)
   const [cardError, setCardError] = useState('')
   const [amountError, setAmountError] = useState('')
+  const { setOptOutOfAds } = useAuth()
 
   const handleAmount = (e) => {
     const amount = Number(e.target.value)
@@ -81,8 +83,10 @@ const DonateForm = (props) => {
         setError('Donation failed')
         return
       }
+      setOptOutOfAds(response.optOutOfAds)
       props.handleSuccess()
     } catch (e) {
+      setOptOutOfAds(false) // can't opt out if your donation failed
       switch (e.status) {
         case 409:
           setError('Donation already exists')
