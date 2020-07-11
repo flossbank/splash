@@ -51,7 +51,7 @@ InstallInstructions.propTypes = {
 }
 
 const PostInstallInstructions = ({ noAds }) => {
-  const topText = noAds ? "There's nothing else you need to do." : "Let's try it out!"
+  const topText = noAds ? "Thanks for choosing to support the Open Source community!" : "Let's try it out!"
   return (
     <Card
       id='post-install'
