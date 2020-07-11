@@ -1,11 +1,13 @@
-import {
-  Divider
-} from '@chakra-ui/core'
+import { Box } from '@chakra-ui/core'
 
-const FBDivider = (props) => {
-  return (
-    <Divider width='70px' height='2px' backgroundColor='lake' borderColor='lake' {...props} />
-  )
-}
+const Divider = (props) => (
+  <Box
+    as='hr'
+    borderColor='puddle'
+    maxW='35rem'
+    margin='1.5rem auto'
+    {...props}
+  />
+)
 
-export default FBDivider
+export default Divider
