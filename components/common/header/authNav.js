@@ -33,11 +33,12 @@ const AuthNav = ({ user }) => {
     outline: 'none !important'
   }
 
-  const handleSettings = () => router.push('/user/settings')
   const handleLogout = () => {
     router.push('/')
     auth.logout()
   }
+
+  const handleNav = (dest) => router.push(dest)
 
   return (
     <Menu>
@@ -83,7 +84,31 @@ const AuthNav = ({ user }) => {
             />
           </MenuButton>
           <MenuList backgroundColor='lightRock'>
-            <MenuItem _focus={itemFocusStyles} onClick={handleSettings}>
+            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/dashboard')}>
+              <Link href='/dashboard'>
+                <a>
+                  <Icon name='home' marginRight='.5rem' />
+                  Dashboard
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/faq')}>
+              <Link href='/faq'>
+                <a>
+                  <Icon name='question' marginRight='.5rem' />
+                  FAQ
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/how-it-works')}>
+              <Link href='/how-it-works'>
+                <a>
+                  <Icon name='info' marginRight='.5rem' />
+                  How It Works
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/user/settings')}>
               <Link href='/user/settings'>
                 <a>
                   <Icon name='settings' marginRight='.5rem' />
