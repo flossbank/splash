@@ -11,15 +11,27 @@ import {
   CloseButton,
   Button
 } from '@chakra-ui/core'
+
 import {
-  BarChart, Bar, Label, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+  BarChart,
+  Bar,
+  Label,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer
 } from 'recharts'
 
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import { localStorageDashboardWelcomeBannerKey } from '../utils/constants'
+
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
+import DashboardDataCard from '../components/dashboard/dashboardDataCard'
+import DonationCard from '../components/dashboard/donationCard'
+
 import {
   fetchUserInstalledPackages,
   fetchDonationInfo,
@@ -27,7 +39,10 @@ import {
 } from '../client'
 
 const Dashboard = () => {
-  const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(localStorageDashboardWelcomeBannerKey, true)
+  const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(
+    localStorageDashboardWelcomeBannerKey,
+    true
+  )
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
@@ -41,7 +56,9 @@ const Dashboard = () => {
     try {
       const installedPackagesRes = await fetchUserInstalledPackages()
       if (installedPackagesRes && installedPackagesRes.success) {
-        setUserInstallData({ packages: installedPackagesRes.installedPackages })
+        setUserInstallData({
+          packages: installedPackagesRes.installedPackages
+        })
         setPackagesTouched(installedPackagesRes.installedPackages.length)
 
         const topTen = installedPackagesRes.installedPackages
@@ -141,9 +158,9 @@ const Dashboard = () => {
         <Heading
           textTransform='uppercase'
           fontWeight='bold'
-          fontSize='14px'
-          textAlign={['center', 'left']}
-          marginBottom='1rem'
+          fontSize='1rem'
+          textAlign={{ base: 'center', sm: 'left' }}
+          marginBottom='1.5rem'
         >
           Impact overview
         </Heading>
@@ -157,75 +174,94 @@ const Dashboard = () => {
               width='100%'
               marginBottom='3rem'
             >
-              <ListItem
-                className='u-box-shadow'
-                display='flex'
-                flexDirection={['column']}
-                alignItems='center'
-                backgroundColor='white'
-                padding='1.5rem 1.25rem'
-              >
-                {userSessionCountLoading && (
-                  <CircularProgress isIndeterminate color='ocean' />
-                )}
-                {!userSessionCountLoading && (
-                  <Heading>{userSessionCount}</Heading>
-                )}
-                <Text>Installs performed</Text>
+              <ListItem>
+                <DashboardDataCard>
+                  {userSessionCountLoading && (
+                    <CircularProgress isIndeterminate color='ocean' />
+                  )}
+                  {!userSessionCountLoading && (
+                    <Text
+                      aria-describedby='user-session-count'
+                      fontSize='2rem'
+                      fontWeight='bold'
+                      color='ocean'
+                    >
+                      {userSessionCount}
+                    </Text>
+                  )}
+                  <Heading
+                    as='h3'
+                    fontSize='1.15rem'
+                    fontWeight='500'
+                    id='user-session-count'
+                  >
+                    Installs Performed
+                  </Heading>
+                </DashboardDataCard>
               </ListItem>
-              <ListItem
-                className='u-box-shadow'
-                display='flex'
-                flexDirection={['column']}
-                alignItems='center'
-                backgroundColor='white'
-                padding='1.5rem 1.25rem'
-              >
-                {packagesTouchedLoading && (
-                  <CircularProgress isIndeterminate color='ocean' />
-                )}
-                {!packagesTouchedLoading && (
-                  <Heading>{packagesTouched}</Heading>
-                )}
-                <Text>Unique packages touched</Text>
+              <ListItem>
+                <DashboardDataCard>
+                  {packagesTouchedLoading && (
+                    <CircularProgress isIndeterminate color='ocean' />
+                  )}
+                  {!packagesTouchedLoading && (
+                    <Text
+                      aria-describedby='packages-touched'
+                      fontSize='2rem'
+                      fontWeight='bold'
+                      color='ocean'
+                    >
+                      {packagesTouched}
+                    </Text>
+                  )}
+                  <Heading
+                    as='h3'
+                    fontSize='1.15rem'
+                    fontWeight='500'
+                    id='user-session-count'
+                  >
+                    Unique Packages Touched
+                  </Heading>
+                </DashboardDataCard>
               </ListItem>
-              <ListItem
-                className='u-box-shadow'
-                display='flex'
-                flexDirection={['column']}
-                alignItems='center'
-                backgroundColor='puddle'
-                padding='1.5rem 1.25rem'
-              >
-                {donationLoading && (
-                  <CircularProgress isIndeterminate color='ocean' />
-                )}
-                {!donationLoading && <Heading>$ {donation}</Heading>}
-                <Text>Monthly donation</Text>
+              <ListItem>
+                <DonationCard
+                  donationLoading={donationLoading}
+                  donationAmount={donation}
+                />
               </ListItem>
-              <ListItem
-                className='u-box-shadow'
-                display={['none', 'flex']}
-                flexDirection={['row']}
-                alignItems='center'
-                backgroundColor='white'
-              >
-                <Button
-                  onClick={() => downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
-                  margin='1rem 1.25rem'
-                >
-                  <Heading>Download data</Heading>
-                  <Icon marginLeft='1rem' name='download' size='32px' />
-                </Button>
+              <ListItem>
+                <DashboardDataCard>
+                  <Button
+                    color='ocean'
+                    fontSize='2rem'
+                    onClick={() =>
+                      downloadData(
+                        JSON.stringify(userInstallData),
+                        'flossbank_user_data.json'
+                      )}
+                  >
+                    Download Data
+                    <Icon marginLeft='1rem' name='download' size='1.75rem' />
+                  </Button>
+                </DashboardDataCard>
               </ListItem>
             </List>
           </Flex>
-          <Box as='section' width='100%' margin='0 0 0 2rem' display={['none', 'inline']}>
+          <Box
+            as='section'
+            width='100%'
+            margin='0 0 0 2rem'
+            display={['none', 'inline']}
+          >
             <ResponsiveContainer width='100%' height={500}>
               <BarChart
                 data={topTenPackages}
                 margin={{
-                  top: 5, right: 30, left: 20, bottom: 5
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5
                 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
