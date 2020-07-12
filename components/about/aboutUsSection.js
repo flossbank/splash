@@ -26,9 +26,11 @@ const AboutUsSection = () => (
     <Box
       width={{ base: '60%', md: '40%', lg: '100%' }}
       marginBottom={{ base: '3rem', lg: 0 }}
+      marginTop={{ lg: '1.5rem' }}
+      position={{ lg: 'sticky' }}
+      top={{ lg: '10%' }}
       gridColumn='1'
-      gridRow={{ lg: '1 / span 2' }}
-      alignSelf='center'
+      alignSelf='baseline'
     >
       <WomanWorking />
     </Box>
@@ -41,51 +43,57 @@ const AboutUsSection = () => (
           We believe the Open Source ecosystem suffers from three problems:
           <List as='ol' styleType='decimal'>
             <ListItem margin='1rem 0'>
-              Lack of funding. There isn’t enough money coming in to compensate maintainers for their labor.
-              Open Source is the backbone of almost every Fortune 500 company, but maintainers
-              see little of that success.
+              Lack of funding. There isn’t enough money coming in to compensate
+              maintainers for their labor. Open Source is the backbone of almost
+              every Fortune 500 company, but maintainers see little of that
+              success.
             </ListItem>
             <ListItem margin='1rem 0'>
-              Disproportionate distribution of funding. If I donate to an Open Source project,
-              I’m generally ignoring the dependencies of that project. We believe this funding
-              paradigm is dysfunctional and unfair.
+              Disproportionate distribution of funding. If I donate to an Open
+              Source project, I’m generally ignoring the dependencies of that
+              project. We believe this funding paradigm is dysfunctional and
+              unfair.
             </ListItem>
             <ListItem margin='1rem 0'>
-              Lack of accessibility. If maintainers want funding, they must spend time
-              and energy on self-promotion. If developers want to help the Open Source ecosystem,
-              they need the financial means to do so.
+              Lack of accessibility. If maintainers want funding, they must
+              spend time and energy on self-promotion. If developers want to
+              help the Open Source ecosystem, they need the financial means to
+              do so.
             </ListItem>
           </List>
         </Text>
         <Text marginBottom='1rem'>
-          These are huge problems. We wanted a solution that allows us to easily and freely
-          give back to all the maintainers we rely on. More than that, we wanted a solution that
-          would compensate the dependencies of our dependencies -- all the way down the tree.
+          These are huge problems. We wanted a solution that allows us to easily
+          and freely give back to all the maintainers we rely on. More than
+          that, we wanted a solution that would compensate the dependencies of
+          our dependencies -- all the way down the tree.
         </Text>
         <Text marginBottom='1rem'>
-          That’s why we built a package manager wrapper. The wrapper takes complete dependency
-          tree snapshots when you install Open Source packages. The wrapper will show ads
-          (if you want) while Open Source packages are downloading/installing. We distribute
-          the ad revenue across the entire dependency tree of the packages that you installed.
+          That’s why we built a package manager wrapper. The wrapper takes
+          complete dependency tree snapshots when you install Open Source
+          packages. The wrapper will show ads (if you want) while Open Source
+          packages are downloading/installing. We distribute the ad revenue
+          across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>
-          You might think "Ads suck, why ads?" We hate ads as much as you do, but we realized
-          we primarily hate them
-          when they're forced on us, or when they become a requirement
-          to use a product.
-          That's why ads through Flossbank are completely opt-in; never a requirement.
-          We view ads as an accessible
-          way to give back to the Open Source community. If you're someone who wants to give back,
-          now there's a free option, if you so choose.
+          You might think "Ads suck, why ads?" We hate ads as much as you do,
+          but we realized we primarily hate them when they're forced on us, or
+          when they become a requirement to use a product. That's why ads
+          through Flossbank are completely opt-in; never a requirement. We view
+          ads as an accessible way to give back to the Open Source community. If
+          you're someone who wants to give back, now there's a free option, if
+          you so choose.
         </Text>
         <Text marginBottom='1rem'>
-          If you prefer donating, we also distribute your donation to every package installed,
-          not only the top level packages. What’s more, your contribution to the Open Source
-          community reflects your usage each month. Your donation goes to the packages you
-          used the most each month (and to their dependencies).
+          If you prefer donating, we also distribute your donation to every
+          package installed, not only the top level packages. What’s more, your
+          contribution to the Open Source community reflects your usage each
+          month. Your donation goes to the packages you used the most each month
+          (and to their dependencies).
         </Text>
         <Text marginBottom='1rem'>
-          We’re super excited about this product and think it’s a small step in the right direction.
+          We’re super excited about this product and think it’s a small step in
+          the right direction.
         </Text>
         <Text>Want to help us on our mission to fund Open Source?</Text>
         <Text>Get in touch.</Text>
