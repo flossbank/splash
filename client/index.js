@@ -31,6 +31,14 @@ export const donate = async ({ amount, billingToken, last4 }) => {
   return fetchThenJson(`${ENDPOINT}/user/donation`, optionsWithPostBody({ amount, billingToken, last4 }))
 }
 
+export const updateDonation = async ({ amount, seeAds }) => {
+  return fetchThenJson(`${ENDPOINT}/user/donation`, optionsWithPutBody({ amount, seeAds }))
+}
+
+export const deleteDonation = async () => {
+  return fetchThenJson(`${ENDPOINT}/user/donation`, optionsDeleteRequest())
+}
+
 export const verifyRegistration = async ({ email, response, token }) => {
   return fetchThenJson(`${ENDPOINT}/user/verify-registration`, optionsWithPostBody({ email, token, recaptchaResponse: response }))
 }
@@ -81,6 +89,28 @@ const optionsWithPostBody = (body) => {
       'x-requested-with': 'XmlHttpRequest'
     },
     body: JSON.stringify(body),
+    credentials: 'include'
+  }
+}
+
+const optionsWithPutBody = (body) => {
+  return {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-requested-with': 'XmlHttpRequest'
+    },
+    body: JSON.stringify(body),
+    credentials: 'include'
+  }
+}
+
+const optionsDeleteRequest = () => {
+  return {
+    method: 'DELETE',
+    headers: {
+      'x-requested-with': 'XmlHttpRequest'
+    },
     credentials: 'include'
   }
 }

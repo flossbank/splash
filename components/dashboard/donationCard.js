@@ -26,13 +26,16 @@ import FBButton from '../../components/common/fbButton'
 import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
 import ErrorMessage from '../common/errorMessage'
+import { updateDonation } from '../../client'
 
 import styles from '../select/donateForm.module.scss'
 
 const DonationCard = ({ donationAmount, donationLoading }) => {
   const [amountError, setAmountError] = useState('')
+  const [submitError, setSubmitError] = useState('')
+  const [submitLoading, setSubmitLoading] = useState(false)
   const [showAds, setShowAds] = useState(donationAmount < 5)
-  const [newAmount, setNewAmount] = useState(""); // eslint-disable-line
+  const [newAmount, setNewAmount] = useState(donationAmount)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
 
@@ -51,15 +54,21 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
   const handleAdView = (val) => {
     const showAds = val === 'view'
     setShowAds(showAds)
-    // TODO: update user add view preferences
   }
 
-  const handleSaveChanges = () => {
-    // all of the logic to update donation amount, view/hide ads, and if the user is a donor or on the free tier
-    // newAmount (#) and showAds (bool) can be used to update user preferences
-
-    // needed to close modal and refocus edit button
-    onClose()
+  const handleSaveChanges = async () => {
+    setSubmitLoading(true)
+    try {
+      await updateDonation({
+        amount: newAmount,
+        seeAds: showAds
+      })
+      onClose()
+    } catch (e) {
+      setSubmitError(e.message || 'An error occurred updating your donation')
+    } finally {
+      setSubmitLoading(false)
+    }
   }
 
   return (
@@ -215,6 +224,9 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
                   </AdsRadio>
                 </RadioButtonGroup>
               </Box>
+              {submitError && (
+                <ErrorMessage msg={submitError} marginTop='1rem' />
+              )}
             </Box>
           </ModalBody>
           <ModalFooter display='flex' justifyContent='space-evenly'>
@@ -232,6 +244,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
             </FBButton>
             <FBButton
               onClick={handleSaveChanges}
+              isLoading={submitLoading}
               className='u-box-shadow'
               fontWeight='600'
             >
