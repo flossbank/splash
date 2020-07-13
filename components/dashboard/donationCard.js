@@ -74,13 +74,18 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
         </Text>
         {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
       </DashboardDataCard>
-      <Modal isOpen={isOpen} size='xl' onClose={handleClose}>
+      <Modal
+        isOpen={isOpen}
+        size='xl'
+        closeOnOverlayClick={false}
+        onClose={handleClose}
+      >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
             <UnderlinedHeading
               text={
-                donationAmount > 5
+                donationAmount >= 5
                   ? 'Edit your donation'
                   : 'Become a monthly donor'
               }
@@ -89,7 +94,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {(donationAmount > 5 || newDonor) && (
+          {(donationAmount >= 5 || newDonor) && (
             <StripeWrapper>
               <CurrentDonor
                 donationAmount={donationAmount}
@@ -98,7 +103,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
               />
             </StripeWrapper>
           )}
-          {donationAmount < 10 && newDonor === false && (
+          {donationAmount < 5 && newDonor === false && (
             <UpgradeToDonor
               upgradeToDonor={handleDonorUpgrade}
               onClose={handleClose}
