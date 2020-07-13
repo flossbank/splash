@@ -53,8 +53,6 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   }
 
   const donateAttempt = async (ev) => {
-    ev.preventDefault()
-
     // prevent quick button flash from isLoading event when there is a known error with the card
     if (cardError) {
       return
@@ -191,9 +189,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
                 />
               </NumberInput>
             </Box>
-            {amountError && (
-              <ErrorMessage msg={amountError} marginTop='1rem' />
-            )}
+            {amountError && <ErrorMessage msg={amountError} marginTop='1rem' />}
           </Box>
           {isNewDonor && <BillingForm />}
           <Box as='fieldset' fontWeight='500' htmlFor='ad-opts'>
@@ -223,6 +219,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
           </Box>
         </Box>
       </ModalBody>
+      {submitError && <ErrorMessage msg={submitError} marginTop='1rem' />}
       <ModalFooter display='flex' justifyContent='space-evenly'>
         <FBButton
           onClick={onClose}
@@ -248,7 +245,6 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
             Save changes
           </Box>
         </FBButton>
-        {submitError && <ErrorMessage msg={submitError} marginTop='1rem' />}
       </ModalFooter>
     </Box>
   )

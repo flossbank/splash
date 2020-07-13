@@ -30,11 +30,13 @@ const BillingForm = () => {
       textAlign='left'
       display='block'
       color='boulder'
+      fontWeight='500'
       flex='1'
-      marginLeft={{ md: '3rem' }}
+      marginBottom='1.5rem'
     >
       Payment Information
       <CardElement
+        id='billing-info'
         className={styles.donateInput}
         options={{
           style: {
