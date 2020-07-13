@@ -39,7 +39,7 @@ const AboutUsSection = () => (
         Revolutionizing Open Source pay
       </Subheading>
       <Box marginBottom='3rem'>
-        <Text marginBottom='1rem'>
+        <Box marginBottom='1rem'>
           We believe the Open Source ecosystem suffers from three problems:
           <List as='ol' styleType='decimal'>
             <ListItem margin='1rem 0'>
@@ -61,7 +61,7 @@ const AboutUsSection = () => (
               do so.
             </ListItem>
           </List>
-        </Text>
+        </Box>
         <Text marginBottom='1rem'>
           These are huge problems. We wanted a solution that allows us to easily
           and freely give back to all the maintainers we rely on. More than

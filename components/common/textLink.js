@@ -9,7 +9,7 @@ const TextLink = ({ href, text, children, external, ...props }) => (
   <>
     {!external ? (
       <Link href={href}>
-        <ChakraLink className={styles.link} {...props}>
+        <ChakraLink href={href} className={styles.link} {...props}>
           {text}
         </ChakraLink>
       </Link>
