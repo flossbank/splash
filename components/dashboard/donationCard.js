@@ -18,6 +18,7 @@ import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
 
 import CurrentDonor from './currentDonor'
+import StripeWrapper from '../common/stripe/stripeWrapper'
 import UpgradeToDonor from './upgradeToDonor'
 
 const DonationCard = ({ donationAmount, donationLoading }) => {
@@ -90,11 +91,13 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
           <ModalCloseButton />
           {donationAmount >= 5 ||
             (newDonor && (
-              <CurrentDonor
-                donationAmount={donationAmount}
-                isNewDonor={newDonor}
-                onClose={handleClose}
-              />
+              <StripeWrapper>
+                <CurrentDonor
+                  donationAmount={donationAmount}
+                  isNewDonor={newDonor}
+                  onClose={handleClose}
+                />
+              </StripeWrapper>
             ))}
           {donationAmount < 5 && newDonor === false && (
             <UpgradeToDonor
