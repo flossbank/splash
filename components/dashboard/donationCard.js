@@ -18,6 +18,7 @@ import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
 
 import CurrentDonor from './currentDonor'
+import StripeWrapper from '../common/stripe/stripeWrapper'
 import UpgradeToDonor from './upgradeToDonor'
 
 const DonationCard = ({ donationAmount, donationLoading }) => {
@@ -73,7 +74,12 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
         </Text>
         {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
       </DashboardDataCard>
-      <Modal isOpen={isOpen} size='xl' onClose={handleClose}>
+      <Modal
+        isOpen={isOpen}
+        size='xl'
+        closeOnOverlayClick={false}
+        onClose={handleClose}
+      >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
@@ -88,14 +94,15 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {donationAmount >= 5 ||
-            (newDonor && (
+          {(donationAmount >= 5 || newDonor) && (
+            <StripeWrapper>
               <CurrentDonor
                 donationAmount={donationAmount}
                 isNewDonor={newDonor}
                 onClose={handleClose}
               />
-            ))}
+            </StripeWrapper>
+          )}
           {donationAmount < 5 && newDonor === false && (
             <UpgradeToDonor
               upgradeToDonor={handleDonorUpgrade}
