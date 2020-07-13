@@ -1,74 +1,36 @@
 import { useState, useRef } from 'react'
 
 import {
-  Box,
   Flex,
   IconButton,
   Icon,
-  Heading,
   Text,
   CircularProgress,
-  NumberInput,
-  NumberInputField,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
-  ModalBody,
   ModalCloseButton,
-  useDisclosure,
-  RadioButtonGroup
+  useDisclosure
 } from '@chakra-ui/core'
 
-import AdsRadio from './adsRadio'
-import FBButton from '../../components/common/fbButton'
 import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
-import ErrorMessage from '../common/errorMessage'
-import { updateDonation } from '../../client'
 
-import styles from '../select/donateForm.module.scss'
+import CurrentDonor from './currentDonor'
+import StripeWrapper from '../common/stripe/stripeWrapper'
+import UpgradeToDonor from './upgradeToDonor'
 
 const DonationCard = ({ donationAmount, donationLoading }) => {
-  const [amountError, setAmountError] = useState('')
-  const [submitError, setSubmitError] = useState('')
-  const [submitLoading, setSubmitLoading] = useState(false)
-  const [showAds, setShowAds] = useState(donationAmount < 5)
-  const [newAmount, setNewAmount] = useState(donationAmount)
+  const [newDonor, setNewDonor] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
 
-  const handleNewAmount = (e) => {
-    const amount = Number(e.target.value)
+  const handleDonorUpgrade = () => setNewDonor(true)
 
-    if (amount < 5) {
-      setAmountError('Donation must be at least $5')
-      return
-    }
-
-    setAmountError('')
-    setNewAmount(amount)
-  }
-
-  const handleAdView = (val) => {
-    const showAds = val === 'view'
-    setShowAds(showAds)
-  }
-
-  const handleSaveChanges = async () => {
-    setSubmitLoading(true)
-    try {
-      await updateDonation({
-        amount: newAmount,
-        seeAds: showAds
-      })
-      onClose()
-    } catch (e) {
-      setSubmitError(e.message || 'An error occurred updating your donation')
-    } finally {
-      setSubmitLoading(false)
-    }
+  const handleClose = () => {
+    setNewDonor(false) // prevents issues when a free user decides to become a donor, but then cancels the changes
+    onClose()
   }
 
   return (
@@ -112,148 +74,41 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
         </Text>
         {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
       </DashboardDataCard>
-      {/* TODO: move edit modal to its own component */}
-      <Modal isOpen={isOpen} size='xl' onClose={onClose}>
+      <Modal
+        isOpen={isOpen}
+        size='xl'
+        closeOnOverlayClick={false}
+        onClose={handleClose}
+      >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
             <UnderlinedHeading
-              text='Edit your donation'
+              text={
+                donationAmount >= 5
+                  ? 'Edit your donation'
+                  : 'Become a monthly donor'
+              }
               align='left'
               marginBottom='0'
             />
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody marginBottom='1.5rem'>
-            <Heading
-              as='h3'
-              fontSize='1rem'
-              fontWeight='500'
-              marginBottom='.5rem'
-              id='current-amt-modal'
-            >
-              Current monthly donation
-            </Heading>
-            <Text
-              color='ocean'
-              letterSpacing='2px'
-              fontSize='2rem'
-              marginBottom='1.5rem'
-            >
-              ${donationAmount}
-            </Text>
-            <Box as='form' onSubmit={handleSaveChanges} margin='0 auto'>
-              <Box
-                as='label'
-                textAlign='left'
-                display='block'
-                fontWeight='500'
-                color='boulder'
-                marginBottom='1.5rem'
-              >
-                Set new donation amount (<em>$5 USD minimum</em>)
-                <Box
-                  display='flex'
-                  alignItems='center'
-                  marginTop='.75rem'
-                  maxWidth='7rem'
-                  border='1px solid'
-                  borderRadius='5px'
-                  backgroundColor='lightRock'
-                >
-                  <Box
-                    as='span'
-                    aria-hidden='true'
-                    padding='.5rem'
-                    fontWeight='bold'
-                  >
-                    $
-                  </Box>
-                  <NumberInput
-                    defaultValue={donationAmount}
-                    min={5}
-                    max={10000}
-                    color='boulder'
-                    id='amount'
-                    padding='0'
-                  >
-                    <NumberInputField
-                      className={styles.donateInput}
-                      marginBottom='0'
-                      marginTop='0'
-                      maxW='10ch'
-                      padding='.75rem'
-                      onChange={handleNewAmount}
-                    />
-                  </NumberInput>
-                </Box>
-                {amountError && (
-                  <ErrorMessage msg={amountError} marginTop='1rem' />
-                )}
-              </Box>
-              <Box
-                as='fieldset'
-                fontWeight='500'
-                htmlFor='ad-opts'
-                disabled={donationAmount < 5}
-              >
-                <Box
-                  as='legend'
-                  display='flex'
-                  alignItems='center'
-                  fontWeight='500'
-                  marginBottom='.75rem'
-                >
-                  Ads in the terminal{' '}
-                  <Icon
-                    name={showAds ? 'view' : 'view-off'}
-                    marginLeft='.5rem'
-                  />
-                </Box>
-                <RadioButtonGroup
-                  id='ad-opts'
-                  defaultValue={showAds ? 'view' : 'hide'}
-                  onChange={(val) => handleAdView(val)}
-                  isInline
-                >
-                  <AdsRadio value='view' borderRadius='6px 0 0 6px'>
-                    View
-                  </AdsRadio>
-                  <AdsRadio value='hide' borderRadius='0 6px 6px 0'>
-                    Hide
-                  </AdsRadio>
-                </RadioButtonGroup>
-              </Box>
-              {submitError && (
-                <ErrorMessage msg={submitError} marginTop='1rem' />
-              )}
-            </Box>
-          </ModalBody>
-          <ModalFooter display='flex' justifyContent='space-evenly'>
-            <FBButton
-              onClick={onClose}
-              className='u-box-shadow'
-              backgroundColor='lightRock'
-              color='ocean'
-              fontWeight='600'
-            >
-              <Box as='span' display='flex' alignItems='center'>
-                <Icon name='close' fontSize='1rem' marginRight='1rem' />
-                Cancel
-              </Box>
-            </FBButton>
-            <FBButton
-              onClick={handleSaveChanges}
-              isLoading={submitLoading}
-              className='u-box-shadow'
-              fontWeight='600'
-            >
-              <Box as='span' display='flex' alignItems='center'>
-                <Icon name='check' fontSize='1rem' marginRight='1rem' />
-                Save changes
-              </Box>
-            </FBButton>
-          </ModalFooter>
+          {(donationAmount >= 5 || newDonor) && (
+            <StripeWrapper>
+              <CurrentDonor
+                donationAmount={donationAmount}
+                isNewDonor={newDonor}
+                onClose={handleClose}
+              />
+            </StripeWrapper>
+          )}
+          {donationAmount < 5 && newDonor === false && (
+            <UpgradeToDonor
+              upgradeToDonor={handleDonorUpgrade}
+              onClose={handleClose}
+            />
+          )}
         </ModalContent>
       </Modal>
     </>
