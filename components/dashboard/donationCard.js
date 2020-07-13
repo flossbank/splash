@@ -79,7 +79,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
           <ModalHeader>
             <UnderlinedHeading
               text={
-                donationAmount > 5
+                donationAmount >= 5
                   ? 'Edit your donation'
                   : 'Become a monthly donor'
               }
@@ -88,7 +88,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {donationAmount > 5 ||
+          {donationAmount >= 5 ||
             (newDonor && (
               <CurrentDonor
                 donationAmount={donationAmount}
@@ -96,7 +96,7 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
                 onClose={handleClose}
               />
             ))}
-          {donationAmount < 10 && newDonor === false && (
+          {donationAmount < 5 && newDonor === false && (
             <UpgradeToDonor
               upgradeToDonor={handleDonorUpgrade}
               onClose={handleClose}
