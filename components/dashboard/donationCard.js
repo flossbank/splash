@@ -99,7 +99,6 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          <RemoveDonation />
           {(donationAmount >= 5 || newDonor) && (
             <StripeWrapper>
               <CurrentDonor
