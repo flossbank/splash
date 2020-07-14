@@ -11,7 +11,7 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
 
   const handleDonorDowngrade = async () => {
     try {
-      const response = deleteDonation()
+      const response = await deleteDonation()
 
       if (response.ok) {
         updateDonorStatus(false)
