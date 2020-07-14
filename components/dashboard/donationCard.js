@@ -20,12 +20,12 @@ import UnderlinedHeading from '../common/underlinedHeading'
 import CurrentDonor from './currentDonor'
 import StripeWrapper from '../common/stripe/stripeWrapper'
 import UpgradeToDonor from './upgradeToDonor'
-import RemoveDonation from './removeDonation'
 
 const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
   const [newDonor, setNewDonor] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
+  const donation = donationAmount || 10
 
   const handleDonorUpgrade = () => setNewDonor(true)
 
@@ -99,7 +99,8 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {(donationAmount >= 5 || newDonor) && (
+          {/* TODO: change back to donationAmoint; this is just for testin */}
+          {(donation >= 5 || newDonor) && (
             <StripeWrapper>
               <CurrentDonor
                 donationAmount={donationAmount}
@@ -108,7 +109,7 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
               />
             </StripeWrapper>
           )}
-          {donationAmount < 5 && newDonor === false && (
+          {donation < 5 && newDonor === false && (
             <UpgradeToDonor
               upgradeToDonor={handleDonorUpgrade}
               onClose={handleClose}
