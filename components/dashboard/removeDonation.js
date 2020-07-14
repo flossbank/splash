@@ -14,7 +14,7 @@ const RemoveDonation = (props) => {
       // deleteDonation();
       // setError("");
       // this is returning undefined
-      console.log(props.status)
+      console.log(props.donorStatus)
 
       // updateDonorStatus(false);
       // onClose();

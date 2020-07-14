@@ -129,7 +129,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     <Box>
       <ModalBody marginBottom='1.5rem'>
         {/* Props aren't being passed along somehow */}
-        <RemoveDonation status='testing' />
+        <RemoveDonation donorStatus='testing' />
 
         {!isNewDonor && (
           <>
