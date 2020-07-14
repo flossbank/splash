@@ -98,6 +98,11 @@ function useProvideAuth () {
     setSessionUser(res.success && res.user)
   }
 
+  const verify = async (opts) => {
+    const res = await api.verifyRegistration(opts)
+    setSessionUser(res.success && res.user)
+  }
+
   // allow donation changes to update user state;
   // this way we don't need to ask API for user obj again to know if they won't be seeing ads.
   // use case is install page, where it's helpful to know whether the user should expect
@@ -113,6 +118,7 @@ function useProvideAuth () {
     login,
     signup,
     logout,
+    verify,
     setOptOutOfAds
   }
 }
