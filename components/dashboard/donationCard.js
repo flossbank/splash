@@ -21,7 +21,7 @@ import CurrentDonor from './currentDonor'
 import StripeWrapper from '../common/stripe/stripeWrapper'
 import UpgradeToDonor from './upgradeToDonor'
 
-const DonationCard = ({ donationAmount, donationLoading }) => {
+const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
   const [newDonor, setNewDonor] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
@@ -62,15 +62,14 @@ const DonationCard = ({ donationAmount, donationLoading }) => {
         <UnderlinedHeading
           as='h3'
           id='donation-amt'
-          text='Donated Monthly'
+          text='Monthly Donation'
           align='left'
           lineColor='white'
           marginBottom='1rem'
         />
         <Text textAlign='left' display='flex' alignItems='center'>
-          <Icon name='view-off' marginRight='.75rem' />
-          {/* // TODO: get info on if ads are hidden or shown */}
-          Ads hidden
+          <Icon name={optOutOfAds ? 'view-off' : 'view'} marginRight='.75rem' />
+          {optOutOfAds ? 'Ads hidden' : 'Ads shown'}
         </Text>
         {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
       </DashboardDataCard>

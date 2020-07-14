@@ -26,6 +26,7 @@ import {
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import { localStorageDashboardWelcomeBannerKey } from '../utils/constants'
+import { useAuth } from '../utils/useAuth'
 
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
@@ -51,6 +52,7 @@ const Dashboard = () => {
   const [donation, setDonation] = useState()
   const [topTenPackages, setTopTenPackages] = useState([])
   const [userInstallData, setUserInstallData] = useState({})
+  const { user } = useAuth()
 
   async function fetchData () {
     try {
@@ -226,6 +228,7 @@ const Dashboard = () => {
               </ListItem>
               <ListItem>
                 <DonationCard
+                  optOutOfAds={!!user.optOutOfAds}
                   donationLoading={donationLoading}
                   donationAmount={donation}
                 />
