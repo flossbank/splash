@@ -32,12 +32,6 @@ const UserSettingsSection = ({ ...props }) => {
           Billing info
         </Text>
         <Text>
-          Email
-        </Text>
-        <Text>
-          {user.email}
-        </Text>
-        <Text>
           Payment method
         </Text>
         <Text>
