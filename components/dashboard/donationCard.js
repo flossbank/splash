@@ -25,7 +25,6 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
   const [newDonor, setNewDonor] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
-  const donation = donationAmount || 10
 
   const handleDonorUpgrade = () => setNewDonor(true)
 
@@ -84,6 +83,8 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
         size='xl'
         closeOnOverlayClick={false}
         onClose={handleClose}
+        aria-live='polite'
+        aria-atomic='true'
       >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
@@ -99,8 +100,7 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {/* TODO: change back to donationAmoint; this is just for testin */}
-          {(donation >= 5 || newDonor) && (
+          {(donationAmount >= 5 || newDonor) && (
             <StripeWrapper>
               <CurrentDonor
                 donationAmount={donationAmount}
@@ -109,7 +109,7 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
               />
             </StripeWrapper>
           )}
-          {donation < 5 && newDonor === false && (
+          {donationAmount < 5 && newDonor === false && (
             <UpgradeToDonor
               upgradeToDonor={handleDonorUpgrade}
               onClose={handleClose}

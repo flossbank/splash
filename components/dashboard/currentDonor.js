@@ -209,6 +209,22 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
                 )}
               </Box>
               {isNewDonor && <BillingForm />}
+              {!isNewDonor && (
+                <Box marginBottom='1.5rem'>
+                  <FBButton
+                    onClick={() => setUpdatingDonorStatus(true)}
+                    backgroundColor='white'
+                    color='#b9423a'
+                    fontWeight='600'
+                    padding='.5rem .5rem .5rem 0'
+                  >
+                    <Box as='span' display='flex' alignItems='center'>
+                      <Icon name='delete' fontSize='1rem' marginRight='1rem' />
+                      Delete my donation
+                    </Box>
+                  </FBButton>
+                </Box>
+              )}
               <Box as='fieldset' fontWeight='500' htmlFor='ad-opts'>
                 <Box
                   as='legend'
