@@ -17,6 +17,7 @@ import {
 
 import AdsRadio from './adsRadio'
 import BillingForm from './billingForm'
+import RemoveDonation from './removeDonation'
 
 import FBButton from '../../components/common/fbButton'
 import ErrorMessage from '../common/errorMessage'
@@ -50,6 +51,12 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   const handleAdView = (val) => {
     const showAds = val === 'view'
     setShowAds(showAds)
+  }
+
+  const handleDonorStatus = (status) => {
+    // setDonorStatus(status);
+    // This never gets called
+    console.log('handleDonorStatus called')
   }
 
   const donateAttempt = async (ev) => {
@@ -121,6 +128,9 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   return (
     <Box>
       <ModalBody marginBottom='1.5rem'>
+        {/* Props aren't being passed along somehow */}
+        <RemoveDonation status='testing' />
+
         {!isNewDonor && (
           <>
             <Heading

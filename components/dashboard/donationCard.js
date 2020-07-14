@@ -20,6 +20,7 @@ import UnderlinedHeading from '../common/underlinedHeading'
 import CurrentDonor from './currentDonor'
 import StripeWrapper from '../common/stripe/stripeWrapper'
 import UpgradeToDonor from './upgradeToDonor'
+import RemoveDonation from './removeDonation'
 
 const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
   const [newDonor, setNewDonor] = useState(false)
@@ -38,7 +39,12 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
       <DashboardDataCard backgroundColor='ocean' color='white'>
         {!donationLoading && (
           <Flex align='center' justify='space-between'>
-            <Text fontSize='2rem' fontWeight='bold' marginRight='2rem'>
+            <Text
+              fontSize='2rem'
+              fontWeight='bold'
+              letterSpacing='1px'
+              marginRight='2rem'
+            >
               ${donationAmount}
             </Text>
             <IconButton
@@ -93,6 +99,7 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
+          <RemoveDonation />
           {(donationAmount >= 5 || newDonor) && (
             <StripeWrapper>
               <CurrentDonor
