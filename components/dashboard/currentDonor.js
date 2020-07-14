@@ -17,6 +17,7 @@ import {
 
 import AdsRadio from './adsRadio'
 import BillingForm from './billingForm'
+import RemoveDonation from './removeDonation'
 
 import FBButton from '../../components/common/fbButton'
 import ErrorMessage from '../common/errorMessage'
@@ -30,6 +31,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   const [showAds, setShowAds] = useState(donationAmount < 5)
   const [newAmount, setNewAmount] = useState(donationAmount)
   const [donorStatus, setDonorStatus] = useState(true); // eslint-disable-line
+  const [updatingDonorStatus, setUpdatingDonorStatus] = useState(false)
 
   const stripe = useStripe()
   const elements = useElements()
@@ -50,6 +52,11 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   const handleAdView = (val) => {
     const showAds = val === 'view'
     setShowAds(showAds)
+  }
+
+  const handleDonorStatus = (status) => {
+    setDonorStatus(status)
+    setUpdatingDonorStatus(false)
   }
 
   const donateAttempt = async (ev) => {
@@ -120,132 +127,163 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
 
   return (
     <Box>
-      <ModalBody marginBottom='1.5rem'>
-        {!isNewDonor && (
-          <>
-            <Heading
-              as='h3'
-              fontSize='1rem'
-              fontWeight='500'
-              marginBottom='.5rem'
-              id='current-amt-modal'
-            >
-              Current monthly donation
-            </Heading>
-            <Text
-              color='ocean'
-              letterSpacing='2px'
-              fontSize='2rem'
-              marginBottom='1.5rem'
-            >
-              ${donationAmount}
-            </Text>
-          </>
-        )}
-        <Box as='form' onSubmit={handleSaveChanges} margin='0 auto'>
-          <Box
-            as='label'
-            textAlign='left'
-            display='block'
-            fontWeight='500'
-            color='boulder'
-            marginBottom='1.5rem'
-          >
-            Set new donation amount (<em>$5 USD minimum</em>)
-            <Box
-              display='flex'
-              alignItems='center'
-              marginTop='.75rem'
-              maxWidth='6rem'
-              border='1px solid'
-              borderRadius='5px'
-              backgroundColor='white'
-            >
+      {updatingDonorStatus && (
+        <RemoveDonation
+          updateDonorStatus={handleDonorStatus}
+          onClose={onClose}
+        />
+      )}
+      {donorStatus && !updatingDonorStatus && (
+        <>
+          <ModalBody marginBottom='1.5rem'>
+            {!isNewDonor && (
+              <>
+                <Heading
+                  as='h3'
+                  fontSize='1rem'
+                  fontWeight='500'
+                  marginBottom='.5rem'
+                  id='current-amt-modal'
+                >
+                  Current monthly donation
+                </Heading>
+                <Text
+                  color='ocean'
+                  letterSpacing='2px'
+                  fontSize='2rem'
+                  marginBottom='1.5rem'
+                >
+                  ${donationAmount}
+                </Text>
+              </>
+            )}
+            <Box as='form' onSubmit={handleSaveChanges} margin='0 auto'>
               <Box
-                as='span'
-                aria-hidden='true'
-                padding='.5rem'
-                fontWeight='bold'
-                backgroundColor='lightRock'
-              >
-                $
-              </Box>
-              <NumberInput
-                defaultValue={donationAmount}
-                min={5}
-                max={10000}
+                as='label'
+                textAlign='left'
+                display='block'
+                fontWeight='500'
                 color='boulder'
-                id='amount'
-                padding='0'
+                marginBottom='1.5rem'
               >
-                <NumberInputField
-                  className={styles.donateInput}
-                  marginBottom='0'
-                  marginTop='0'
-                  maxW='8ch'
-                  padding='.5rem'
-                  onChange={handleNewAmount}
-                  border='1px solid transparent !important'
-                />
-              </NumberInput>
+                Set new donation amount (<em>$5 USD minimum</em>)
+                <Box
+                  display='flex'
+                  alignItems='center'
+                  marginTop='.75rem'
+                  maxWidth='6rem'
+                  border='1px solid'
+                  borderRadius='5px'
+                  backgroundColor='white'
+                >
+                  <Box
+                    as='span'
+                    aria-hidden='true'
+                    padding='.5rem'
+                    fontWeight='bold'
+                    backgroundColor='lightRock'
+                  >
+                    $
+                  </Box>
+                  <NumberInput
+                    defaultValue={donationAmount}
+                    min={5}
+                    max={10000}
+                    color='boulder'
+                    id='amount'
+                    padding='0'
+                  >
+                    <NumberInputField
+                      className={styles.donateInput}
+                      marginBottom='0'
+                      marginTop='0'
+                      maxW='8ch'
+                      padding='.5rem'
+                      onChange={handleNewAmount}
+                      border='1px solid transparent !important'
+                    />
+                  </NumberInput>
+                </Box>
+                {amountError && (
+                  <ErrorMessage msg={amountError} marginTop='1rem' />
+                )}
+              </Box>
+              {isNewDonor && <BillingForm />}
+              {!isNewDonor && (
+                <Box marginBottom='1.5rem'>
+                  <FBButton
+                    onClick={() => setUpdatingDonorStatus(true)}
+                    backgroundColor='white'
+                    color='#b9423a'
+                    fontWeight='600'
+                    padding='.5rem .5rem .5rem 0'
+                  >
+                    <Box as='span' display='flex' alignItems='center'>
+                      <Icon name='delete' fontSize='1rem' marginRight='1rem' />
+                      Delete my donation
+                    </Box>
+                  </FBButton>
+                </Box>
+              )}
+              <Box as='fieldset' fontWeight='500' htmlFor='ad-opts'>
+                <Box
+                  as='legend'
+                  display='flex'
+                  alignItems='center'
+                  fontWeight='500'
+                  marginBottom='.75rem'
+                >
+                  Ads in the terminal{' '}
+                  <Icon
+                    name={showAds ? 'view' : 'view-off'}
+                    marginLeft='.5rem'
+                  />
+                </Box>
+                <RadioButtonGroup
+                  id='ad-opts'
+                  defaultValue={showAds ? 'view' : 'hide'}
+                  onChange={(val) => handleAdView(val)}
+                  isInline
+                >
+                  <AdsRadio value='view' borderRadius='6px 0 0 6px'>
+                    View
+                  </AdsRadio>
+                  <AdsRadio value='hide' borderRadius='0 6px 6px 0'>
+                    Hide
+                  </AdsRadio>
+                </RadioButtonGroup>
+              </Box>
             </Box>
-            {amountError && <ErrorMessage msg={amountError} marginTop='1rem' />}
-          </Box>
-          {isNewDonor && <BillingForm />}
-          <Box as='fieldset' fontWeight='500' htmlFor='ad-opts'>
-            <Box
-              as='legend'
-              display='flex'
-              alignItems='center'
-              fontWeight='500'
-              marginBottom='.75rem'
+          </ModalBody>
+          {submitError && <ErrorMessage msg={submitError} marginTop='1rem' />}
+          <ModalFooter display='flex' justifyContent='space-evenly'>
+            <FBButton
+              onClick={onClose}
+              className='u-box-shadow'
+              backgroundColor='lightRock'
+              color='ocean'
+              fontWeight='600'
             >
-              Ads in the terminal{' '}
-              <Icon name={showAds ? 'view' : 'view-off'} marginLeft='.5rem' />
-            </Box>
-            <RadioButtonGroup
-              id='ad-opts'
-              defaultValue={showAds ? 'view' : 'hide'}
-              onChange={(val) => handleAdView(val)}
-              isInline
+              <Box as='span' display='flex' alignItems='center'>
+                <Icon name='close' fontSize='1rem' marginRight='1rem' />
+                Cancel
+              </Box>
+            </FBButton>
+            <FBButton
+              onClick={handleSaveChanges}
+              isLoading={submitLoading}
+              loadingText='Saving changes…'
+              className='u-box-shadow'
+              fontWeight='600'
             >
-              <AdsRadio value='view' borderRadius='6px 0 0 6px'>
-                View
-              </AdsRadio>
-              <AdsRadio value='hide' borderRadius='0 6px 6px 0'>
-                Hide
-              </AdsRadio>
-            </RadioButtonGroup>
-          </Box>
-        </Box>
-      </ModalBody>
-      {submitError && <ErrorMessage msg={submitError} marginTop='1rem' />}
-      <ModalFooter display='flex' justifyContent='space-evenly'>
-        <FBButton
-          onClick={onClose}
-          className='u-box-shadow'
-          backgroundColor='lightRock'
-          color='ocean'
-          fontWeight='600'
-        >
-          <Box as='span' display='flex' alignItems='center'>
-            <Icon name='close' fontSize='1rem' marginRight='1rem' />
-            Cancel
-          </Box>
-        </FBButton>
-        <FBButton
-          onClick={handleSaveChanges}
-          isLoading={submitLoading}
-          loadingText='Saving changes…'
-          className='u-box-shadow'
-          fontWeight='600'
-        >
-          <Box as='span' display='flex' alignItems='center'>
-            <Icon name='check' fontSize='1rem' marginRight='1rem' />
-            Save changes
-          </Box>
-        </FBButton>
-      </ModalFooter>
+              <Box as='span' display='flex' alignItems='center'>
+                <Icon name='check' fontSize='1rem' marginRight='1rem' />
+                Save changes
+              </Box>
+            </FBButton>
+          </ModalFooter>
+        </>
+      )}
     </Box>
   )
 }

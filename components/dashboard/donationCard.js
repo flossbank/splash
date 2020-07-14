@@ -38,7 +38,12 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
       <DashboardDataCard backgroundColor='ocean' color='white'>
         {!donationLoading && (
           <Flex align='center' justify='space-between'>
-            <Text fontSize='2rem' fontWeight='bold' marginRight='2rem'>
+            <Text
+              fontSize='2rem'
+              fontWeight='bold'
+              letterSpacing='1px'
+              marginRight='2rem'
+            >
               ${donationAmount}
             </Text>
             <IconButton
@@ -78,6 +83,8 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
         size='xl'
         closeOnOverlayClick={false}
         onClose={handleClose}
+        aria-live='polite'
+        aria-atomic='true'
       >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
