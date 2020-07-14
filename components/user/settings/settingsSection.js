@@ -10,40 +10,42 @@ import {
   ModalContent,
   ModalHeader,
   ModalCloseButton,
-  useDisclosure,
-  ModalBody,
-  ModalFooter
+  useDisclosure
 } from '@chakra-ui/core'
+
+import StripeWrapper from '../../common/stripe/stripeWrapper'
+import UpdateBilling from './updateBilling'
 
 import Section from '../../common/section'
 import Card from '../../common/card'
 import UnderlinedHeading from '../../common/underlinedHeading'
-// import FBButton from '../../common/fbButton'
 
 import { useAuth } from '../../../utils/useAuth'
 
-const BillingInfo = (user) => {
-  console.log(user.user.billingInfo)
-  return (
-    <Box as='dl' display='flex'>
-      <Box as='dt' fontWeight='500' marginRight='1rem'>
-        Credit Card Number:
-      </Box>
-      <Box as='dd'>
-        <span aria-hidden='true'>{'•••• '.repeat(3)} </span>
-        {user.user.billingInfo.last4}
-      </Box>
+const BillingInfo = ({ last4CardDigits }) => (
+  <Box as='dl' display='flex'>
+    <Box as='dt' fontWeight='500' marginRight='1rem'>
+      Credit Card Number:
     </Box>
-  )
-}
+    <Box as='dd'>
+      <span aria-hidden='true'>{'•••• '.repeat(3)} </span>
+      {last4CardDigits}
+    </Box>
+  </Box>
+)
 
 const UserSettingsSection = () => {
   const { user } = useAuth()
-  const [hasBillingInfo, setHasBillingInfo] = useState(user.billingInfo.last4)
+  const [last4CardDigits, setLast4CardDigits] = useState(
+    user.billingInfo.last4
+  )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
 
-  console.log(user)
+  const handleUpdateBillingInfo = (billingInfo) => {
+    setLast4CardDigits(billingInfo.last4)
+  }
+
   return (
     <Section
       display='flex'
@@ -71,7 +73,7 @@ const UserSettingsSection = () => {
           Billing Information
         </Heading>
         <Box marginBottom='1.5rem'>
-          {!hasBillingInfo && (
+          {!last4CardDigits && (
             <>
               <Text marginBottom='1.5rem'>
                 <strong>
@@ -84,7 +86,7 @@ const UserSettingsSection = () => {
               </Text>
             </>
           )}
-          {hasBillingInfo && <BillingInfo user={user} />}
+          {last4CardDigits && <BillingInfo last4CardDigits={last4CardDigits} />}
         </Box>
         <Button
           backgroundColor='puddle'
@@ -105,12 +107,17 @@ const UserSettingsSection = () => {
           ref={finalRef}
           onClick={onOpen}
         >
-          {hasBillingInfo
+          {last4CardDigits
             ? 'Update billing information'
             : 'Add billing information'}
         </Button>
       </Card>
-      <Modal isOpen={isOpen} size='xl' onClose={onClose}>
+      <Modal
+        isOpen={isOpen}
+        size='xl'
+        closeOnOverlayClick={false}
+        onClose={onClose}
+      >
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
@@ -121,8 +128,12 @@ const UserSettingsSection = () => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody />
-          <ModalFooter />
+          <StripeWrapper>
+            <UpdateBilling
+              onClose={onClose}
+              UpdateBilling={handleUpdateBillingInfo}
+            />
+          </StripeWrapper>
         </ModalContent>
       </Modal>
     </Section>
