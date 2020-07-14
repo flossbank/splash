@@ -1,8 +1,8 @@
 import { Box, Icon, Text, ModalFooter, ModalBody } from '@chakra-ui/core'
 
-import FBButton from '../common/fbButton'
+import FBButton from '../../common/fbButton'
 
-const UpgradeToDonor = ({ upgradeToDonor, onClose }) => {
+const DonationInfoModalBody = ({ upgradeToDonor, onClose }) => {
   const handleDonorUpgrade = () => {
     upgradeToDonor(true)
   }
@@ -18,6 +18,10 @@ const UpgradeToDonor = ({ upgradeToDonor, onClose }) => {
           By becoming a monthly donor and donating at least
           <strong> $5 a month</strong>, you can opt out of ads and offer even
           more support to the maintainers of the packages you use.
+        </Text>
+        <Text marginBottom='1.5rem'>
+          Monthly donations are split up among the packages you install each month,
+          identical to how ad revenue is split up.
         </Text>
       </ModalBody>
       <ModalFooter display='flex' flexDirection='column' alignItems='center'>
@@ -49,4 +53,4 @@ const UpgradeToDonor = ({ upgradeToDonor, onClose }) => {
   )
 }
 
-export default UpgradeToDonor
+export default DonationInfoModalBody

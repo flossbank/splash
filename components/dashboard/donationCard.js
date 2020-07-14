@@ -17,20 +17,19 @@ import {
 import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
 
-import CurrentDonor from './currentDonor'
+import EditDonationModalBody from './donation/editDonationModalBody'
 import StripeWrapper from '../common/stripe/stripeWrapper'
-import UpgradeToDonor from './upgradeToDonor'
+import DonationInfoModalBody from './donation/donationInfoModalBody'
 
-const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
-  const [newDonor, setNewDonor] = useState(false)
+const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAds, refreshDashboard }) => {
+  const [createNewDonation, setCreateNewDonation] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = useRef()
 
-  const handleDonorUpgrade = () => setNewDonor(true)
-
-  const handleClose = () => {
-    setNewDonor(false) // prevents issues when a free user decides to become a donor, but then cancels the changes
+  const handleClose = async () => {
+    setCreateNewDonation(false)
     onClose()
+    await refreshDashboard()
   }
 
   return (
@@ -91,7 +90,7 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
           <ModalHeader>
             <UnderlinedHeading
               text={
-                donationAmount >= 5
+                hasDonation
                   ? 'Edit your donation'
                   : 'Become a monthly donor'
               }
@@ -100,18 +99,17 @@ const DonationCard = ({ donationAmount, donationLoading, optOutOfAds }) => {
             />
           </ModalHeader>
           <ModalCloseButton />
-          {(donationAmount >= 5 || newDonor) && (
+          {(hasDonation || createNewDonation) ? (
             <StripeWrapper>
-              <CurrentDonor
+              <EditDonationModalBody
                 donationAmount={donationAmount}
-                isNewDonor={newDonor}
+                isNewDonor={!hasDonation}
                 onClose={handleClose}
               />
             </StripeWrapper>
-          )}
-          {donationAmount < 5 && newDonor === false && (
-            <UpgradeToDonor
-              upgradeToDonor={handleDonorUpgrade}
+          ) : (
+            <DonationInfoModalBody
+              upgradeToDonor={() => setCreateNewDonation(true)}
               onClose={handleClose}
             />
           )}

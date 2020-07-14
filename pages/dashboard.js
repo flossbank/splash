@@ -44,6 +44,7 @@ import {
 import TextLink from '../components/common/textLink'
 
 const Dashboard = () => {
+  const { user, resume } = useAuth()
   const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(
     localStorageDashboardWelcomeBannerKey,
     true
@@ -52,16 +53,22 @@ const Dashboard = () => {
     localStorageDashboardInstallReminderKey,
     true
   )
+
   const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(true)
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
   const [userSessionCount, setUserSessionCount] = useState(0)
   const [packagesTouched, setPackagesTouched] = useState(0)
-  const [donation, setDonation] = useState()
+  const [donation, setDonation] = useState(user.billingInfo.monthlyDonation || 0)
   const [topTenPackages, setTopTenPackages] = useState([])
   const [userInstallData, setUserInstallData] = useState({})
-  const { user } = useAuth()
+
+  function resetLoaders() {
+    setPackagesTouchedLoading(true)
+    setDonationLoading(true)
+    setUserSessionCountLoading(true)
+  }
 
   async function fetchData () {
     try {
@@ -117,6 +124,12 @@ const Dashboard = () => {
     } finally {
       setUserSessionCountLoading(false)
     }
+  }
+
+  async function refreshDashboard() {
+    resetLoaders()
+    await fetchData()
+    await resume()
   }
 
   useEffect(() => {
@@ -220,6 +233,8 @@ const Dashboard = () => {
                 <DonationCard
                   optOutOfAds={!!user.optOutOfAds}
                   donationLoading={donationLoading}
+                  hasDonation={!!donation}
+                  refreshDashboard={refreshDashboard}
                   donationAmount={donation}
                 />
               </ListItem>
