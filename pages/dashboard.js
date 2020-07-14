@@ -28,6 +28,7 @@ import {
   localStorageDashboardWelcomeBannerKey,
   localStorageDashboardInstallReminderKey
 } from '../utils/constants'
+import { useAuth } from '../utils/useAuth'
 
 import Banner from '../components/common/banner'
 import PageWrapper from '../components/common/pageWrapper'
@@ -60,6 +61,7 @@ const Dashboard = () => {
   const [donation, setDonation] = useState()
   const [topTenPackages, setTopTenPackages] = useState([])
   const [userInstallData, setUserInstallData] = useState({})
+  const { user } = useAuth()
 
   async function fetchData () {
     try {
@@ -216,6 +218,7 @@ const Dashboard = () => {
               </ListItem>
               <ListItem>
                 <DonationCard
+                  optOutOfAds={!!user.optOutOfAds}
                   donationLoading={donationLoading}
                   donationAmount={donation}
                 />
