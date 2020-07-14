@@ -15,7 +15,9 @@ import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import LinkBtn from '../common/linkBtn'
 import PropTypes from 'prop-types'
+import { useLocalStorage } from '../../utils/useLocalStorage'
 import { useAuth } from '../../utils/useAuth'
+import { localStorageDashboardInstallReminderKey } from '../../utils/constants'
 
 const steps = [
   {
@@ -104,9 +106,17 @@ PostInstallInstructions.propTypes = {
 const InstallSection = () => {
   const [token, setToken] = useState('')
   const [finishedInstalling, setFinishedInstalling] = useState(false)
+  const [_, setShowInstallReminder] = useLocalStorage( //eslint-disable-line
+    localStorageDashboardInstallReminderKey,
+    true
+  )
   const auth = useAuth()
-
   const noAds = auth.user && !!auth.user.optOutOfAds
+
+  function finishInstalling () {
+    setFinishedInstalling(true)
+    setShowInstallReminder(false)
+  }
 
   async function fetchInstallToken () {
     try {
@@ -158,7 +168,7 @@ const InstallSection = () => {
           {!finishedInstalling ? (
             <Box>
               <LinkBtn
-                onClick={() => setFinishedInstalling(true)}
+                onClick={finishInstalling}
                 href='#post-install'
                 className='u-box-shadow'
                 display='block'
