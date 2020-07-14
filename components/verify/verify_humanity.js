@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { decode } from 'b36'
 import Recaptcha from 'react-recaptcha'
-import { verifyRegistration } from '../../client'
 
 import { Flex, Text } from '@chakra-ui/core'
 
@@ -13,9 +12,11 @@ import UnderlinedHeading from '../common/underlinedHeading'
 import Subheading from '../common/subheading'
 import TextLink from '../common/textLink'
 import ErrorMessage from '../common/errorMessage'
+import { useAuth } from '../../utils/useAuth'
 
 const VerifyHumanity = () => {
   const router = useRouter()
+  const auth = useAuth()
   const [queryMiss, setQueryMiss] = useState(false)
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
@@ -42,7 +43,7 @@ const VerifyHumanity = () => {
 
   const verify = async (response) => {
     try {
-      await verifyRegistration({ email, token, response })
+      await auth.verify({ email, token, response })
       setHasError(false)
       setStatus('Success!')
       router.push('/select')
