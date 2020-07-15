@@ -1,7 +1,14 @@
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
   max-width: 50rem;
+  width: 100%;
+
+  @media screen and (min-width: 30em) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
+
+// .list

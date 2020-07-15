@@ -12,16 +12,20 @@ const loggedOutLinks = [
     text: 'About Us'
   },
   {
+    url: '/how-it-works',
+    text: 'How It Works'
+  },
+  {
+    url: '/contact',
+    text: 'Contact Us'
+  },
+  {
     url: '/login',
     text: 'Log In'
   },
   {
     url: '/signup',
     text: 'Sign Up'
-  },
-  {
-    url: '/faq',
-    text: 'FAQs'
   }
 ]
 
@@ -33,6 +37,10 @@ const loggedInLinks = [
   {
     url: '/faq',
     text: 'FAQs'
+  },
+  {
+    url: '/how-it-works',
+    text: 'How It Works'
   }
 ]
 
@@ -53,16 +61,9 @@ const Footer = () => {
       <Flex flexDirection='row' justify='space-around' marginBottom='1.5rem'>
         <List className={styles.list}>
           {links.map((link, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && (
-                <Box as='span' aria-hidden='true' display={['none', 'initial']}>
-                  &bull;
-                </Box>
-              )}
-              <ListItem>
-                <TextLink href={link.url} text={link.text} color='white' />
-              </ListItem>
-            </React.Fragment>
+            <ListItem key={i}>
+              <TextLink href={link.url} text={link.text} color='white' />
+            </ListItem>
           ))}
         </List>
       </Flex>

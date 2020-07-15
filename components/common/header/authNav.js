@@ -31,6 +31,11 @@ const AuthNav = ({ user, onLogout }) => {
     outline: 'none !important'
   }
 
+  const itemActiveStyles = {
+    color: 'ocean',
+    backgroundColor: 'lightPuddle'
+  }
+
   const handleNav = (dest) => router.push(dest)
 
   return (
@@ -77,15 +82,23 @@ const AuthNav = ({ user, onLogout }) => {
             />
           </MenuButton>
           <MenuList backgroundColor='lightRock'>
-            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/dashboard')}>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
+              onClick={() => handleNav('/dashboard')}
+            >
               <Link href='/dashboard'>
                 <a>
-                  <Icon name='home' marginRight='.5rem' />
+                  <Icon name='home' size='1.25rem' marginRight='.5rem' />
                   Dashboard
                 </a>
               </Link>
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/faq')}>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
+              onClick={() => handleNav('/faq')}
+            >
               <Link href='/faq'>
                 <a>
                   <Icon name='question' marginRight='.5rem' />
@@ -93,7 +106,11 @@ const AuthNav = ({ user, onLogout }) => {
                 </a>
               </Link>
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/how-it-works')}>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
+              onClick={() => handleNav('/how-it-works')}
+            >
               <Link href='/how-it-works'>
                 <a>
                   <Icon name='info' marginRight='.5rem' />
@@ -101,7 +118,11 @@ const AuthNav = ({ user, onLogout }) => {
                 </a>
               </Link>
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={() => handleNav('/user/settings')}>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
+              onClick={() => handleNav('/user/settings')}
+            >
               <Link href='/user/settings'>
                 <a>
                   <Icon name='settings' marginRight='.5rem' />
@@ -109,7 +130,11 @@ const AuthNav = ({ user, onLogout }) => {
                 </a>
               </Link>
             </MenuItem>
-            <MenuItem _focus={itemFocusStyles} onClick={onLogout}>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
+              onClick={onLogout}
+            >
               <Link href='/'>
                 <a>
                   <Icon name='unlock' marginRight='.5rem' />

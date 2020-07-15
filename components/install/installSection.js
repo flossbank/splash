@@ -1,8 +1,4 @@
-import {
-  Box,
-  Text,
-  Code
-} from '@chakra-ui/core'
+import { Box, Text, Code } from '@chakra-ui/core'
 import { useEffect, useState } from 'react'
 
 import StepperSection from '../common/stepperSection'
@@ -35,14 +31,9 @@ const steps = [
 ]
 
 const InstallInstructions = ({ token }) => (
-  <Card
-    shadowSz='lg'
-    maxW='55rem'
-    margin='0 auto 3rem'
-    textAlign='left'
-  >
+  <Card shadowSz='lg' maxW='55rem' margin='0 auto 3rem' textAlign='left'>
     <Text marginBottom='3rem'>
-        Copy and paste the applicable command in your shell to continue:
+      Copy and paste the applicable command in your shell to continue:
     </Text>
     <InstallCommands token={token} />
   </Card>
@@ -53,7 +44,9 @@ InstallInstructions.propTypes = {
 }
 
 const PostInstallInstructions = ({ noAds }) => {
-  const topText = noAds ? 'Thanks for choosing to support the Open Source community!' : "Let's try it out!"
+  const topText = noAds
+    ? 'Thanks for choosing to support the Open Source community!'
+    : "Let's try it out!"
   return (
     <Card
       id='post-install'
@@ -63,20 +56,24 @@ const PostInstallInstructions = ({ noAds }) => {
       textAlign='left'
     >
       <Text marginBottom='1rem'>
-        Great! {topText}
+        <strong>Great! {topText}</strong>
       </Text>
       <Text marginBottom='1rem'>
-        Flossbank wraps package managers (currently only <code>npm</code> and <code>yarn</code>).
-        This means that when you run your package manager to install a package, Flossbank will automatically be invoked.
+        Flossbank wraps package managers (currently only <code>npm</code> and{' '}
+        <code>yarn</code>). This means that when you run your package manager to
+        install a package, Flossbank will automatically be invoked.
       </Text>
       {noAds ? (
         <Text marginBottom='1rem'>
-          Next time you run <code>npm</code> or <code>yarn</code>, Flossbank will silently determine the dependency tree of the packages installed and allocate your donation accordingly.
+          Next time you run <code>npm</code> or <code>yarn</code>, Flossbank
+          will silently determine the dependency tree of the packages installed
+          and allocate your donation accordingly.
         </Text>
       ) : (
         <>
           <Text marginBottom='1rem'>
-            Try opening a new terminal window/tab and installing a package with <code>npm</code>:
+            Try opening a new terminal window/tab and installing a package with{' '}
+            <code>npm</code>:
           </Text>
           <Code
             padding='1rem'
@@ -88,10 +85,16 @@ const PostInstallInstructions = ({ noAds }) => {
             npm install standard
           </Code>
           <Text marginBottom='2rem'>
-            You should see an ad or two during installation! If you don't, it's not your fault. <TextLink text="Let us know and we'll see what went wrong." href='/contact' />
+            You should see an ad or two during installation! If you don't, it's
+            not your fault.{' '}
+            <TextLink
+              text="Let us know and we'll see what went wrong."
+              href='/contact'
+            />
           </Text>
           <Text>
-            If you saw an ad, you're all set! Head to the Dashboard for a birds-eye view of your impact.
+            If you saw an ad, you're all set! Head to the Dashboard for a
+            birds-eye view of your impact.
           </Text>
         </>
       )}
@@ -106,7 +109,8 @@ PostInstallInstructions.propTypes = {
 const InstallSection = () => {
   const [token, setToken] = useState('')
   const [finishedInstalling, setFinishedInstalling] = useState(false)
-  const [_, setShowInstallReminder] = useLocalStorage( //eslint-disable-line
+  const [_, setShowInstallReminder] = useLocalStorage(
+    //eslint-disable-line
     localStorageDashboardInstallReminderKey,
     true
   )
@@ -160,9 +164,11 @@ const InstallSection = () => {
         >
           <Subheading>Support the Open Source you use</Subheading>
           <Text marginBottom='3.5rem' maxW='72ch'>
-            Surprised to see an install command? Flossbank’s package manager wrapper helps us
-            determine where to distribute the funds you generate for Open Source. See {' '}
-            <TextLink href='/how-it-works' external text='how it works' /> to learn more.
+            Surprised to see an install command? Flossbank’s package manager
+            wrapper helps us determine where to distribute the funds you
+            generate for Open Source. See{' '}
+            <TextLink href='/how-it-works' external text='how it works' /> to
+            learn more.
           </Text>
           <InstallInstructions token={token} />
           {!finishedInstalling ? (

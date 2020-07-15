@@ -1,50 +1,12 @@
-import { useState, useRef } from 'react'
-
-import {
-  Text,
-  Button,
-  Heading,
-  Box,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  useDisclosure
-} from '@chakra-ui/core'
-
-import StripeWrapper from '../../common/stripe/stripeWrapper'
-import UpdateBilling from './updateBilling'
-
 import Section from '../../common/section'
-import Card from '../../common/card'
 import UnderlinedHeading from '../../common/underlinedHeading'
 
 import { useAuth } from '../../../utils/useAuth'
-
-const BillingInfo = ({ last4CardDigits }) => (
-  <Box as='dl' display='flex'>
-    <Box as='dt' fontWeight='500' marginRight='1rem'>
-      Credit Card Number:
-    </Box>
-    <Box as='dd'>
-      <span aria-hidden='true'>{'•••• '.repeat(3)} </span>
-      {last4CardDigits}
-    </Box>
-  </Box>
-)
+import BillingInformationSection from './billingInformationSection'
+import AccountInformationSection from './accountInformationSection'
 
 const UserSettingsSection = () => {
   const { user } = useAuth()
-  const [last4CardDigits, setLast4CardDigits] = useState(
-    user.billingInfo.last4
-  )
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const finalRef = useRef()
-
-  const handleUpdateBillingInfo = (billingInfo) => {
-    setLast4CardDigits(billingInfo.last4)
-  }
 
   return (
     <Section
@@ -61,81 +23,8 @@ const UserSettingsSection = () => {
         align='center'
         marginBottom='3rem'
       />
-      <Card shadowSz='lg' w='100%' maxW='50rem'>
-        <Heading
-          textTransform='uppercase'
-          textAlign={{ base: 'center', md: 'left' }}
-          color='ocean'
-          fontWeight='bold'
-          fontSize='1rem'
-          marginBottom='1.5rem'
-        >
-          Billing Information
-        </Heading>
-        <Box marginBottom='1.5rem'>
-          {!last4CardDigits && (
-            <>
-              <Text marginBottom='1.5rem'>
-                <strong>
-                  You currently have no billing information on file.
-                </strong>
-              </Text>
-              <Text>
-                Adding billing information will allow you to donate to the Open
-                Source packages you use most.
-              </Text>
-            </>
-          )}
-          {last4CardDigits && <BillingInfo last4CardDigits={last4CardDigits} />}
-        </Box>
-        <Button
-          backgroundColor='puddle'
-          color='ocean'
-          className='u-box-shadow'
-          borderRadius='5px'
-          padding='1.5rem'
-          transition='all 300ms ease-in-out'
-          _hover={{
-            backgroundColor: 'ocean',
-            color: 'white',
-            transform: 'translateY(3px)'
-          }}
-          _active={{
-            backgroundColor: 'ocean',
-            color: 'white'
-          }}
-          ref={finalRef}
-          onClick={onOpen}
-        >
-          {last4CardDigits
-            ? 'Update billing information'
-            : 'Add billing information'}
-        </Button>
-      </Card>
-      <Modal
-        isOpen={isOpen}
-        size='xl'
-        closeOnOverlayClick={false}
-        onClose={onClose}
-      >
-        <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
-        <ModalContent backgroundColor='white' padding='2rem'>
-          <ModalHeader>
-            <UnderlinedHeading
-              text='Updating Billing Information'
-              align='left'
-              marginBottom='0'
-            />
-          </ModalHeader>
-          <ModalCloseButton />
-          <StripeWrapper>
-            <UpdateBilling
-              onClose={onClose}
-              UpdateBilling={handleUpdateBillingInfo}
-            />
-          </StripeWrapper>
-        </ModalContent>
-      </Modal>
+      <BillingInformationSection user={user} />
+      <AccountInformationSection user={user} />
     </Section>
   )
 }
