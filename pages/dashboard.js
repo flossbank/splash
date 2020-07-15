@@ -282,10 +282,7 @@ const Dashboard = () => {
             color='ocean'
             fontSize='1.5rem'
             onClick={() =>
-              downloadData(
-                JSON.stringify(userInstallData),
-                'flossbank_user_data.json'
-              )}
+              downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
           >
             Download Data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />

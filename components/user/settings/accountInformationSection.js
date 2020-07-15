@@ -51,7 +51,7 @@ const AccountInformationSection = ({ user }) => {
           handleLogout()
         } else {
           setError(
-            'There was an error attemping to delete your account. Please try again or contact us at support@flossbank.com for help.'
+            'There was an error attemping to deactivate your account. Please try again or contact us at support@flossbank.com for help.'
           )
         }
       } else {
@@ -59,7 +59,7 @@ const AccountInformationSection = ({ user }) => {
       }
     } catch (e) {
       setError(
-        'There was an error attemping to delete your account. Please try again or contact us at support@flossbank.com for help.'
+        'There was an error attemping to deactivate your account. Please try again or contact us at support@flossbank.com for help.'
       )
     } finally {
       setAttemptingDeletion(false)
@@ -114,7 +114,7 @@ const AccountInformationSection = ({ user }) => {
             onClick={onOpen}
           >
             <Icon name='delete' size='1rem' marginRight='1rem' />
-            Delete Account
+            Deactivate Account
           </Button>
         </Flex>
       </SettingsCard>
@@ -124,7 +124,7 @@ const AccountInformationSection = ({ user }) => {
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
             <UnderlinedHeading
-              text='Delete Your Flossbank Account'
+              text='Deactivate Your Flossbank Account'
               align='left'
               marginBottom='0'
             />
@@ -144,14 +144,14 @@ const AccountInformationSection = ({ user }) => {
               simply logging in and reinstalling Flossbank.
             </Text>
             <Text marginBottom='1.5rem'>
-              <strong>Before you delete your account</strong>, remember to
+              <strong>Before you deactivate your account</strong>, remember to
               uninstall Flossbank by running the following command from the
               terminal:
             </Text>
             <UninstallCommandBlock />
             <Text marginBottom='1.5rem'>
               <strong>
-                Are you sure you want to delete your Flossbank account?
+                Are you sure you want to deactivate your Flossbank account?
               </strong>
             </Text>
           </ModalBody>
@@ -187,7 +187,7 @@ const AccountInformationSection = ({ user }) => {
             >
               <Box as='span' display='flex' alignItems='center'>
                 <Icon name='delete' fontSize='1rem' marginRight='1rem' />
-                Delete my account
+                Deactivate my account
               </Box>
             </FBButton>
           </ModalFooter>
