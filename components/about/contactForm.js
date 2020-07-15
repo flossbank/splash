@@ -176,7 +176,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
           <Box marginTop='2rem'>
             <FBButton
               isLoading={isSubmitting}
-              loadingText='Submitting'
+              loadingText='Submitting...'
               type='submit'
               className='u-box-shadow'
               margin='0 0 1.5rem'

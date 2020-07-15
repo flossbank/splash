@@ -6,6 +6,7 @@ const DashboardDataCard = ({ children, ...props }) => (
     flexDirection='column'
     justifyContent='center'
     padding='2rem 3rem'
+    height='100%'
     {...props}
   >
     {children}

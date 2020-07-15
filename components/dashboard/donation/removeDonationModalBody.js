@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { Box, Icon, Text, ModalFooter, ModalBody } from '@chakra-ui/core'
 
-import FBButton from '../common/fbButton'
-import ErrorMessage from '../common/errorMessage'
+import FBButton from '../../common/fbButton'
+import ErrorMessage from '../../common/errorMessage'
 
-import { deleteDonation } from '../../client'
+import { deleteDonation } from '../../../client'
 
 const RemoveDonation = ({ updateDonorStatus, onClose }) => {
+  const [isDeleting, setIsDeleting] = useState(false)
   const [error, setError] = useState('')
 
   const handleDonorDowngrade = async () => {
+    setIsDeleting(true)
     try {
       const response = await deleteDonation()
 
-      if (response.ok) {
+      if (response.success) {
         updateDonorStatus(false)
         onClose()
       } else {
@@ -25,6 +27,8 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
       setError(
         'There was an error attemping to remove your donation. Please try again.'
       )
+    } finally {
+      setIsDeleting(false)
     }
   }
 
@@ -69,6 +73,8 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
         </FBButton>
         <FBButton
           onClick={handleDonorDowngrade}
+          isLoading={isDeleting}
+          loadingText='Submitting...'
           className='u-box-shadow'
           backgroundColor='#b9423a'
           color='#ffe5e5'
