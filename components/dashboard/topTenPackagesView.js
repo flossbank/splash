@@ -1,4 +1,4 @@
-import { Text, Heading, Icon } from '@chakra-ui/core'
+import { Text, Heading, Icon, Flex } from '@chakra-ui/core'
 
 import {
   BarChart,
@@ -25,7 +25,7 @@ const TopTenPlaceholder = () => (
 )
 
 const TopTenChart = ({ topTenPackages }) => (
-  <ResponsiveContainer width='100%' height={500}>
+  <ResponsiveContainer width='100%' height={490}>
     <BarChart
       data={topTenPackages}
       margin={{
@@ -48,19 +48,21 @@ const TopTenChart = ({ topTenPackages }) => (
 
 const TopTenPackagesView = ({ topTenPackages }) => (
   <>
-    <Heading
-      textTransform='uppercase'
-      fontWeight='bold'
-      marginTop='0'
-      fontSize='1rem'
-      textAlign={{ base: 'center', sm: 'left' }}
-      marginBottom='1.5rem'
-      display='flex'
-      alignItems='center'
-    >
-      <Icon name='duotoneStar' size='2em' marginRight='.5em' /> Top Ten Packages
-      Used
-    </Heading>
+    <Flex flexDirection='row'>
+      <Icon name='duotoneStar' size='2em' marginRight='.5em' marginTop='-0.5em' />
+      <Heading
+        textTransform='uppercase'
+        fontWeight='bold'
+        marginTop='0'
+        fontSize='1rem'
+        textAlign={{ base: 'center', sm: 'left' }}
+        marginBottom='1.5rem'
+        display='flex'
+        alignItems='center'
+      >
+        Top Ten Packages Used
+      </Heading>
+    </Flex>
     <DashboardDataCard
       display='flex'
       justifyContent='center'
