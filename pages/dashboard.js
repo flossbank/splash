@@ -43,7 +43,7 @@ const Dashboard = () => {
     localStorageDashboardInstallReminderKey,
     true
   )
-  
+
   const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(true)
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
@@ -54,7 +54,7 @@ const Dashboard = () => {
   const [topTenPackages, setTopTenPackages] = useState([])
   const [userInstallData, setUserInstallData] = useState({})
 
-  function resetLoaders() {
+  function resetLoaders () {
     setPackagesTouchedLoading(true)
     setDonationLoading(true)
     setUserSessionCountLoading(true)
@@ -116,7 +116,7 @@ const Dashboard = () => {
     }
   }
 
-  async function refreshDashboard() {
+  async function refreshDashboard () {
     resetLoaders()
     await fetchData()
     await resume()
@@ -277,11 +277,10 @@ const Dashboard = () => {
             borderRadius='0'
             color='ocean'
             fontSize='1.5rem'
-            onClick={() =>
-              downloadData(
-                JSON.stringify(userInstallData),
-                'flossbank_user_data.json'
-              )}
+            onClick={() => downloadData(
+              JSON.stringify(userInstallData),
+              'flossbank_user_data.json'
+            )}
           >
             Download Data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />

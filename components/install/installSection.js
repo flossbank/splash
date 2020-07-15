@@ -109,8 +109,7 @@ PostInstallInstructions.propTypes = {
 const InstallSection = () => {
   const [token, setToken] = useState('')
   const [finishedInstalling, setFinishedInstalling] = useState(false)
-  const [_, setShowInstallReminder] = useLocalStorage(
-    //eslint-disable-line
+  const [_, setShowInstallReminder] = useLocalStorage( //eslint-disable-line
     localStorageDashboardInstallReminderKey,
     true
   )

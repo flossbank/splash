@@ -77,7 +77,7 @@ const InstallCommands = ({ token }) => {
   const commands = [
     {
       system: 'OSX / Linux / Bash on windows',
-      commandText: `curl https://get.flossbank.com | FLOSSBANK_INSTALL_TOKEN=${token} bash`,
+      commandText: `curl -sS https://get.flossbank.com | FLOSSBANK_INSTALL_TOKEN=${token} bash`,
       sourceURL: ' https://get.flossbank.com'
     },
     {
