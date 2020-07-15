@@ -40,7 +40,7 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
             <Text
               fontSize='2rem'
               fontWeight='bold'
-              letterSpacing='1px'
+              letterSpacing='3px'
               marginRight='2rem'
             >
               ${donationAmount}

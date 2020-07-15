@@ -1,26 +1,20 @@
 import { useState, useEffect } from 'react'
+
+import {
+  fetchUserInstalledPackages,
+  fetchDonationInfo,
+  fetchUserSessionsInfo
+} from '../client'
+
 import {
   Text,
   Box,
   Heading,
-  Flex,
   List,
   ListItem,
   CircularProgress,
-  Icon,
-  Button
+  Icon
 } from '@chakra-ui/core'
-
-import {
-  BarChart,
-  Bar,
-  Label,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts'
 
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
@@ -35,13 +29,9 @@ import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import DashboardDataCard from '../components/dashboard/dashboardDataCard'
 import DonationCard from '../components/dashboard/donationCard'
-
-import {
-  fetchUserInstalledPackages,
-  fetchDonationInfo,
-  fetchUserSessionsInfo
-} from '../client'
 import TextLink from '../components/common/textLink'
+import FBButton from '../components/common/fbButton'
+import TopTenPackagesView from '../components/dashboard/topTenPackagesView'
 
 const Dashboard = () => {
   const { user, resume } = useAuth()
@@ -53,7 +43,7 @@ const Dashboard = () => {
     localStorageDashboardInstallReminderKey,
     true
   )
-
+  
   const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(true)
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
@@ -98,7 +88,7 @@ const Dashboard = () => {
         setTopTenPackages(topTen)
       }
     } catch (e) {
-      setPackagesTouched('Error')
+      setPackagesTouched('N/A')
     } finally {
       setPackagesTouchedLoading(false)
     }
@@ -120,7 +110,7 @@ const Dashboard = () => {
         setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
       }
     } catch (e) {
-      setUserSessionCount('Error')
+      setUserSessionCount('N/A')
     } finally {
       setUserSessionCountLoading(false)
     }
@@ -138,6 +128,7 @@ const Dashboard = () => {
 
   return (
     <PageWrapper title='Dashboard'>
+      <h1 className='sr-only'>User dashboard</h1>
       {showWelcomeMessage && (
         <Banner icon='hooray' onCloseClick={() => setShowWelcomeMessage(false)}>
           <Text>
@@ -148,36 +139,62 @@ const Dashboard = () => {
           </Text>
         </Banner>
       )}
-      {(showInstallReminder && showInstallReminderLocal) && (
-        <Banner icon='info' onCloseClick={() => setShowInstallReminderLocal(false)}>
+      {showInstallReminder && showInstallReminderLocal && (
+        <Banner
+          icon='info'
+          onCloseClick={() => setShowInstallReminderLocal(false)}
+        >
           <Text>
             Looks like you haven't installed the package manager wrapper yet.
-            Head over to <TextLink textDecoration='underline' fontWeight='bold' text='the install page' href='/install' /> to finish setting up and ensure
-            the packages you install are compensated. If you've already
-            installed, <TextLink textDecoration='underline' fontWeight='bold' href='#' onClick={() => setShowInstallReminder(false)} text='click here.' />
+            Head over to{' '}
+            <TextLink
+              textDecoration='underline'
+              fontWeight='bold'
+              text='the install page'
+              href='/install'
+            />{' '}
+            to finish setting up and ensure the packages you install are
+            compensated. If you've already installed,{' '}
+            {/* TODO (a11y): links go somewhere, they don't perform actions. onClick events shouldn't be used on links, so we should use a button here */}
+            <TextLink
+              textDecoration='underline'
+              fontWeight='bold'
+              href='#'
+              onClick={() => setShowInstallReminder(false)}
+              text='click here.'
+            />
           </Text>
         </Banner>
       )}
-      <Section backgroundColor='lightRock'>
-        <Heading
-          textTransform='uppercase'
-          fontWeight='bold'
-          marginTop='0'
-          fontSize='1rem'
-          textAlign={{ base: 'center', sm: 'left' }}
-          marginBottom='1.5rem'
-        >
-          Impact overview
-        </Heading>
-        <Flex flexDirection={['column', 'row']} minHeight='55vh' margin='auto'>
-          <Flex flexDirection='column' width={['100%', '30%']} as='section'>
+      <Section
+        backgroundColor='lightRock'
+        display={{ md: 'grid' }}
+        gridTemplateColumns={{ lg: 'minmax(20rem, 1fr) auto' }}
+        gridColumnGap={{ md: '3rem' }}
+        gridRowGap={{ base: '3rem', lg: '1.5rem' }}
+        gridTemplateRows={{ lg: 'auto 3rem 3rem' }}
+      >
+        <Box gridRow='1 / span 3' gridColumn='1'>
+          <Heading
+            textTransform='uppercase'
+            fontWeight='bold'
+            marginTop='0'
+            fontSize='1rem'
+            textAlign={{ base: 'center', md: 'left' }}
+            marginBottom='1.5rem'
+          >
+            Impact overview
+          </Heading>
+          <Box>
             <List
-              display='grid'
+              display={{ base: 'grid' }}
+              alignItems={{ md: 'stretch', lg: 'initial' }}
               gridGap='1.75rem'
-              gridTemplateColumns='repeat(auto-fit, minmax(16rem, 1fr))'
-              maxW='75rem'
+              gridTemplateColumns={{
+                base: 'repeat(auto-fit, minmax(16rem, 1fr))'
+              }}
               width='100%'
-              marginBottom='3rem'
+              margin={{ base: '0 auto 1.5rem auto' }}
             >
               <ListItem>
                 <DashboardDataCard>
@@ -238,50 +255,38 @@ const Dashboard = () => {
                   donationAmount={donation}
                 />
               </ListItem>
-              <ListItem>
-                <DashboardDataCard>
-                  <Button
-                    color='ocean'
-                    fontSize='2rem'
-                    onClick={() => downloadData(
-                      JSON.stringify(userInstallData),
-                      'flossbank_user_data.json'
-                    )}
-                  >
-                    Download Data
-                    <Icon marginLeft='1rem' name='download' size='1.75rem' />
-                  </Button>
-                </DashboardDataCard>
-              </ListItem>
             </List>
-          </Flex>
-          <Box
-            as='section'
-            width='100%'
-            margin='0 0 0 2rem'
-            display={['none', 'inline']}
-          >
-            <ResponsiveContainer width='100%' height={500}>
-              <BarChart
-                data={topTenPackages}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5
-                }}
-              >
-                <CartesianGrid strokeDasharray='3 3' />
-                <XAxis dataKey='name' />
-                <YAxis>
-                  <Label angle={270} position='left' value='Count' />
-                </YAxis>
-                <Tooltip />
-                <Bar dataKey='count' fill='#2baf74' />
-              </BarChart>
-            </ResponsiveContainer>
           </Box>
-        </Flex>
+        </Box>
+        <Box width='100%' display={{ base: 'none', md: 'initial' }}>
+          <TopTenPackagesView topTenPackages={topTenPackages} />
+        </Box>
+        <Box
+          marginTop={{ base: '3rem', lg: '0' }}
+          gridRow='2 / span 2'
+          gridColumn='2'
+          justifySelf='end'
+          alignSelf='end'
+          textAlign={{ base: 'center', md: 'right' }}
+          display={!userSessionCount ? 'none' : 'initial'}
+        >
+          <FBButton
+            backgroundColor='lightPuddle'
+            border='1px solid !important'
+            textTransform='uppercase'
+            borderRadius='0'
+            color='ocean'
+            fontSize='1.5rem'
+            onClick={() =>
+              downloadData(
+                JSON.stringify(userInstallData),
+                'flossbank_user_data.json'
+              )}
+          >
+            Download Data
+            <Icon marginLeft='1rem' name='download' size='1.75rem' />
+          </FBButton>
+        </Box>
       </Section>
     </PageWrapper>
   )
