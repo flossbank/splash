@@ -173,9 +173,10 @@ const Dashboard = () => {
       <Section
         backgroundColor='lightRock'
         display={{ md: 'grid' }}
-        gridTemplateColumns={{ lg: 'minmax(16rem, 20rem) 1fr' }}
+        gridTemplateColumns={{ lg: 'minmax(16rem, 20rem) minmax(auto, 70rem)' }}
+        justifyContent='center'
         gridColumnGap={{ md: '3rem' }}
-        gridRowGap={{ base: '3rem', lg: '3rem' }}
+        gridRowGap={{ base: '3rem', lg: '1.5rem' }}
         gridTemplateRows={{ lg: 'auto 3rem 3rem' }}
       >
         <Box gridRow='1 / span 3' gridColumn='1'>
@@ -262,7 +263,7 @@ const Dashboard = () => {
             </List>
           </Box>
         </Box>
-        <Box width='100%' display={{ base: 'none', md: 'initial' }}>
+        <Box width='100%' display={{ base: 'none', sm: 'initial' }}>
           <TopTenPackagesView topTenPackages={topTenPackages} />
         </Box>
         <Box
@@ -280,10 +281,8 @@ const Dashboard = () => {
             borderRadius='0'
             color='ocean'
             fontSize='1.5rem'
-            onClick={() => downloadData(
-              JSON.stringify(userInstallData),
-              'flossbank_user_data.json'
-            )}
+            onClick={() =>
+              downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
           >
             Download Data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />
