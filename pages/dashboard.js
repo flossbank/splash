@@ -245,7 +245,7 @@ const Dashboard = () => {
             </List>
           </Box>
         </Box>
-        <Box as='section' width='100%' display={['none', 'initial']}>
+        <Box width='100%' display={{ base: 'none', md: 'initial' }}>
           <TopTenPackagesView topTenPackages={topTenPackages} />
         </Box>
         <Box
