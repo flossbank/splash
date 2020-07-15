@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 
-import { updateDonation, donate } from '../../client'
+import { updateDonation, donate } from '../../../client'
 
 import {
   Box,
@@ -15,31 +15,29 @@ import {
   RadioButtonGroup
 } from '@chakra-ui/core'
 
-import AdsRadio from './adsRadio'
-import BillingForm from './billingForm'
-import RemoveDonation from './removeDonation'
+import AdsRadio from '../adsRadio'
+import BillingForm from '../billingForm'
+import RemoveDonation from './removeDonationModalBody'
 
-import FBButton from '../../components/common/fbButton'
-import ErrorMessage from '../common/errorMessage'
+import FBButton from '../../common/fbButton'
+import ErrorMessage from '../../common/errorMessage'
 
-import styles from '../select/donateForm.module.scss'
+import styles from '../../select/donateForm.module.scss'
 
-const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
+const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   const [submitError, setSubmitError] = useState('')
   const [submitLoading, setSubmitLoading] = useState(false)
   const [amountError, setAmountError] = useState('')
   const [showAds, setShowAds] = useState(donationAmount < 5)
-  const [newAmount, setNewAmount] = useState(donationAmount)
+  const [newAmount, setNewAmount] = useState(donationAmount || 5)
   const [donorStatus, setDonorStatus] = useState(true); // eslint-disable-line
   const [updatingDonorStatus, setUpdatingDonorStatus] = useState(false)
 
   const stripe = useStripe()
   const elements = useElements()
-  const [cardError, setCardError] = useState('')
 
   const handleNewAmount = (e) => {
     const amount = Number(e.target.value)
-
     if (amount < 5) {
       setAmountError('Donation must be at least $5')
       return
@@ -49,7 +47,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     setNewAmount(amount)
   }
 
-  const handleAdView = (val) => {
+  const handleSelectToSeeAds = (val) => {
     const showAds = val === 'view'
     setShowAds(showAds)
   }
@@ -59,14 +57,13 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     setUpdatingDonorStatus(false)
   }
 
-  const donateAttempt = async (ev) => {
+  const createDonation = async () => {
     // prevent quick button flash from isLoading event when there is a known error with the card
-    if (cardError) {
+    if (submitError) {
       return
     }
 
     let token
-
     try {
       const cardElement = elements.getElement(CardElement)
       const res = await stripe.createToken(cardElement)
@@ -77,14 +74,14 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     }
 
     if (!token) {
-      setCardError('Invalid credit card information')
+      setSubmitError('Invalid credit card information')
       return
     }
 
     try {
       const response = await donate({
         billingToken: token.id,
-        amount: donationAmount * 100,
+        amount: newAmount * 100,
         last4: token.card.last4,
         seeAds: showAds
       })
@@ -95,10 +92,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     } catch (e) {
       switch (e.status) {
         case 409:
-          setSubmitError('Donation already exists')
-          setTimeout(() => {
-            // Handle success
-          }, 1000)
+          await updateDonationLocal()
           break
         default:
           setSubmitError('Donation failed')
@@ -106,16 +100,21 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
     }
   }
 
+  const updateDonationLocal = async () => {
+    await updateDonation({
+      amount: newAmount * 100,
+      seeAds: showAds
+    })
+  }
+
   const handleSaveChanges = async () => {
     setSubmitLoading(true)
+    setSubmitError('')
     try {
-      await updateDonation({
-        amount: newAmount,
-        seeAds: showAds
-      })
-      // handle billing info for new donors
       if (isNewDonor) {
-        donateAttempt()
+        await createDonation()
+      } else {
+        await updateDonationLocal()
       }
       onClose()
     } catch (e) {
@@ -242,7 +241,7 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
                 <RadioButtonGroup
                   id='ad-opts'
                   defaultValue={showAds ? 'view' : 'hide'}
-                  onChange={(val) => handleAdView(val)}
+                  onChange={(val) => handleSelectToSeeAds(val)}
                   isInline
                 >
                   <AdsRadio value='view' borderRadius='6px 0 0 6px'>
@@ -288,4 +287,4 @@ const CurrentDonor = ({ donationAmount, isNewDonor, onClose }) => {
   )
 }
 
-export default CurrentDonor
+export default EditDonationModalBody
