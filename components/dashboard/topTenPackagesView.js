@@ -18,7 +18,8 @@ const TopTenPlaceholder = () => (
     <Icon name='bars' size='15rem' marginBottom='3rem' />
     <Text>
       Once you've installed <strong>Flossbank</strong> and start installing Open
-      Source packages, you'll be able to see data your top ten packages here.
+      Source packages, you'll be able to see data about the top ten packages you
+      use.
     </Text>
   </>
 )
@@ -45,34 +46,34 @@ const TopTenChart = ({ topTenPackages }) => (
   </ResponsiveContainer>
 )
 
-const TopTenPackagesView = ({ topTenPackages }) => {
-  console.log(topTenPackages)
-  return (
-    <>
-      <Heading
-        textTransform='uppercase'
-        fontWeight='bold'
-        marginTop='0'
-        fontSize='1rem'
-        textAlign={{ base: 'center', sm: 'left' }}
-        marginBottom='1.5rem'
-      >
-        Top Ten Packages Used
-      </Heading>
-      <DashboardDataCard
-        display='flex'
-        justifyContent='center'
-        alignItems='center'
-        flexDirection='column'
-      >
-        {topTenPackages.length ? (
-          <TopTenChart topTenPackages={topTenPackages} />
-        ) : (
-          <TopTenPlaceholder />
-        )}
-      </DashboardDataCard>
-    </>
-  )
-}
+const TopTenPackagesView = ({ topTenPackages }) => (
+  <>
+    <Heading
+      textTransform='uppercase'
+      fontWeight='bold'
+      marginTop='0'
+      fontSize='1rem'
+      textAlign={{ base: 'center', sm: 'left' }}
+      marginBottom='1.5rem'
+      display='flex'
+      alignItems='center'
+    >
+      <Icon name='duotoneStar' size='2em' marginRight='.5em' /> Top Ten Packages
+      Used
+    </Heading>
+    <DashboardDataCard
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+      flexDirection='column'
+    >
+      {topTenPackages.length ? (
+        <TopTenChart topTenPackages={topTenPackages} />
+      ) : (
+        <TopTenPlaceholder />
+      )}
+    </DashboardDataCard>
+  </>
+)
 
 export default TopTenPackagesView

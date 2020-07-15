@@ -10,12 +10,10 @@ import {
   Text,
   Box,
   Heading,
-  Flex,
   List,
   ListItem,
   CircularProgress,
-  Icon,
-  Button
+  Icon
 } from '@chakra-ui/core'
 
 import { downloadData } from '../utils/downloader'
@@ -32,6 +30,7 @@ import Section from '../components/common/section'
 import DashboardDataCard from '../components/dashboard/dashboardDataCard'
 import DonationCard from '../components/dashboard/donationCard'
 import TextLink from '../components/common/textLink'
+import FBButton from '../components/common/fbButton'
 import TopTenPackagesView from '../components/dashboard/topTenPackagesView'
 
 const Dashboard = () => {
@@ -118,6 +117,7 @@ const Dashboard = () => {
 
   return (
     <PageWrapper title='Dashboard'>
+      <h1 className='sr-only'>User dashboard</h1>
       {showWelcomeMessage && (
         <Banner icon='hooray' onCloseClick={() => setShowWelcomeMessage(false)}>
           <Text>
@@ -155,26 +155,35 @@ const Dashboard = () => {
           </Text>
         </Banner>
       )}
-      <Section backgroundColor='lightRock'>
-        <Heading
-          textTransform='uppercase'
-          fontWeight='bold'
-          marginTop='0'
-          fontSize='1rem'
-          textAlign={{ base: 'center', sm: 'left' }}
-          marginBottom='1.5rem'
-        >
-          Impact overview
-        </Heading>
-        <Flex flexDirection={['column', 'row']} minHeight='55vh' margin='auto'>
-          <Flex flexDirection='column' width={['100%', '30%']} as='section'>
+      <Section
+        backgroundColor='lightRock'
+        display={{ md: 'grid' }}
+        gridTemplateColumns={{ lg: 'minmax(20rem, 1fr) auto' }}
+        gridColumnGap={{ md: '3rem' }}
+        gridRowGap={{ base: '3rem', lg: '1.5rem' }}
+        gridTemplateRows={{ lg: 'auto 3rem 3rem' }}
+      >
+        <Box gridRow='1 / span 3' gridColumn='1'>
+          <Heading
+            textTransform='uppercase'
+            fontWeight='bold'
+            marginTop='0'
+            fontSize='1rem'
+            textAlign={{ base: 'center', md: 'left' }}
+            marginBottom='1.5rem'
+          >
+            Impact overview
+          </Heading>
+          <Box>
             <List
-              display='grid'
+              display={{ base: 'grid' }}
+              alignItems={{ md: 'stretch', lg: 'initial' }}
               gridGap='1.75rem'
-              gridTemplateColumns='repeat(auto-fit, minmax(16rem, 1fr))'
-              maxW='75rem'
+              gridTemplateColumns={{
+                base: 'repeat(auto-fit, minmax(16rem, 1fr))'
+              }}
               width='100%'
-              marginBottom='3rem'
+              margin={{ base: '0 auto 1.5rem auto' }}
             >
               <ListItem>
                 <DashboardDataCard>
@@ -233,33 +242,37 @@ const Dashboard = () => {
                   donationAmount={donation}
                 />
               </ListItem>
-              <ListItem>
-                <DashboardDataCard>
-                  <Button
-                    color='ocean'
-                    fontSize='2rem'
-                    onClick={() =>
-                      downloadData(
-                        JSON.stringify(userInstallData),
-                        'flossbank_user_data.json'
-                      )}
-                  >
-                    Download Data
-                    <Icon marginLeft='1rem' name='download' size='1.75rem' />
-                  </Button>
-                </DashboardDataCard>
-              </ListItem>
             </List>
-          </Flex>
-          <Box
-            as='section'
-            width='100%'
-            margin='0 0 0 2rem'
-            display={['none', 'inline']}
-          >
-            <TopTenPackagesView topTenPackages={topTenPackages} />
           </Box>
-        </Flex>
+        </Box>
+        <Box as='section' width='100%' display={['none', 'initial']}>
+          <TopTenPackagesView topTenPackages={topTenPackages} />
+        </Box>
+        <Box
+          marginTop={{ base: '3rem', lg: '0' }}
+          gridRow='2 / span 2'
+          gridColumn='2'
+          justifySelf='end'
+          alignSelf='end'
+          textAlign={{ base: 'center', md: 'right' }}
+        >
+          <FBButton
+            backgroundColor='lightPuddle'
+            border='1px solid !important'
+            textTransform='uppercase'
+            borderRadius='0'
+            color='ocean'
+            fontSize='1.5rem'
+            onClick={() =>
+              downloadData(
+                JSON.stringify(userInstallData),
+                'flossbank_user_data.json'
+              )}
+          >
+            Download Data
+            <Icon marginLeft='1rem' name='download' size='1.75rem' />
+          </FBButton>
+        </Box>
       </Section>
     </PageWrapper>
   )
