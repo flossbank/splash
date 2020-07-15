@@ -44,13 +44,17 @@ const Dashboard = () => {
     true
   )
 
-  const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(true)
+  const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(
+    true
+  )
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
   const [userSessionCount, setUserSessionCount] = useState(0)
   const [packagesTouched, setPackagesTouched] = useState(0)
-  const [donation, setDonation] = useState(user.billingInfo.monthlyDonation || 0)
+  const [donation, setDonation] = useState(
+    user.billingInfo.monthlyDonation || 0
+  )
   const [topTenPackages, setTopTenPackages] = useState([])
   const [userInstallData, setUserInstallData] = useState({})
 
@@ -169,7 +173,7 @@ const Dashboard = () => {
       <Section
         backgroundColor='lightRock'
         display={{ md: 'grid' }}
-        gridTemplateColumns={{ lg: 'minmax(20rem, 1fr) auto' }}
+        gridTemplateColumns={{ lg: 'minmax(16rem, 20rem) 1fr' }}
         gridColumnGap={{ md: '3rem' }}
         gridRowGap={{ base: '3rem', lg: '1.5rem' }}
         gridTemplateRows={{ lg: 'auto 3rem 3rem' }}
@@ -268,7 +272,6 @@ const Dashboard = () => {
           justifySelf='end'
           alignSelf='end'
           textAlign={{ base: 'center', md: 'right' }}
-          display={!userSessionCount ? 'none' : 'initial'}
         >
           <FBButton
             backgroundColor='lightPuddle'
@@ -277,10 +280,11 @@ const Dashboard = () => {
             borderRadius='0'
             color='ocean'
             fontSize='1.5rem'
-            onClick={() => downloadData(
-              JSON.stringify(userInstallData),
-              'flossbank_user_data.json'
-            )}
+            onClick={() =>
+              downloadData(
+                JSON.stringify(userInstallData),
+                'flossbank_user_data.json'
+              )}
           >
             Download Data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />
