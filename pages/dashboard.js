@@ -1,4 +1,11 @@
 import { useState, useEffect } from 'react'
+
+import {
+  fetchUserInstalledPackages,
+  fetchDonationInfo,
+  fetchUserSessionsInfo
+} from '../client'
+
 import {
   Text,
   Box,
@@ -10,17 +17,6 @@ import {
   Icon,
   Button
 } from '@chakra-ui/core'
-
-import {
-  BarChart,
-  Bar,
-  Label,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts'
 
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
@@ -35,13 +31,8 @@ import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import DashboardDataCard from '../components/dashboard/dashboardDataCard'
 import DonationCard from '../components/dashboard/donationCard'
-
-import {
-  fetchUserInstalledPackages,
-  fetchDonationInfo,
-  fetchUserSessionsInfo
-} from '../client'
 import TextLink from '../components/common/textLink'
+import TopTenPackagesView from '../components/dashboard/topTenPackagesView'
 
 const Dashboard = () => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useLocalStorage(
@@ -52,7 +43,9 @@ const Dashboard = () => {
     localStorageDashboardInstallReminderKey,
     true
   )
-  const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(true)
+  const [showInstallReminderLocal, setShowInstallReminderLocal] = useState(
+    true
+  )
   const [packagesTouchedLoading, setPackagesTouchedLoading] = useState(true)
   const [donationLoading, setDonationLoading] = useState(true)
   const [userSessionCountLoading, setUserSessionCountLoading] = useState(true)
@@ -91,7 +84,7 @@ const Dashboard = () => {
         setTopTenPackages(topTen)
       }
     } catch (e) {
-      setPackagesTouched('Error')
+      setPackagesTouched('N/A')
     } finally {
       setPackagesTouchedLoading(false)
     }
@@ -113,7 +106,7 @@ const Dashboard = () => {
         setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
       }
     } catch (e) {
-      setUserSessionCount('Error')
+      setUserSessionCount('N/A')
     } finally {
       setUserSessionCountLoading(false)
     }
@@ -135,13 +128,30 @@ const Dashboard = () => {
           </Text>
         </Banner>
       )}
-      {(showInstallReminder && showInstallReminderLocal) && (
-        <Banner icon='info' onCloseClick={() => setShowInstallReminderLocal(false)}>
+      {showInstallReminder && showInstallReminderLocal && (
+        <Banner
+          icon='info'
+          onCloseClick={() => setShowInstallReminderLocal(false)}
+        >
           <Text>
             Looks like you haven't installed the package manager wrapper yet.
-            Head over to <TextLink textDecoration='underline' fontWeight='bold' text='the install page' href='/install' /> to finish setting up and ensure
-            the packages you install are compensated. If you've already
-            installed, <TextLink textDecoration='underline' fontWeight='bold' href='#' onClick={() => setShowInstallReminder(false)} text='click here.' />
+            Head over to{' '}
+            <TextLink
+              textDecoration='underline'
+              fontWeight='bold'
+              text='the install page'
+              href='/install'
+            />{' '}
+            to finish setting up and ensure the packages you install are
+            compensated. If you've already installed,{' '}
+            {/* TODO (a11y): links go somewhere, they don't perform actions. onClick events shouldn't be used on links, so we should use a button here */}
+            <TextLink
+              textDecoration='underline'
+              fontWeight='bold'
+              href='#'
+              onClick={() => setShowInstallReminder(false)}
+              text='click here.'
+            />
           </Text>
         </Banner>
       )}
@@ -228,10 +238,11 @@ const Dashboard = () => {
                   <Button
                     color='ocean'
                     fontSize='2rem'
-                    onClick={() => downloadData(
-                      JSON.stringify(userInstallData),
-                      'flossbank_user_data.json'
-                    )}
+                    onClick={() =>
+                      downloadData(
+                        JSON.stringify(userInstallData),
+                        'flossbank_user_data.json'
+                      )}
                   >
                     Download Data
                     <Icon marginLeft='1rem' name='download' size='1.75rem' />
@@ -246,25 +257,7 @@ const Dashboard = () => {
             margin='0 0 0 2rem'
             display={['none', 'inline']}
           >
-            <ResponsiveContainer width='100%' height={500}>
-              <BarChart
-                data={topTenPackages}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5
-                }}
-              >
-                <CartesianGrid strokeDasharray='3 3' />
-                <XAxis dataKey='name' />
-                <YAxis>
-                  <Label angle={270} position='left' value='Count' />
-                </YAxis>
-                <Tooltip />
-                <Bar dataKey='count' fill='#2baf74' />
-              </BarChart>
-            </ResponsiveContainer>
+            <TopTenPackagesView topTenPackages={topTenPackages} />
           </Box>
         </Flex>
       </Section>
