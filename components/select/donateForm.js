@@ -166,7 +166,7 @@ const DonateForm = (props) => {
       <FBButton
         type='submit'
         isLoading={loading}
-        loadingText='Submitting payment information'
+        loadingText='Submitting...'
         fontWeight='bold'
         className='u-box-shadow'
       >

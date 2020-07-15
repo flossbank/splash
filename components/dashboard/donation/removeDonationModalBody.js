@@ -74,6 +74,7 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
         <FBButton
           onClick={handleDonorDowngrade}
           isLoading={isDeleting}
+          loadingText='Submitting...'
           className='u-box-shadow'
           backgroundColor='#b9423a'
           color='#ffe5e5'
