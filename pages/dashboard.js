@@ -255,6 +255,7 @@ const Dashboard = () => {
           justifySelf='end'
           alignSelf='end'
           textAlign={{ base: 'center', md: 'right' }}
+          display={!userSessionCount ? 'none' : 'initial'}
         >
           <FBButton
             backgroundColor='lightPuddle'
