@@ -1,4 +1,4 @@
-import got from '../../../api/fetch'
+import got from '../../../client/fetch'
 
 export default async (req, reply) => {
   const { amount, billingToken, last4 } = req.body

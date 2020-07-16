@@ -1,4 +1,4 @@
-import got from '../../../api/fetch'
+import got from '../../../client/fetch'
 
 export default async (req, reply) => {
   const { email, name, topic, body } = req.body
