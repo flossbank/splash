@@ -35,10 +35,13 @@ const SplashForDevelopers = (props) => {
           <Subheading textAlign={{ base: 'center', lg: 'left' }}>
             Seamlessly give back to the maintainers you rely on
           </Subheading>
-          <Text marginBottom='1rem'>
+          <Text>
             Flossbank provides a <strong>free and frictionless</strong> way to
             give back to Open Source maintainers, especially those who don’t
-            have time for self promotion. (<TextLink text='How is that possible?' href='/how-it-works' />)
+            have time for self promotion.
+          </Text>
+          <Text marginBottom='1rem'>
+            (<TextLink text='How is that possible?' href='/how-it-works' />)
           </Text>
           <Text marginBottom='1rem'>
             By installing our package manager wrapper, you support maintainers across the entire

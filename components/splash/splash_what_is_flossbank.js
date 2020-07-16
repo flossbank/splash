@@ -40,11 +40,13 @@ const SplashWhatIsFlossbank = () => {
         </Subheading>
         <Text
           maxW={{ lg: '45ch' }}
-          marginBottom='2rem'
           textAlign={{ base: 'left', sm: 'center', lg: 'left' }}
         >
           We use ad revenue and monthly donations to support <strong>all</strong> the maintainers
-          of the packages you install. (<TextLink text='All of them?' href='/how-it-works' />)
+          of the packages you install.
+        </Text>
+        <Text marginBottom='2rem' fontWeight='500'>
+          (<TextLink text='All of them?' href='/how-it-works' />)
         </Text>
         <WhatIsFBCards />
         <Flex justify={{ base: 'center', lg: 'flex-start' }} align='center'>
