@@ -37,6 +37,7 @@ module.exports = withSass({
       process.env.NODE_ENV === 'production'
         ? 'https://api.flossbank.com'
         : 'https://api.flossbank.io',
+    STAGING_API_HOST: 'https://api.flossbank.io',
     NEXT_PUBLIC_STRIPE_KEY: process.env.NODE_ENV === 'production'
       ? 'pk_live_KSFYqPCzV6zNSzDyYlIijaiI00v7UCvGGS'
       : 'pk_test_Kz9yyhpVG7OVp9ejZChlxUKw00ccsj7tcR',
