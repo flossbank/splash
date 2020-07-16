@@ -68,9 +68,9 @@ const optionsWithPostBody = (body) => {
   return {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
   }
 }
 
@@ -78,20 +78,20 @@ const optionsWithPutBody = (body) => {
   return {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
   }
 }
 
 const optionsDeleteRequest = () => {
   return {
-    method: 'DELETE',
+    method: 'DELETE'
   }
 }
 
 const optionsGetRequest = () => {
   return {
-    method: 'GET',
+    method: 'GET'
   }
 }

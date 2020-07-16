@@ -9,4 +9,3 @@ export default got.extend({
     'x-requested-with': 'XmlHttpRequest'
   }
 })
-

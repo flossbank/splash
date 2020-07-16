@@ -11,4 +11,3 @@ export default async (req, reply) => {
     reply.status(e.response.statusCode || 500).send(e.response.body)
   }
 }
-

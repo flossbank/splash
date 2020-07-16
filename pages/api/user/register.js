@@ -4,7 +4,7 @@ export default async (req, reply) => {
   const { email } = req.body
   try {
     const response = await got.post('user/register', {
-      json: { email },
+      json: { email }
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {
@@ -12,4 +12,3 @@ export default async (req, reply) => {
     reply.status(e.response.statusCode || 500).send(e.response.body)
   }
 }
-

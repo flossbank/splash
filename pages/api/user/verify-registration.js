@@ -4,7 +4,7 @@ export default async (req, reply) => {
   const { email, recaptchaResponse, token } = req.body
   try {
     const response = await got.post('user/verify-registration', {
-      json: { email, recaptchaResponse, token },
+      json: { email, recaptchaResponse, token }
     })
     const headers = response.headers
     if (headers && headers['set-cookie']) {
@@ -16,4 +16,3 @@ export default async (req, reply) => {
     reply.status(e.response.statusCode || 500).send(e.response.body)
   }
 }
-
