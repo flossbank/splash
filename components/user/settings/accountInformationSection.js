@@ -98,8 +98,6 @@ const AccountInformationSection = ({ user }) => {
             color='#ffe5e5'
             className='u-box-shadow'
             padding='1rem'
-            // display="flex"
-            // alignItems="center"
             height='auto'
             lineHeight='1.2'
             borderRadius='5px'
