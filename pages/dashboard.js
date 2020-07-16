@@ -263,12 +263,17 @@ const Dashboard = () => {
             </List>
           </Box>
         </Box>
-        <Box width='100%' display={{ base: 'none', sm: 'initial' }}>
+        <Box
+          width='100%'
+          display={{ base: 'none', sm: 'initial' }}
+          gridRow='1 / span 2'
+          gridColumn='2'
+        >
           <TopTenPackagesView topTenPackages={topTenPackages} />
         </Box>
         <Box
           marginTop={{ base: '3rem', lg: '0' }}
-          gridRow='2 / span 1'
+          gridRow='3 / span 1'
           gridColumn='2'
           justifySelf='end'
           alignSelf='end'
