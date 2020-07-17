@@ -60,7 +60,7 @@ const SelectTierSection = () => {
         <Box width='100%'>
           <h1 className='sr-only'>Select your level of support</h1>
           <StepperSection steps={steps} currentStep={2} />}
-          <UnderlinedHeading text='Select' align='center' />
+          <UnderlinedHeading marginBottom='0' text='Select' align='center' />
           <Box
             textAlign={{ base: 'center' }}
             maxW='50rem'

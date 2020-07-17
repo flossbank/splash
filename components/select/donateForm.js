@@ -111,7 +111,7 @@ const DonateForm = (props) => {
           color='boulder'
           marginBottom={{ base: '1.5rem', md: 0 }}
         >
-          Monthly Contribution (<strong>USD</strong>)
+          Monthly Donation (USD)
           <Box display='flex' alignItems='center' marginTop='.5rem'>
             <Box as='span' aria-hidden='true' padding='.5rem' fontWeight='bold'>
               $
@@ -170,7 +170,7 @@ const DonateForm = (props) => {
         fontWeight='bold'
         className='u-box-shadow'
       >
-        Save and continue
+        Submit
       </FBButton>
     </Box>
   )

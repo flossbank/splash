@@ -38,7 +38,7 @@ const SplashForDevelopers = (props) => {
           <Text marginBottom='1rem'>
             Flossbank provides a <strong>free and frictionless</strong> way to
             give back to Open Source maintainers, especially those who don’t
-            have time for self promotion. (<TextLink text='How is that possible?' href='/how-it-works' />)
+            have time for self-promotion. <TextLink text="Here's how that's possible." href='/how-it-works' />
           </Text>
           <Text marginBottom='1rem'>
             By installing our package manager wrapper, you support maintainers across the entire
@@ -60,15 +60,14 @@ const SplashForDevelopers = (props) => {
             className='u-box-shadow'
             padding='.75rem'
             minW='10rem'
-            margin='0 0 2rem'
+            margin='2rem 0 2rem'
           >
             Sign Up
           </LinkBtn>
           <Text>Are you an author or maintainer?</Text>
           <Text>
             {/* TODO: add actual url for beta list */}
-            <TextLink text='Contact us ' href='/contact' fontWeight='bold' />
-            to get on our beta list.
+            <TextLink text='Contact us' href='/contact' fontWeight='bold' /> to get on our beta list.
           </Text>
         </Flex>
       </Box>

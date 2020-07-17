@@ -45,6 +45,7 @@ const AuthNav = ({ user, onLogout }) => {
           {!isOpen && setIsExpanded(false)}
           <MenuButton
             as={Button}
+            height='auto'
             aria-label='User menu'
             borderRadius='0'
             _hover={menuButtonActiveStyles}

@@ -135,7 +135,7 @@ const Dashboard = () => {
       <h1 className='sr-only'>User dashboard</h1>
       {showWelcomeMessage && (
         <Banner icon='hooray' onCloseClick={() => setShowWelcomeMessage(false)}>
-          <Text>
+          <Text color='rock'>
             Thanks for installing Flossbank! You can log in at any time to see
             the impact you have on the Open Source community. We're always
             working on more features, hoping to create a vibrant Open Source
@@ -148,7 +148,7 @@ const Dashboard = () => {
           icon='info'
           onCloseClick={() => setShowInstallReminderLocal(false)}
         >
-          <Text>
+          <Text color='rock'>
             Looks like you haven't installed the package manager wrapper yet.
             Head over to{' '}
             <TextLink
@@ -208,7 +208,7 @@ const Dashboard = () => {
                   {!userSessionCountLoading && (
                     <Text
                       aria-describedby='user-session-count'
-                      fontSize='2.25rem'
+                      fontSize='2.5rem'
                       color='ocean'
                     >
                       {userSessionCount}
@@ -217,10 +217,10 @@ const Dashboard = () => {
                   <Heading
                     as='h3'
                     fontSize='1rem'
-                    fontWeight='400'
+                    fontWeight='normal'
                     id='user-session-count'
                   >
-                    {userSessionCount !== 1 ? 'Installs' : 'Install'} performed
+                    {userSessionCount !== 1 ? 'Installations' : 'Installation'} performed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
@@ -232,7 +232,7 @@ const Dashboard = () => {
                   {!packagesTouchedLoading && (
                     <Text
                       aria-describedby='packages-touched'
-                      fontSize='2.25rem'
+                      fontSize='2.5rem'
                       color='ocean'
                     >
                       {packagesTouched}
@@ -241,10 +241,10 @@ const Dashboard = () => {
                   <Heading
                     as='h3'
                     fontSize='1rem'
-                    fontWeight='400'
+                    fontWeight='normal'
                     id='user-session-count'
                   >
-                    Unique packages used
+                    Unique packages installed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
