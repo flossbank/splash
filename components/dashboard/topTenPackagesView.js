@@ -50,6 +50,7 @@ const TopTenPackagesView = ({ topTenPackages }) => (
       <Icon name='duotoneStar' size='2em' marginRight='.5em' marginTop='-0.5em' />
       <Heading
         textTransform='uppercase'
+        letterSpacing='1px'
         fontWeight='bold'
         marginTop='0'
         fontSize='1rem'

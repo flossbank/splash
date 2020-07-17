@@ -180,6 +180,7 @@ const Dashboard = () => {
         <Box gridRow='1 / span 3' gridColumn='1'>
           <Heading
             textTransform='uppercase'
+            letterSpacing='1px'
             fontWeight='bold'
             marginTop='0'
             fontSize='1rem'
