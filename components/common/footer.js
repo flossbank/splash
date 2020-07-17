@@ -12,12 +12,12 @@ const loggedOutLinks = [
     text: 'About Us'
   },
   {
-    url: '/how-it-works',
-    text: 'How It Works'
+    url: '/faq',
+    text: 'FAQs'
   },
   {
-    url: '/contact',
-    text: 'Contact Us'
+    url: '/how-it-works',
+    text: 'How It Works'
   },
   {
     url: '/login',
@@ -62,7 +62,7 @@ const Footer = () => {
         <List className={styles.list}>
           {links.map((link, i) => (
             <ListItem key={i}>
-              <TextLink href={link.url} text={link.text} color='white' />
+              <TextLink href={link.url} text={link.text} color='white' padding='.25rem' />
             </ListItem>
           ))}
         </List>
