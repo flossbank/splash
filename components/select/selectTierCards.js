@@ -82,7 +82,7 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
         top='0'
         width='100%'
         letterSpacing='2px'
-        fontSize='.75rem'
+        fontSize='.85rem'
       >
         Recommended
       </Text>

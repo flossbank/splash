@@ -59,7 +59,7 @@ const TopTenPackagesView = ({ topTenPackages }) => (
         display='flex'
         alignItems='center'
       >
-        Top Packages
+        Most Installed Packages
       </Heading>
     </Flex>
     <DashboardDataCard

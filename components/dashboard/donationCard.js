@@ -64,10 +64,11 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
         )}
         <UnderlinedHeading
           as='h3'
+          fontSize='1rem'
           fontWeight='normal'
           textTransform='none'
           id='donation-amt'
-          text='Donated monthly'
+          text='Monthly donation'
           align='left'
           lineColor='white'
           marginBottom='0.5rem'

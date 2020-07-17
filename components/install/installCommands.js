@@ -59,9 +59,9 @@ const InstallCommand = ({ system, commandText, sourceURL }) => {
         <span className='sr-only'>command for {system}</span>
         <Icon name='copy' size='1rem' marginLeft='.5rem' />
       </FBButton>
-      <Alert status='info' marginTop='1rem'>
-        <AlertIcon />
-        <TextLink text='Take a look at the source' external href={sourceURL} />
+      <Alert paddingTop='0' paddingLeft='2rem' status='info' marginTop='1rem' backgroundColor='none'>
+        <AlertIcon size='1rem' />
+        <TextLink text='Take a look at the source' color='rock' fontSize='0.85rem' external href={sourceURL} />
       </Alert>
     </Box>
   )

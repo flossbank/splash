@@ -215,7 +215,7 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='0.9rem'
+                    fontSize='1rem'
                     fontWeight='normal'
                     id='user-session-count'
                   >
@@ -239,7 +239,7 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='0.9rem'
+                    fontSize='1rem'
                     fontWeight='normal'
                     id='user-session-count'
                   >
