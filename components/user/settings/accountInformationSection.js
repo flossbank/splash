@@ -81,11 +81,10 @@ const AccountInformationSection = ({ user }) => {
             backgroundColor='puddle'
             color='ocean'
             borderRadius='5px'
-            height='2.5rem'
             display='inline-flex'
             alignItems='center'
             justifyContent='center'
-            padding='1.5rem'
+            padding='1rem'
             className='u-box-shadow'
             fontWeight='600'
             lineHeight='1.2'
@@ -97,8 +96,10 @@ const AccountInformationSection = ({ user }) => {
             backgroundColor='#b9423a'
             color='#ffe5e5'
             className='u-box-shadow'
+            padding='1rem'
+            height='auto'
+            lineHeight='1.2'
             borderRadius='5px'
-            padding='1.5rem'
             transition='all 300ms ease-in-out'
             _hover={{
               backgroundColor: '#ffe5e5',
@@ -112,7 +113,7 @@ const AccountInformationSection = ({ user }) => {
             ref={finalRef}
             onClick={onOpen}
           >
-            Deactivate Account
+            <span>Deactivate Account</span>
           </Button>
         </Flex>
       </SettingsCard>

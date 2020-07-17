@@ -64,7 +64,9 @@ const BillingInformationSection = ({ user }) => {
           color='ocean'
           className='u-box-shadow'
           borderRadius='5px'
-          padding='1.5rem'
+          padding='1rem'
+          height='auto'
+          lineHeight='1.2'
           transition='all 300ms ease-in-out'
           _hover={{
             backgroundColor: 'ocean',
