@@ -37,7 +37,7 @@ const HowItWorks = () => (
           replaced with the default installation output.
         </Text>
         <Box>
-          <Image src='/images/flossbank_ads_demo.gif' margin='1.5rem auto' />
+          <Image src='/images/flossbank_ads_demo.gif' margin='1.5rem auto' alt="GIF showing the process of installing packages when the Flossbank wrapper is installed." />
         </Box>
         <Text marginBottom='1.5rem'>
           Alternatively, if a donation is chosen as your method of giving back
