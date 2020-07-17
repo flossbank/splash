@@ -43,7 +43,7 @@ const HowItWorks = () => (
           Alternatively, if a donation is chosen as your method of giving back
           to the Open Source community, 97% of the donation (after processing
           fees) is passed along to the maintainers of the Open Source packages
-          installed. You can edit, delete, or up your donation at any time
+          installed and no ads will be shown. You can change or delete your donation at any time
           within the user portal. Additionally, within your user portal you'll
           be able to see your top 10 most frequently installed packages
           throughout your daily work flow (they might surprise you!) and will
@@ -64,7 +64,7 @@ const HowItWorks = () => (
           tree.
         </Text>
         <Divider />
-        <FAQHeading>How is donation revenue I generate distributed?</FAQHeading>
+        <FAQHeading>How are donations distributed?</FAQHeading>
         <Text marginBottom='1rem'>
           Just as we do with ads, we distribute the revenue all the way down the
           dependency tree of each open source package you install. Unlike ad
