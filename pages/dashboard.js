@@ -152,7 +152,6 @@ const Dashboard = () => {
             Looks like you haven't installed the package manager wrapper yet.
             Head over to{' '}
             <TextLink
-              textDecoration='underline'
               fontWeight='bold'
               text='the install page'
               href='/install'
@@ -161,7 +160,6 @@ const Dashboard = () => {
             compensated. If you've already installed,{' '}
             {/* TODO (a11y): links go somewhere, they don't perform actions. onClick events shouldn't be used on links, so we should use a button here */}
             <TextLink
-              textDecoration='underline'
               fontWeight='bold'
               href='#'
               onClick={() => setShowInstallReminder(false)}
@@ -209,8 +207,7 @@ const Dashboard = () => {
                   {!userSessionCountLoading && (
                     <Text
                       aria-describedby='user-session-count'
-                      fontSize='2rem'
-                      fontWeight='bold'
+                      fontSize='2.25rem'
                       color='ocean'
                     >
                       {userSessionCount}
@@ -218,11 +215,11 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='1.15rem'
-                    fontWeight='500'
+                    fontSize='1rem'
+                    fontWeight='400'
                     id='user-session-count'
                   >
-                    Installs Performed
+                    {userSessionCount !== 1 ? 'Installs' : 'Install'} performed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
@@ -234,8 +231,7 @@ const Dashboard = () => {
                   {!packagesTouchedLoading && (
                     <Text
                       aria-describedby='packages-touched'
-                      fontSize='2rem'
-                      fontWeight='bold'
+                      fontSize='2.25rem'
                       color='ocean'
                     >
                       {packagesTouched}
@@ -243,11 +239,11 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='1.15rem'
-                    fontWeight='500'
+                    fontSize='1rem'
+                    fontWeight='400'
                     id='user-session-count'
                   >
-                    Unique Packages Touched
+                    Unique packages used
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
@@ -275,16 +271,14 @@ const Dashboard = () => {
           textAlign={{ base: 'center', md: 'right' }}
         >
           <FBButton
-            backgroundColor='lightPuddle'
-            border='1px solid !important'
-            textTransform='uppercase'
+            backgroundColor='transparent'
+            fontWeight='600'
             borderRadius='0'
             color='ocean'
-            fontSize='1.5rem'
             onClick={() =>
               downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
           >
-            Download Data
+            Download data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />
           </FBButton>
         </Box>

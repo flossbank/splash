@@ -38,8 +38,8 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
         {!donationLoading && (
           <Flex align='center' justify='space-between'>
             <Text
-              fontSize='2rem'
-              fontWeight='bold'
+              fontSize='2.25rem'
+              // fontWeight='bold'
               letterSpacing='3px'
               marginRight='2rem'
             >
@@ -58,7 +58,7 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
                 outlineColor: 'currentColor !important'
               }}
               aria-label='Edit monthly donation'
-              icon='edit'
+              icon='pencil'
               title='Edit monthly donation'
             />
           </Flex>
@@ -66,7 +66,9 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
         <UnderlinedHeading
           as='h3'
           id='donation-amt'
-          text='Monthly Donation'
+          text='Donated monthly'
+          textTransform='none'
+          fontWeight='500'
           align='left'
           lineColor='white'
           marginBottom='1rem'

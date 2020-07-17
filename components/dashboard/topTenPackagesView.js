@@ -17,9 +17,7 @@ const TopTenPlaceholder = () => (
   <>
     <Icon name='bars' size='15rem' marginBottom='3rem' />
     <Text>
-      Once you've installed <strong>Flossbank</strong> and start installing Open
-      Source packages, you'll be able to see data about the top ten packages you
-      use.
+      Once you've installed the package manager, you'll be able to see data about your top packages.
     </Text>
   </>
 )
@@ -60,7 +58,7 @@ const TopTenPackagesView = ({ topTenPackages }) => (
         display='flex'
         alignItems='center'
       >
-        Top Ten Packages Used
+        Top Packages
       </Heading>
     </Flex>
     <DashboardDataCard

@@ -82,7 +82,8 @@ const AuthNav = ({ user, onLogout }) => {
             />
           </MenuButton>
           <MenuList backgroundColor='lightRock'>
-            <MenuItem
+            {/* TODO: commenting these out for now in case we decide to add them back, but I agree with Eryn that they aren't needed */}
+            {/* <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/dashboard')}
@@ -93,8 +94,8 @@ const AuthNav = ({ user, onLogout }) => {
                   Dashboard
                 </a>
               </Link>
-            </MenuItem>
-            <MenuItem
+            </MenuItem> */}
+            {/* <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/faq')}
@@ -105,8 +106,8 @@ const AuthNav = ({ user, onLogout }) => {
                   FAQ
                 </a>
               </Link>
-            </MenuItem>
-            <MenuItem
+            </MenuItem> */}
+            {/* <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/how-it-works')}
@@ -117,7 +118,7 @@ const AuthNav = ({ user, onLogout }) => {
                   How It Works
                 </a>
               </Link>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
@@ -125,8 +126,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/user/settings'>
                 <a>
-                  <Icon name='settings' marginRight='.5rem' />
-                  Settings
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='settings' marginRight='.5rem' />
+                    <span>Settings</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>
@@ -137,8 +140,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/'>
                 <a>
-                  <Icon name='unlock' marginRight='.5rem' />
-                  Log Out
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='unlock' marginRight='.5rem' />
+                    <span>Log out</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>

@@ -1,4 +1,13 @@
 export default {
+  pencil: {
+    path: (
+      <g>
+        <path fill='currentColor' d='M46.16 257.76v55.78h55.77l164.58-164.58-55.78-55.77L46.16 257.76z' />
+        <path fill='currentColor' d='M309.49 84.93L274.76 50.2a14.9 14.9 0 00-21 0L226.5 77.42l55.77 55.78 27.22-27.2a14.91 14.91 0 000-21.07z' />
+      </g>
+    ),
+    viewBox: '0 0 360 360'
+  },
   duotoneStar: {
     path: (
       <g>
