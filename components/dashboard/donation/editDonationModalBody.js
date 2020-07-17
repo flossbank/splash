@@ -36,8 +36,7 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   const stripe = useStripe()
   const elements = useElements()
 
-  const handleNewAmount = (e) => {
-    const amount = Number(e.target.value)
+  const handleNewAmount = (amount) => {
     if (amount < 5) {
       setAmountError('Donation must be at least $5')
       return
@@ -63,19 +62,12 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
       return
     }
 
-    let token
-    try {
-      const cardElement = elements.getElement(CardElement)
-      const res = await stripe.createToken(cardElement)
-      token = res.token
-    } catch (e) {
-      setSubmitError(e.message)
-      return
-    }
+    const cardElement = elements.getElement(CardElement)
+    const res = await stripe.createToken(cardElement)
+    const token = res.token
 
     if (!token) {
-      setSubmitError('Invalid credit card information')
-      return
+      throw new Error('Invalid credit card information')
     }
 
     try {
@@ -86,16 +78,14 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
         seeAds: showAds
       })
       if (!response.success) {
-        setSubmitError('Donation failed')
-        return
+        throw new Error('Donation failed')
       }
     } catch (e) {
       switch (e.status) {
         case 409:
-          await updateDonationLocal()
-          break
+          return updateDonationLocal()
         default:
-          setSubmitError('Donation failed')
+          throw new Error('Donation failed')
       }
     }
   }
@@ -107,7 +97,17 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
     })
   }
 
+  const validateForm = () => {
+    if (newAmount < 5) {
+      setSubmitError('Donation must be above ')
+      return false
+    }
+    return true
+  }
+
   const handleSaveChanges = async () => {
+    const valid = validateForm()
+    if (!valid) return
     setSubmitLoading(true)
     setSubmitError('')
     try {
@@ -188,6 +188,8 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
                     defaultValue={donationAmount}
                     min={5}
                     max={10000}
+                    onChange={handleNewAmount}
+                    clampValueOnBlur={false}
                     color='boulder'
                     id='amount'
                     padding='0'
@@ -198,7 +200,6 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
                       marginTop='0'
                       maxW='8ch'
                       padding='.5rem'
-                      onChange={handleNewAmount}
                       border='1px solid transparent !important'
                     />
                   </NumberInput>
