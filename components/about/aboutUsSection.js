@@ -89,7 +89,7 @@ const AboutUsSection = () => (
           package installed, not only the top level packages. What’s more, your
           contribution to the Open Source community reflects your usage each
           month. Your donation goes to the packages you used the most each month
-          (and to their dependencies) and ads are hidden.
+          (and to their dependencies).
         </Text>
         <Text marginBottom='1rem'>
           We’re super excited about this product and think it’s a small step in
