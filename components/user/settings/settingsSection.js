@@ -19,7 +19,7 @@ const UserSettingsSection = () => {
     >
       <UnderlinedHeading
         as='h1'
-        text='User Settings'
+        text='Settings'
         align='center'
         marginBottom='3rem'
       />

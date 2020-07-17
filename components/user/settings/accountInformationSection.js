@@ -91,7 +91,6 @@ const AccountInformationSection = ({ user }) => {
             lineHeight='1.2'
             transition='all 300ms ease-in-out'
           >
-            <Icon name='add' size='1rem' marginRight='1rem' />
             Install Flossbank
           </LinkBtn>
           <Button
@@ -113,7 +112,6 @@ const AccountInformationSection = ({ user }) => {
             ref={finalRef}
             onClick={onOpen}
           >
-            <Icon name='delete' size='1rem' marginRight='1rem' />
             Deactivate Account
           </Button>
         </Flex>
