@@ -1,10 +1,11 @@
-import { Box, Text, Code } from '@chakra-ui/core'
+import { Box, Text, Code, useClipboard, Icon } from '@chakra-ui/core'
 import { useEffect, useState } from 'react'
 
 import StepperSection from '../common/stepperSection'
 import { startNewCLIInstall } from '../../client'
 import TextLink from '../common/textLink'
 import Card from '../common/card'
+import FBButton from '../common/fbButton'
 import InstallCommands from './installCommands'
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
@@ -44,6 +45,8 @@ InstallInstructions.propTypes = {
 }
 
 const PostInstallInstructions = ({ noAds }) => {
+  const { onCopy, hasCopied } = useClipboard('npm install standard')
+
   const topText = noAds
     ? 'Thanks for choosing to support the Open Source community!'
     : "Let's try it out!"
@@ -75,15 +78,40 @@ const PostInstallInstructions = ({ noAds }) => {
             Try opening a new terminal window/tab and installing a package with{' '}
             <code>npm</code>:
           </Text>
-          <Code
-            padding='1rem'
-            marginBottom='1rem'
-            backgroundColor='lightRock'
-            color='boulder'
-            width='100%'
-          >
-            npm install standard
-          </Code>
+          <Box position='relative'>
+            <Code
+              padding='1rem'
+              backgroundColor='lightRock'
+              color='boulder'
+              width='100%'
+            >
+              npm install standard
+            </Code>
+            <FBButton
+              // hide on mobile
+              display={{ base: 'none', md: 'flex' }}
+              alignItems='center'
+              onClick={onCopy}
+              padding='.5rem'
+              fontSize='.85rem'
+              minW='5rem'
+              backgroundColor='puddle'
+              color='ocean'
+              position='absolute'
+              right='0'
+              top='.5rem'
+              borderRadius='0'
+              aria-live='assertive'
+              _hover={{
+                backgroundColor: 'ocean',
+                color: 'white'
+              }}
+            >
+              {hasCopied ? 'Copied' : 'Copy'}{' '}
+              <span className='sr-only'>command to npm install standard</span>
+              <Icon name='copy' size='1rem' marginLeft='.5rem' />
+            </FBButton>
+          </Box>
           <Text marginBottom='2rem'>
             You should see an ad or two during installation! If you don't, it's
             not your fault.{' '}
