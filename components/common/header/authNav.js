@@ -56,6 +56,7 @@ const AuthNav = ({ user, onLogout }) => {
               display={{ base: 'none', sm: 'initial' }}
               fontWeight='500'
               marginRight='1rem'
+              fontSize='0.80rem'
             >
               {user.email}
             </Box>

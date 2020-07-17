@@ -49,7 +49,6 @@ const TopTenChart = ({ topTenPackages }) => (
 const TopTenPackagesView = ({ topTenPackages }) => (
   <>
     <Flex flexDirection='row'>
-      <Icon name='duotoneStar' size='2em' marginRight='.5em' marginTop='-0.5em' />
       <Heading
         textTransform='uppercase'
         fontWeight='bold'
@@ -60,7 +59,7 @@ const TopTenPackagesView = ({ topTenPackages }) => (
         display='flex'
         alignItems='center'
       >
-        Top Ten Packages Used
+        Top Packages
       </Heading>
     </Flex>
     <DashboardDataCard
