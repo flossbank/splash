@@ -42,7 +42,7 @@ const cardsContent = [
     ]
   },
   {
-    title: 'Donate Monthly',
+    title: 'Contribute Monthly',
     subtitle: 'Donate directly to Open Source',
     donation: true,
     linkToModal: false,
@@ -74,14 +74,15 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
         backgroundColor='puddle'
         color='ocean'
         textAlign='center'
+        fontWeight='400'
         padding='.25rem'
         textTransform='uppercase'
         position='absolute'
         left='0'
         top='0'
         width='100%'
-        letterSpacing='1px'
-        fontSize='.85rem'
+        letterSpacing='2px'
+        fontSize='.75rem'
       >
         Recommended
       </Text>
@@ -92,7 +93,7 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
       <Text marginBottom='2rem'>
         {tier.description}
         {tier.linkToModal && (
-          <TextLink href='#' text='What do they look like?' onClick={onModalOpen} />
+          <TextLink href='#' text="Here's what that looks like." onClick={onModalOpen} />
         )}
       </Text>
       <LinkBtn
