@@ -46,8 +46,9 @@ const Card = ({ icon, text, heading }) => (
       lineColor='ocean'
       textTransform='none'
       fontWeight='600'
-    />
-    <Icon name={icon} size='1.25rem' margin='.3rem .5rem .3rem 0' />
+    >
+      <Icon name={icon} size='1.25rem' margin='.3rem .5rem .3rem 0' />
+    </UnderlinedHeading>
     <p>{text}</p>
   </ListItem>
 )
