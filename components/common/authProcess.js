@@ -139,8 +139,7 @@ const AuthProcess = ({
           <Box
             width='100%'
             maxW='30rem'
-            textAlign={{ base: 'center', lg: 'left' }}
-            paddingLeft={{ lg: '3.125rem' }}
+            textAlign='center'
           >
             <Text>
               {otherProcessText}{' '}
