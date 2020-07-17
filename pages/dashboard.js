@@ -241,10 +241,10 @@ const Dashboard = () => {
                   <Heading
                     as='h3'
                     fontSize='1rem'
-                    fontWeight='400'
+                    fontWeight='normal'
                     id='user-session-count'
                   >
-                    Unique packages used
+                    Unique packages installed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>

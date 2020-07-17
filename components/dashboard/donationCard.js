@@ -65,6 +65,7 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
         <UnderlinedHeading
           as='h3'
           fontSize='1rem'
+          letterSpacing='0'
           fontWeight='normal'
           textTransform='none'
           id='donation-amt'
