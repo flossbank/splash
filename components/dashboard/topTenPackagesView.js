@@ -25,7 +25,7 @@ const TopTenPlaceholder = () => (
 )
 
 const TopTenChart = ({ topTenPackages }) => (
-  <ResponsiveContainer width='100%' height='100%'>
+  <ResponsiveContainer width='100%' height={490}>
     <BarChart
       data={topTenPackages}
       margin={{
