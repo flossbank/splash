@@ -90,7 +90,7 @@ const SelectTierSection = () => {
           <ModalHeader>Flossbank Ad Demo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Image margin='auto' src='/images/flossbank_ads_demo.gif' alt="GIF showing the process of installing packages when the Flossbank wrapper is installed." />
+            <Image margin='auto' src='/images/flossbank_ads_demo.gif' alt='GIF showing the process of installing packages when the Flossbank wrapper is installed.' />
           </ModalBody>
         </ModalContent>
       </Modal>
