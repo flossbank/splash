@@ -26,6 +26,10 @@ const cardsContent = [
       'During installation of Open Source packages, see curated tech advertisements. ',
     features: [
       {
+        icon: 'check',
+        title: 'Support entire dependency tree'
+      },
+      {
         icon: 'close',
         iconAlt: 'not',
         title: 'Ad-free'
@@ -34,10 +38,6 @@ const cardsContent = [
         icon: 'close',
         iconAlt: 'cannot',
         title: 'Set contribution amount'
-      },
-      {
-        icon: 'check',
-        title: 'Support entire dependency tree'
       }
     ]
   },
@@ -53,15 +53,15 @@ const cardsContent = [
     features: [
       {
         icon: 'check',
+        title: 'Support entire dependency tree'
+      },
+      {
+        icon: 'check',
         title: 'Ad-free'
       },
       {
         icon: 'check',
         title: 'Set contribution amount'
-      },
-      {
-        icon: 'check',
-        title: 'Support entire dependency tree'
       }
     ]
   }
