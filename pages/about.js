@@ -8,7 +8,7 @@ const About = () => (
     description='Learn how Flossbank works to help you support Open Source maintainers based on your dependency tree.'
   >
     <AboutUsSection />
-    <ContactSection />
+    <ContactSection hideHeading />
   </PageWrapper>
 )
 

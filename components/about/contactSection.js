@@ -3,9 +3,11 @@ import { useState } from 'react'
 
 import Section from '../common/section'
 import Card from '../common/card'
+import UnderlinedHeading from '../common/underlinedHeading'
+
 import ContactForm from './contactForm'
 
-const ContactSection = ({ ...props }) => {
+const ContactSection = ({ contactPage, hideHeading, ...props }) => {
   const [formSubmit, setFormSubmit] = useState(false)
 
   const contactFormSubmitted = () => {
@@ -22,6 +24,7 @@ const ContactSection = ({ ...props }) => {
       backgroundColor='white'
       {...props}
     >
+      <UnderlinedHeading as={contactPage ? 'h1' : 'h2'} className={hideHeading ? 'sr-only' : ''} text='Contact Us' align='center' />
       <Card shadowSz='lg' w='100%' maxW='45rem'>
         {!formSubmit && (
           <Text
