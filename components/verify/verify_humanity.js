@@ -82,17 +82,17 @@ const VerifyHumanity = () => {
       >
         <UnderlinedHeading text='Verify' align='center' aria-hidden='true' />
         <Subheading>No robots allowed</Subheading>
-        <Text marginBottom='1rem'>
-          On behalf of the Open Source community, thank you for installing!
+        <Text marginBottom='0.5rem'>
+          On behalf of the Open Source community, thank you for signing up!
           &hearts;
         </Text>
         {!hasError && (
-          <Text fontWeight='bold' marginBottom='1.5rem' color='ocean'>
+          <Text marginBottom='1.5rem'>
             {status}
           </Text>
         )}
         {showCaptcha && (
-          <Flex direction='row' justify='center' marginTop='3rem'>
+          <Flex direction='row' justify='center' marginTop='3rem' marginBottom='3rem'>
             <Recaptcha
               render='explicit'
               onloadCallback={() =>

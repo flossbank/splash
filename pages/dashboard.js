@@ -135,7 +135,7 @@ const Dashboard = () => {
       <h1 className='sr-only'>User dashboard</h1>
       {showWelcomeMessage && (
         <Banner icon='hooray' onCloseClick={() => setShowWelcomeMessage(false)}>
-          <Text>
+          <Text color='rock'>
             Thanks for installing Flossbank! You can log in at any time to see
             the impact you have on the Open Source community. We're always
             working on more features, hoping to create a vibrant Open Source
@@ -148,11 +148,10 @@ const Dashboard = () => {
           icon='info'
           onCloseClick={() => setShowInstallReminderLocal(false)}
         >
-          <Text>
+          <Text color='rock'>
             Looks like you haven't installed the package manager wrapper yet.
             Head over to{' '}
             <TextLink
-              textDecoration='underline'
               fontWeight='bold'
               text='the install page'
               href='/install'
@@ -161,7 +160,6 @@ const Dashboard = () => {
             compensated. If you've already installed,{' '}
             {/* TODO (a11y): links go somewhere, they don't perform actions. onClick events shouldn't be used on links, so we should use a button here */}
             <TextLink
-              textDecoration='underline'
               fontWeight='bold'
               href='#'
               onClick={() => setShowInstallReminder(false)}
@@ -209,8 +207,7 @@ const Dashboard = () => {
                   {!userSessionCountLoading && (
                     <Text
                       aria-describedby='user-session-count'
-                      fontSize='2rem'
-                      fontWeight='bold'
+                      fontSize='2.5rem'
                       color='ocean'
                     >
                       {userSessionCount}
@@ -218,11 +215,11 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='1.15rem'
-                    fontWeight='500'
+                    fontSize='1rem'
+                    fontWeight='normal'
                     id='user-session-count'
                   >
-                    Installs Performed
+                    Installations performed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
@@ -234,8 +231,7 @@ const Dashboard = () => {
                   {!packagesTouchedLoading && (
                     <Text
                       aria-describedby='packages-touched'
-                      fontSize='2rem'
-                      fontWeight='bold'
+                      fontSize='2.5rem'
                       color='ocean'
                     >
                       {packagesTouched}
@@ -243,11 +239,11 @@ const Dashboard = () => {
                   )}
                   <Heading
                     as='h3'
-                    fontSize='1.15rem'
-                    fontWeight='500'
+                    fontSize='1rem'
+                    fontWeight='normal'
                     id='user-session-count'
                   >
-                    Unique Packages Touched
+                    Unique packages installed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>

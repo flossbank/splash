@@ -39,12 +39,12 @@ const SplashWhatIsFlossbank = () => {
           The equitable way to support Open Source
         </Subheading>
         <Text
-          maxW={{ lg: '45ch' }}
+          maxW={{ lg: '50ch' }}
           marginBottom='2rem'
           textAlign={{ base: 'left', sm: 'center', lg: 'left' }}
         >
-          We use ad revenue and monthly donations to support <strong>all</strong> the maintainers
-          of the packages you install. (<TextLink text='All of them?' href='/how-it-works' />)
+          We use ad revenue and monthly donations to support all of the maintainers
+          of the packages you install. <TextLink text='Yes, all of them.' href='/how-it-works' />
         </Text>
         <WhatIsFBCards />
         <Flex justify={{ base: 'center', lg: 'flex-start' }} align='center'>

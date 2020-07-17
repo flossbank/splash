@@ -23,8 +23,7 @@ const SplashForBusinesses = ({ id }) => {
         <BusinessCards />
         <Flex justify='center'>
           <Text>
-            <TextLink text='Contact us ' href='/contact' fontWeight='bold' />
-            to get on our beta list.
+            <TextLink text='Contact us' href='/contact' fontWeight='bold' /> to get on our beta list.
           </Text>
         </Flex>
       </Flex>

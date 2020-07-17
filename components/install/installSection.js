@@ -193,9 +193,7 @@ const InstallSection = () => {
           <Text marginBottom='3.5rem' maxW='72ch'>
             Surprised to see an install command? Flossbank’s package manager
             wrapper helps us determine where to distribute the funds you
-            generate for Open Source. See{' '}
-            <TextLink href='/how-it-works' external text='how it works' /> to
-            learn more.
+            generate for Open Source. See <TextLink href='/how-it-works' external text='how it works.' />
           </Text>
           <InstallInstructions token={token} />
           {!finishedInstalling ? (
