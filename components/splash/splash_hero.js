@@ -24,7 +24,7 @@ const SplashHero = () => (
       lineHeight='normal'
       marginBottom={{ base: '1.5rem', md: '.5rem' }}
     >
-      At Flossbank, we help pay Open Source authors and maintainers for their
+      At Flossbank, we help Open Source authors and maintainers receive compensation for their
       work.
     </Text>
     <Text

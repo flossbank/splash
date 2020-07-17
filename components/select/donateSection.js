@@ -38,7 +38,7 @@ const DonateSection = ({ seeAds }) => {
     >
       <UnderlinedHeading text='Payment Information' align='center' />
       <Text fontSize='1.5rem'>
-        Set a monthly contribution and input your card information.
+        Set a monthly contribution and input your card information
       </Text>
       <Elements stripe={stripePromise}>
         <InjectedDonateForm

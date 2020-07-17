@@ -39,7 +39,6 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
           <Flex align='center' justify='space-between'>
             <Text
               fontSize='2.25rem'
-              // fontWeight='bold'
               letterSpacing='3px'
               marginRight='2rem'
             >
@@ -65,13 +64,14 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
         )}
         <UnderlinedHeading
           as='h3'
-          id='donation-amt'
-          text='Donated monthly'
+          fontSize='1rem'
+          fontWeight='normal'
           textTransform='none'
-          fontWeight='500'
+          id='donation-amt'
+          text='Monthly donation'
           align='left'
           lineColor='white'
-          marginBottom='1rem'
+          marginBottom='0.5rem'
         />
         <Text textAlign='left' display='flex' alignItems='center'>
           <Icon name={optOutOfAds ? 'view-off' : 'view'} marginRight='.75rem' />

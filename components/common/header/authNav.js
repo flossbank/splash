@@ -45,6 +45,7 @@ const AuthNav = ({ user, onLogout }) => {
           {!isOpen && setIsExpanded(false)}
           <MenuButton
             as={Button}
+            height='auto'
             aria-label='User menu'
             borderRadius='0'
             _hover={menuButtonActiveStyles}
@@ -82,8 +83,7 @@ const AuthNav = ({ user, onLogout }) => {
             />
           </MenuButton>
           <MenuList backgroundColor='lightRock'>
-            {/* TODO: commenting these out for now in case we decide to add them back, but I agree with Eryn that they aren't needed */}
-            {/* <MenuItem
+            <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/dashboard')}
@@ -94,8 +94,8 @@ const AuthNav = ({ user, onLogout }) => {
                   Dashboard
                 </a>
               </Link>
-            </MenuItem> */}
-            {/* <MenuItem
+            </MenuItem>
+            <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/faq')}
@@ -106,8 +106,8 @@ const AuthNav = ({ user, onLogout }) => {
                   FAQ
                 </a>
               </Link>
-            </MenuItem> */}
-            {/* <MenuItem
+            </MenuItem>
+            <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
               onClick={() => handleNav('/how-it-works')}
@@ -118,7 +118,7 @@ const AuthNav = ({ user, onLogout }) => {
                   How It Works
                 </a>
               </Link>
-            </MenuItem> */}
+            </MenuItem>
             <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}

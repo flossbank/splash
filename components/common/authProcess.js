@@ -142,8 +142,7 @@ const AuthProcess = ({
             textAlign='center'
           >
             <Text>
-              {otherProcessText}{' '}
-              <TextLink href={otherProcessHref} text={otherProcessLinkText} />
+              {otherProcessText} <TextLink href={otherProcessHref} text={otherProcessLinkText} />
             </Text>
           </Box>
         </>

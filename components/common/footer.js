@@ -20,6 +20,10 @@ const loggedOutLinks = [
     text: 'How It Works'
   },
   {
+    url: '/contact',
+    text: 'Contact Us'
+  },
+  {
     url: '/login',
     text: 'Log In'
   },
@@ -31,8 +35,8 @@ const loggedOutLinks = [
 
 const loggedInLinks = [
   {
-    url: '/contact',
-    text: 'Contact Us'
+    url: '/about',
+    text: 'About Us'
   },
   {
     url: '/faq',
@@ -41,6 +45,10 @@ const loggedInLinks = [
   {
     url: '/how-it-works',
     text: 'How It Works'
+  },
+  {
+    url: '/contact',
+    text: 'Contact Us'
   }
 ]
 

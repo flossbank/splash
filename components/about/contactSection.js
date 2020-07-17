@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 import Section from '../common/section'
 import Card from '../common/card'
-import UnderlinedHeading from '../common/underlinedHeading'
 import ContactForm from './contactForm'
 
 const ContactSection = ({ ...props }) => {
@@ -23,7 +22,6 @@ const ContactSection = ({ ...props }) => {
       backgroundColor='white'
       {...props}
     >
-      <UnderlinedHeading text='Contact Us' align='center' marginBottom='3rem' />
       <Card shadowSz='lg' w='100%' maxW='45rem'>
         {!formSubmit && (
           <Text

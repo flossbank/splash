@@ -8,14 +8,14 @@ const cardData = [
     icon: 'terminal',
     heading: 'Support maintainers at no cost',
     text:
-      'Opt into curated, tech-focused ads in your terminal when you install Open Source packages'
+      'Opt in to curated, tech-focused ads in your terminal when you install Open Source packages. '
   },
   {
     showHowItWorksLink: false,
     icon: 'calendar',
     heading: 'Or set a monthly donation',
     text:
-      'Donate monthly to the developers and maintainers of the Open Source packages you install'
+      'Donate monthly to the developers and maintainers of the Open Source packages you install. '
   }
 ]
 
@@ -43,10 +43,12 @@ const Card = ({ icon, heading, text, showHowItWorksLink }) => (
         lineGap='1'
         lineColor='ocean'
       />
-      <Text>{text}</Text>
-      {showHowItWorksLink && (
-        <TextLink text='How does that work, exactly?' href='/how-it-works' />
-      )}
+      <Text>
+        {text}
+        {showHowItWorksLink && (
+          <TextLink text="Here's how it works." href='/how-it-works' />
+        )}
+      </Text>
     </Box>
   </Flex>
 )

@@ -26,6 +26,10 @@ const cardsContent = [
       'During installation of Open Source packages, see curated tech advertisements. ',
     features: [
       {
+        icon: 'check',
+        title: 'Support entire dependency tree'
+      },
+      {
         icon: 'close',
         iconAlt: 'not',
         title: 'Ad-free'
@@ -34,15 +38,11 @@ const cardsContent = [
         icon: 'close',
         iconAlt: 'cannot',
         title: 'Set contribution amount'
-      },
-      {
-        icon: 'check',
-        title: 'Support entire dependency tree'
       }
     ]
   },
   {
-    title: 'Donate Monthly',
+    title: 'Contribute Monthly',
     subtitle: 'Donate directly to Open Source',
     donation: true,
     linkToModal: false,
@@ -53,15 +53,15 @@ const cardsContent = [
     features: [
       {
         icon: 'check',
+        title: 'Support entire dependency tree'
+      },
+      {
+        icon: 'check',
         title: 'Ad-free'
       },
       {
         icon: 'check',
         title: 'Set contribution amount'
-      },
-      {
-        icon: 'check',
-        title: 'Support entire dependency tree'
       }
     ]
   }
@@ -74,13 +74,14 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
         backgroundColor='puddle'
         color='ocean'
         textAlign='center'
+        fontWeight='400'
         padding='.25rem'
         textTransform='uppercase'
         position='absolute'
         left='0'
         top='0'
         width='100%'
-        letterSpacing='1px'
+        letterSpacing='2px'
         fontSize='.85rem'
       >
         Recommended
@@ -92,7 +93,7 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
       <Text marginBottom='2rem'>
         {tier.description}
         {tier.linkToModal && (
-          <TextLink href='#' text='What do they look like?' onClick={onModalOpen} />
+          <TextLink href='#' text="Here's what that looks like." onClick={onModalOpen} />
         )}
       </Text>
       <LinkBtn

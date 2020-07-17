@@ -135,7 +135,7 @@ const Dashboard = () => {
       <h1 className='sr-only'>User dashboard</h1>
       {showWelcomeMessage && (
         <Banner icon='hooray' onCloseClick={() => setShowWelcomeMessage(false)}>
-          <Text>
+          <Text color='rock'>
             Thanks for installing Flossbank! You can log in at any time to see
             the impact you have on the Open Source community. We're always
             working on more features, hoping to create a vibrant Open Source
@@ -148,7 +148,7 @@ const Dashboard = () => {
           icon='info'
           onCloseClick={() => setShowInstallReminderLocal(false)}
         >
-          <Text>
+          <Text color='rock'>
             Looks like you haven't installed the package manager wrapper yet.
             Head over to{' '}
             <TextLink
