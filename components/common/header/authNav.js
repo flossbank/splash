@@ -120,7 +120,7 @@ const AuthNav = ({ user, onLogout }) => {
                 <a>
                   <Box as='span' display='flex' alignItems='center'>
                     <Icon name='info' marginRight='.5rem' />
-                    <span>How It Works</span>
+                    <span>How it works</span>
                   </Box>
                 </a>
               </Link>
