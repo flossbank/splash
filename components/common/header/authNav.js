@@ -90,8 +90,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/dashboard'>
                 <a>
-                  <Icon name='home' size='1.25rem' marginRight='.5rem' />
-                  Dashboard
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='home' marginRight='.5rem' />
+                    <span>Dashboard</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>
@@ -102,8 +104,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/faq'>
                 <a>
-                  <Icon name='question' marginRight='.5rem' />
-                  FAQ
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='question' marginRight='.5rem' />
+                    <span>FAQ</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>
@@ -114,8 +118,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/how-it-works'>
                 <a>
-                  <Icon name='info' marginRight='.5rem' />
-                  How It Works
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='info' marginRight='.5rem' />
+                    <span>How it works</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>
@@ -126,8 +132,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/user/settings'>
                 <a>
-                  <Icon name='settings' marginRight='.5rem' />
-                  Settings
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='settings' marginRight='.5rem' />
+                    <span>Settings</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>
@@ -138,8 +146,10 @@ const AuthNav = ({ user, onLogout }) => {
             >
               <Link href='/'>
                 <a>
-                  <Icon name='unlock' marginRight='.5rem' />
-                  Log Out
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='unlock' marginRight='.5rem' />
+                    <span>Log out</span>
+                  </Box>
                 </a>
               </Link>
             </MenuItem>

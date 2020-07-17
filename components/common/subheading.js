@@ -7,6 +7,7 @@ const Subheading = ({ align, children, ...props }) => (
     marginBottom='2rem'
     fontSize='1.5rem'
     fontWeight='400'
+    lineHeight='1.25'
     {...props}
   >
     {children}

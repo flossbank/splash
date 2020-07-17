@@ -5,10 +5,21 @@
   max-width: 50rem;
   width: 100%;
 
+  li:not(:last-of-type) {
+    margin-bottom: .25rem;
+  }
+
   @media screen and (min-width: 30em) {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+
+    li:not(:first-of-type) {
+      margin-left: 1.25rem;
+    }
+
+    li:not(:last-of-type) {
+      margin-bottom: 0;
+    }
   }
 }
 
-// .list

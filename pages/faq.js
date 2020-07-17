@@ -23,7 +23,7 @@ const FAQ = () => (
       <Card shadowSz='lg' maxW='60rem'>
         <FAQHeading>What do the ads look like?</FAQHeading>
         <Box marginBottom='1.5rem'>
-          <Image src='/images/flossbank_ads_demo.gif' margin='1.5rem auto 0' />
+          <Image src='/images/flossbank_ads_demo.gif' margin='1.5rem auto 0' alt='GIF showing the process of installing packages when the Flossbank wrapper is installed.' />
         </Box>
         <Divider />
         <FAQHeading>What package managers do you wrap?</FAQHeading>

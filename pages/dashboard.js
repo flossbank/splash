@@ -180,6 +180,7 @@ const Dashboard = () => {
         <Box gridRow='1 / span 3' gridColumn='1'>
           <Heading
             textTransform='uppercase'
+            letterSpacing='1px'
             fontWeight='bold'
             marginTop='0'
             fontSize='1rem'
@@ -207,7 +208,7 @@ const Dashboard = () => {
                   {!userSessionCountLoading && (
                     <Text
                       aria-describedby='user-session-count'
-                      fontSize='2.5rem'
+                      fontSize='2.25rem'
                       color='ocean'
                     >
                       {userSessionCount}
@@ -216,10 +217,10 @@ const Dashboard = () => {
                   <Heading
                     as='h3'
                     fontSize='1rem'
-                    fontWeight='normal'
+                    fontWeight='400'
                     id='user-session-count'
                   >
-                    Installations performed
+                    {userSessionCount !== 1 ? 'Installs' : 'Install'} performed
                   </Heading>
                 </DashboardDataCard>
               </ListItem>
@@ -231,7 +232,7 @@ const Dashboard = () => {
                   {!packagesTouchedLoading && (
                     <Text
                       aria-describedby='packages-touched'
-                      fontSize='2.5rem'
+                      fontSize='2.25rem'
                       color='ocean'
                     >
                       {packagesTouched}
@@ -271,16 +272,14 @@ const Dashboard = () => {
           textAlign={{ base: 'center', md: 'right' }}
         >
           <FBButton
-            backgroundColor='lightPuddle'
-            border='1px solid !important'
-            textTransform='uppercase'
+            backgroundColor='transparent'
+            fontWeight='600'
             borderRadius='0'
             color='ocean'
-            fontSize='1.5rem'
             onClick={() =>
               downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
           >
-            Download Data
+            Download data
             <Icon marginLeft='1rem' name='download' size='1.75rem' />
           </FBButton>
         </Box>

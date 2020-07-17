@@ -4,7 +4,7 @@ import ContactSection from '../components/about/contactSection'
 
 const Contact = () => (
   <PageWrapper title='Contact Us'>
-    <ContactSection backgroundColor='lightRock' />
+    <ContactSection backgroundColor='lightRock' contactPage />
   </PageWrapper>
 )
 

@@ -51,6 +51,7 @@ const TopTenPackagesView = ({ topTenPackages }) => (
     <Flex flexDirection='row'>
       <Heading
         textTransform='uppercase'
+        letterSpacing='1px'
         fontWeight='bold'
         marginTop='0'
         fontSize='1rem'

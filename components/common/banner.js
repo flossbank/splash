@@ -29,7 +29,6 @@ const Banner = ({ icon, children, onCloseClick }) => {
       {children}
       <CloseButton
         onClick={onCloseClick}
-        border='2px solid'
         color='currentColor'
         borderRadius='50%'
         aria-label='Dismiss message'
