@@ -37,6 +37,7 @@ const Card = ({ icon, text, heading }) => (
     fontSize='0.875rem'
     lineHeight='1.3'
   >
+    <Icon name={icon} size='1.25rem' margin='0 0 .75rem' />
     <UnderlinedHeading
       as='h3'
       marginBottom='0.5rem'
@@ -44,9 +45,9 @@ const Card = ({ icon, text, heading }) => (
       align='left'
       lineGap='1'
       lineColor='ocean'
-    >
-      <Icon name={icon} size='1.25rem' margin='.3rem .5rem .3rem 0' />
-    </UnderlinedHeading>
+      textTransform='none'
+      fontWeight='600'
+    />
     <p>{text}</p>
   </ListItem>
 )
