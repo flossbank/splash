@@ -28,7 +28,7 @@ const InstallCommand = ({ system, commandText, sourceURL }) => {
         {system}
       </Heading>
       <Code
-        padding='1rem'
+        padding='1.5rem 1.5rem 1.5rem 2rem'
         backgroundColor='lightRock'
         color='boulder'
         width='100%'
