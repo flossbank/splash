@@ -21,6 +21,8 @@ import FBButton from './fbButton'
 import TextLink from './textLink'
 import ErrorMessage from './errorMessage'
 
+import styles from './authProcess.module.scss'
+
 const AuthProcess = ({
   process,
   icon,
@@ -105,7 +107,7 @@ const AuthProcess = ({
             <Box as='form' onSubmit={handleSubmit(handleProcess)} noValidate>
               {formError && <ErrorMessage msg={formError} />}
               <FormControl marginBottom='2.25rem' isRequired>
-                <FormLabel htmlFor='email' marginBottom='.5rem'>
+                <FormLabel htmlFor='email' marginBottom='.5rem' className={styles.label}>
                   Email address
                 </FormLabel>
                 <Box aria-atomic='true' id='email-error'>
@@ -118,6 +120,7 @@ const AuthProcess = ({
                   id='email'
                   backgroundColor='lightRock'
                   name='email'
+                  autoComplete='email'
                   aria-describedby='email-error'
                   ref={register({
                     required: true,
