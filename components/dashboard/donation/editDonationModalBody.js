@@ -99,7 +99,6 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
 
   const validateForm = () => {
     if (newAmount < 5) {
-      setSubmitError('Donation must be above ')
       return false
     }
     return true
