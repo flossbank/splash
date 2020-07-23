@@ -9,7 +9,6 @@ const defaultOGImage = 'https://flossbank.com/images/ogImage.png'
 const FBHead = ({ title, url, ogImage, description }) => (
   <Head>
     <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
-    <meta name='google-site-verification' content='6WbRxHWqP10CD1V9wErjY-8ZPLRcAJnKoFsHmDs4cG4' />
     <meta
       name='description'
       content={description || defaultDescription}
