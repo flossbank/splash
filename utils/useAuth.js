@@ -30,8 +30,16 @@ const Loader = () => (
 // Provider component that wraps your app and makes auth available
 export function ProvideAuth ({ children }) {
   const router = useRouter()
+  const [rcCaptured, setRcCaptured] = useState(false)
   const auth = useProvideAuth()
   const [isUserAuthed, setIsUserAuthed] = useLocalStorage('flossbank_auth', false)
+  const [_, setUserReferrer] = useLocalStorage('flossbank_rc', '') // eslint-disable-line
+
+  if (router.query.rc && !rcCaptured) {
+    setRcCaptured(true)
+    setUserReferrer(router.query.rc)
+    router.replace(router.route)
+  }
 
   // 1. user is visiting protected endpoint (e.g. Dashboard)
   // 2. user has no session in React state
@@ -66,6 +74,7 @@ export const useAuth = () => {
 function useProvideAuth () {
   const [user, setUser] = useState(null)
   const [_, setAuthedFlag] = useLocalStorage('flossbank_auth', false) // eslint-disable-line
+  const [userReferrer, __] = useLocalStorage('flossbank_rc', '') // eslint-disable-line
 
   const setSessionUser = (u) => {
     setUser(u || null)
@@ -84,6 +93,9 @@ function useProvideAuth () {
   }
 
   const signup = async (body) => {
+    if (userReferrer && userReferrer !== '') {
+      body.referralCode = userReferrer
+    }
     const res = await api.signup(body)
     return res
   }

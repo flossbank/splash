@@ -12,8 +12,8 @@ export const completeLogin = async ({ email, token }) => {
   return fetchThenJson('/api/user/complete-login', optionsWithPostBody({ email, token }))
 }
 
-export const signup = async ({ email }) => {
-  return fetchThenJson('api/user/register', optionsWithPostBody({ email }))
+export const signup = async ({ email, referralCode }) => {
+  return fetchThenJson('api/user/register', optionsWithPostBody({ email, referralCode }))
 }
 
 export const donate = async ({ amount, billingToken, last4 }) => {
