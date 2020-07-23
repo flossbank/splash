@@ -28,6 +28,7 @@ const FBHead = ({ title, url, ogImage, description }) => (
     />
     <meta name='twitter:site' content={url || defaultOGURL} />
     <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:text:title' content={title || 'Flossbank'} />
     <meta name='twitter:image' content={ogImage || defaultOGImage} />
     <meta property='og:image' content={ogImage || defaultOGImage} />
     <meta property='og:image:width' content='1200' />
