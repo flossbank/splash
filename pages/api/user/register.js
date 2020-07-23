@@ -1,10 +1,10 @@
 import got from '../../../client/fetch'
 
 export default async (req, reply) => {
-  const { email } = req.body
+  const { email, referralCode } = req.body
   try {
     const response = await got.post('user/register', {
-      json: { email }
+      json: { email, referralCode }
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {
