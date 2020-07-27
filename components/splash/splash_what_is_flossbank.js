@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/core'
+import { Box, Flex, Text, Image } from '@chakra-ui/core'
 
 import LinkBtn from '../common/linkBtn'
 import UnderlinedHeading from '../common/underlinedHeading'
@@ -6,7 +6,7 @@ import Subheading from '../common/subheading'
 import WhatIsFBCards from './cards/whatIsFBCards'
 import Section from '../common/section'
 
-import PeopleCollabing from './peopleCollabing'
+// import PeopleCollabing from './peopleCollabing'
 import TextLink from '../common/textLink'
 
 const SplashWhatIsFlossbank = () => {
@@ -29,7 +29,7 @@ const SplashWhatIsFlossbank = () => {
       />
 
       <Box width={{ base: '60%', lg: '100%' }} gridColumn='1'>
-        <PeopleCollabing />
+        <Image alt='Example of Flossbank output' src='/images/what_is_fb_art.png' />
       </Box>
       <Box gridColumn={{ base: 1, lg: 2 }}>
         <Subheading
@@ -43,7 +43,7 @@ const SplashWhatIsFlossbank = () => {
           marginBottom='2rem'
           textAlign={{ base: 'left', sm: 'center', lg: 'left' }}
         >
-          We use ad revenue and monthly donations to support all of the maintainers
+          Our package manager wrapper uses ad revenue and monthly donations to support all of the maintainers
           of the packages you install. <TextLink text='Yes, all of them.' href='/how-it-works' />
         </Text>
         <WhatIsFBCards />
