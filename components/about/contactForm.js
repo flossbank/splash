@@ -47,26 +47,48 @@ const topics = [
 const ContactForm = ({ contactFormSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
-  const [formError, setFormError] = useState(false)
+  const [formError, setFormError] = useState('')
 
   const { register, handleSubmit, errors } = useForm()
+
+  const formValid = ({ name, email, topic, body }) => {
+    if (name.length > 128) {
+      setFormError('Name cannot be longer than 128 characters')
+      return false
+    }
+    if (email.length > 128) {
+      setFormError('Email cannot be longer than 128 characters')
+      return false
+    }
+    if (topic.length > 128) {
+      setFormError('Topic cannot be longer than 128 characters')
+      return false
+    }
+    if (body.length > 1024) {
+      setFormError('Message cannot be longer than 1024 characters')
+      return false
+    }
+    return true
+  }
 
   const submit = async (values, e) => {
     e.preventDefault()
 
     const { name, email, topic, body } = values
 
+    if (!formValid({ name, email, topic, body })) return
+
     setIsSubmitting(true)
 
     try {
       await sendSupportFeedback({ name, email, topic, body })
-      setFormError(false)
+      setFormError('')
       setSent(true)
       contactFormSubmitted()
     } catch (e) {
-      setFormError(true)
+      setFormError('There was an error submitting the form. Please try again!')
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting('')
     }
   }
 
@@ -94,7 +116,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
           onSubmit={handleSubmit(submit)}
         >
           {formError && (
-            <ErrorMessage msg='There was an error submitting the form. Please try again!' />
+            <ErrorMessage msg={`${formError}`} />
           )}
           <FBFormControl labelText='Your name' id='your-name' required>
             <Box id='name-error' aria-atomic='true'>
