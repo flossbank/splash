@@ -59,7 +59,7 @@ const UpdateSection = () => {
                 color='boulder'
                 children='DEBUG=FLOSSBANK Flossbank update'
               />
-              to attempt manually debugging.
+              to attempt manual debugging.
             </Text>
           </Box>
           <InstallInstructions />
