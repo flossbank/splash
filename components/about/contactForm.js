@@ -88,7 +88,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
     } catch (e) {
       setFormError('There was an error submitting the form. Please try again!')
     } finally {
-      setIsSubmitting('')
+      setIsSubmitting(false)
     }
   }
 
@@ -116,7 +116,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
           onSubmit={handleSubmit(submit)}
         >
           {formError && (
-            <ErrorMessage msg={`${formError}`} />
+            <ErrorMessage msg={formError} />
           )}
           <FBFormControl labelText='Your name' id='your-name' required>
             <Box id='name-error' aria-atomic='true'>
