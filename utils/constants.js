@@ -8,6 +8,7 @@ export const allowedEndpoints = [
   '/complete-login',
   '/contact',
   '/verify',
+  '/update',
   '/about',
   '/faq',
   '/_error',

@@ -1,42 +1,20 @@
 import { Box, Text, Code } from '@chakra-ui/core'
-import { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 
-import { startNewCLIInstall } from '../../client'
 import Card from '../common/card'
 import InstallCommands from '../install/installCommands'
 import Section from '../common/section'
 import UnderlinedHeading from '../common/underlinedHeading'
 
-const InstallInstructions = ({ token }) => (
+const InstallInstructions = () => (
   <Card shadowSz='lg' maxW='55rem' margin='0 auto 3rem' textAlign='left'>
     <Text marginBottom='3rem'>
       Copy and paste the applicable command in your shell to continue:
     </Text>
-    <InstallCommands token={token} />
+    <InstallCommands />
   </Card>
 )
 
-InstallInstructions.propTypes = {
-  token: PropTypes.string.isRequired
-}
-
 const UpdateSection = () => {
-  const [token, setToken] = useState('')
-
-  async function fetchInstallToken () {
-    try {
-      const { token: tokenRes } = await startNewCLIInstall()
-      setToken(tokenRes)
-    } catch (e) {
-      // TODO handle error
-    }
-  }
-
-  useEffect(() => {
-    fetchInstallToken()
-  }, [0]) // only run on mount
-
   return (
     <Section
       backgroundColor='white'
@@ -84,7 +62,7 @@ const UpdateSection = () => {
               to attempt manually debugging.
             </Text>
           </Box>
-          <InstallInstructions token={token} />
+          <InstallInstructions />
         </Box>
       </Box>
     </Section>
