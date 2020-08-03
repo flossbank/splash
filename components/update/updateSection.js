@@ -49,17 +49,17 @@ const UpdateSection = () => {
                 margin='0.5rem'
                 backgroundColor='lightRock'
                 color='boulder'
-                children='Flossbank update'
+                children='flossbank update'
               />
-              failed, try re-installing with the following commands or running
+              failed, try re-installing with the script below or run
               <Code
                 padding='0.2rem 0.2rem 0.2rem 0.2rem'
                 margin='0.5rem'
                 backgroundColor='lightRock'
                 color='boulder'
-                children='DEBUG=FLOSSBANK Flossbank update'
+                children='DEBUG=flossbank flossbank update'
               />
-              to attempt manual debugging.
+              to see more details of the failure.
             </Text>
           </Box>
           <InstallInstructions />
