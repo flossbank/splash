@@ -87,9 +87,24 @@ const InstallCommands = ({ token }) => {
     }
   ]
 
+  const authedCommands = [
+    {
+      system: 'OSX / Linux / Bash on windows',
+      commandText: 'curl -sS https://get.flossbank.com | bash',
+      sourceURL: ' https://get.flossbank.com'
+    },
+    {
+      system: 'Windows Powershell',
+      commandText: 'iwr https://get.flossbank.com/ps -useb | iex',
+      sourceURL: ' https://get.flossbank.com/ps'
+    }
+  ]
+
+  const commandsToOutput = token ? commands : authedCommands
+
   return (
     <>
-      {commands.map((command, i) => (
+      {commandsToOutput.map((command, i) => (
         <InstallCommand
           key={i}
           system={command.system}
