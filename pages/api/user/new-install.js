@@ -2,9 +2,13 @@ import got from '../../../client/fetch'
 
 export default async (req, reply) => {
   try {
+    const reqHeaders = {
+      'x-requested-with': req.headers['x-requested-with'],
+      cookie: req.headers.cookie
+    }
     const response = await got.post('user/new-install', {
       json: {},
-      headers: { cookie: req.headers.cookie }
+      headers: reqHeaders
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {

@@ -3,8 +3,13 @@ import got from '../../../client/fetch'
 export default async (req, reply) => {
   const { email } = req.body
   try {
+    const reqHeaders = {
+      'x-requested-with': req.headers['x-requested-with'],
+      cookie: req.headers.cookie
+    }
     const response = await got.post('user/request-login', {
-      json: { email }
+      json: { email },
+      headers: reqHeaders
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {

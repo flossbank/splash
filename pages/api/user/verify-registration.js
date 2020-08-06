@@ -3,8 +3,13 @@ import got from '../../../client/fetch'
 export default async (req, reply) => {
   const { email, recaptchaResponse, token } = req.body
   try {
+    const reqHeaders = {
+      'x-requested-with': req.headers['x-requested-with'],
+      cookie: req.headers.cookie
+    }
     const response = await got.post('user/verify-registration', {
-      json: { email, recaptchaResponse, token }
+      json: { email, recaptchaResponse, token },
+      headers: reqHeaders
     })
     const headers = response.headers
     if (headers && headers['set-cookie']) {
