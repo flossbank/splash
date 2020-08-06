@@ -4,7 +4,8 @@ export default async (req, reply) => {
   const { email, referralCode } = req.body
   try {
     const response = await got.post('user/register', {
-      json: { email, referralCode }
+      json: { email, referralCode },
+      headers: req.headers
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {

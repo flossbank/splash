@@ -4,7 +4,8 @@ export default async (req, reply) => {
   const { email, name, topic, body } = req.body
   try {
     const response = await got.post('support/feedback', {
-      json: { email, name, topic, body }
+      json: { email, name, topic, body },
+      headers: req.headers
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {
