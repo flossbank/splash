@@ -3,7 +3,7 @@ import got from '../../../client/fetch'
 export default async (req, reply) => {
   try {
     const response = await got('user/resume', {
-      headers: { cookie: req.headers.cookie }
+      headers: req.headers
     })
     const headers = response.headers
     if (headers && headers['set-cookie']) {

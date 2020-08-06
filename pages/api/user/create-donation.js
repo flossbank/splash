@@ -5,7 +5,7 @@ export default async (req, reply) => {
   try {
     const response = await got.post('user/donation', {
       json: { amount, billingToken, last4 },
-      headers: { cookie: req.headers.cookie }
+      headers: req.headers
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {

@@ -4,7 +4,7 @@ export default async (req, reply) => {
   try {
     const response = await got.post('user/logout', {
       json: {},
-      headers: { cookie: req.headers.cookie }
+      headers: req.headers
     })
     const headers = response.headers
     if (headers && headers['set-cookie']) {

@@ -3,7 +3,7 @@ import got from '../../../client/fetch'
 export default async (req, reply) => {
   try {
     const response = await got('user/get-sessions', {
-      headers: { cookie: req.headers.cookie }
+      headers: req.headers
     })
     reply.status(response.statusCode).json(response.body)
   } catch (e) {

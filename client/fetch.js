@@ -5,7 +5,6 @@ export default got.extend({
   throwHttpErrors: true,
   responseType: 'json',
   headers: {
-    'content-type': 'application/json',
-    'x-requested-with': 'XmlHttpRequest'
+    'content-type': 'application/json'
   }
 })

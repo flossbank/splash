@@ -68,7 +68,8 @@ const optionsWithPostBody = (body) => {
   return {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-requested-with': 'XmlHttpRequest'
     },
     body: JSON.stringify(body)
   }
@@ -78,7 +79,8 @@ const optionsWithPutBody = (body) => {
   return {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-requested-with': 'XmlHttpRequest'
     },
     body: JSON.stringify(body)
   }
@@ -86,7 +88,11 @@ const optionsWithPutBody = (body) => {
 
 const optionsDeleteRequest = () => {
   return {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-requested-with': 'XmlHttpRequest'
+    }
   }
 }
 
