@@ -48,8 +48,9 @@ const CompleteLoginPage = () => {
       }, 1000)
       setTimeout(() => {
         // Set cached dest no matter what and redirect to one if it existed
+        const flossbankDestTemp = flossbankDest
         setFlossbankDest('')
-        if (flossbankDest) router.push(flossbankDest)
+        if (flossbankDest) router.push(flossbankDestTemp)
         else router.push('/dashboard')
       }, 2000)
     } catch (e) {
