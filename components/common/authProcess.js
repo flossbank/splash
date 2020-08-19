@@ -20,6 +20,7 @@ import Card from './card'
 import FBButton from './fbButton'
 import TextLink from './textLink'
 import ErrorMessage from './errorMessage'
+import GitHubLoginButton from './githubButton'
 
 import styles from './authProcess.module.scss'
 
@@ -106,6 +107,8 @@ const AuthProcess = ({
           >
             <Box as='form' onSubmit={handleSubmit(handleProcess)} noValidate>
               {formError && <ErrorMessage msg={formError} />}
+              <GitHubLoginButton />
+              <Text marginTop='2rem' marginBottom='2rem'>Or</Text>
               <FormControl marginBottom='2.25rem' isRequired>
                 <FormLabel htmlFor='email' marginBottom='.5rem' className={styles.label}>
                   Email address
