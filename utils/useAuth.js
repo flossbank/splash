@@ -31,9 +31,11 @@ const Loader = () => (
 export function ProvideAuth ({ children }) {
   const router = useRouter()
   const [rcCaptured, setRcCaptured] = useState(false)
+  const [cachedDest, setCachedDest] = useState(false)
   const auth = useProvideAuth()
   const [isUserAuthed, setIsUserAuthed] = useLocalStorage('flossbank_auth', false)
-  const [_, setUserReferrer] = useLocalStorage('flossbank_rc', '') // eslint-disable-line
+  const [_, setFlossbankDest] = useLocalStorage('flossbank_dest', '') // eslint-disable-line
+  const [__, setUserReferrer] = useLocalStorage('flossbank_rc', '') // eslint-disable-line
 
   if (router.query.rc && !rcCaptured) {
     setRcCaptured(true)
@@ -46,7 +48,14 @@ export function ProvideAuth ({ children }) {
   // 3. user has no auth flag in local storage
   // Result: they must not have a valid API cookie, so we will require them to login (and show the loader)
   if (router && !allowedEndpoints.includes(router.pathname) && !auth.user && !isUserAuthed) {
-    if (typeof window !== 'undefined') router.push('/login')
+    // Store the endpoint they attempted to navigate to
+    if (!cachedDest) {
+      setCachedDest(true)
+      setFlossbankDest(router.pathname)
+    }
+    if (typeof window !== 'undefined') {
+      router.push('/login')
+    }
     return <Loader />
   }
 

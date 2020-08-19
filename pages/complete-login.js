@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { decode } from 'b36'
 import { Heading, Text, Icon } from '@chakra-ui/core'
 
+import { useLocalStorage } from '../utils/useLocalStorage'
 import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import BouncyLoader from '../components/common/bouncyLoader'
@@ -17,6 +18,7 @@ const CompleteLoginPage = () => {
   const [verified, setVerified] = useState(false)
   const [subHeader, setSubHeader] = useState('')
   const [loginAttempted, setLoginAttempted] = useState(false)
+  const [flossbankDest, setFlossbankDest] = useLocalStorage('flossbank_dest', '')
 
   function showError () {
     setStatus('Authentication Failed')
@@ -45,7 +47,10 @@ const CompleteLoginPage = () => {
         setIsLoading(false)
       }, 1000)
       setTimeout(() => {
-        router.push('/dashboard')
+        // Set cached dest no matter what and redirect to one if it existed
+        setFlossbankDest('')
+        if (flossbankDest) router.push(flossbankDest)
+        else router.push('/dashboard')
       }, 2000)
     } catch (e) {
       showError()
