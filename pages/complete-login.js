@@ -21,6 +21,7 @@ const CompleteLoginPage = () => {
   const [flossbankDest, setFlossbankDest] = useLocalStorage('flossbank_dest', '')
 
   function showError () {
+    setIsLoading(false)
     setStatus('Authentication Failed')
     setSubHeader(`It looks like you may have clicked on an invalid email verification link. 
     Please close this window and try authenticating again.`)
@@ -29,17 +30,25 @@ const CompleteLoginPage = () => {
   async function attemptCompleteLogin () {
     setIsLoading(true)
     try {
-      const { e: encodedEmail, token } = router.query
-      if (!encodedEmail || !token) return
+      const { e: encodedEmail, token, code, state } = router.query
+      if ((!encodedEmail || !token) && (!code || !state)) return
       if (loginAttempted) {
         showError()
-        setIsLoading(false)
         return
       }
 
-      const email = decode(encodedEmail || '').toString()
       setLoginAttempted(true)
-      await auth.completeLogin({ email, token })
+
+      // If code and state are passed in, then it as a GH auth redirect
+      if (code && state) {
+        await auth.completeGHLogin({ code, state })
+      } else if (encodedEmail && token) {
+        const email = decode(encodedEmail || '').toString()
+        await auth.completeLogin({ email, token })
+      } else {
+        showError()
+        return
+      }
 
       setTimeout(() => {
         setStatus('Logging in…')
