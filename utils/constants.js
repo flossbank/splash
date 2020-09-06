@@ -13,5 +13,6 @@ export const allowedEndpoints = [
   '/faq',
   '/_error',
   '/how-it-works',
+  '/404',
   '/'
 ]
