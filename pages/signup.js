@@ -15,7 +15,7 @@ const Signup = () => {
         process={auth.signup}
         icon='hooray'
         headingText='Sign up for Flossbank'
-        submitText='Sign Up'
+        submitText='Sign up'
         btnLoadingText='Signing up'
         successText='Success!'
         subSuccessText='Check your email for a verification link to finish signing up.'
