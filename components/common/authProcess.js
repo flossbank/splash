@@ -27,6 +27,7 @@ import styles from './authProcess.module.scss'
 const AuthProcess = ({
   process,
   icon,
+  login,
   headingText,
   submitText,
   successText,
@@ -104,7 +105,7 @@ const AuthProcess = ({
             maxWidth='30rem'
             marginBottom='2rem'
           >
-            <GitHubLoginButton text={submitText} />
+            <GitHubLoginButton text={submitText} login={login} />
           </Box>
           <Card
             marginBottom='3rem'
@@ -195,6 +196,7 @@ const AuthProcess = ({
 AuthProcess.propTypes = {
   // pass login or sign up from client
   process: PropTypes.func.isRequired,
+  login: PropTypes.bool.isRequired,
   // text for the submit button
   submitText: PropTypes.string.isRequired,
   // message to show if process was successful

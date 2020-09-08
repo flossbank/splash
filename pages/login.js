@@ -11,6 +11,7 @@ const Login = () => {
       <AuthProcess
         process={auth.login}
         icon='smile'
+        login
         headingText='Log in to Flossbank'
         submitText='Log in'
         btnLoadingText='Logging in'
