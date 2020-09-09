@@ -105,7 +105,10 @@ const AuthProcess = ({
             maxWidth='30rem'
             marginBottom='2rem'
           >
-            <GitHubLoginButton text={submitText} login={login} />
+            <GitHubLoginButton
+              text={submitText}
+              login={login}
+            />
           </Box>
           <Card
             marginBottom='3rem'

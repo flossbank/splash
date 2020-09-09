@@ -8,6 +8,8 @@ import PageWrapper from '../components/common/pageWrapper'
 import Section from '../components/common/section'
 import BouncyLoader from '../components/common/bouncyLoader'
 
+import { localStorageGHStateKey } from '../utils/constants'
+
 import { useAuth } from '../utils/useAuth'
 
 const CompleteLoginPage = () => {
@@ -19,6 +21,7 @@ const CompleteLoginPage = () => {
   const [subHeader, setSubHeader] = useState('')
   const [loginAttempted, setLoginAttempted] = useState(false)
   const [flossbankDest, setFlossbankDest] = useLocalStorage('flossbank_dest', '')
+  const [ghState, _] = useLocalStorage(localStorageGHStateKey, '') // eslint-disable-line
 
   function showError () {
     setIsLoading(false)
@@ -31,7 +34,9 @@ const CompleteLoginPage = () => {
     setIsLoading(true)
     try {
       const { e: encodedEmail, token, code, state } = router.query
+
       if ((!encodedEmail || !token) && (!code || !state)) return
+
       if (loginAttempted) {
         showError()
         return
@@ -40,7 +45,9 @@ const CompleteLoginPage = () => {
       setLoginAttempted(true)
 
       // If code and state are passed in, then it as a GH auth redirect
-      if (code && state) {
+      // Before processing GH redirect, we need to make sure the state we passed in
+      // is the state returned
+      if (code && state && (state === ghState)) {
         await auth.completeGHLogin({ code, state })
       } else if (encodedEmail && token) {
         const email = decode(encodedEmail || '').toString()
