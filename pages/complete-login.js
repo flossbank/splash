@@ -9,7 +9,6 @@ import Section from '../components/common/section'
 import BouncyLoader from '../components/common/bouncyLoader'
 
 import { localStorageGHStateKey } from '../utils/constants'
-
 import { useAuth } from '../utils/useAuth'
 
 const CompleteLoginPage = () => {
