@@ -11,8 +11,9 @@ const Login = () => {
       <AuthProcess
         process={auth.login}
         icon='smile'
-        headingText='Log In to Flossbank'
-        submitText='Log In'
+        login
+        headingText='Log in to Flossbank'
+        submitText='Log in'
         btnLoadingText='Logging in'
         successText='Awaiting Confirmation'
         subSuccessText='Do not close this window until opening the email link.'

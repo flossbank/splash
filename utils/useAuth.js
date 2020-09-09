@@ -101,6 +101,12 @@ function useProvideAuth () {
     return res
   }
 
+  const completeGHLogin = async ({ state, code }) => {
+    const res = await api.completeGHLogin({ state, code })
+    setSessionUser(res.success && res.user)
+    return res
+  }
+
   const signup = async (body) => {
     if (userReferrer && userReferrer !== '') {
       body.referralCode = userReferrer
@@ -135,6 +141,7 @@ function useProvideAuth () {
   return {
     resume,
     completeLogin,
+    completeGHLogin,
     user,
     login,
     signup,

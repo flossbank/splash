@@ -9,7 +9,11 @@ export const logout = async () => {
 }
 
 export const completeLogin = async ({ email, token }) => {
-  return fetchThenJson('/api/user/complete-login', optionsWithPostBody({ email, token }))
+  return fetchThenJson('api/user/complete-login', optionsWithPostBody({ email, token }))
+}
+
+export const completeGHLogin = async ({ code, state }) => {
+  return fetchThenJson('api/user/github-auth', optionsWithPostBody({ code, state }))
 }
 
 export const signup = async ({ email, referralCode }) => {

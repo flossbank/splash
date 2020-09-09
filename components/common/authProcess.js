@@ -20,12 +20,14 @@ import Card from './card'
 import FBButton from './fbButton'
 import TextLink from './textLink'
 import ErrorMessage from './errorMessage'
+import GitHubLoginButton from './githubButton'
 
 import styles from './authProcess.module.scss'
 
 const AuthProcess = ({
   process,
   icon,
+  login,
   headingText,
   submitText,
   successText,
@@ -98,6 +100,16 @@ const AuthProcess = ({
       </Heading>
       {!sent && (
         <>
+          <Box
+            width='100%'
+            maxWidth='30rem'
+            marginBottom='2rem'
+          >
+            <GitHubLoginButton
+              text={submitText}
+              login={login}
+            />
+          </Box>
           <Card
             marginBottom='3rem'
             width='100%'
@@ -187,6 +199,7 @@ const AuthProcess = ({
 AuthProcess.propTypes = {
   // pass login or sign up from client
   process: PropTypes.func.isRequired,
+  login: PropTypes.bool.isRequired,
   // text for the submit button
   submitText: PropTypes.string.isRequired,
   // message to show if process was successful
