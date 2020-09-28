@@ -2,7 +2,7 @@ const FullLogo = ({ height }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 480 119.75'
-    height={height || '3.5rem'}
+    height={height || '3.5em'}
   >
     <g transform='matrix(1.3333 0 0 -1.3333 0 119.75)'>
       <path
