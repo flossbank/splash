@@ -34,7 +34,7 @@ const VerifyHumanity = () => {
       const { e: encodedEmail, token, code, state } = router.query || {}
 
       const noQueryParams = !window.location.search
-      const invalidQueryParams = !(encodedEmail && token) || !(code && state)
+      const invalidQueryParams = !(encodedEmail && token) && !(code && state)
 
       // If GH auth, attempt verification
       if (code && state) {
