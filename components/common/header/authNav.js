@@ -114,6 +114,20 @@ const AuthNav = ({ user, onLogout }) => {
             <MenuItem
               _focus={itemFocusStyles}
               _active={itemActiveStyles}
+              onClick={() => handleNav('/privacy')}
+            >
+              <Link href='/privacy'>
+                <a>
+                  <Box as='span' display='flex' alignItems='center'>
+                    <Icon name='question' marginRight='.5rem' />
+                    <span>Privacy</span>
+                  </Box>
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem
+              _focus={itemFocusStyles}
+              _active={itemActiveStyles}
               onClick={() => handleNav('/how-it-works')}
             >
               <Link href='/how-it-works'>

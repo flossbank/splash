@@ -16,6 +16,10 @@ const loggedOutLinks = [
     text: 'FAQs'
   },
   {
+    url: '/privacy',
+    text: 'Privacy'
+  },
+  {
     url: '/how-it-works',
     text: 'How It Works'
   },
@@ -37,6 +41,10 @@ const loggedInLinks = [
   {
     url: '/about',
     text: 'About Us'
+  },
+  {
+    url: '/privacy',
+    text: 'Privacy'
   },
   {
     url: '/faq',

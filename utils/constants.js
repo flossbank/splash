@@ -9,6 +9,7 @@ export const allowedEndpoints = [
   '/complete-login',
   '/contact',
   '/verify',
+  '/privacy',
   '/update',
   '/about',
   '/faq',

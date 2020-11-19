@@ -51,6 +51,13 @@ const Header = () => {
                 />
                 <TextLink
                   display={['none', 'none', 'none', 'inline']}
+                  href='/privacy'
+                  text='Privacy'
+                  color='boulder'
+                  padding='.25em'
+                />
+                <TextLink
+                  display={['none', 'none', 'none', 'inline']}
                   href='/how-it-works'
                   text='How It Works'
                   color='boulder'
