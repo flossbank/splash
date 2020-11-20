@@ -41,7 +41,7 @@ const Privacy = () => (
         <Divider />
         <FAQHeading>Privacy Policy</FAQHeading>
         <PrivacyTextBlock>
-          Our Privacy Policy was posted on 20 November 2020 and last updated on 20 November 2020. It governs the privacy terms of our website, located at https://flossbank.com, and the tools we provide you (the "Website" or the "Service").
+          Our Privacy Policy was posted on 20 November 2020 and last updated on 20 November 2020. It governs the privacy terms of our website, located at https://flossbank.com, and the tools we provide (the "Website" or the "Service").
         </PrivacyTextBlock>
         <Divider />
         <FAQHeading>Your Privacy</FAQHeading>
