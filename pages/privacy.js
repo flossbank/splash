@@ -87,7 +87,7 @@ We may use your Personal Data to contact you with newsletters, marketing or prom
           </ListItem>
           <ListItem>
           Usage Data <br />
-We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data contains which OSS packages were installed by you, at what time, and what ads were seen.
+We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data contains the names and versions of packages installed using the Flossbank CLI, the name and version of the package manager used to install the packages, the time of the installations, and which ads were seen during the installations (if any).
           </ListItem>
           <ListItem>
           Tracking &amp; Cookies Data <br />
