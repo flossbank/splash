@@ -92,7 +92,7 @@ We may also collect information how the Service is accessed and used ("Usage Dat
           <ListItem>
           Tracking &amp; Cookies Data <br />
 We use cookies to hold certain information during your session on our website.
-Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device.<br />
+Cookies are files with small amounts of data which may include a unique identifier. Cookies are sent to your browser from The Service and stored on your device.<br />
 Examples of Cookies we use: session cookies (we use these cookies to operate our Service) and preference cookies (we use these cookies to remember your preferences and various settings).
           </ListItem>
         </UnorderedList>
