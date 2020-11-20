@@ -29,12 +29,6 @@ const Privacy = () => (
         <PrivacyTextBlock>
           We know privacy policies can be riddled with heavy language and legalese that’s difficult to parse. Our TLDR is that we will not share your personal information no matter what.
         </PrivacyTextBlock>
-        <PrivacyTextBlock fontWeight='500'>
-          The only information we have is your email address (used for authentication), your GitHub Id (used to see if you’re a GitHub admin for an organization you’re trying to donate on behalf of) and the OSS packages you’ve installed (used to distribute your donation / ad revenue).
-        </PrivacyTextBlock>
-        <PrivacyTextBlock fontWeight='500'>
-          That's it
-        </PrivacyTextBlock>
         <PrivacyTextBlock>
           Please accept the following privacy policy as the official language of what’s stated above.
         </PrivacyTextBlock>
@@ -136,7 +130,7 @@ Examples of Cookies we use: session cookies (we use these cookies to operate our
           Business Transaction. If we are involved in a merger, acquisition or asset sale, your Personal Data may be transferred. We will provide notice before your Personal Data is transferred and becomes subject to a different Privacy Policy.
           </ListItem>
           <ListItem>
-          Disclosure for Law Enforcement. Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).
+          Disclosure for Law Enforcement. Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law.
           </ListItem>
         </UnorderedList>
         <Divider />
@@ -212,7 +206,7 @@ Examples of Cookies we use: session cookies (we use these cookies to operate our
         <FAQHeading>Service Providers</FAQHeading>
         <PrivacyTextBlock>We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.</PrivacyTextBlock>
         <PrivacyTextBlock>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</PrivacyTextBlock>
-        <PrivacyTextBlock>Analytics</PrivacyTextBlock>
+        <PrivacyTextBlock fontWeight='500'>Analytics</PrivacyTextBlock>
         <PrivacyTextBlock>We may use third-party Service Providers to monitor and analyze the use of our Service.</PrivacyTextBlock>
         <UnorderedList>
           <ListItem>
@@ -221,7 +215,7 @@ GoatCounter is an open source web analytics platform available as a hosted servi
 For more information on the privacy practices of GoatCounter, please visit the GoatCounter Privacy &amp; Terms web page: <TextLink external href='https://www.goatcounter.com/help' text='https://www.goatcounter.com/help' />
           </ListItem>
         </UnorderedList>
-        <PrivacyTextBlock>Payments</PrivacyTextBlock>
+        <PrivacyTextBlock fontWeight='500'>Payments</PrivacyTextBlock>
         <PrivacyTextBlock>We may provide paid products and/or services within the Service. In that case, we use third-party services for payment processing (e.g. payment processors).</PrivacyTextBlock>
         <PrivacyTextBlock>We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</PrivacyTextBlock>
         <PrivacyTextBlock>The payment processors we work with are:</PrivacyTextBlock>

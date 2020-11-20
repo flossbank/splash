@@ -17,7 +17,7 @@ const loggedOutLinks = [
   },
   {
     url: '/privacy',
-    text: 'Privacy'
+    text: 'Privacy Policy'
   },
   {
     url: '/how-it-works',
@@ -44,7 +44,7 @@ const loggedInLinks = [
   },
   {
     url: '/privacy',
-    text: 'Privacy'
+    text: 'Privacy Policy'
   },
   {
     url: '/faq',

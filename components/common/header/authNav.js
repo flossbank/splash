@@ -13,7 +13,6 @@ import {
   MenuList,
   MenuItem
 } from '@chakra-ui/core'
-import { LockIcon } from '@chakra-ui/icons'
 
 const AuthNav = ({ user, onLogout }) => {
   const router = useRouter()
@@ -108,20 +107,6 @@ const AuthNav = ({ user, onLogout }) => {
                   <Box as='span' display='flex' alignItems='center'>
                     <Icon name='question' marginRight='.5rem' />
                     <span>FAQ</span>
-                  </Box>
-                </a>
-              </Link>
-            </MenuItem>
-            <MenuItem
-              _focus={itemFocusStyles}
-              _active={itemActiveStyles}
-              onClick={() => handleNav('/privacy')}
-            >
-              <Link href='/privacy'>
-                <a>
-                  <Box as='span' display='flex' alignItems='center'>
-                    <LockIcon marginRight='.5rem' />
-                    <span>Privacy</span>
                   </Box>
                 </a>
               </Link>
