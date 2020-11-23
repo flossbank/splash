@@ -46,7 +46,7 @@ const AuthProcess = ({
   const { register, handleSubmit, errors } = useForm()
 
   const handleProcess = async (args, e) => {
-    const email = { args }
+    const { email } = args
     e.preventDefault()
     setEmail(email)
     setIsSubmitting(true)
