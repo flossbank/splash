@@ -30,6 +30,26 @@ const Privacy = () => (
           We know privacy policies can be riddled with heavy language and legalese that’s difficult to parse. Our TLDR is that we will not share your personal information no matter what.
         </PrivacyTextBlock>
         <PrivacyTextBlock>
+          <b>Here is a summary of the information we store:</b>
+          <UnorderedList>
+            <ListItem>
+              Email for authentication.
+            </ListItem>
+            <ListItem>
+              GitHub ID (if applicable).
+            </ListItem>
+            <ListItem>
+              Donation amount (if applicable).
+            </ListItem>
+            <ListItem>
+              Packages installed.
+            </ListItem>
+            <ListItem>
+              Ads seen (if applicable).
+            </ListItem>
+          </UnorderedList>
+        </PrivacyTextBlock>
+        <PrivacyTextBlock>
           Please accept the following privacy policy as the official language of what’s stated above.
         </PrivacyTextBlock>
         <Divider />
@@ -75,18 +95,15 @@ const Privacy = () => (
         <PrivacyTextBlock>Types of Data Collected</PrivacyTextBlock>
         <UnorderedList>
           <ListItem>
-          Personal Data <br />
-While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to: Email address and Usage Data.
+          Personal Data: While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to: Email address and Usage Data.
 We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the instructions provided in any email we send.
           </ListItem>
           <ListItem>
-          Usage Data <br />
-We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data contains the names and versions of packages installed using the Flossbank CLI, the name and version of the package manager used to install the packages, the time of the installations, and which ads were seen during the installations (if any).
+          Usage Data: We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data contains the names and versions of packages installed using the Flossbank CLI, the name and version of the package manager used to install the packages, the time of the installations, and which ads were seen during the installations (if any).
           </ListItem>
           <ListItem>
-          Tracking &amp; Cookies Data <br />
-We use cookies to hold certain information during your session on our website.
-Cookies are files with small amounts of data which may include a unique identifier. Cookies are sent to your browser from The Service and stored on your device.<br />
+          Tracking &amp; Cookies Data: We use cookies to hold certain information during your session on our website.
+Cookies are files with small amounts of data which may include a unique identifier. Cookies are sent to your browser from The Service and stored on your device.
 Examples of Cookies we use: session cookies (we use these cookies to operate our Service) and preference cookies (we use these cookies to remember your preferences and various settings).
           </ListItem>
         </UnorderedList>
@@ -184,7 +201,7 @@ Examples of Cookies we use: session cookies (we use these cookies to operate our
           <ListItem>
           The right to withdraw consent. You also have the right to withdraw your consent at any time where Flossbank relied on your consent to process your personal information.
           </ListItem>
-        </UnorderedList>
+        </UnorderedList><br />
         <PrivacyTextBlock>Please note that we may ask you to verify your identity before responding to such requests.</PrivacyTextBlock>
         <PrivacyTextBlock>You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</PrivacyTextBlock>
         <Divider />
@@ -200,22 +217,21 @@ Examples of Cookies we use: session cookies (we use these cookies to operate our
           <ListItem>
           Request that a business that sells a consumer's personal data, not sell the consumer's personal data.
           </ListItem>
-        </UnorderedList>
+        </UnorderedList><br />
         <PrivacyTextBlock>If you make a request, we have 30 days to respond to you. If you would like to exercise any of these rights, please contact us.</PrivacyTextBlock>
         <Divider />
         <FAQHeading>Service Providers</FAQHeading>
         <PrivacyTextBlock>We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.</PrivacyTextBlock>
         <PrivacyTextBlock>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</PrivacyTextBlock>
-        <PrivacyTextBlock fontWeight='500'>Analytics</PrivacyTextBlock>
+        <PrivacyTextBlock fontWeight='600'>Analytics</PrivacyTextBlock>
         <PrivacyTextBlock>We may use third-party Service Providers to monitor and analyze the use of our Service.</PrivacyTextBlock>
         <UnorderedList>
           <ListItem>
-          GoatCounter <br />
-GoatCounter is an open source web analytics platform available as a hosted service (free for non-commercial use) or self-hosted app. It aims to offer easy to use and meaningful privacy-friendly web analytics as an alternative to Google Analytics or Matomo.
+          GoatCounter: GoatCounter is an open source web analytics platform available as a hosted service (free for non-commercial use) or self-hosted app. It aims to offer easy to use and meaningful privacy-friendly web analytics as an alternative to Google Analytics or Matomo.
 For more information on the privacy practices of GoatCounter, please visit the GoatCounter Privacy &amp; Terms web page: <TextLink external href='https://www.goatcounter.com/help' text='https://www.goatcounter.com/help' />
           </ListItem>
-        </UnorderedList>
-        <PrivacyTextBlock fontWeight='500'>Payments</PrivacyTextBlock>
+        </UnorderedList><br />
+        <PrivacyTextBlock fontWeight='600'>Payments</PrivacyTextBlock>
         <PrivacyTextBlock>We may provide paid products and/or services within the Service. In that case, we use third-party services for payment processing (e.g. payment processors).</PrivacyTextBlock>
         <PrivacyTextBlock>We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</PrivacyTextBlock>
         <PrivacyTextBlock>The payment processors we work with are:</PrivacyTextBlock>
