@@ -47,7 +47,6 @@ const AuthProcess = ({
 
   const handleProcess = async (args, e) => {
     const email = { args }
-    console.log('here', args)
     e.preventDefault()
     setEmail(email)
     setIsSubmitting(true)
