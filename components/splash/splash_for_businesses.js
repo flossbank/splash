@@ -22,9 +22,7 @@ const SplashForBusinesses = ({ id }) => {
         </Text>
         <BusinessCards />
         <Flex justify='center'>
-          <Text>
-            <TextLink text='Contact us' href='/contact' fontWeight='bold' /> to get on our beta list.
-          </Text>
+          <TextLink external href='https://enterprise.flossbank.com' text='Get started with Flossbank Enterprise' fontWeight='bold' />
         </Flex>
       </Flex>
     </Section>

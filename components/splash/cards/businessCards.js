@@ -2,17 +2,17 @@ import { List, ListItem, Icon } from '@chakra-ui/core'
 
 const cardData = [
   {
+    icon: 'lock',
+    text: 'Directly help maintainers who maintain and fortify the code your company relies on'
+  },
+  {
     icon: 'givingHand',
     text:
-      'Rest easy knowing 100% of your donation goes to authors and maintainers'
+      'Rest easy knowing 99% of your donation goes to authors and maintainers'
   },
   {
     icon: 'pieChart',
-    text: 'Donate dynamically to the Open Source packages your firm uses most'
-  },
-  {
-    icon: 'megaphone',
-    text: 'Gain insight into your impact and explore advertising opportunities'
+    text: 'Donate with a single click to the Open Source packages your firm uses most'
   }
 ]
 

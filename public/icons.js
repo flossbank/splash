@@ -42,6 +42,17 @@ export default {
     ),
     viewBox: '0 0 360 360'
   },
+  lock: {
+    path: (
+      <g id='Flossbank_Icons_Lock_RGB' data-name='Flossbank Icons_Lock_RGB' transform='translate(-73.74 -46.93)'>
+        <path id='Path_1006' data-name='Path 1006' d='M123.69,159.31a12.48,12.48,0,0,1-12.49-12.47h0V109.37A62.46,62.46,0,0,1,217.74,65.14a63.39,63.39,0,0,1,16.31,28.63A12.49,12.49,0,0,1,209.87,100h0a38.21,38.21,0,0,0-9.8-17.22,37.48,37.48,0,0,0-63.88,26.6v37.46a12.48,12.48,0,0,1-12.48,12.48Z' fill='#529ed6' />
+        <rect id='Rectangle_514' data-name='Rectangle 514' width='199.78' height='162.32' rx='37.46' transform='translate(73.74 134.34)' fill='#2b67af' />
+        <path id='Path_1007' data-name='Path 1007' d='M173.63,246.72a12.48,12.48,0,0,1-12.48-12.48h0V196.77a12.5,12.5,0,0,1,25,0v37.46a12.49,12.49,0,0,1-12.47,12.49Z' fill='#e0dfff' />
+        <circle id='Ellipse_121' data-name='Ellipse 121' cx='18.73' cy='18.73' r='18.73' transform='translate(154.9 184.28)' fill='#e0dfff' />
+      </g>
+    ),
+    viewBox: '0 0 199.78 249.73'
+  },
   hooray: {
     path: (
       <g>
