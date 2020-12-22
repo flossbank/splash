@@ -57,11 +57,6 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   }
 
   const createDonation = async () => {
-    // prevent quick button flash from isLoading event when there is a known error with the card
-    if (submitError) {
-      return
-    }
-
     const cardElement = elements.getElement(CardElement)
     const res = await stripe.createToken(cardElement)
     const token = res.token
@@ -69,6 +64,9 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
     if (!token) {
       throw new Error('Invalid credit card information')
     }
+
+    setSubmitError('')
+    setSubmitLoading(true)
 
     try {
       const response = await donate({
@@ -91,6 +89,8 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   }
 
   const updateDonationLocal = async () => {
+    setSubmitError('')
+    setSubmitLoading(true)
     await updateDonation({
       amount: newAmount * 100,
       seeAds: showAds
@@ -107,8 +107,6 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   const handleSaveChanges = async () => {
     const valid = validateForm()
     if (!valid) return
-    setSubmitLoading(true)
-    setSubmitError('')
     try {
       if (isNewDonor) {
         await createDonation()
