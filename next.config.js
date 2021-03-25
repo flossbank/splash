@@ -1,7 +1,4 @@
-const withSass = require('@zeit/next-sass')
-
-module.exports = withSass({
-  cssModules: true,
+module.exports = {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
@@ -44,4 +41,4 @@ module.exports = withSass({
       : 'pk_test_Kz9yyhpVG7OVp9ejZChlxUKw00ccsj7tcR',
     GOAT_COUNTER_ENABLE: process.env.NODE_ENV === 'production'
   }
-})
+}
