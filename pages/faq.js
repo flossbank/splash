@@ -73,6 +73,12 @@ const FAQ = () => (
         </Text>
         <UninstallCommandBlock />
         <Divider />
+        <FAQHeading>Bugs or feature requests?</FAQHeading>
+        <Text marginBottom='1.5rem'>
+          Please visit <TextLink external href='https://github.com/flossbank/splash/issues' text='our GitHub' /> page
+          and file a bug or feature request!
+        </Text>
+        <Divider />
         <FAQHeading>I still have a question</FAQHeading>
         <Text marginBottom='1.5rem'>
           <TextLink text='Contact us' href='contact' /> and we'll address it
