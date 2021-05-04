@@ -3,7 +3,7 @@ import { List, ListItem, Icon } from '@chakra-ui/core'
 const cardData = [
   {
     icon: 'lock',
-    text: 'Directly help maintainers who maintain and fortify the code your company relies on'
+    text: 'Fortify the code your company relies on by giving to the maintainers building it'
   },
   {
     icon: 'givingHand',
@@ -12,7 +12,7 @@ const cardData = [
   },
   {
     icon: 'pieChart',
-    text: 'Donate with a single click to the Open Source packages your firm uses most'
+    text: 'Donate with a single click and have your company logo show up on every package you depend on'
   }
 ]
 

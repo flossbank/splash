@@ -43,27 +43,16 @@ const SplashWhatIsFlossbank = () => {
           marginBottom='2rem'
           textAlign={{ base: 'left', sm: 'center', lg: 'left' }}
         >
-          Our package manager wrapper uses ad revenue and monthly donations to support all of the maintainers
-          of the packages you install. <TextLink text='Yes, all of them.' href='/how-it-works' />
+          Flossbank uses a combination of enterprise funds, developer donations, and developer ad revenue to support all of the
+          packages used, all the way down the dependency tree. <TextLink text='Yes, all of them.' href='/how-it-works' />
         </Text>
         <WhatIsFBCards />
         <Flex justify={{ base: 'center', lg: 'flex-start' }} align='center'>
-          <LinkBtn
-            href='/signup'
-            className='u-box-shadow'
-            padding='.75rem'
-            minW={{ base: '6rem', sm: '10rem' }}
-          >
-            Sign Up
-          </LinkBtn>
           <LinkBtn
             href='/about'
             className='u-box-shadow'
             padding='.75rem'
             minW={{ base: '6rem', sm: '10rem' }}
-            backgroundColor='puddle'
-            color='ocean'
-            margin={{ base: '0 0 0 1.5rem' }}
           >
             About Us
           </LinkBtn>

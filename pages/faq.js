@@ -26,6 +26,15 @@ const FAQ = () => (
           <Image src='/images/flossbank_ads_demo.gif' margin='1.5rem auto 0' alt='GIF showing the process of installing packages when the Flossbank wrapper is installed.' />
         </Box>
         <Divider />
+        <FAQHeading>How can I get paid for the packages I mantain?</FAQHeading>
+        <Text marginBottom='1.5rem'>
+          <TextLink
+            text='Visit our maintainer portal to get signed up and start receiving funds!'
+            external
+            href='https://maintainer.flossbank.com'
+          />
+        </Text>
+        <Divider />
         <FAQHeading>What package managers do you wrap?</FAQHeading>
         <Text marginBottom='1.5rem'>
           We are currently wrapping{' '}

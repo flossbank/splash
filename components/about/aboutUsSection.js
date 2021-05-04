@@ -69,10 +69,25 @@ const AboutUsSection = () => (
           our dependencies -- all the way down the tree.
         </Text>
         <Text marginBottom='1rem'>
-          That’s why we built a package manager wrapper. The wrapper takes
+          First and foremost, we built our enterprise portal to allow companies and organizations
+          to fund not only all of the dependencies defined in their manifest files,
+          but all of the dependencies of their dependencies as well. We determine the packages that will receive
+          enterprise funds by looking at all GitHub repositories for that organization. The beauty
+          of this is that each month, when the donation is processed, we look at GitHub for all
+          dependencies at that exact time, meaning enterprise donations are constantly up to date
+          with the dependencies actually used by that organization. Absolutely no maintenance required.
+          In return for donating, an organization's logo is displayed on each and every package's page which
+          received funds, increasing brand awareness and showing maintainers that this organization
+          truly cares.
+        </Text>
+        <Text marginBottom='1rem'>
+          We also built a package manager wrapper for developers who would like to give back
+          to the Open Source packages they use in their day to day work. The wrapper takes
           complete dependency tree snapshots when you install Open Source
           packages. The wrapper will show ads (if you want) while Open Source
-          packages are downloading/installing. We distribute the ad revenue
+          packages are downloading/installing. Or, conversely, developers
+          can choose to donate monthly. Our package manager wrapper distributes the revenue,
+          either from ads or a donation,
           across the entire dependency tree of the packages that you installed.
         </Text>
         <Text marginBottom='1rem'>

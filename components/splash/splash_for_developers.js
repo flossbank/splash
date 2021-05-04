@@ -65,10 +65,7 @@ const SplashForDevelopers = (props) => {
             Sign Up
           </LinkBtn>
           <Text>Are you an author or maintainer?</Text>
-          <Text>
-            {/* TODO: add actual url for beta list */}
-            <TextLink text='Contact us' href='/contact' fontWeight='bold' /> to get on our beta list.
-          </Text>
+          <TextLink external href='https://maintainer.flossbank.com' text='Visit the Flossbank maintainer portal' fontWeight='bold' />
         </Flex>
       </Box>
     </Section>

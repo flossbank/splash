@@ -45,6 +45,17 @@ const SplashHero = () => (
       flexDirection={{ base: 'column', sm: 'row' }}
     >
       <LinkBtn
+        href='https://maintainer.flossbank.com'
+        external
+        className='u-box-shadow'
+        backgroundColor='white'
+        color='ocean'
+        minW={{ base: 'unset', sm: '10rem' }}
+        margin={{ base: '0 0 1.5rem 0', sm: '0 1.5rem 0 0 ' }}
+      >
+        For Maintainers
+      </LinkBtn>
+      <LinkBtn
         href='#forDevelopers'
         className='u-box-shadow'
         backgroundColor='white'
@@ -57,7 +68,7 @@ const SplashHero = () => (
       <LinkBtn
         href='#forBusinesses'
         className='u-box-shadow'
-        backgroundColor='puddle'
+        backgroundColor='white'
         color='ocean'
         minW={{ base: 'unset', sm: '10rem' }}
       >
