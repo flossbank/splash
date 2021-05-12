@@ -64,7 +64,39 @@ const Dashboard = () => {
     setUserSessionCountLoading(true)
   }
 
-  async function fetchData () {
+  function fetchData () {
+    fetchInstalledPkgsData()
+    fetchDonationData()
+    fetchSessionData()
+  }
+
+  async function fetchDonationData () {
+    try {
+      const donationInfoRes = await fetchDonationInfo()
+      if (donationInfoRes && donationInfoRes.success) {
+        setDonation(donationInfoRes.donationInfo.amount / 100)
+      }
+    } catch (e) {
+      setDonation(0)
+    } finally {
+      setDonationLoading(false)
+    }
+  }
+
+  async function fetchSessionData () {
+    try {
+      const sessionCountRes = await fetchUserSessionsInfo()
+      if (sessionCountRes && sessionCountRes.success) {
+        setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
+      }
+    } catch (e) {
+      setUserSessionCount('N/A')
+    } finally {
+      setUserSessionCountLoading(false)
+    }
+  }
+
+  async function fetchInstalledPkgsData () {
     try {
       const installedPackagesRes = await fetchUserInstalledPackages()
       if (installedPackagesRes && installedPackagesRes.success) {
@@ -96,33 +128,11 @@ const Dashboard = () => {
     } finally {
       setPackagesTouchedLoading(false)
     }
-
-    try {
-      const donationInfoRes = await fetchDonationInfo()
-      if (donationInfoRes && donationInfoRes.success) {
-        setDonation(donationInfoRes.donationInfo.amount / 100)
-      }
-    } catch (e) {
-      setDonation(0)
-    } finally {
-      setDonationLoading(false)
-    }
-
-    try {
-      const sessionCountRes = await fetchUserSessionsInfo()
-      if (sessionCountRes && sessionCountRes.success) {
-        setUserSessionCount(sessionCountRes.userSessionData.sessionCount)
-      }
-    } catch (e) {
-      setUserSessionCount('N/A')
-    } finally {
-      setUserSessionCountLoading(false)
-    }
   }
 
   async function refreshDashboard () {
     resetLoaders()
-    await fetchData()
+    fetchData()
     await resume()
   }
 
