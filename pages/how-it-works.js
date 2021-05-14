@@ -41,7 +41,7 @@ const HowItWorks = () => (
         </Box>
         <Text marginBottom='1.5rem'>
           Alternatively, if a donation is chosen as your method of giving back
-          to the Open Source community, 97% of the donation (after processing
+          to the Open Source community, 99% of the donation (after processing
           fees) is passed along to the maintainers of the Open Source packages
           installed and no ads will be shown. You can change or delete your donation at any time
           within the user portal. Additionally, within your user portal you'll
