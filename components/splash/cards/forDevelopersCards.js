@@ -1,7 +1,7 @@
 import { Flex, Box, Text } from '@chakra-ui/react'
 import UnderlinedHeading from '../../common/underlinedHeading'
 import TextLink from '../../common/textLink'
-import IconWrapper from '../../common/iconWrapper'
+import CustomIconWrapper from '../../common/customIconWrapper'
 
 const cardData = [
   {
@@ -30,7 +30,7 @@ const Card = ({ icon, heading, text, showHowItWorksLink }) => (
     marginBottom='3rem'
     maxW='32rem'
   >
-    <IconWrapper
+    <CustomIconWrapper
       icon={icon}
       boxSize='3.5rem'
       marginBottom={{ base: '1.5rem', md: 0 }}

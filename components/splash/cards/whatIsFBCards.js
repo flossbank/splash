@@ -1,5 +1,5 @@
 import { List, ListItem } from '@chakra-ui/react'
-import IconWrapper from '../../common/iconWrapper'
+import CustomIconWrapper from '../../common/customIconWrapper'
 import UnderlinedHeading from '../../common/underlinedHeading'
 
 const cardData = [
@@ -48,7 +48,7 @@ const Card = ({ icon, text, heading }) => (
       textTransform='none'
       fontWeight='600'
     >
-      <IconWrapper icon={icon} boxSize='1.25rem' margin='.3rem .5rem .3rem 0' />
+      <CustomIconWrapper icon={icon} boxSize='1.25rem' margin='.3rem .5rem .3rem 0' />
     </UnderlinedHeading>
     <p>{text}</p>
   </ListItem>

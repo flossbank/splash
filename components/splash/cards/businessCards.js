@@ -1,5 +1,5 @@
 import { List, ListItem } from '@chakra-ui/react'
-import IconWrapper from '../../common/iconWrapper'
+import CustomIconWrapper from '../../common/customIconWrapper'
 
 const cardData = [
   {
@@ -26,7 +26,7 @@ const BusinessCard = ({ icon, text }) => (
     backgroundColor='white'
     padding='2.5rem 2.25rem'
   >
-    <IconWrapper
+    <CustomIconWrapper
       icon={icon}
       boxSize='3.75rem'
       marginBottom={['2.25rem', 0]}
