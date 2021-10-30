@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, ElementsConsumer } from '@stripe/react-stripe-js'
 
-import { Text } from '@chakra-ui/core'
+import { Text } from '@chakra-ui/react'
 
 import DonateForm from './donateForm'
 import Section from '../common/section'

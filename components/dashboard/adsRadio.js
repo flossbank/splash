@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@chakra-ui/core'
+import { Button } from '@chakra-ui/react'
 
 const AdsRadio = React.forwardRef((props, ref) => {
   const { isChecked, isDisabled, value, ...rest } = props

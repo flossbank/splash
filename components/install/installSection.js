@@ -1,4 +1,4 @@
-import { Box, Text, Code, useClipboard, Icon } from '@chakra-ui/core'
+import { Box, Text, Code, useClipboard } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
@@ -15,6 +15,7 @@ import LinkBtn from '../common/linkBtn'
 import { useLocalStorage } from '../../utils/useLocalStorage'
 import { useAuth } from '../../utils/useAuth'
 import { localStorageDashboardInstallReminderKey } from '../../utils/constants'
+import { CopyIcon } from '@chakra-ui/icons'
 
 const steps = [
   {
@@ -109,7 +110,7 @@ const PostInstallInstructions = ({ noAds }) => {
             >
               {hasCopied ? 'Copied' : 'Copy'}{' '}
               <span className='sr-only'>command to npm install standard</span>
-              <Icon name='copy' size='1rem' marginLeft='.5rem' />
+              <CopyIcon boxSize='1rem' marginLeft='.5rem' />
             </FBButton>
           </Box>
           <Text marginBottom='2rem'>
@@ -174,7 +175,7 @@ const InstallSection = () => {
     >
       <Box width='100%'>
         <h1 className='sr-only'>Install the Flossbank CLI</h1>
-        <StepperSection steps={steps} currentStep={3} />}
+        <StepperSection steps={steps} currentStep={3} />
         <UnderlinedHeading
           text='Install'
           align='center'

@@ -1,7 +1,7 @@
 /* global jest */
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
+import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/react'
 import CustomTheme from '../public/theme'
 import '@testing-library/jest-dom/extend-expect'
 

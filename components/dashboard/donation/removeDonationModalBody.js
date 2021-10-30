@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Box, Icon, Text, ModalFooter, ModalBody } from '@chakra-ui/core'
+import { Box, Text, ModalFooter, ModalBody } from '@chakra-ui/react'
 
 import FBButton from '../../common/fbButton'
 import ErrorMessage from '../../common/errorMessage'
 
 import { deleteDonation } from '../../../client'
+import { CloseIcon, DeleteIcon } from '@chakra-ui/icons'
 
 const RemoveDonation = ({ updateDonorStatus, onClose }) => {
   const [isDeleting, setIsDeleting] = useState(false)
@@ -67,7 +68,7 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
           margin='0 1.5rem 0 0'
         >
           <Box as='span' display='flex' alignItems='center'>
-            <Icon name='close' fontSize='1rem' marginRight='1rem' />
+            <CloseIcon fontSize='1rem' marginRight='1rem' />
             Keep my donation
           </Box>
         </FBButton>
@@ -81,7 +82,7 @@ const RemoveDonation = ({ updateDonorStatus, onClose }) => {
           fontWeight='600'
         >
           <Box as='span' display='flex' alignItems='center'>
-            <Icon name='delete' fontSize='1rem' marginRight='1rem' />
+            <DeleteIcon fontSize='1rem' marginRight='1rem' />
             Delete my donation
           </Box>
         </FBButton>

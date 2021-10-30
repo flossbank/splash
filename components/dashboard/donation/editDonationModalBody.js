@@ -5,7 +5,6 @@ import { updateDonation, donate } from '../../../client'
 
 import {
   Box,
-  Icon,
   Heading,
   Text,
   NumberInput,
@@ -13,7 +12,7 @@ import {
   ModalFooter,
   ModalBody,
   RadioButtonGroup
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import AdsRadio from '../adsRadio'
 import BillingForm from '../billingForm'
@@ -23,6 +22,7 @@ import FBButton from '../../common/fbButton'
 import ErrorMessage from '../../common/errorMessage'
 
 import styles from '../../select/donateForm.module.scss'
+import { CheckIcon, CloseIcon, DeleteIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
   const [submitError, setSubmitError] = useState('')
@@ -216,7 +216,7 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
                     padding='.5rem .5rem .5rem 0'
                   >
                     <Box as='span' display='flex' alignItems='center'>
-                      <Icon name='delete' fontSize='1rem' marginRight='1rem' />
+                      <DeleteIcon fontSize='1rem' marginRight='1rem' />
                       Delete my donation
                     </Box>
                   </FBButton>
@@ -231,10 +231,9 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
                   marginBottom='.75rem'
                 >
                   Ads in the terminal{' '}
-                  <Icon
-                    name={showAds ? 'view' : 'view-off'}
-                    marginLeft='.5rem'
-                  />
+                  {showAds
+                    ? <ViewIcon marginLeft='0.5rem' />
+                    : <ViewOffIcon marginLeft='0.5rem' />}
                 </Box>
                 <RadioButtonGroup
                   id='ad-opts'
@@ -262,7 +261,7 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
               fontWeight='600'
             >
               <Box as='span' display='flex' alignItems='center'>
-                <Icon name='close' fontSize='1rem' marginRight='1rem' />
+                <CloseIcon fontSize='1rem' marginRight='1rem' />
                 Cancel
               </Box>
             </FBButton>
@@ -274,7 +273,7 @@ const EditDonationModalBody = ({ donationAmount, isNewDonor, onClose }) => {
               fontWeight='600'
             >
               <Box as='span' display='flex' alignItems='center'>
-                <Icon name='check' fontSize='1rem' marginRight='1rem' />
+                <CheckIcon fontSize='1rem' marginRight='1rem' />
                 Save changes
               </Box>
             </FBButton>

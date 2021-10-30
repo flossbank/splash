@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/core'
+import { Box, Flex } from '@chakra-ui/react'
 import { Parallax, Background } from 'react-parallax'
 
 import SplashRocketLg from '../../public/images/splash/splash_rocket_clouds.svg'

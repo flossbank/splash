@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { CardElement } from '@stripe/react-stripe-js'
 
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 
 import ErrorMessage from '../common/errorMessage'
 

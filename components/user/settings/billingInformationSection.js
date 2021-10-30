@@ -10,7 +10,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   useDisclosure
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import StripeWrapper from '../../common/stripe/stripeWrapper'
 import UpdateBilling from './updateBilling'
@@ -88,7 +88,7 @@ const BillingInformationSection = ({ user }) => {
 
       <Modal
         isOpen={isOpen}
-        size='xl'
+        boxSize='xl'
         closeOnOverlayClick={false}
         onClose={onClose}
       >

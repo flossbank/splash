@@ -1,4 +1,4 @@
-import { Box, Text, Code } from '@chakra-ui/core'
+import { Box, Text, Code } from '@chakra-ui/react'
 
 import Card from '../common/card'
 import InstallCommands from '../install/installCommands'

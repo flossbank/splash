@@ -12,9 +12,8 @@ import {
   Heading,
   List,
   ListItem,
-  CircularProgress,
-  Icon
-} from '@chakra-ui/core'
+  CircularProgress
+} from '@chakra-ui/react'
 
 import { downloadData } from '../utils/downloader'
 import { useLocalStorage } from '../utils/useLocalStorage'
@@ -32,6 +31,7 @@ import DonationCard from '../components/dashboard/donationCard'
 import TextLink from '../components/common/textLink'
 import FBButton from '../components/common/fbButton'
 import TopTenPackagesView from '../components/dashboard/topTenPackagesView'
+import { DownloadIcon } from '@chakra-ui/icons'
 
 const Dashboard = () => {
   const { user, resume } = useAuth()
@@ -290,7 +290,7 @@ const Dashboard = () => {
               downloadData(JSON.stringify(userInstallData), 'flossbank_user_data.json')}
           >
             Download data
-            <Icon marginLeft='1rem' name='download' size='1.75rem' />
+            <DownloadIcon marginLeft='1rem' boxSize='1.75rem' />
           </FBButton>
         </Box>
       </Section>
