@@ -1,4 +1,4 @@
-import { Box, Text, List, ListItem } from '@chakra-ui/core'
+import { Box, Text, List, ListItem } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import CustomIconWrapper from './customIconWrapper'
 
