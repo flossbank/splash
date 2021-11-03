@@ -97,7 +97,7 @@ const AuthNav = ({ user, onLogout }) => {
               <Link href='/dashboard'>
                 <a>
                   <Box as='span' display='flex' alignItems='center'>
-                    <CustomIconWrapper name='home' marginRight='.5rem' />
+                    <CustomIconWrapper icon='home' marginRight='.5rem' />
                     <span>Dashboard</span>
                   </Box>
                 </a>

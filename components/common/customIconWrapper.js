@@ -7,7 +7,11 @@ const CustomIconWrapper = ({ icon, ...props }) => {
   if (!icon || !icons[icon]) {
     return null
   }
-  return React.createElement(createIcon(icons[icon]), props)
+
+  return React.createElement(
+    createIcon(icons[icon]),
+    props
+  )
 }
 
 export default CustomIconWrapper
