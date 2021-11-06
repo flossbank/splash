@@ -1,4 +1,4 @@
-import { Flex, Box, Text } from '@chakra-ui/core'
+import { Flex, Box, Text } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 
 import Section from '../common/section'

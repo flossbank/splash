@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { decode } from 'b36'
-import { Heading, Text, Icon } from '@chakra-ui/core'
+import { Heading, Text } from '@chakra-ui/react'
 
 import { useLocalStorage } from '../utils/useLocalStorage'
 import PageWrapper from '../components/common/pageWrapper'
@@ -10,6 +10,7 @@ import BouncyLoader from '../components/common/bouncyLoader'
 
 import { localStorageGHStateKey } from '../utils/constants'
 import { useAuth } from '../utils/useAuth'
+import { CheckIcon } from '@chakra-ui/icons'
 
 const CompleteLoginPage = () => {
   const router = useRouter()
@@ -98,9 +99,8 @@ const CompleteLoginPage = () => {
         </Heading>
         {isLoading && <BouncyLoader />}
         {verified && (
-          <Icon
-            name='check'
-            size='4rem'
+          <CheckIcon
+            boxSize='4rem'
             color='puddle'
             backgroundColor='lake'
             borderRadius='50%'

@@ -1,17 +1,17 @@
-import { PseudoBox } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 import { defaultProps } from '../../utils/defaultBtnProps'
 import PropTypes from 'prop-types'
 
 const LinkBtn = ({ children, external, ...props }) => (
   <>
     {!external ? (
-      <PseudoBox as='a' display='inline-block' {...props}>
+      <Box as='a' display='inline-block' {...props}>
         {children}
-      </PseudoBox>
+      </Box>
     ) : (
-      <PseudoBox as='a' target='_blank' display='inline-block' {...props}>
+      <Box as='a' target='_blank' display='inline-block' {...props}>
         {children}
-      </PseudoBox>
+      </Box>
     )}
   </>
 )

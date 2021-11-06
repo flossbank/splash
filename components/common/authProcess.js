@@ -1,15 +1,14 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import {
   Box,
   Flex,
   Text,
-  Icon,
   Input,
   Heading,
   FormControl,
   FormLabel
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import { useForm } from 'react-hook-form'
 
@@ -23,6 +22,7 @@ import ErrorMessage from './errorMessage'
 import GitHubLoginButton from './githubButton'
 
 import styles from './authProcess.module.scss'
+import CustomIconWrapper from './customIconWrapper'
 
 const AuthProcess = ({
   process,
@@ -192,7 +192,11 @@ const AuthProcess = ({
           justify='space-between'
           aria-live='polite'
         >
-          <Icon name={icon} size='6rem' marginBottom='1.5rem' />
+          <CustomIconWrapper
+            icon={icon}
+            boxSize='6rem'
+            marginBottom='1.5rem'
+          />
           <Heading
             as='h1'
             fontSize='2rem'

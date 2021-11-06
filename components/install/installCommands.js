@@ -1,12 +1,12 @@
+import { CopyIcon } from '@chakra-ui/icons'
 import {
   Box,
   Heading,
   Code,
-  Icon,
   useClipboard,
   Alert,
   AlertIcon
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 
 import FBButton from '../common/fbButton'
@@ -57,10 +57,10 @@ const InstallCommand = ({ system, commandText, sourceURL }) => {
       >
         {hasCopied ? 'Copied' : 'Copy'}{' '}
         <span className='sr-only'>command for {system}</span>
-        <Icon name='copy' size='1rem' marginLeft='.5rem' />
+        <CopyIcon boxSize='1rem' marginLeft='.5rem' />
       </FBButton>
-      <Alert paddingTop='0' paddingLeft='2rem' status='info' marginTop='1rem' backgroundColor='none'>
-        <AlertIcon size='1rem' />
+      <Alert paddingTop='0' paddingLeft='2rem' status='info' marginTop='1rem' bg='none'>
+        <AlertIcon boxSize='1rem' />
         <TextLink text='Take a look at the source' color='rock' fontSize='0.85rem' external href={sourceURL} />
       </Alert>
     </Box>

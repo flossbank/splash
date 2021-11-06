@@ -6,7 +6,6 @@ import { useAuth } from '../../../utils/useAuth'
 import {
   Flex,
   Text,
-  Icon,
   Button,
   Box,
   Modal,
@@ -17,7 +16,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   useDisclosure
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import SettingsCard from './settingsCard'
 import UnderlinedHeading from '../../common/underlinedHeading'
@@ -27,6 +26,7 @@ import UninstallCommandBlock from '../../common/uninstallCommandBlock'
 import ErrorMessage from '../../common/errorMessage'
 
 import { deleteDonation } from '../../../client'
+import { CloseIcon, DeleteIcon } from '@chakra-ui/icons'
 
 const AccountInformationSection = ({ user }) => {
   const router = useRouter()
@@ -118,7 +118,7 @@ const AccountInformationSection = ({ user }) => {
         </Flex>
       </SettingsCard>
 
-      <Modal isOpen={isOpen} size='xl' onClose={handleClose}>
+      <Modal isOpen={isOpen} boxSize='xl' onClose={handleClose}>
         <ModalOverlay backgroundColor='rgba(0, 0, 0, .75)' />
         <ModalContent backgroundColor='white' padding='2rem'>
           <ModalHeader>
@@ -171,7 +171,7 @@ const AccountInformationSection = ({ user }) => {
               margin='0 1.5rem 0 0'
             >
               <Box as='span' display='flex' alignItems='center'>
-                <Icon name='close' fontSize='1rem' marginRight='1rem' />
+                <CloseIcon fontSize='1rem' marginRight='1rem' />
                 Keep my account
               </Box>
             </FBButton>
@@ -185,7 +185,7 @@ const AccountInformationSection = ({ user }) => {
               fontWeight='600'
             >
               <Box as='span' display='flex' alignItems='center'>
-                <Icon name='delete' fontSize='1rem' marginRight='1rem' />
+                <DeleteIcon fontSize='1rem' marginRight='1rem' />
                 Deactivate my account
               </Box>
             </FBButton>

@@ -1,6 +1,7 @@
-import { Box, Code, Icon, useClipboard } from '@chakra-ui/core'
+import { Box, Code, useClipboard } from '@chakra-ui/react'
 
 import FBButton from './fbButton'
+import CustomIconWrapper from './customIconWrapper'
 
 const UninstallCommandBlock = () => {
   const { onCopy, hasCopied } = useClipboard('flossbank uninstall')
@@ -37,7 +38,7 @@ const UninstallCommandBlock = () => {
       >
         {hasCopied ? 'Copied' : 'Copy'}{' '}
         <span className='sr-only'>command to uninstall</span>
-        <Icon name='copy' size='1rem' marginLeft='.5rem' />
+        <CustomIconWrapper icon='copy' boxSize='1rem' marginLeft='.5rem' />
       </FBButton>
     </Box>
   )

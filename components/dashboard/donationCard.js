@@ -3,7 +3,6 @@ import { useState, useRef } from 'react'
 import {
   Flex,
   IconButton,
-  Icon,
   Text,
   CircularProgress,
   Modal,
@@ -12,7 +11,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   useDisclosure
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import DashboardDataCard from '../dashboard/dashboardDataCard'
 import UnderlinedHeading from '../common/underlinedHeading'
@@ -20,6 +19,8 @@ import UnderlinedHeading from '../common/underlinedHeading'
 import EditDonationModalBody from './donation/editDonationModalBody'
 import StripeWrapper from '../common/stripe/stripeWrapper'
 import DonationInfoModalBody from './donation/donationInfoModalBody'
+import CustomIconWrapper from '../common/customIconWrapper'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAds, refreshDashboard }) => {
   const [createNewDonation, setCreateNewDonation] = useState(false)
@@ -57,7 +58,7 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
                 outlineColor: 'currentColor !important'
               }}
               aria-label='Edit monthly donation'
-              icon='pencil'
+              icon={<CustomIconWrapper icon='pencil' />}
               title='Edit monthly donation'
             />
           </Flex>
@@ -75,14 +76,16 @@ const DonationCard = ({ donationAmount, donationLoading, hasDonation, optOutOfAd
           marginBottom='0.5rem'
         />
         <Text textAlign='left' display='flex' alignItems='center'>
-          <Icon name={optOutOfAds ? 'view-off' : 'view'} marginRight='.75rem' />
+          {optOutOfAds
+            ? <ViewOffIcon marginRight='.75rem' />
+            : <ViewIcon marginRight='.75rem' />}
           {optOutOfAds ? 'Ads hidden' : 'Ads shown'}
         </Text>
         {donationLoading && <CircularProgress isIndeterminate color='ocean' />}
       </DashboardDataCard>
       <Modal
         isOpen={isOpen}
-        size='xl'
+        boxSize='xl'
         closeOnOverlayClick={false}
         onClose={handleClose}
         aria-live='polite'

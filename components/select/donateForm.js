@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { Box, NumberInput, NumberInputField } from '@chakra-ui/core'
+import { Box, NumberInput, NumberInputField } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import { useAuth } from '../../utils/useAuth'

@@ -9,7 +9,7 @@ import {
   ModalCloseButton,
   ModalBody,
   useDisclosure
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import { useState } from 'react'
 
 import Section from '../common/section'
@@ -84,7 +84,7 @@ const SelectTierSection = () => {
           {showDonateForm && <DonateSection seeAds={seeAds} />}
         </Box>
       </Section>
-      <Modal isOpen={isOpen} onClose={onClose} size='80%'>
+      <Modal isOpen={isOpen} onClose={onClose} boxSize='80%'>
         <ModalOverlay />
         <ModalContent backgroundColor='white'>
           <ModalHeader>Flossbank Ad Demo</ModalHeader>

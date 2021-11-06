@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/core'
+import { Flex, Text } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 
 import BusinessCards from './cards/businessCards'

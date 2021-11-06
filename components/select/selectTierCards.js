@@ -1,10 +1,9 @@
 import {
   Flex,
   Text,
-  Icon,
   List,
   ListItem
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 
 import Card from '../common/card'
@@ -13,6 +12,8 @@ import Subheading from '../common/subheading'
 
 import LinkBtn from '../common/linkBtn'
 import TextLink from '../common/textLink'
+import { CheckIcon, CloseIcon } from '@chakra-ui/icons'
+import React from 'react'
 
 const cardsContent = [
   {
@@ -26,16 +27,16 @@ const cardsContent = [
       'During installation of Open Source packages, see curated tech advertisements. ',
     features: [
       {
-        icon: 'check',
+        icon: CheckIcon,
         title: 'Support entire dependency tree'
       },
       {
-        icon: 'close',
+        icon: CloseIcon,
         iconAlt: 'not',
         title: 'Ad-free'
       },
       {
-        icon: 'close',
+        icon: CloseIcon,
         iconAlt: 'cannot',
         title: 'Set contribution amount'
       }
@@ -52,15 +53,15 @@ const cardsContent = [
       'Skip terminal ads and give a monthly contribution to the packages you download and depend on.',
     features: [
       {
-        icon: 'check',
+        icon: CheckIcon,
         title: 'Support entire dependency tree'
       },
       {
-        icon: 'check',
+        icon: CheckIcon,
         title: 'Ad-free'
       },
       {
-        icon: 'check',
+        icon: CheckIcon,
         title: 'Set contribution amount'
       }
     ]
@@ -120,7 +121,7 @@ const TierCard = ({ onSelected, tier, onModalOpen }) => (
             display='flex'
             alignItems='center'
           >
-            <Icon name={feature.icon} marginRight='1rem' width='.85rem' />
+            {React.createElement(feature.icon, { marginRight: '1rem', width: '0.85rem' })}
             {feature.iconAlt && (
               <span className='sr-only'>{feature.iconAlt}</span>
             )}

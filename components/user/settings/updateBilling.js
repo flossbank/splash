@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 
-import { Box, ModalBody, ModalFooter, Icon } from '@chakra-ui/core'
+import { Box, ModalBody, ModalFooter } from '@chakra-ui/react'
 
 import BillingForm from '../../dashboard/billingForm'
 import FBButton from '../../common/fbButton'
 import ErrorMessage from '../../common/errorMessage'
+import { CheckIcon, CloseIcon } from '@chakra-ui/icons'
 
 const UpdateBilling = ({ updateBillingInfo, onClose }) => {
   const [submitLoading, setSubmitLoading] = useState(false)
@@ -58,7 +59,7 @@ const UpdateBilling = ({ updateBillingInfo, onClose }) => {
           fontWeight='600'
         >
           <Box as='span' display='flex' alignItems='center'>
-            <Icon name='close' fontSize='1rem' marginRight='1rem' />
+            <CloseIcon fontSize='1rem' marginRight='1rem' />
             Cancel
           </Box>
         </FBButton>
@@ -70,7 +71,7 @@ const UpdateBilling = ({ updateBillingInfo, onClose }) => {
           fontWeight='600'
         >
           <Box as='span' display='flex' alignItems='center'>
-            <Icon name='check' fontSize='1rem' marginRight='1rem' />
+            <CheckIcon fontSize='1rem' marginRight='1rem' />
             Save billing information
           </Box>
         </FBButton>
