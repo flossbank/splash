@@ -95,10 +95,20 @@ const AuthProcess = ({
         className={sent && !formError ? 'sr-only' : ''}
         fontSize='1.5rem'
         fontWeight='400'
-        marginBottom='3rem'
+        marginBottom='1rem'
       >
         {headingText}
       </Heading>
+      <Box
+        width='100%'
+        maxW='35rem'
+        textAlign='center'
+        marginBottom='2rem'
+      >
+        <Text>
+          Looking to login/signup as an OSS maintainer? <TextLink href='https://maintainer.flossbank.com' text='Visit the maintainer portal' />
+        </Text>
+      </Box>
       {!sent && (
         <>
           <Box
