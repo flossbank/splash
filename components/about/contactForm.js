@@ -1,6 +1,5 @@
 import {
   Box,
-  Text,
   FormControl,
   FormLabel,
   Select,
@@ -14,7 +13,6 @@ import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
 import FBButton from '../common/fbButton'
-import TextLink from '../common/textLink'
 import ErrorMessage from '../common/errorMessage'
 
 import { sendSupportFeedback } from '../../client'
@@ -208,15 +206,7 @@ const ContactForm = ({ contactFormSubmitted }) => {
           </Box>
         </Box>
       )}
-      <Text>
-        You can also email us directly at{' '}
-        <TextLink
-          text='support@flossbank.com'
-          external
-          href='mailto:support@flossbank.com'
-        />
-        .
-      </Text>
+
     </Box>
   )
 }
